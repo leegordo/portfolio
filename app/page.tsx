@@ -30,7 +30,7 @@ export default function HomePage() {
             <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               From R/GA to Nokia to leading design at Fold, I&apos;ve built and scaled design teams,
               launched products used by millions, and helped organizations discover what thoughtful
-              design can really do. Currently consulting and building at StickerGiant.
+              design can really do.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
