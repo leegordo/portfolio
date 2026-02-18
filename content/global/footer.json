@@ -1,0 +1,18 @@
+{
+  "title": "Footer",
+  "bio": "Product designer crafting thoughtful digital experiences. Currently based in CDMX.",
+  "copyrightName": "Lee Gordon",
+  "tagline": "Designed & built with care",
+  "socialLinks": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/leegordon",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:leegordo@gmail.com",
+      "icon": "email"
+    }
+  ]
+}

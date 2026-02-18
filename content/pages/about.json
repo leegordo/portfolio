@@ -1,0 +1,102 @@
+{
+  "title": "About",
+  "heading": "Designing products people",
+  "headingAccent": "actually love",
+  "bioParagraphs": [
+    "I'm Lee Gordon — a product designer with over 15 years of experience building digital products, leading design teams, and helping organizations understand what thoughtful, research-driven design can do for their business.,My career has taken me from agency life at R/GA and DigitasLBi, through in-house roles at Nokia and Covetrus, to leading design at Fold where I built and scaled a design team that transformed their Bitcoin rewards product. I've worked across fintech, IoT, airlines, veterinary tech, and e-commerce — always bringing the same core philosophy: understand people deeply, then design with intention. Today, I'm bringing that experience to more clients while exploring AI and agentic interfaces. I believe the best designers understand their medium, keep up with the rapid pace of change, and I'm increasingly excited about building the things I design."
+  ],
+  "timeline": [
+    {
+      "company": "Independent Contracting",
+      "role": "Product Design and AI Interface Design",
+      "period": "2025 – Present",
+      "description": "Reimagining what interface and product design are in the age of agents and vibe coding."
+    },
+    {
+      "company": "Fold",
+      "role": "Head of Design",
+      "period": "2021 – 2025",
+      "description": "Led design team of 2, built design system, led redesign, and drove 3x improvement in onboarding completion for Bitcoin rewards app."
+    },
+    {
+      "company": "Lightning Labs",
+      "role": "Product Designer",
+      "period": "2017 – 2024",
+      "description": "Humanized complex Lightning Network protocols through intuitive product design and brand evolution."
+    },
+    {
+      "company": "Nokia",
+      "role": "UX Director",
+      "period": "2016 – 2017",
+      "description": "Directed UX for Nokia Smart Home IoT platform, achieving 94% setup completion rate."
+    },
+    {
+      "company": "DigitasLBi",
+      "role": "Senior UX Designer",
+      "period": "2015 – 2016",
+      "description": "Led digital experience design for enterprise clients including Qantas Airlines."
+    },
+    {
+      "company": "R/GA",
+      "role": "UX Designer",
+      "period": "2012 – 2015",
+      "description": "Crafted connected product experiences and digital campaigns for global brands."
+    },
+    {
+      "company": "IE Agency",
+      "role": "Designer",
+      "period": "2010 – 2012",
+      "description": "Built digital experiences and brand identities for emerging and established brands."
+    },
+    {
+      "company": "R/GA",
+      "role": "Junior Designer",
+      "period": "2008 – 2010",
+      "description": "Started career at one of the world's most innovative agencies, learning the craft of digital product design with clients like Nike and Verizon."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Design",
+      "items": [
+        "Product Design",
+        "UX Research",
+        "Design Systems",
+        "Prototyping",
+        "Visual Design",
+        "Interaction Design"
+      ]
+    },
+    {
+      "category": "Leadership",
+      "items": [
+        "Design Team Management",
+        "Design Strategy",
+        "Workshop Facilitation",
+        "Stakeholder Alignment",
+        "Mentoring"
+      ]
+    },
+    {
+      "category": "Tools",
+      "items": [
+        "Figma",
+        "Claude Code",
+        "Open Claw",
+        "Cursor"
+      ]
+    },
+    {
+      "category": "Technical",
+      "items": [
+        "HTML/CSS",
+        "React Basics",
+        "Tailwind CSS",
+        "Design Tokens",
+        "Accessibility (WCAG)"
+      ]
+    }
+  ],
+  "ctaHeading": "Let's work together",
+  "ctaDescription": "Interested in collaborating or just want to say hi? I'd love to hear from you."
+}

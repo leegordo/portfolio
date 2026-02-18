@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #F59E0B;
+    --accent-dim: rgba(245, 158, 11, 0.15);
+    --surface: #0A0A0A;
+    --surface-50: #111111;
+    --surface-100: #1A1A1A;
+    --surface-200: #222222;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-white min-h-screen;
+  }
+
+  ::selection {
+    background: rgba(245, 158, 11, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600;
+  }
+
+  .glass {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-out-expo;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 20px 60px -15px rgba(245, 158, 11, 0.15);
+  }
+
+  .line-accent {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-amber-500/30 to-transparent;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* MDX Content Styles */
+.mdx-content h1 {
+  @apply font-display text-display-md text-white mt-16 mb-6;
+}
+
+.mdx-content h2 {
+  @apply font-display text-display-sm text-white mt-12 mb-4;
+}
+
+.mdx-content h3 {
+  @apply font-display text-xl text-white mt-8 mb-3;
+}
+
+.mdx-content p {
+  @apply text-white/70 text-lg leading-relaxed mb-6;
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  @apply text-white/70 text-lg leading-relaxed mb-6 pl-6;
+}
+
+.mdx-content ul {
+  @apply list-disc;
+}
+
+.mdx-content ol {
+  @apply list-decimal;
+}
+
+.mdx-content li {
+  @apply mb-2;
+}
+
+.mdx-content blockquote {
+  @apply border-l-2 border-amber-500 pl-6 my-8 italic text-white/60;
+}
+
+.mdx-content img {
+  @apply rounded-lg my-8 w-full;
+}
+
+.mdx-content a {
+  @apply text-amber-400 hover:text-amber-300 underline underline-offset-4 transition-colors;
+}
+
+.mdx-content hr {
+  @apply my-12 border-white/10;
+}
+
+.mdx-content strong {
+  @apply text-white font-semibold;
+}
+
+.mdx-content code {
+  @apply bg-surface-100 text-amber-400 px-2 py-1 rounded text-sm;
+}
