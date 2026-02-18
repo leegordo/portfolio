@@ -1,9 +1,15 @@
 /**
- * Prefixes asset paths (images, video) with basePath for GitHub Pages deployment.
- * When deployed at username.github.io/portfolio/, assets must be at /portfolio/images/...
+ * Prefixes asset paths (images, video) for GitHub Pages deployment.
+ * Uses absolute URL when NEXT_PUBLIC_SITE_URL is set (avoids path resolution issues).
  */
 export function assetPath(path: string): string {
-  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  if (!base || !path) return path;
-  return path.startsWith("/") ? `${base}${path}` : `${base}/${path}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+
+  if (siteUrl) {
+    return `${siteUrl.replace(/\/$/, "")}${normalizedPath}`;
+  }
+  if (!basePath || !path) return path;
+  return path.startsWith("/") ? `${basePath}${path}` : `${basePath}/${path}`;
 }

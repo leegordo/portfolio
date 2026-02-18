@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { assetPath } from "@/lib/assetPath";
 import type { HeroContent } from "@/lib/content";
@@ -82,12 +83,12 @@ export default function Hero({ content }: HeroProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </a>
-          <a
+          <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-black font-medium hover:bg-amber-400 transition-all duration-300"
           >
             {content.ctaSecondaryText}
-          </a>
+          </Link>
         </motion.div>
       </div>
 

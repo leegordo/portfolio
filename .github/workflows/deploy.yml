@@ -27,9 +27,17 @@ jobs:
 
       - run: npm ci
 
+      - run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          echo "NEXT_PUBLIC_SITE_URL=https://${GITHUB_REPOSITORY_OWNER}.github.io/${REPO_NAME}" >> $GITHUB_ENV
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+
       - run: npm run build
         env:
           GITHUB_ACTIONS: "true"
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
       - run: touch out/.nojekyll
 

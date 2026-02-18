@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getAboutContent } from "@/lib/content";
 
@@ -128,7 +129,7 @@ export default function AboutPage() {
             <p className="text-white/50 text-lg mb-8 max-w-md mx-auto">
               {about.ctaDescription}
             </p>
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-amber-500 text-black font-medium hover:bg-amber-400 transition-all duration-300"
             >
@@ -136,7 +137,7 @@ export default function AboutPage() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
       </section>
