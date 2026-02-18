@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+//  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navigation() {
@@ -37,7 +37,7 @@ export default function Navigation() {
         <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="group flex items-center justify-center">
             <Image
-              src={assetPath("/images/logo.png")}
+              src="/images/logo.png"
               alt="Lee Gordon"
               width={72}
               height={46}
