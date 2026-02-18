@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -36,7 +37,7 @@ export default function Navigation() {
         <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="group flex items-center justify-center">
             <Image
-              src="/images/logo.png"
+              src={assetPath("/images/logo.png")}
               alt="Lee Gordon"
               width={72}
               height={46}

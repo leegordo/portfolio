@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
 
 interface ProjectCardProps {
@@ -19,7 +20,7 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
         <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-surface-200 to-surface-100" />
         {frontmatter.cover && !isComingSoon && (
           <Image
-            src={frontmatter.cover}
+            src={assetPath(frontmatter.cover)}
             alt={frontmatter.title}
             fill
             className="object-cover opacity-60"

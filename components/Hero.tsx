@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { assetPath } from "@/lib/assetPath";
 import type { HeroContent } from "@/lib/content";
 
 interface HeroProps {
@@ -17,10 +18,10 @@ export default function Hero({ content }: HeroProps) {
           muted
           loop
           playsInline
-          poster={content.posterImage}
+          poster={assetPath(content.posterImage)}
           className="w-full h-full object-cover"
         >
-          <source src={content.videoSrc} type="video/mp4" />
+          <source src={assetPath(content.videoSrc)} type="video/mp4" />
         </video>
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/50 to-surface" />

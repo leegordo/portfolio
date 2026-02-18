@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 import type { FooterContent, SocialLink } from "@/lib/content";
 
 const footerLinks = [
@@ -36,7 +37,7 @@ export default function Footer({ content }: FooterProps) {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Image
-                src="/images/logo.png"
+                src={assetPath("/images/logo.png")}
                 alt={content.copyrightName}
                 width={72}
                 height={46}
