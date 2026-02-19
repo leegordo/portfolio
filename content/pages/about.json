@@ -3,7 +3,7 @@
   "heading": "Designing products people",
   "headingAccent": "actually love",
   "bioParagraphs": [
-    "I'm Lee Gordon — a product designer with over 15 years of experience building digital products, leading design teams, and helping organizations understand the impact of thoughtful, research-driven design. My career has taken me from agency life at R/GA and DigitasLBi, through in-house roles at Nokia and Covetrus, to leading design at Fold where I built and scaled a design team that transformed their Bitcoin rewards product. I've worked across fintech, IoT, airlines, veterinary tech, and e-commerce — always bringing the same core philosophy: understand people deeply, then design with intention.\n\nToday, I'm bringing that experience to more clients while exploring AI and agentic interfaces. I believe the best designers understand their medium, keep up with rapid change, and build the things they design."
+    "I'm Lee Gordon—a product designer with over 15 years of experience building things people actually use. My path has taken me from the high-paced agency world at R/GA and DigitasLBi, to in-house roles at Nokia and Covetrus, and eventually to leading the design team at Fold. There, we transformed a utilitarian Bitcoin rewards app into a product used by millions, scaling the team and the design system from the ground up. I've worked across fintech, IoT, airlines, and e-commerce—always with the same focus: understand the human problem deeply, then build with intention.\n\nLately, I've been heads-down on how AI is changing the way we build. I believe the next generation of great design won't just be about pixels, but about building agentic interfaces that feel invisible and intuitive. I'm a firm believer that the best designers understand their medium—which is why I stay hands-on with the same tools and code I use to bring ideas to life."
   ],
   "timeline": [
     {
@@ -81,8 +81,8 @@
       "category": "Tools",
       "items": [
         "Figma",
-        "Claude Code",
-        "Open Claw",
+        "Claude",
+        "OpenClaw",
         "Cursor"
       ]
     },
