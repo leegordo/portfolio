@@ -68,7 +68,7 @@ export default function RootLayout({
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer content={footerContent} />
-        <ChatbotButton />
+        {/* <ChatbotButton /> */}
       </body>
     </html>
   );
