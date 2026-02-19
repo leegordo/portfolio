@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { assetPath } from "@/lib/assetPath";
+import { useRandomHeroVideo } from "@/lib/useRandomHeroVideo";
 import type { HeroContent } from "@/lib/content";
 
 interface HeroProps {
@@ -10,11 +10,14 @@ interface HeroProps {
 }
 
 export default function Hero({ content }: HeroProps) {
+  const randomVideo = useRandomHeroVideo();
+
   return (
     <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
+          key={randomVideo}
           autoPlay
           muted
           loop
@@ -22,7 +25,7 @@ export default function Hero({ content }: HeroProps) {
           poster={content.posterImage}
           className="w-full h-full object-cover"
         >
-          <source src={content.videoSrc} type="video/mp4" />
+          <source src={randomVideo} type="video/mp4" />
         </video>
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/50 to-surface" />
