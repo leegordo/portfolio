@@ -19,10 +19,10 @@ export default function Hero({ content }: HeroProps) {
           muted
           loop
           playsInline
-          poster={assetPath(content.posterImage)}
+          poster={content.posterImage}
           className="w-full h-full object-cover"
         >
-          <source src={assetPath(content.videoSrc)} type="video/mp4" />
+          <source src={content.videoSrc} type="video/mp4" />
         </video>
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/50 to-surface" />
