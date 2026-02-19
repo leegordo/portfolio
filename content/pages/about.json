@@ -3,7 +3,7 @@
   "heading": "Designing products people",
   "headingAccent": "actually love",
   "bioParagraphs": [
-    "I'm Lee Gordon—a product designer with over 15 years of experience building things people actually use. My path has taken me from the high-paced agency world at R/GA and DigitasLBi, to in-house roles at Nokia and Covetrus, and eventually to leading the design team at Fold. There, we transformed a utilitarian Bitcoin rewards app into a product used by millions, scaling the team and the design system from the ground up. I've worked across fintech, IoT, airlines, and e-commerce—always with the same focus: understand the human problem deeply, then build with intention.\n\nLately, I've been heads-down on how AI is changing the way we build. I believe the next generation of great design won't just be about pixels, but about building agentic interfaces that feel invisible and intuitive. I'm a firm believer that the best designers understand their medium—which is why I stay hands-on with the same tools and code I use to bring ideas to life."
+    "I'm Lee Gordon—a product designer with over 15 years of experience building things people actually use. My path has taken me from the high-paced agency world at R/GA and DigitasLBi, to in-house roles at Nokia and Covetrus, and eventually to leading the design team at Fold. I've worked across fintech, IoT, airlines, and e-commerce—always with the same focus: understand the human problem deeply, then build with intention.\n\nI'm a bit of a multi-tool by nature. Whether it's leading pure UX research for the Chan Zuckerberg Initiative, scaling design systems for global products, or getting heads-down in code to bring a concept to life, I move between the strategic and the tactical without losing the thread. \n\nLately, I've been focused on how AI is fundamentally changing the way we build. I believe the next generation of great design won't just be about pixels, but about building agentic interfaces that feel invisible and intuitive. I'm a firm believer that the best designers understand their medium—which is why I stay hands-on with the same tools and code I use to shape the future of AI-driven products."
   ],
   "timeline": [
     {
@@ -11,6 +11,12 @@
       "role": "Product Design and AI Interface Design",
       "period": "2025 – Present",
       "description": "Reimagining what interface and product design are in the age of agents and vibe coding."
+    },
+    {
+      "company": "Chan Zuckerberg Initiative",
+      "role": "UX Researcher (Contract)",
+      "period": "2024",
+      "description": "Led deep UX research initiatives to identify core user needs and drive strategic product decisions."
     },
     {
       "company": "Fold",
