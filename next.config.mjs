@@ -10,12 +10,12 @@ const basePath =
 
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_BASE_PATH: "",
   },
   output: "export",
-  basePath,
+  basePath: "",
   // Ensures static assets are prefixed correctly for GitHub Pages exports.
-  assetPrefix: basePath,
+  assetPrefix: "",
   images: {
     unoptimized: true,
   },
