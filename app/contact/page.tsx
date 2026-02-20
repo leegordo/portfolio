@@ -1,9 +1,12 @@
-"use client";
-
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getContactContent } from "@/lib/content";
 import EmailObfuscator from "@/components/EmailObfuscator";
+
+export const metadata: Metadata = {
+  title: "Contact | Lee Gordon",
+  description: "Get in touch with Lee Gordon.",
+};
 
 export default function ContactPage() {
   const contact = getContactContent();
