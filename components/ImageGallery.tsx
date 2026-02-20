@@ -5,12 +5,16 @@ import { motion } from "framer-motion";
 
 interface ImageGalleryProps {
   images: string[];
+  contain?: number[];
 }
 
-export default function ImageGallery({ images }: ImageGalleryProps) {
+const isVideo = (src: string) => /\.(mp4|webm|mov|ogg)$/i.test(src);
+const isSvg = (src: string) => /\.svg$/i.test(src);
+
+export default function ImageGallery({ images, contain = [] }: ImageGalleryProps) {
   return (
     <div className="flex flex-col gap-6 my-12">
-      {/* First image - Full Width */}
+      {/* First item - Full Width (image or video) */}
       {images.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,13 +23,24 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           transition={{ duration: 0.6 }}
           className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-white/5 border border-white/10"
         >
-          <Image
-            src={images[0]}
-            alt="Gallery image 1"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-          />
+          {isVideo(images[0]) ? (
+            <video
+              src={images[0]}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+          ) : (
+            <Image
+              src={images[0]}
+              alt="Gallery image 1"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+          )}
         </motion.div>
       )}
 
@@ -45,7 +60,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 src={src}
                 alt={`Gallery image ${index + 2}`}
                 fill
-                className="object-cover"
+                className={isSvg(src) || contain.includes(index + 1) ? "object-contain" : "object-cover"}
                 sizes="(max-width: 768px) 100vw, 600px"
               />
             </motion.div>
