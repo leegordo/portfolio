@@ -6,6 +6,10 @@ const HERO_VIDEOS = [
   "/video/hero-ai-option-2.mp4",
   "/video/hero-ai-option-3.mp4",
   "/video/hero-ai-option-4.mp4",
+  "/video/hero-ai-weekly-1.mp4",
+  "/video/hero-ai-weekly-2.mp4",
+  "/video/hero-ai-weekly-3.mp4",
+  "/video/hero-ai-weekly-4.mp4",
 ];
 
 export function useRandomHeroVideo() {
