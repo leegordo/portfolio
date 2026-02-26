@@ -10,12 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        amber: {
-          400: "#FBBF24",
-          500: "#F59E0B",
-          600: "#D97706",
-        },
-        accent: "#F59E0B",
+        accent: "#E5E5E5",
+        "accent-muted": "#888888",
         surface: {
           DEFAULT: "#0A0A0A",
           50: "#111111",
@@ -25,8 +21,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       fontSize: {
         "display-lg": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],

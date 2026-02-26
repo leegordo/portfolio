@@ -17,7 +17,7 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
     <>
       {/* Cover Image */}
       <div className="relative aspect-[16/10] overflow-hidden bg-surface-200">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-surface-200 to-surface-100" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-surface-200 to-surface-100" />
         {frontmatter.cover && !isComingSoon && (
           <Image
             src={assetPath(frontmatter.cover)}
@@ -28,7 +28,7 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
           />
         )}
         {isComingSoon && (
-          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-medium">
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-neutral-200 text-xs font-medium">
             Coming Soon
           </div>
         )}
@@ -38,14 +38,14 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-amber-400 text-xs font-medium tracking-wider uppercase">
+          <span className="text-neutral-200 text-xs font-medium tracking-wider uppercase">
             {frontmatter.client}
           </span>
           <span className="text-white/20">&middot;</span>
           <span className="text-white/40 text-xs">{frontmatter.year}</span>
         </div>
 
-        <h3 className="font-display text-xl font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
+        <h3 className="font-display text-xl font-semibold text-white mb-2 group-hover:text-neutral-200 transition-colors duration-300">
           {frontmatter.title}
         </h3>
 
@@ -63,7 +63,7 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
         </div>
 
         {!isComingSoon && (
-          <div className="mt-5 flex items-center gap-2 text-sm text-amber-400 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+          <div className="mt-5 flex items-center gap-2 text-sm text-neutral-200 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
             View case study
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

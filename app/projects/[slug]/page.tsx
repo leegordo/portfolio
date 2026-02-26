@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: Props) {
     return (
       <div className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center max-w-lg">
-          <div className="inline-flex px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-6">
+          <div className="inline-flex px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-neutral-200 text-sm font-medium mb-6">
             Coming Soon
           </div>
           <h1 className="font-display text-display-md font-bold text-white mb-4">
@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }: Props) {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-neutral-200 hover:text-white transition-colors duration-300"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -99,7 +99,7 @@ export default async function ProjectPage({ params }: Props) {
               {project.frontmatter.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-2 py-0.5 text-xs rounded bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                  className="px-2 py-0.5 text-xs rounded bg-white/10 text-neutral-200 border border-white/10"
                 >
                   {skill}
                 </span>

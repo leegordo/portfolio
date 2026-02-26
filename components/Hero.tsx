@@ -33,7 +33,7 @@ export default function Hero({ content }: HeroProps) {
       </div>
 
       {/* Ambient glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
@@ -42,7 +42,7 @@ export default function Hero({ content }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-amber-400 text-sm font-medium tracking-[0.3em] uppercase mb-6">
+          <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-6">
             {content.label}
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export default function Hero({ content }: HeroProps) {
         >
           <a
             href="#projects"
-            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/80 hover:border-amber-500/50 hover:text-white transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/80 hover:border-white/30 hover:text-white transition-all duration-300"
           >
             {content.ctaPrimaryText}
             <svg
@@ -88,7 +88,7 @@ export default function Hero({ content }: HeroProps) {
           </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-black font-medium hover:bg-amber-400 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-200 text-black font-medium hover:bg-white transition-all duration-300"
           >
             {content.ctaSecondaryText}
           </Link>
@@ -107,7 +107,7 @@ export default function Hero({ content }: HeroProps) {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
         >
-          <motion.div className="w-1 h-2 rounded-full bg-amber-400" />
+          <motion.div className="w-1 h-2 rounded-full bg-neutral-200" />
         </motion.div>
       </motion.div>
     </section>

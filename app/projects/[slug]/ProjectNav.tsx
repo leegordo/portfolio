@@ -30,7 +30,7 @@ export default function ProjectNav({ prev, next }: ProjectNavProps) {
                 <p className="text-white/30 text-xs font-medium tracking-wider uppercase mb-2">
                   Previous
                 </p>
-                <p className="font-display text-xl font-semibold text-white group-hover:text-amber-400 transition-colors duration-300 flex items-center gap-2">
+                <p className="font-display text-xl font-semibold text-white group-hover:text-white transition-colors duration-300 flex items-center gap-2">
                   <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
                   </svg>
@@ -57,7 +57,7 @@ export default function ProjectNav({ prev, next }: ProjectNavProps) {
                 <p className="text-white/30 text-xs font-medium tracking-wider uppercase mb-2">
                   Next
                 </p>
-                <p className="font-display text-xl font-semibold text-white group-hover:text-amber-400 transition-colors duration-300 flex items-center justify-end gap-2">
+                <p className="font-display text-xl font-semibold text-white group-hover:text-white transition-colors duration-300 flex items-center justify-end gap-2">
                   {next.frontmatter.title}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

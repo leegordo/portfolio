@@ -16,7 +16,7 @@ export default function EmailObfuscator({ email }: EmailObfuscatorProps) {
     return (
       <button
         onClick={() => setIsRevealed(true)}
-        className="text-white group-hover:text-amber-400 transition-colors duration-300 font-medium flex items-center gap-2 text-left"
+        className="text-white group-hover:text-white transition-colors duration-300 font-medium flex items-center gap-2 text-left"
       >
         Click to reveal email
         <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -30,7 +30,7 @@ export default function EmailObfuscator({ email }: EmailObfuscatorProps) {
   return (
     <a
       href={`mailto:${user}@${domain}`}
-      className="text-white group-hover:text-amber-400 transition-colors duration-300 font-medium"
+      className="text-white group-hover:text-white transition-colors duration-300 font-medium"
     >
       {user}
       <span className="hidden">BOT-TRAP</span>

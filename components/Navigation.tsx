@@ -55,12 +55,12 @@ export default function Navigation() {
                 className="text-sm text-white/60 hover:text-white transition-colors duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-amber-500 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-neutral-200 group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
             <Link
               href="/contact"
-              className="text-sm px-4 py-2 rounded-full border border-white/10 text-white/80 hover:border-amber-500/50 hover:text-amber-400 transition-all duration-300"
+              className="text-sm px-4 py-2 rounded-full border border-white/10 text-white/80 hover:border-white/30 hover:text-white transition-all duration-300"
             >
               Get in touch
             </Link>
@@ -117,7 +117,7 @@ export default function Navigation() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="font-display text-3xl text-white hover:text-amber-400 transition-colors"
+                    className="font-display text-3xl text-white hover:text-neutral-200 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -131,7 +131,7 @@ export default function Navigation() {
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-display text-3xl text-amber-400 hover:text-amber-300 transition-colors"
+                  className="font-display text-3xl text-neutral-200 hover:text-white transition-colors"
                 >
                   Get in touch
                 </Link>

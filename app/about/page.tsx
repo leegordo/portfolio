@@ -16,7 +16,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 mb-24">
         <ScrollReveal>
-          <p className="text-amber-400 text-sm font-medium tracking-[0.3em] uppercase mb-6">
+          <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-6">
             About
           </p>
         </ScrollReveal>
@@ -52,21 +52,21 @@ export default function AboutPage() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500/50 via-white/10 to-transparent" />
+          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-white/10 to-transparent" />
 
           <div className="space-y-0">
             {about.timeline.map((item, index) => (
               <ScrollReveal key={`${item.company}-${item.period}`} delay={index * 0.05}>
                 <div className="relative pl-8 md:pl-20 py-6 group">
                   {/* Dot */}
-                  <div className="absolute left-0 md:left-8 top-8 w-2 h-2 -translate-x-[3px] rounded-full bg-white/20 group-hover:bg-amber-400 transition-colors duration-300 ring-4 ring-surface" />
+                  <div className="absolute left-0 md:left-8 top-8 w-2 h-2 -translate-x-[3px] rounded-full bg-white/20 group-hover:bg-white transition-colors duration-300 ring-4 ring-surface" />
 
                   <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 mb-2">
-                    <h3 className="font-display text-lg font-semibold text-white group-hover:text-amber-400 transition-colors duration-300">
+                    <h3 className="font-display text-lg font-semibold text-white group-hover:text-white transition-colors duration-300">
                       {item.company}
                     </h3>
                     <span className="text-white/30 hidden md:inline">&middot;</span>
-                    <span className="text-amber-400/70 text-sm font-medium">
+                    <span className="text-neutral-300 text-sm font-medium">
                       {item.role}
                     </span>
                   </div>
@@ -100,14 +100,14 @@ export default function AboutPage() {
           {about.skills.map((group, groupIndex) => (
             <ScrollReveal key={group.category} delay={groupIndex * 0.1}>
               <div>
-                <h3 className="text-amber-400 text-xs font-medium tracking-[0.2em] uppercase mb-4">
+                <h3 className="text-neutral-200 text-xs font-medium tracking-[0.2em] uppercase mb-4">
                   {group.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-surface-100 text-white/60 border border-white/5 hover:border-amber-500/30 hover:text-white/80 transition-all duration-300"
+                      className="px-3 py-1.5 text-sm rounded-lg bg-surface-100 text-white/60 border border-white/5 hover:border-white/20 hover:text-white/80 transition-all duration-300"
                     >
                       {skill}
                     </span>
@@ -131,7 +131,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-amber-500 text-black font-medium hover:bg-amber-400 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-neutral-200 text-black font-medium hover:bg-white transition-all duration-300"
             >
               Get in touch
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

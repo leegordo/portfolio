@@ -14,11 +14,11 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-amber-500/30 to-transparent" />
-            <span className="text-amber-400 text-sm font-medium tracking-[0.3em] uppercase">
+            <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
+            <span className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase">
               Selected Work
             </span>
-            <div className="h-px flex-1 bg-gradient-to-l from-amber-500/30 to-transparent" />
+            <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
           </div>
         </ScrollReveal>
 

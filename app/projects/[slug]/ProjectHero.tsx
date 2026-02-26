@@ -14,8 +14,8 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-surface to-surface" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-surface to-surface" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6">
         <motion.div
@@ -39,7 +39,7 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-amber-400 text-sm font-medium tracking-[0.3em] uppercase mb-4">
+          <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-4">
             {frontmatter.client}
           </p>
           <h1 className="font-display text-display-lg font-bold text-white mb-4">
@@ -56,7 +56,7 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 aspect-[21/9] rounded-xl overflow-hidden bg-surface-100 border border-white/5 relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-surface-200 to-surface-100" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-surface-200 to-surface-100" />
           {frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}

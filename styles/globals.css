@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --accent: #F59E0B;
-    --accent-dim: rgba(245, 158, 11, 0.15);
+    --accent: #E5E5E5;
+    --accent-dim: rgba(229, 229, 229, 0.15);
     --surface: #0A0A0A;
     --surface-50: #111111;
     --surface-100: #1A1A1A;
@@ -29,7 +29,7 @@
   }
 
   ::selection {
-    background: rgba(245, 158, 11, 0.3);
+    background: rgba(229, 229, 229, 0.3);
     color: #fff;
   }
 
@@ -57,7 +57,7 @@
   }
 
   .text-gradient-accent {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 to-neutral-400;
   }
 
   .glass {
@@ -73,11 +73,11 @@
 
   .card-hover:hover {
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 20px 60px -15px rgba(245, 158, 11, 0.15);
+    box-shadow: 0 20px 60px -15px rgba(229, 229, 229, 0.15);
   }
 
   .line-accent {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-amber-500/30 to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent;
   }
 }
 
@@ -134,7 +134,7 @@
 }
 
 .mdx-content blockquote {
-  @apply border-l-2 border-amber-500 pl-6 my-8 italic text-white/60;
+  @apply border-l-2 border-neutral-200 pl-6 my-8 italic text-white/60;
 }
 
 .mdx-content img {
@@ -142,7 +142,7 @@
 }
 
 .mdx-content a {
-  @apply text-amber-400 hover:text-amber-300 underline underline-offset-4 transition-colors;
+  @apply text-neutral-200 hover:text-white underline underline-offset-4 transition-colors;
 }
 
 .mdx-content hr {
@@ -154,5 +154,5 @@
 }
 
 .mdx-content code {
-  @apply bg-surface-100 text-amber-400 px-2 py-1 rounded text-sm;
+  @apply bg-surface-100 text-neutral-200 px-2 py-1 rounded text-sm;
 }

@@ -10,7 +10,7 @@ export default function ChatbotButton() {
       transition={{ delay: 2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 text-black shadow-lg shadow-amber-500/20 flex items-center justify-center hover:shadow-amber-500/40 transition-shadow duration-300"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-neutral-200 to-neutral-400 text-black shadow-lg shadow-white/10 flex items-center justify-center hover:shadow-white/20 transition-shadow duration-300"
       aria-label="Open chat"
       title="Chat coming soon"
     >

@@ -78,7 +78,7 @@ export default function Footer({ content }: FooterProps) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/40 hover:text-amber-400 transition-colors duration-300"
+                  className="text-white/40 hover:text-white transition-colors duration-300"
                   aria-label={link.label}
                 >
                   <SocialIcon icon={link.icon} />

@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="py-24 md:py-32 border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <ScrollReveal>
-            <p className="text-amber-400 text-sm font-medium tracking-[0.3em] uppercase mb-6">
+            <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-6">
               About
             </p>
           </ScrollReveal>
@@ -36,7 +36,7 @@ export default function HomePage() {
           <ScrollReveal delay={0.3}>
             <a
               href="/about"
-              className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors duration-300 group"
+              className="inline-flex items-center gap-2 text-neutral-200 hover:text-white transition-colors duration-300 group"
             >
               Learn more about me
               <svg
