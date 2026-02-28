@@ -7,6 +7,7 @@ const footerLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 function SocialIcon({ icon }: { icon: SocialLink["icon"] }) {
