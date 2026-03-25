@@ -6,6 +6,7 @@ import type { FooterContent, SocialLink } from "@/lib/content";
 const footerLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/products/flowsnap", label: "FlowSnap" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy Policy" },
 ];
