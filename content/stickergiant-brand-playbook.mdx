@@ -1,0 +1,92 @@
+---
+title: "StickerGiant Brand Playbook"
+client: "StickerGiant"
+role: "Lead Developer & Designer"
+skills: ["Design Systems", "AI Integration", "Brand Strategy", "Python", "JavaScript", "Netlify"]
+year: "2026"
+cover: "/images/projects/stickergiant-brand-playbook/cover.jpg"
+featured: true
+order: 1
+comingSoon: false
+---
+
+## The Problem with PDF Brand Guidelines
+
+Every company has a brand guide. Most of them are PDFs — beautifully designed, carefully considered, and completely useless at scale. They live in a shared drive somewhere, consulted occasionally by designers and ignored entirely by the tools, agents, and automated workflows that actually produce content at volume.
+
+StickerGiant needed something different. As they scaled their content and marketing operations, the gap between "what the brand says" and "what gets shipped" kept widening. The problem wasn't that people didn't care about the brand — it was that the rules weren't in a form anything could read.
+
+## The Brief
+
+Build a brand system where the rules are the product. Not a document that describes the rules — a structured data layer that humans, AI agents, and automated workflows can all consume from the same source of truth.
+
+## What I Built
+
+The StickerGiant Brand Playbook is a machine-readable brand system organized into three consumption layers:
+
+- **Human layer** — A web UI where brand managers and designers browse guidelines, preview components, and update rules through a CMS
+- **Agent layer** — A Python CLI (zero dependencies) that lets AI agents fetch specific rules by category, validate assets against brand standards, and get structured responses they can act on
+- **Automation layer** — A JSON discovery manifest, Netlify Functions API, and OpenAPI spec that any workflow, webhook, or integration can query directly
+
+Every rule lives in structured JSON. The UI reads it. The CLI reads it. The API reads it. There's no translation layer, no sync risk, no version drift.
+
+## Brand Coverage
+
+**Foundation** — Color tokens with usage rules and contrast requirements, typography scale with pairing logic, logo usage with clearspace and prohibited treatments, a decision framework for evaluating brand fit on new initiatives, an AI usage framework defining what automation can own vs. what requires human judgment, and a comprehensive brand voice guide with tone modifiers for different contexts.
+
+**Channel Guides** — Seven channel-specific guides covering Social, Email, Print, Packaging, Events, Advertising, and Web — each extending the foundation rules with channel-appropriate constraints.
+
+**Shared Resources** — Figma design tokens, downloadable asset packages, and component documentation.
+
+## Agentic Integration
+
+This was the part that made it genuinely new. Most brand systems are built for humans. This one was built to be consumed by agents.
+
+Five integration patterns, all pointing at the same data:
+
+- **Direct JSON fetch** — Any agent can pull raw brand data with a single HTTP request, no auth required for read access
+- **Discovery manifest** — A machine-readable index describing what rules exist, what categories are covered, and how to navigate the system — structured for LLM context windows
+- **Netlify Functions API** — REST endpoints for querying specific rules, validating content, and getting structured brand decisions with reasoning
+- **OpenAPI spec** — Full spec so any tool with OpenAPI support can auto-generate a client and talk to the system natively
+- **MCP server** — A Model Context Protocol server that exposes brand rules as tool calls, letting AI agents in compatible environments query brand guidance the same way they'd call any other tool
+
+## AI Usage Framework
+
+One of the more interesting design problems was defining which work AI can own versus which work it can't. The Brand Playbook formalizes this into four tiers:
+
+- **AI-Final** — Work AI can complete and ship without human review: metadata, alt text, tagging, formatting passes
+- **AI-Assisted** — AI drafts, human approves: social copy, email subjects, ad headlines
+- **Concept-Only** — AI generates options, human selects and refines: campaign concepts, brand narratives, messaging strategy
+- **Never-AI** — Work that requires human authorship by policy: executive communications, crisis response, brand-defining statements
+
+The tiers aren't arbitrary — they're derived from risk surface (what happens if this is wrong?) and brand sensitivity (how much does tone matter here?). Any AI agent consuming the Brand Playbook gets these rules as structured data, so the constraint is built into the workflow rather than relying on human memory.
+
+## Automated Compliance Workflow
+
+The compliance loop runs on content submission:
+
+1. **Trigger** — New content enters the review queue via webhook
+2. **Extract** — Pull text, assets, and metadata from the submission
+3. **Fetch rules** — Query the Brand Playbook API for relevant guidelines based on content type and channel
+4. **AI review** — Run the content against the rules with structured prompting, get a scored decision with flagged violations
+5. **Decision gate** — Auto-approve content that passes; flag anything that doesn't
+6. **Escalate or approve** — Low-confidence decisions route to a human reviewer; clear passes ship
+7. **Slack notify** — Status posted to the brand team channel with decision summary and reasoning
+
+The result: brand review that used to require manual attention on every piece now runs automatically on the vast majority of content, with human eyes reserved for edge cases and judgment calls.
+
+## Technical Approach
+
+The choice to go zero-build was deliberate. Vanilla HTML, CSS, and JavaScript — no framework, no bundler, no build step. The site loads fast, deploys in seconds, and has no dependency surface to maintain. Decap CMS handles content editing through a clean admin interface without adding backend complexity. Netlify handles hosting and the serverless functions.
+
+The Python CLI follows the same principle: zero external dependencies, pure standard library. Any environment that can run Python can run the CLI — no pip install, no virtual environments, no version conflicts.
+
+Design tokens from Figma drive the visual layer. Color, typography, and spacing values are defined once in Figma variables and exported as JSON, feeding both the web UI and the brand data API.
+
+## The Insight
+
+One JSON file. Three consumption patterns.
+
+Humans read the web UI. Agents consume the API. Automation enforces via the compliance workflow. The same data powers all three — which means there's one place to update a rule, and every downstream consumer gets the change immediately.
+
+That's what makes it a brand system rather than a brand document. The rules don't describe the standard. The rules *are* the standard, in a form the whole stack can use.
