@@ -63,43 +63,47 @@
   ],
   "skills": [
     {
-      "category": "Design",
+      "category": "AI & Agents",
       "items": [
-        "Product Design",
+        "Agentic Interface Design",
+        "LLM Workflow Design",
+        "Prompt Engineering",
+        "AI Product Strategy",
+        "Human-AI Interaction Patterns",
+        "Autonomous Agent UX"
+      ]
+    },
+    {
+      "category": "Product Design",
+      "items": [
+        "End-to-End Product Design",
         "UX Research",
         "Design Systems",
         "Prototyping",
-        "Visual Design",
-        "Interaction Design"
+        "Interaction Design",
+        "Information Architecture"
+      ]
+    },
+    {
+      "category": "Technical",
+      "items": [
+        "React / Next.js",
+        "Tailwind CSS",
+        "Figma + MCP Pipelines",
+        "Design Tokens",
+        "Cursor / Claude Code",
+        "OpenClaw",
+        "Accessibility (WCAG)"
       ]
     },
     {
       "category": "Leadership",
       "items": [
         "Design Team Management",
-        "Design Strategy",
-        "Workshop Facilitation",
         "Stakeholder Alignment",
+        "Workshop Facilitation",
+        "Cross-Functional Strategy",
         "Mentoring"
-      ]
-    },
-    {
-      "category": "Tools",
-      "items": [
-        "Figma",
-        "Claude",
-        "OpenClaw",
-        "Cursor"
-      ]
-    },
-    {
-      "category": "Technical",
-      "items": [
-        "HTML/CSS",
-        "React Basics",
-        "Tailwind CSS",
-        "Design Tokens",
-        "Accessibility (WCAG)"
       ]
     }
   ],
