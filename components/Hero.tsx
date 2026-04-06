@@ -10,23 +10,29 @@ interface HeroProps {
 }
 
 export default function Hero({ content }: HeroProps) {
-  const randomVideo = useRandomHeroVideo();
+  const { videoSrc, hasError, handleVideoError } = useRandomHeroVideo();
 
   return (
     <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          key={randomVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={content.posterImage}
-          className="w-full h-full object-cover"
-        >
-          <source src={randomVideo} type="video/mp4" />
-        </video>
+        {!hasError ? (
+          <video
+            key={videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={content.posterImage}
+            onError={handleVideoError}
+            className="w-full h-full object-cover"
+          >
+            <source src={videoSrc} type="video/mp4" onError={handleVideoError} />
+          </video>
+        ) : (
+          /* Fallback: dark gradient when video fails to load */
+          <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" />
+        )}
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/50 to-surface" />
         <div className="absolute inset-0 bg-gradient-to-r from-surface/60 via-transparent to-surface/60" />

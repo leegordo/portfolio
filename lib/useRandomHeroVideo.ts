@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const HERO_VIDEOS = [
   "/video/hero-background.mp4",
-  "/video/hero-ai-option-1.mp4",
-  "/video/hero-ai-option-2.mp4",
-  "/video/hero-ai-option-3.mp4",
-  "/video/hero-ai-option-4.mp4",
   "/video/hero-ai-weekly-1.mp4",
   "/video/hero-ai-weekly-2.mp4",
   "/video/hero-ai-weekly-3.mp4",
@@ -14,6 +10,7 @@ const HERO_VIDEOS = [
 
 export function useRandomHeroVideo() {
   const [videoSrc, setVideoSrc] = useState(HERO_VIDEOS[0]);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // Pick a random index on mount
@@ -21,5 +18,9 @@ export function useRandomHeroVideo() {
     setVideoSrc(HERO_VIDEOS[randomIndex]);
   }, []);
 
-  return videoSrc;
+  const handleVideoError = useCallback(() => {
+    setHasError(true);
+  }, []);
+
+  return { videoSrc, hasError, handleVideoError };
 }
