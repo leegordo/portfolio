@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const productsLinks = [
-  { href: "/products/flowsnap", label: "FlowSnap" },
+  { href: "/products/doodlehaus", label: "DoodleHaus" },
 ];
 
 export default function Navigation() {
