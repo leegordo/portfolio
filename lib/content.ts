@@ -14,6 +14,8 @@ export interface ProjectFrontmatter {
   featured: boolean;
   order: number;
   comingSoon?: boolean;
+  summary?: string;
+  metric?: string;
 }
 
 export interface Project {
@@ -129,6 +131,8 @@ export function getProjectBySlug(slug: string): Project {
       featured: fm.featured ?? false,
       order: fm.order ?? 0,
       comingSoon: fm.comingSoon,
+      summary: fm.summary,
+      metric: fm.metric,
     },
     content,
   };
