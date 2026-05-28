@@ -3,14 +3,14 @@
   "heading": "Designing products people",
   "headingAccent": "actually love",
   "bioParagraphs": [
-    "I'm Lee Gordon—a product designer with 15+ years building things people actually use. I've worked my way through agencies like R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently led design at Fold. Fintech, IoT, airlines, e-commerce—different industries, same question every time: what's the actual problem, and what's the right thing to build?\n\nI don't stay in one lane. UX research for the Chan Zuckerberg Initiative, design systems at global scale, getting into the code when a prototype isn't cutting it—I've always moved between strategy and execution depending on what the work needs.\n\nRight now, my focus is agentic interfaces. AI is changing how products get built and how they behave at runtime. I think the most interesting design problems for the next few years live at that boundary—and I'm building there."
+    "I'm Lee Gordon — a product designer with 15+ years building things people actually use. I've worked my way through agencies like R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently led design at Fold. Fintech, IoT, airlines, e-commerce — different industries, same question every time: what's the actual problem, and what's the right thing to build?\n\nI don't stay in one lane. UX research for the Chan Zuckerberg Initiative, design systems at global scale, getting into the code when a prototype isn't cutting it — I've always moved between strategy and execution depending on what the work needs.\n\nRight now, my focus is agentic interfaces. AI is changing how products get built and how they behave at runtime. I think the most interesting design problems for the next few years live at that boundary — and I'm building there."
   ],
   "timeline": [
     {
       "company": "Independent Contracting",
-      "role": "Product Design and AI Interface Design",
-      "period": "2025 – PRESENT",
-      "description": "Reimagining what interface and product design are in the age of agents and vibe coding."
+      "role": "Fractional AI Design Lead",
+      "period": "2025 – Present",
+      "description": "Reimagining what interface and product design are in the age of agents and vibe coding. Helping AI startups turn technical demos into products people want to use."
     },
     {
       "company": "Fold",
@@ -92,7 +92,7 @@
         "Figma + MCP Pipelines",
         "Design Tokens",
         "Cursor / Claude Code",
-        "OpenClaw",
+        "Hermes Agent",
         "Accessibility (WCAG)"
       ]
     },

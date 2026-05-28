@@ -12,31 +12,33 @@ import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Lee Gordon — Product Designer",
+    default: "Lee Gordon — Fractional AI Design Lead",
     template: "%s | Lee Gordon",
   },
   description:
-    "Product designing, UX researching, vibe-coding, brand building, team leading human. Portfolio of Lee Gordon.",
+    "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products. I help startups turn technical demos into products people actually want to use.",
   keywords: [
+    "AI design",
+    "agentic interfaces",
     "product design",
     "UX research",
     "design leadership",
-    "portfolio",
+    "fractional design lead",
     "Lee Gordon",
   ],
   authors: [{ name: "Lee Gordon" }],
   openGraph: {
-    title: "Lee Gordon — Product Designer",
+    title: "Lee Gordon — Fractional AI Design Lead",
     description:
-      "Product designing, UX researching, vibe-coding, brand building, team leading human.",
+      "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lee Gordon — Product Designer",
+    title: "Lee Gordon — Fractional AI Design Lead",
     description:
-      "Product designing, UX researching, vibe-coding, brand building, team leading human.",
+      "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products.",
   },
 };
 

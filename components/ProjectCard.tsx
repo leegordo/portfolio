@@ -17,13 +17,13 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
     <>
       {/* Cover Image */}
       <div className="relative aspect-[16/10] overflow-hidden bg-surface-200">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-surface-200 to-surface-100" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-surface-200 to-surface-100" />
         {frontmatter.cover && !isComingSoon && (
           <Image
             src={assetPath(frontmatter.cover)}
             alt={frontmatter.title}
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         )}
@@ -32,7 +32,7 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
             Coming Soon
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-100 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-100 via-surface-100/20 to-transparent opacity-80" />
       </div>
 
       {/* Content */}
@@ -78,30 +78,16 @@ function CardContent({ frontmatter, isComingSoon }: { frontmatter: ProjectFrontm
 export default function ProjectCard({ slug, frontmatter, index }: ProjectCardProps) {
   const isComingSoon = !!frontmatter.comingSoon;
 
-  const cardClasses = `group block relative overflow-hidden rounded-xl bg-surface-100 border border-white/5 card-hover ${
-    isComingSoon ? "cursor-default" : "cursor-pointer"
-  }`;
-
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      {isComingSoon ? (
-        <div className={cardClasses}>
-          <CardContent frontmatter={frontmatter} isComingSoon={isComingSoon} />
-        </div>
-      ) : (
-        <Link href={`/projects/${slug}`} className={cardClasses}>
-          <CardContent frontmatter={frontmatter} isComingSoon={isComingSoon} />
-        </Link>
-      )}
+      <Link href={`/projects/${slug}`} className="group block rounded-xl overflow-hidden border border-white/5 bg-surface-50 hover:border-white/10 transition-colors duration-500">
+        <CardContent frontmatter={frontmatter} isComingSoon={isComingSoon} />
+      </Link>
     </motion.div>
   );
 }

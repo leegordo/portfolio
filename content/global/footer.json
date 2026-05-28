@@ -1,6 +1,6 @@
 {
   "title": "Footer",
-  "bio": "Product designer working at the edge of AI and interface design. Based in CDMX.",
+  "bio": "Product designer working at the edge of AI and interface design. Based in Costa Rica, working worldwide.",
   "copyrightName": "Lee Gordon",
   "tagline": "Designed & built by Lee Gordon",
   "socialLinks": [
@@ -11,7 +11,7 @@
     },
     {
       "label": "Email",
-      "href": "mailto:openclaw@leegordon.design",
+      "href": "mailto:leegordo@gmail.com",
       "icon": "email"
     }
   ]

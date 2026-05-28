@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRandomHeroVideo } from "@/lib/useRandomHeroVideo";
 import type { HeroContent } from "@/lib/content";
 
 interface HeroProps {
@@ -10,39 +9,24 @@ interface HeroProps {
 }
 
 export default function Hero({ content }: HeroProps) {
-  const { videoSrc, hasError, handleVideoError } = useRandomHeroVideo();
-
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        {!hasError ? (
-          <video
-            key={videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={content.posterImage}
-            onError={handleVideoError}
-            className="w-full h-full object-cover"
-          >
-            <source src={videoSrc} type="video/mp4" onError={handleVideoError} />
-          </video>
-        ) : (
-          /* Fallback: dark gradient when video fails to load */
-          <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" />
-        )}
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/50 to-surface" />
-        <div className="absolute inset-0 bg-gradient-to-r from-surface/60 via-transparent to-surface/60" />
+    <section className="relative w-full min-h-[90vh] overflow-hidden flex items-center justify-center">
+      {/* Static background — no video, no performance kill */}
+      <div className="absolute inset-0 z-0 bg-surface">
+        {/* Subtle radial gradient for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.03)_0%,_transparent_70%)]" />
+        {/* Grid pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
       </div>
 
-      {/* Ambient glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
-
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,7 +41,7 @@ export default function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-display-lg font-bold text-white mb-6"
+          className="font-display text-display-lg font-bold text-white mb-8"
         >
           {content.name}
         </motion.h1>
@@ -66,7 +50,7 @@ export default function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed"
         >
           {content.tagline}
         </motion.p>
@@ -77,45 +61,23 @@ export default function Hero({ content }: HeroProps) {
           transition={{ duration: 1, delay: 1 }}
           className="mt-12 flex items-center justify-center gap-6"
         >
-          <a
+          <Link
             href="#projects"
-            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/80 hover:border-white/30 hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300"
           >
             {content.ctaPrimaryText}
-            <svg
-              className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-          </a>
+          </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-200 text-black font-medium hover:bg-white transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-surface font-medium hover:bg-neutral-200 transition-colors duration-300"
           >
             {content.ctaSecondaryText}
           </Link>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-        >
-          <motion.div className="w-1 h-2 rounded-full bg-neutral-200" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
