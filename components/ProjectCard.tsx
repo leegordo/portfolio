@@ -10,11 +10,10 @@ interface ProjectCardProps {
   slug: string;
   frontmatter: ProjectFrontmatter;
   index: number;
+  reverse?: boolean;
 }
 
-export default function ProjectCard({ slug, frontmatter, index }: ProjectCardProps) {
-  const isComingSoon = !!frontmatter.comingSoon;
-
+export default function ProjectCard({ slug, frontmatter, index, reverse = false }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -22,72 +21,45 @@ export default function ProjectCard({ slug, frontmatter, index }: ProjectCardPro
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Link 
-        href={`/projects/${slug}`} 
-        className="group block rounded-xl overflow-hidden border border-white/5 bg-surface-50 hover:border-white/15 transition-all duration-500"
+      <Link
+        href={`/projects/${slug}`}
+        className="group grid grid-cols-1 md:grid-cols-2 border border-white/[0.08] hover:border-white/[0.15] transition-all duration-300 overflow-hidden"
       >
-        {/* Cover Image */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-surface-200">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-surface-200 to-surface-100" />
-          {frontmatter.cover && !isComingSoon && (
+        {/* Visual */}
+        <div className={`relative aspect-[16/10] bg-[#14141c] flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
+          {frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}
               alt={frontmatter.title}
               fill
-              className="object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
+              className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
+          ) : (
+            <span className="font-mono text-[0.7rem] text-[#4a4a60] uppercase tracking-[0.1em]">
+              {frontmatter.title}
+            </span>
           )}
-          {isComingSoon && (
-            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-neutral-200 text-xs font-medium">
-              Coming Soon
-            </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-100 via-surface-100/40 to-transparent opacity-90" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,rgba(232,90,138,0.02)_4px,rgba(232,90,138,0.02)_5px)]" />
         </div>
 
-        {/* Content */}
-        <div className="p-6">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-neutral-200 text-xs font-medium tracking-wider uppercase">
-              {frontmatter.client}
-            </span>
-            <span className="text-white/20">&middot;</span>
-            <span className="text-white/40 text-xs">{frontmatter.year}</span>
+        {/* Info */}
+        <div className={`p-8 md:p-12 flex flex-col justify-center ${reverse ? "md:order-1" : ""}`}>
+          <div className="font-mono text-[0.65rem] text-[#f080a0] uppercase tracking-[0.15em] mb-3">
+            {frontmatter.client} — {frontmatter.year} — {frontmatter.role}
           </div>
-
-          <h3 className="font-display text-xl font-semibold text-white mb-2 group-hover:text-neutral-200 transition-colors duration-300">
+          <h3 className="font-display text-2xl font-bold text-[#e8e8f0] mb-4 tracking-[-0.02em]">
             {frontmatter.title}
           </h3>
-
-          <p className="text-white/50 text-sm mb-3">{frontmatter.role}</p>
-
-          {/* Summary — the key differentiator */}
           {frontmatter.summary && (
-            <p className="text-white/40 text-sm leading-relaxed mb-4">
+            <p className="text-[#a0a0b8] text-[0.95rem] leading-relaxed font-light mb-6">
               {frontmatter.summary}
             </p>
           )}
-
-          {/* Metric — proof of value */}
           {frontmatter.metric && (
-            <div className="flex items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-                <span className="text-emerald-400 text-xs font-medium">{frontmatter.metric}</span>
-              </span>
-            </div>
-          )}
-
-          {!isComingSoon && (
-            <div className="flex items-center gap-2 text-sm text-neutral-200 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
-              Read case study
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
+            <span className="inline-block self-start font-mono text-[0.7rem] text-[#f080a0] px-4 py-2 border border-[rgba(232,90,138,0.15)] bg-[rgba(232,90,138,0.05)]">
+              {frontmatter.metric}
+            </span>
           )}
         </div>
       </Link>

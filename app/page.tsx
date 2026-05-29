@@ -11,72 +11,64 @@ export default function HomePage() {
     <>
       <Hero content={heroContent} />
 
-      {/* Trust Bar */}
-      <section className="py-16 border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal>
-            <p className="text-white/30 text-xs font-medium tracking-[0.2em] uppercase text-center mb-10">
-              Trusted by teams at
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-              {["Fold", "Lightning Labs", "Qantas", "Nokia", "Chan Zuckerberg Initiative", "StickerGiant"].map((name) => (
-                <span
-                  key={name}
-                  className="text-white/25 text-sm font-medium tracking-wide"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </ScrollReveal>
+      {/* Trust Strip */}
+      <section className="px-6 md:px-12">
+        <div className="border-t border-b border-white/[0.08] py-6 flex items-center gap-8 md:gap-12 flex-wrap">
+          <span className="font-mono text-[0.65rem] text-[#4a4a60] uppercase tracking-[0.2em] shrink-0">
+            Trusted by
+          </span>
+          <div className="flex flex-wrap gap-x-8 md:gap-x-12 gap-y-3">
+            {["Fold", "Lightning Labs", "Qantas", "Nokia", "CZI", "StickerGiant"].map((name) => (
+              <span key={name} className="text-[0.9rem] font-medium text-[#6a6a85] tracking-[0.02em]">
+                {name}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="services" className="py-24 md:py-32 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
-              <span className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase">
-                What I Do
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
-            </div>
+            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+              01 — Services
+            </p>
           </ScrollReveal>
-
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-md font-bold text-center text-white mb-16">
-              Design leadership for the AI era
+            <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+              Design <span className="text-[#e85a8a]">leadership</span>
+              <br />
+              for the AI era
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3">
             {[
               {
+                num: "01",
                 title: "Agentic Interface Design",
                 description:
                   "Designing the UX of autonomous agents — when the product makes decisions, not just takes commands. Conversation flows, tool-calling patterns, human-in-the-loop moments.",
               },
               {
+                num: "02",
                 title: "Product Design & Strategy",
                 description:
                   "End-to-end product design from zero to launch. UX research, information architecture, interaction design, and the strategic narrative that gets stakeholders aligned.",
               },
               {
+                num: "03",
                 title: "Design Systems & Scale",
                 description:
                   "Building design systems that don't just look consistent — they accelerate the team. Tokens, components, documentation, and the governance that keeps them alive.",
               },
             ].map((service, i) => (
               <ScrollReveal key={service.title} delay={0.15 + i * 0.1}>
-                <div className="p-6 rounded-xl border border-white/5 bg-surface-50/50 hover:border-white/10 transition-colors duration-300">
-                  <h3 className="font-display text-xl font-semibold text-white mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">
+                <div className="p-8 md:p-10 border border-white/[0.08] -m-px hover:border-[rgba(232,90,138,0.2)] hover:bg-[rgba(232,90,138,0.02)] transition-all duration-300">
+                  <div className="font-mono text-[0.7rem] text-[#4a4a60] mb-6">{service.num}</div>
+                  <h3 className="text-[1.3rem] font-semibold text-[#e8e8f0] mb-4">{service.title}</h3>
+                  <p className="text-[0.95rem] text-[#a0a0b8] font-light leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -89,61 +81,57 @@ export default function HomePage() {
       <ProjectGrid projects={projects} />
 
       {/* Testimonials */}
-      <section className="py-24 md:py-32 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="approach" className="py-24 md:py-32 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
-              <span className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase">
-                What Clients Say
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
-            </div>
+            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+              03 — Testimonials
+            </p>
           </ScrollReveal>
-
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-md font-bold text-center text-white mb-16">
-              Results that speak for themselves
+            <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+              Results that
+              <br />
+              <span className="text-[#e85a8a]">speak</span>
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                quote: "Lee transformed not just our product, but our entire approach to design. The research-driven culture he built continues to drive our decision-making.",
-                author: "Will Reeves",
-                role: "CEO, Fold",
                 metric: "3x onboarding completion",
+                quote:
+                  "Lee transformed not just our product, but our entire approach to design. The research-driven culture he built continues to drive our decision-making.",
+                name: "Will Reeves",
+                title: "CEO, Fold",
               },
               {
-                quote: "The strategic framework Lee's team delivered didn't just solve today's problems — it gave us a roadmap for the next five years of digital evolution.",
-                author: "Qantas Digital Team",
-                role: "",
                 metric: "23% mobile conversion increase",
+                quote:
+                  "The strategic framework Lee's team delivered didn't just solve today's problems — it gave us a roadmap for the next five years of digital evolution.",
+                name: "Qantas Digital Team",
+                title: "",
               },
               {
-                quote: "Lee brought a rare combination of strategic thinking and human empathy to a deeply technical product challenge. His team's work set the standard for how we approach consumer IoT design.",
-                author: "Nokia Connected Home Division",
-                role: "",
                 metric: "94% setup completion rate",
+                quote:
+                  "Lee brought a rare combination of strategic thinking and human empathy to a deeply technical product challenge.",
+                name: "Nokia Connected Home",
+                title: "",
               },
             ].map((t, i) => (
               <ScrollReveal key={i} delay={0.15 + i * 0.1}>
-                <div className="p-6 rounded-xl border border-white/5 bg-surface-50/30 hover:border-white/10 transition-colors duration-300 h-full flex flex-col">
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                      <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
-                      <span className="text-emerald-400 text-xs font-medium">{t.metric}</span>
-                    </span>
-                  </div>
-                  <blockquote className="text-white/60 text-sm leading-relaxed mb-6 flex-1">
+                <div className="p-8 border border-white/[0.08] relative hover:border-white/[0.12] transition-colors duration-300 h-full flex flex-col">
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#e85a8a] to-transparent opacity-40" />
+                  <span className="font-mono text-[0.7rem] text-[#f080a0] mb-6 block">
+                    {t.metric}
+                  </span>
+                  <blockquote className="text-[1.05rem] text-[#a0a0b8] font-light leading-relaxed mb-8 flex-1">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <div>
-                    <p className="text-white text-sm font-medium">{t.author}</p>
-                    {t.role && <p className="text-white/40 text-xs">{t.role}</p>}
+                    <p className="font-semibold text-[0.9rem] text-[#e8e8f0]">{t.name}</p>
+                    {t.title && <p className="text-[0.8rem] text-[#6a6a85] mt-1">{t.title}</p>}
                   </div>
                 </div>
               </ScrollReveal>
@@ -152,53 +140,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How I Work */}
-      <section className="py-24 md:py-32 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Pricing */}
+      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/[0.08]">
+        <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
-              <span className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase">
-                How I Work
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
-            </div>
+            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+              04 — Engage
+            </p>
           </ScrollReveal>
-
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-md font-bold text-center text-white mb-16">
-              Three ways to engage
+            <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+              Three ways
+              <br />
+              to <span className="text-[#e85a8a]">work</span>
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Sprint",
-                description: "Two-week focused engagement for a specific deliverable — a design system audit, a prototype, or a strategic workshop. Quick turnaround, clear output.",
+                tier: "Sprint",
                 price: "$2,500",
+                desc: "Two-week focused engagement for a specific deliverable — a design system audit, a prototype, or a strategic workshop. Quick turnaround, clear output.",
               },
               {
-                title: "Retainer",
-                description: "Ongoing fractional design leadership — a predictable number of days per week embedded with your team. Strategy, execution, and design ops rolled into one.",
-                price: "$4,500/mo",
+                tier: "Retainer",
+                price: "$4,500",
+                priceSuffix: "/mo",
+                desc: "Ongoing fractional design leadership — a predictable number of days per week embedded with your team. Strategy, execution, and design ops rolled into one.",
               },
               {
-                title: "Project",
-                description: "Full-project engagement from discovery to launch. End-to-end product design with research, prototyping, testing, and handoff. Scoped to your timeline.",
+                tier: "Project",
                 price: "Custom",
+                desc: "Full-project engagement from discovery to launch. End-to-end product design with research, prototyping, testing, and handoff. Scoped to your timeline.",
               },
             ].map((option, i) => (
-              <ScrollReveal key={option.title} delay={0.15 + i * 0.1}>
-                <div className="p-6 rounded-xl border border-white/5 bg-surface-50/50 hover:border-white/10 transition-colors duration-300 h-full flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-display text-xl font-semibold text-white">
-                      {option.title}
-                    </h3>
-                    <span className="text-emerald-400 text-sm font-medium">{option.price}</span>
+              <ScrollReveal key={option.tier} delay={0.15 + i * 0.1}>
+                <div className="p-8 border border-white/[0.08] relative overflow-hidden hover:border-white/[0.12] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#e85a8a] opacity-0 hover:opacity-50 transition-opacity" />
+                  <div className="font-mono text-[0.65rem] text-[#4a4a60] uppercase tracking-[0.2em] mb-4">
+                    {option.tier}
                   </div>
-                  <p className="text-white/50 text-sm leading-relaxed flex-1">
-                    {option.description}
+                  <div className="text-[3rem] font-bold text-[#e85a8a] leading-none mb-6">
+                    {option.price}
+                    {option.priceSuffix && (
+                      <span className="text-[1.1rem] text-[#6a6a85] font-normal ml-1">
+                        {option.priceSuffix}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[0.95rem] text-[#a0a0b8] font-light leading-relaxed">
+                    {option.desc}
                   </p>
                 </div>
               </ScrollReveal>
@@ -208,30 +200,30 @@ export default function HomePage() {
       </section>
 
       {/* About teaser */}
-      <section className="py-24 md:py-32 border-t border-white/5">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/[0.08]">
+        <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-6">
+            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-6">
               About
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-sm font-bold text-white mb-6">
+            <h2 className="font-display text-display-sm font-bold text-[#e8e8f0] mb-6">
               Over 15 years shaping digital products
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+            <p className="text-[#a0a0b8] text-lg leading-relaxed mb-8 font-light">
               From R/GA to Nokia to leading design at Fold, I&apos;ve built and scaled design teams,
               launched products used by millions, and helped organizations discover what thoughtful
-              design can really do. Now I&apos;m focused on the most interesting design problem of the next decade:
-              the interface between humans and intelligent systems.
+              design can really do. Now I&apos;m focused on the most interesting design problem of the
+              next decade: the interface between humans and intelligent systems.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
             <a
               href="/about"
-              className="inline-flex items-center gap-2 text-neutral-200 hover:text-white transition-colors duration-300 group"
+              className="inline-flex items-center gap-2 text-[#a0a0b8] hover:text-[#e8e8f0] transition-colors duration-300 group"
             >
               Learn more about me
               <svg

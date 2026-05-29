@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import Script from "next/script";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
-import ChatbotButton from "@/components/ChatbotButton";
 import { getFooterContent } from "@/lib/content";
 import "@/styles/globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -50,16 +59,12 @@ export default function RootLayout({
   const footerContent = getFooterContent();
 
   return (
-    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
-      <head>
-        <Script src="https://mcp.figma.com/mcp/html-to-design/capture.js" strategy="afterInteractive" />
-      </head>
-      <body className="font-sans bg-surface text-white antialiased">
+    <html lang="en" className={`dark ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <body className="font-sans bg-surface text-[#e8e8f0] antialiased">
         <ScrollProgress />
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer content={footerContent} />
-        {/* <ChatbotButton /> */}
       </body>
     </html>
   );

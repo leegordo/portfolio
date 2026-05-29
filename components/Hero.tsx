@@ -10,29 +10,14 @@ interface HeroProps {
 
 export default function Hero({ content }: HeroProps) {
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden flex items-center justify-center">
-      {/* Static background — no video, no performance kill */}
-      <div className="absolute inset-0 z-0 bg-surface">
-        {/* Subtle radial gradient for depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.03)_0%,_transparent_70%)]" />
-        {/* Grid pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-end pb-20 pt-32 px-6 md:px-12">
+      <div className="relative z-10 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-6">
+          <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.15em] mb-6">
             {content.label}
           </p>
         </motion.div>
@@ -41,16 +26,17 @@ export default function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-display-lg font-bold text-white mb-8"
+          className="font-display text-display-lg font-bold text-[#e8e8f0] mb-8"
         >
-          {content.name}
+          Lee<br />
+          <span className="text-[#e85a8a]">Gordon.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-[#a0a0b8] max-w-2xl leading-relaxed font-light"
         >
           {content.tagline}
         </motion.p>
@@ -59,22 +45,16 @@ export default function Hero({ content }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="mt-12 flex items-center justify-center gap-6"
+          className="mt-12"
         >
           <Link
-            href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            href="#work"
+            className="inline-flex items-center gap-3 px-8 py-4 border border-[#e85a8a] text-[#f080a0] hover:bg-[rgba(232,90,138,0.08)] hover:border-[#f080a0] hover:text-[#e8e8f0] transition-all duration-300 text-[0.85rem] font-medium uppercase tracking-[0.08em]"
           >
             {content.ctaPrimaryText}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-surface font-medium hover:bg-neutral-200 transition-colors duration-300"
-          >
-            {content.ctaSecondaryText}
           </Link>
         </motion.div>
       </div>

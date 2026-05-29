@@ -10,41 +10,31 @@ interface ProjectGridProps {
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
-    <section id="projects" className="relative py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="work" className="py-24 md:py-32 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <ScrollReveal>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
-            <span className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase">
-              Selected Work
-            </span>
-            <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
-          </div>
+          <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+            02 — Selected Work
+          </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-display-md font-bold text-center text-white mb-16">
-            Projects & Case Studies
+          <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+            Projects &amp;<br />
+            <span className="text-[#e85a8a]">case studies</span>
           </h2>
         </ScrollReveal>
 
-        {/* Staggered Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project, index) => {
-            const isLarge = index === 0 || index === 3;
-            return (
-              <div
-                key={project.slug}
-                className={isLarge ? "md:col-span-2 lg:col-span-1" : ""}
-              >
-                <ProjectCard
-                  slug={project.slug}
-                  frontmatter={project.frontmatter}
-                  index={index}
-                />
-              </div>
-            );
-          })}
+        <div className="flex flex-col">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              slug={project.slug}
+              frontmatter={project.frontmatter}
+              index={index}
+              reverse={index % 2 === 1}
+            />
+          ))}
         </div>
       </div>
     </section>

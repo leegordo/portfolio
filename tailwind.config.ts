@@ -10,32 +10,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        accent: "#E5E5E5",
-        "accent-muted": "#888888",
-        surface: {
-          DEFAULT: "#0A0A0A",
-          50: "#111111",
-          100: "#1A1A1A",
-          200: "#222222",
-          300: "#2A2A2A",
+        accent: {
+          DEFAULT: "#e85a8a",
+          soft: "#f080a0",
+          muted: "rgba(232, 90, 138, 0.12)",
         },
+        surface: {
+          DEFAULT: "#0c0c10",
+          50: "#14141c",
+          100: "#1a1a22",
+          200: "#22222c",
+        },
+        body: "#a0a0b8",
+        muted: "#6a6a85",
+        faint: "#4a4a60",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        sans: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
       fontSize: {
-        "display-lg": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-        "display-md": ["clamp(2rem, 5vw, 4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "display-sm": ["clamp(1.5rem, 3vw, 2.5rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        "display-lg": ["clamp(4rem, 16vw, 14rem)", { lineHeight: "0.88", letterSpacing: "-0.04em" }],
+        "display-md": ["clamp(2.5rem, 7vw, 5.5rem)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
+        "display-sm": ["clamp(1.5rem, 3vw, 2.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
       },
       animation: {
         "fade-in": "fadeIn 0.8s ease-out forwards",
         "fade-up": "fadeUp 0.8s ease-out forwards",
-        "slide-in": "slideIn 0.6s ease-out forwards",
-        "scale-in": "scaleIn 0.5s ease-out forwards",
-        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         fadeIn: {
@@ -46,17 +48,6 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        slideIn: {
-          "0%": { opacity: "0", transform: "translateX(-20px)" },
-          "100%": { opacity: "1", transform: "translateX(0)" },
-        },
-        scaleIn: {
-          "0%": { opacity: "0", transform: "scale(0.95)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
-      },
-      transitionTimingFunction: {
-        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
