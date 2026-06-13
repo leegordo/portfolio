@@ -1,26 +1,16 @@
 {
-  "version": "2.11",
-  "themes": {
-    "dark": {
-      "bg": "#050508",
-      "surface": "#0A0A0F",
-      "text": "#FFFFFF",
-      "muted": "#888888",
-      "accent": "#00F0FF",
-      "border": "#1A1A20"
-    }
-  },
+  "version": "2.13",
   "variables": {
-    "color.bg": { "type": "color", "value": "#050508" },
-    "color.surface": { "type": "color", "value": "#0A0A0F" },
-    "color.text": { "type": "color", "value": "#FFFFFF" },
-    "color.muted": { "type": "color", "value": "#888888" },
-    "color.accent": { "type": "color", "value": "#00F0FF" },
-    "color.border": { "type": "color", "value": "#1A1A20" },
-    "font.display": { "type": "string", "value": "Space Grotesk" },
-    "font.mono": { "type": "string", "value": "JetBrains Mono" }
+    "color-bg": { "type": "color", "value": "#050508" },
+    "color-surface": { "type": "color", "value": "#0A0A0F" },
+    "color-text": { "type": "color", "value": "#FFFFFF" },
+    "color-muted": { "type": "color", "value": "#888888" },
+    "color-accent": { "type": "color", "value": "#00F0FF" },
+    "color-border": { "type": "color", "value": "#1A1A20" },
+    "font-display": { "type": "string", "value": "Space Grotesk" },
+    "font-mono": { "type": "string", "value": "JetBrains Mono" }
   },
-  "imports": [],
+  "imports": {},
   "children": [
     {
       "id": "artboard",
@@ -30,7 +20,7 @@
       "y": 0,
       "width": 1440,
       "height": 2400,
-      "fill": "$color.bg",
+      "fill": "$color-bg",
       "layout": "vertical",
       "alignItems": "center",
       "children": [
@@ -55,7 +45,7 @@
               "y": 0,
               "width": 48,
               "height": 48,
-              "fill": "$color.text",
+              "fill": "$color-text",
               "cornerRadius": 8,
               "children": [
                 {
@@ -66,10 +56,10 @@
                   "width": 48,
                   "height": 48,
                   "content": "LG",
-                  "fontFamily": "$font.display",
+                  "fontFamily": "$font-display",
                   "fontSize": 20,
                   "fontWeight": 700,
-                  "fill": "$color.bg",
+                  "fill": "$color-bg",
                   "textAlignHorizontal": "center",
                   "textAlignVertical": "center"
                 }
@@ -96,10 +86,10 @@
                   "width": 60,
                   "height": 24,
                   "content": "Work",
-                  "fontFamily": "$font.display",
+                  "fontFamily": "$font-display",
                   "fontSize": 15,
                   "fontWeight": 500,
-                  "fill": "$color.muted",
+                  "fill": "$color-muted",
                   "textAlignHorizontal": "right"
                 },
                 {
@@ -110,10 +100,10 @@
                   "width": 60,
                   "height": 24,
                   "content": "About",
-                  "fontFamily": "$font.display",
+                  "fontFamily": "$font-display",
                   "fontSize": 15,
                   "fontWeight": 500,
-                  "fill": "$color.muted",
+                  "fill": "$color-muted",
                   "textAlignHorizontal": "right"
                 },
                 {
@@ -124,10 +114,10 @@
                   "width": 60,
                   "height": 24,
                   "content": "Contact",
-                  "fontFamily": "$font.display",
+                  "fontFamily": "$font-display",
                   "fontSize": 15,
                   "fontWeight": 500,
-                  "fill": "$color.muted",
+                  "fill": "$color-muted",
                   "textAlignHorizontal": "right"
                 }
               ]
@@ -156,10 +146,10 @@
               "width": 400,
               "height": 20,
               "content": "Product Designer · Heredia, Costa Rica",
-              "fontFamily": "$font.mono",
+              "fontFamily": "$font-mono",
               "fontSize": 13,
               "fontWeight": 400,
-              "fill": "$color.accent",
+              "fill": "$color-accent",
               "letterSpacing": 0.08
             },
             {
@@ -170,10 +160,10 @@
               "width": 800,
               "height": 120,
               "content": "Lee Gordon",
-              "fontFamily": "$font.display",
+              "fontFamily": "$font-display",
               "fontSize": 96,
               "fontWeight": 700,
-              "fill": "$color.text",
+              "fill": "$color-text",
               "lineHeight": 1.1,
               "letterSpacing": -0.02
             },
@@ -185,10 +175,10 @@
               "width": 560,
               "height": 80,
               "content": "Designing interfaces, systems, and brands for teams that care about craft. Currently building at StickerGiant.",
-              "fontFamily": "$font.display",
+              "fontFamily": "$font-display",
               "fontSize": 20,
               "fontWeight": 400,
-              "fill": "$color.muted",
+              "fill": "$color-muted",
               "lineHeight": 1.5
             },
             {
@@ -199,7 +189,7 @@
               "y": 0,
               "width": 160,
               "height": 48,
-              "fill": "$color.accent",
+              "fill": "$color-accent",
               "cornerRadius": 8,
               "layout": "vertical",
               "justifyContent": "center",
@@ -213,10 +203,10 @@
                   "width": 160,
                   "height": 24,
                   "content": "View selected work",
-                  "fontFamily": "$font.display",
+                  "fontFamily": "$font-display",
                   "fontSize": 14,
                   "fontWeight": 600,
-                  "fill": "$color.bg",
+                  "fill": "$color-bg",
                   "textAlignHorizontal": "center",
                   "textAlignVertical": "center"
                 }
@@ -246,10 +236,10 @@
               "width": 400,
               "height": 40,
               "content": "Selected work",
-              "fontFamily": "$font.display",
+              "fontFamily": "$font-display",
               "fontSize": 32,
               "fontWeight": 700,
-              "fill": "$color.text"
+              "fill": "$color-text"
             },
             {
               "id": "projects-list",
@@ -270,7 +260,7 @@
                   "y": 0,
                   "width": 1280,
                   "height": 160,
-                  "fill": "$color.surface",
+                  "fill": "$color-surface",
                   "layout": "horizontal",
                   "justifyContent": "space_between",
                   "alignItems": "center",
@@ -296,10 +286,10 @@
                           "width": 600,
                           "height": 32,
                           "content": "StickerGiant Design System",
-                          "fontFamily": "$font.display",
+                          "fontFamily": "$font-display",
                           "fontSize": 22,
                           "fontWeight": 600,
-                          "fill": "$color.text"
+                          "fill": "$color-text"
                         },
                         {
                           "id": "proj-1-meta",
@@ -309,10 +299,10 @@
                           "width": 600,
                           "height": 20,
                           "content": "Design system · Component library · Documentation",
-                          "fontFamily": "$font.mono",
+                          "fontFamily": "$font-mono",
                           "fontSize": 13,
                           "fontWeight": 400,
-                          "fill": "$color.muted"
+                          "fill": "$color-muted"
                         }
                       ]
                     },
@@ -324,10 +314,10 @@
                       "width": 40,
                       "height": 40,
                       "content": "→",
-                      "fontFamily": "$font.display",
+                      "fontFamily": "$font-display",
                       "fontSize": 24,
                       "fontWeight": 400,
-                      "fill": "$color.accent",
+                      "fill": "$color-accent",
                       "textAlignHorizontal": "right"
                     }
                   ]
@@ -340,7 +330,7 @@
                   "y": 0,
                   "width": 1280,
                   "height": 160,
-                  "fill": "$color.surface",
+                  "fill": "$color-surface",
                   "layout": "horizontal",
                   "justifyContent": "space_between",
                   "alignItems": "center",
@@ -366,10 +356,10 @@
                           "width": 600,
                           "height": 32,
                           "content": "Lee Gordon Design — Billing Tool",
-                          "fontFamily": "$font.display",
+                          "fontFamily": "$font-display",
                           "fontSize": 22,
                           "fontWeight": 600,
-                          "fill": "$color.text"
+                          "fill": "$color-text"
                         },
                         {
                           "id": "proj-2-meta",
@@ -379,10 +369,10 @@
                           "width": 600,
                           "height": 20,
                           "content": "Product design · React · Netlify",
-                          "fontFamily": "$font.mono",
+                          "fontFamily": "$font-mono",
                           "fontSize": 13,
                           "fontWeight": 400,
-                          "fill": "$color.muted"
+                          "fill": "$color-muted"
                         }
                       ]
                     },
@@ -394,10 +384,10 @@
                       "width": 40,
                       "height": 40,
                       "content": "→",
-                      "fontFamily": "$font.display",
+                      "fontFamily": "$font-display",
                       "fontSize": 24,
                       "fontWeight": 400,
-                      "fill": "$color.accent",
+                      "fill": "$color-accent",
                       "textAlignHorizontal": "right"
                     }
                   ]
@@ -410,7 +400,7 @@
                   "y": 0,
                   "width": 1280,
                   "height": 160,
-                  "fill": "$color.surface",
+                  "fill": "$color-surface",
                   "layout": "horizontal",
                   "justifyContent": "space_between",
                   "alignItems": "center",
@@ -436,10 +426,10 @@
                           "width": 600,
                           "height": 32,
                           "content": "0xCreative — Agent Design Platform",
-                          "fontFamily": "$font.display",
+                          "fontFamily": "$font-display",
                           "fontSize": 22,
                           "fontWeight": 600,
-                          "fill": "$color.text"
+                          "fill": "$color-text"
                         },
                         {
                           "id": "proj-3-meta",
@@ -449,10 +439,10 @@
                           "width": 600,
                           "height": 20,
                           "content": "Brand identity · Design system · GitHub Pages",
-                          "fontFamily": "$font.mono",
+                          "fontFamily": "$font-mono",
                           "fontSize": 13,
                           "fontWeight": 400,
-                          "fill": "$color.muted"
+                          "fill": "$color-muted"
                         }
                       ]
                     },
@@ -464,10 +454,10 @@
                       "width": 40,
                       "height": 40,
                       "content": "→",
-                      "fontFamily": "$font.display",
+                      "fontFamily": "$font-display",
                       "fontSize": 24,
                       "fontWeight": 400,
-                      "fill": "$color.accent",
+                      "fill": "$color-accent",
                       "textAlignHorizontal": "right"
                     }
                   ]
@@ -484,7 +474,7 @@
           "y": 0,
           "width": 1440,
           "height": 200,
-          "fill": "$color.surface",
+          "fill": "$color-surface",
           "layout": "horizontal",
           "justifyContent": "space_between",
           "alignItems": "center",
@@ -509,10 +499,10 @@
                   "width": 400,
                   "height": 24,
                   "content": "Lee Gordon",
-                  "fontFamily": "$font.display",
+                  "fontFamily": "$font-display",
                   "fontSize": 16,
                   "fontWeight": 600,
-                  "fill": "$color.text"
+                  "fill": "$color-text"
                 },
                 {
                   "id": "footer-location",
@@ -522,10 +512,10 @@
                   "width": 400,
                   "height": 20,
                   "content": "Heredia, Costa Rica · UTC-6",
-                  "fontFamily": "$font.mono",
+                  "fontFamily": "$font-mono",
                   "fontSize": 12,
                   "fontWeight": 400,
-                  "fill": "$color.muted"
+                  "fill": "$color-muted"
                 }
               ]
             },
@@ -550,10 +540,10 @@
                   "width": 60,
                   "height": 20,
                   "content": "GitHub",
-                  "fontFamily": "$font.mono",
+                  "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": 400,
-                  "fill": "$color.muted"
+                  "fill": "$color-muted"
                 },
                 {
                   "id": "footer-dribbble",
@@ -563,10 +553,10 @@
                   "width": 60,
                   "height": 20,
                   "content": "Dribbble",
-                  "fontFamily": "$font.mono",
+                  "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": 400,
-                  "fill": "$color.muted"
+                  "fill": "$color-muted"
                 },
                 {
                   "id": "footer-email",
@@ -576,10 +566,10 @@
                   "width": 60,
                   "height": 20,
                   "content": "Email",
-                  "fontFamily": "$font.mono",
+                  "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": 400,
-                  "fill": "$color.muted"
+                  "fill": "$color-muted"
                 }
               ]
             }
