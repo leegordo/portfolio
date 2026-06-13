@@ -1,12 +1,12 @@
 {
   "version": "2.13",
   "variables": {
-    "color-bg": { "type": "color", "value": "#050508" },
-    "color-surface": { "type": "color", "value": "#0A0A0F" },
-    "color-text": { "type": "color", "value": "#FFFFFF" },
-    "color-muted": { "type": "color", "value": "#888888" },
-    "color-accent": { "type": "color", "value": "#00F0FF" },
-    "color-border": { "type": "color", "value": "#1A1A20" },
+    "color-bg": { "type": "color", "value": "#0c0c10" },
+    "color-surface": { "type": "color", "value": "#14141c" },
+    "color-text": { "type": "color", "value": "#e8e8f0" },
+    "color-muted": { "type": "color", "value": "#a0a0b8" },
+    "color-accent": { "type": "color", "value": "#e85a8a" },
+    "color-border": { "type": "color", "value": "#1a1a22" },
     "font-display": { "type": "string", "value": "Space Grotesk" },
     "font-mono": { "type": "string", "value": "JetBrains Mono" }
   },
