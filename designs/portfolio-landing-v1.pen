@@ -1,0 +1,591 @@
+{
+  "version": "2.11",
+  "themes": {
+    "dark": {
+      "bg": "#050508",
+      "surface": "#0A0A0F",
+      "text": "#FFFFFF",
+      "muted": "#888888",
+      "accent": "#00F0FF",
+      "border": "#1A1A20"
+    }
+  },
+  "variables": {
+    "color.bg": { "type": "color", "value": "#050508" },
+    "color.surface": { "type": "color", "value": "#0A0A0F" },
+    "color.text": { "type": "color", "value": "#FFFFFF" },
+    "color.muted": { "type": "color", "value": "#888888" },
+    "color.accent": { "type": "color", "value": "#00F0FF" },
+    "color.border": { "type": "color", "value": "#1A1A20" },
+    "font.display": { "type": "string", "value": "Space Grotesk" },
+    "font.mono": { "type": "string", "value": "JetBrains Mono" }
+  },
+  "imports": [],
+  "children": [
+    {
+      "id": "artboard",
+      "type": "frame",
+      "name": "Portfolio Landing — Desktop",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 2400,
+      "fill": "$color.bg",
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "id": "nav",
+          "type": "frame",
+          "name": "Nav",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 80,
+          "layout": "horizontal",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "padding": [0, 80, 0, 80],
+          "children": [
+            {
+              "id": "logo",
+              "type": "frame",
+              "name": "LG Logo",
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 48,
+              "fill": "$color.text",
+              "cornerRadius": 8,
+              "children": [
+                {
+                  "id": "logo-text",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 48,
+                  "height": 48,
+                  "content": "LG",
+                  "fontFamily": "$font.display",
+                  "fontSize": 20,
+                  "fontWeight": 700,
+                  "fill": "$color.bg",
+                  "textAlignHorizontal": "center",
+                  "textAlignVertical": "center"
+                }
+              ]
+            },
+            {
+              "id": "nav-links",
+              "type": "frame",
+              "name": "Nav Links",
+              "x": 0,
+              "y": 0,
+              "width": 320,
+              "height": 48,
+              "layout": "horizontal",
+              "justifyContent": "flex_end",
+              "alignItems": "center",
+              "gap": 40,
+              "children": [
+                {
+                  "id": "nav-work",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 24,
+                  "content": "Work",
+                  "fontFamily": "$font.display",
+                  "fontSize": 15,
+                  "fontWeight": 500,
+                  "fill": "$color.muted",
+                  "textAlignHorizontal": "right"
+                },
+                {
+                  "id": "nav-about",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 24,
+                  "content": "About",
+                  "fontFamily": "$font.display",
+                  "fontSize": 15,
+                  "fontWeight": 500,
+                  "fill": "$color.muted",
+                  "textAlignHorizontal": "right"
+                },
+                {
+                  "id": "nav-contact",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 24,
+                  "content": "Contact",
+                  "fontFamily": "$font.display",
+                  "fontSize": 15,
+                  "fontWeight": 500,
+                  "fill": "$color.muted",
+                  "textAlignHorizontal": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hero",
+          "type": "frame",
+          "name": "Hero",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 700,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "flex_start",
+          "padding": [0, 80, 0, 80],
+          "gap": 24,
+          "children": [
+            {
+              "id": "hero-label",
+              "type": "text",
+              "x": 0,
+              "y": 0,
+              "width": 400,
+              "height": 20,
+              "content": "Product Designer · Heredia, Costa Rica",
+              "fontFamily": "$font.mono",
+              "fontSize": 13,
+              "fontWeight": 400,
+              "fill": "$color.accent",
+              "letterSpacing": 0.08
+            },
+            {
+              "id": "hero-name",
+              "type": "text",
+              "x": 0,
+              "y": 0,
+              "width": 800,
+              "height": 120,
+              "content": "Lee Gordon",
+              "fontFamily": "$font.display",
+              "fontSize": 96,
+              "fontWeight": 700,
+              "fill": "$color.text",
+              "lineHeight": 1.1,
+              "letterSpacing": -0.02
+            },
+            {
+              "id": "hero-desc",
+              "type": "text",
+              "x": 0,
+              "y": 0,
+              "width": 560,
+              "height": 80,
+              "content": "Designing interfaces, systems, and brands for teams that care about craft. Currently building at StickerGiant.",
+              "fontFamily": "$font.display",
+              "fontSize": 20,
+              "fontWeight": 400,
+              "fill": "$color.muted",
+              "lineHeight": 1.5
+            },
+            {
+              "id": "hero-cta",
+              "type": "frame",
+              "name": "CTA Button",
+              "x": 0,
+              "y": 0,
+              "width": 160,
+              "height": 48,
+              "fill": "$color.accent",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "hero-cta-text",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 160,
+                  "height": 24,
+                  "content": "View selected work",
+                  "fontFamily": "$font.display",
+                  "fontSize": 14,
+                  "fontWeight": 600,
+                  "fill": "$color.bg",
+                  "textAlignHorizontal": "center",
+                  "textAlignVertical": "center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "projects",
+          "type": "frame",
+          "name": "Projects",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "justifyContent": "flex_start",
+          "alignItems": "flex_start",
+          "padding": [120, 80, 0, 80],
+          "gap": 64,
+          "children": [
+            {
+              "id": "projects-header",
+              "type": "text",
+              "x": 0,
+              "y": 0,
+              "width": 400,
+              "height": 40,
+              "content": "Selected work",
+              "fontFamily": "$font.display",
+              "fontSize": 32,
+              "fontWeight": 700,
+              "fill": "$color.text"
+            },
+            {
+              "id": "projects-list",
+              "type": "frame",
+              "name": "Projects List",
+              "x": 0,
+              "y": 0,
+              "width": 1280,
+              "height": 700,
+              "layout": "vertical",
+              "gap": 2,
+              "children": [
+                {
+                  "id": "proj-1",
+                  "type": "frame",
+                  "name": "Project Row — StickerGiant",
+                  "x": 0,
+                  "y": 0,
+                  "width": 1280,
+                  "height": 160,
+                  "fill": "$color.surface",
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "padding": [0, 32, 0, 32],
+                  "children": [
+                    {
+                      "id": "proj-1-left",
+                      "type": "frame",
+                      "name": "Project Info",
+                      "x": 0,
+                      "y": 0,
+                      "width": 600,
+                      "height": 80,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "proj-1-title",
+                          "type": "text",
+                          "x": 0,
+                          "y": 0,
+                          "width": 600,
+                          "height": 32,
+                          "content": "StickerGiant Design System",
+                          "fontFamily": "$font.display",
+                          "fontSize": 22,
+                          "fontWeight": 600,
+                          "fill": "$color.text"
+                        },
+                        {
+                          "id": "proj-1-meta",
+                          "type": "text",
+                          "x": 0,
+                          "y": 0,
+                          "width": 600,
+                          "height": 20,
+                          "content": "Design system · Component library · Documentation",
+                          "fontFamily": "$font.mono",
+                          "fontSize": 13,
+                          "fontWeight": 400,
+                          "fill": "$color.muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "proj-1-arrow",
+                      "type": "text",
+                      "x": 0,
+                      "y": 0,
+                      "width": 40,
+                      "height": 40,
+                      "content": "→",
+                      "fontFamily": "$font.display",
+                      "fontSize": 24,
+                      "fontWeight": 400,
+                      "fill": "$color.accent",
+                      "textAlignHorizontal": "right"
+                    }
+                  ]
+                },
+                {
+                  "id": "proj-2",
+                  "type": "frame",
+                  "name": "Project Row — Billing Tool",
+                  "x": 0,
+                  "y": 0,
+                  "width": 1280,
+                  "height": 160,
+                  "fill": "$color.surface",
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "padding": [0, 32, 0, 32],
+                  "children": [
+                    {
+                      "id": "proj-2-left",
+                      "type": "frame",
+                      "name": "Project Info",
+                      "x": 0,
+                      "y": 0,
+                      "width": 600,
+                      "height": 80,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "proj-2-title",
+                          "type": "text",
+                          "x": 0,
+                          "y": 0,
+                          "width": 600,
+                          "height": 32,
+                          "content": "Lee Gordon Design — Billing Tool",
+                          "fontFamily": "$font.display",
+                          "fontSize": 22,
+                          "fontWeight": 600,
+                          "fill": "$color.text"
+                        },
+                        {
+                          "id": "proj-2-meta",
+                          "type": "text",
+                          "x": 0,
+                          "y": 0,
+                          "width": 600,
+                          "height": 20,
+                          "content": "Product design · React · Netlify",
+                          "fontFamily": "$font.mono",
+                          "fontSize": 13,
+                          "fontWeight": 400,
+                          "fill": "$color.muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "proj-2-arrow",
+                      "type": "text",
+                      "x": 0,
+                      "y": 0,
+                      "width": 40,
+                      "height": 40,
+                      "content": "→",
+                      "fontFamily": "$font.display",
+                      "fontSize": 24,
+                      "fontWeight": 400,
+                      "fill": "$color.accent",
+                      "textAlignHorizontal": "right"
+                    }
+                  ]
+                },
+                {
+                  "id": "proj-3",
+                  "type": "frame",
+                  "name": "Project Row — 0xCreative",
+                  "x": 0,
+                  "y": 0,
+                  "width": 1280,
+                  "height": 160,
+                  "fill": "$color.surface",
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "padding": [0, 32, 0, 32],
+                  "children": [
+                    {
+                      "id": "proj-3-left",
+                      "type": "frame",
+                      "name": "Project Info",
+                      "x": 0,
+                      "y": 0,
+                      "width": 600,
+                      "height": 80,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "id": "proj-3-title",
+                          "type": "text",
+                          "x": 0,
+                          "y": 0,
+                          "width": 600,
+                          "height": 32,
+                          "content": "0xCreative — Agent Design Platform",
+                          "fontFamily": "$font.display",
+                          "fontSize": 22,
+                          "fontWeight": 600,
+                          "fill": "$color.text"
+                        },
+                        {
+                          "id": "proj-3-meta",
+                          "type": "text",
+                          "x": 0,
+                          "y": 0,
+                          "width": 600,
+                          "height": 20,
+                          "content": "Brand identity · Design system · GitHub Pages",
+                          "fontFamily": "$font.mono",
+                          "fontSize": 13,
+                          "fontWeight": 400,
+                          "fill": "$color.muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "proj-3-arrow",
+                      "type": "text",
+                      "x": 0,
+                      "y": 0,
+                      "width": 40,
+                      "height": 40,
+                      "content": "→",
+                      "fontFamily": "$font.display",
+                      "fontSize": 24,
+                      "fontWeight": 400,
+                      "fill": "$color.accent",
+                      "textAlignHorizontal": "right"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "footer",
+          "type": "frame",
+          "name": "Footer",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 200,
+          "fill": "$color.surface",
+          "layout": "horizontal",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "padding": [0, 80, 0, 80],
+          "children": [
+            {
+              "id": "footer-left",
+              "type": "frame",
+              "name": "Footer Info",
+              "x": 0,
+              "y": 0,
+              "width": 400,
+              "height": 60,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "footer-name",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 400,
+                  "height": 24,
+                  "content": "Lee Gordon",
+                  "fontFamily": "$font.display",
+                  "fontSize": 16,
+                  "fontWeight": 600,
+                  "fill": "$color.text"
+                },
+                {
+                  "id": "footer-location",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 400,
+                  "height": 20,
+                  "content": "Heredia, Costa Rica · UTC-6",
+                  "fontFamily": "$font.mono",
+                  "fontSize": 12,
+                  "fontWeight": 400,
+                  "fill": "$color.muted"
+                }
+              ]
+            },
+            {
+              "id": "footer-links",
+              "type": "frame",
+              "name": "Footer Links",
+              "x": 0,
+              "y": 0,
+              "width": 320,
+              "height": 40,
+              "layout": "horizontal",
+              "justifyContent": "flex_end",
+              "alignItems": "center",
+              "gap": 32,
+              "children": [
+                {
+                  "id": "footer-github",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 20,
+                  "content": "GitHub",
+                  "fontFamily": "$font.mono",
+                  "fontSize": 13,
+                  "fontWeight": 400,
+                  "fill": "$color.muted"
+                },
+                {
+                  "id": "footer-dribbble",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 20,
+                  "content": "Dribbble",
+                  "fontFamily": "$font.mono",
+                  "fontSize": 13,
+                  "fontWeight": 400,
+                  "fill": "$color.muted"
+                },
+                {
+                  "id": "footer-email",
+                  "type": "text",
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 20,
+                  "content": "Email",
+                  "fontFamily": "$font.mono",
+                  "fontSize": 13,
+                  "fontWeight": 400,
+                  "fill": "$color.muted"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
