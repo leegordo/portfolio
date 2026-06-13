@@ -86,7 +86,7 @@ export interface FooterContent {
 
 const contentDirectory = path.join(process.cwd(), "content");
 
-/** Filter out nulls from Tina's nullable arrays */
+/** Filter out nulls from optional array fields in JSON content */
 function compact<T>(arr: (T | null | undefined)[] | null | undefined): T[] {
   return (arr ?? []).filter((item): item is T => item != null);
 }

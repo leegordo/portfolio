@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
+    "dev": "next dev",
     "build": "next build",
-    "build:cloud": "tinacms build && next build",
-    "start": "tinacms dev -c \"next start\"",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
