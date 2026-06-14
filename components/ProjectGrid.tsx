@@ -13,15 +13,15 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
     <section id="work" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+          <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
             02 — Selected Work
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+          <h2 className="font-display text-display-md font-bold text-primary mb-16">
             Projects &amp;<br />
-            <span className="text-[#e85a8a]">case studies</span>
+            <span className="text-accent">case studies</span>
           </h2>
         </ScrollReveal>
 

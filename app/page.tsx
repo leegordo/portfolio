@@ -13,13 +13,13 @@ export default function HomePage() {
 
       {/* Trust Strip */}
       <section className="px-6 md:px-12">
-        <div className="border-t border-b border-white/[0.08] py-6 flex items-center gap-8 md:gap-12 flex-wrap">
-          <span className="font-mono text-[0.65rem] text-[#4a4a60] uppercase tracking-[0.2em] shrink-0">
+        <div className="border-t border-b border-subtle py-6 flex items-center gap-8 md:gap-12 flex-wrap">
+          <span className="font-mono text-[0.65rem] text-faint uppercase tracking-[0.2em] shrink-0">
             Trusted by
           </span>
           <div className="flex flex-wrap gap-x-8 md:gap-x-12 gap-y-3">
             {["Fold", "Lightning Labs", "Qantas", "Nokia", "CZI", "StickerGiant"].map((name) => (
-              <span key={name} className="text-[0.9rem] font-medium text-[#6a6a85] tracking-[0.02em]">
+              <span key={name} className="text-[0.9rem] font-medium text-tertiary tracking-[0.02em]">
                 {name}
               </span>
             ))}
@@ -31,13 +31,13 @@ export default function HomePage() {
       <section id="services" className="py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+            <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
               01 — Services
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
-              Design <span className="text-[#e85a8a]">leadership</span>
+            <h2 className="font-display text-display-md font-bold text-primary mb-16">
+              Design <span className="text-accent">leadership</span>
               <br />
               for the AI era
             </h2>
@@ -65,10 +65,10 @@ export default function HomePage() {
               },
             ].map((service, i) => (
               <ScrollReveal key={service.title} delay={0.15 + i * 0.1}>
-                <div className="p-8 md:p-10 border border-white/[0.08] -m-px hover:border-[rgba(232,90,138,0.2)] hover:bg-[rgba(232,90,138,0.02)] transition-all duration-300">
-                  <div className="font-mono text-[0.7rem] text-[#4a4a60] mb-6">{service.num}</div>
-                  <h3 className="text-[1.3rem] font-semibold text-[#e8e8f0] mb-4">{service.title}</h3>
-                  <p className="text-[0.95rem] text-[#a0a0b8] font-light leading-relaxed">
+                <div className="p-8 md:p-10 border border-subtle -m-px hover:border-accent-glow hover:bg-accent-muted transition-all duration-300">
+                  <div className="font-mono text-[0.7rem] text-faint mb-6">{service.num}</div>
+                  <h3 className="text-[1.3rem] font-semibold text-primary mb-4">{service.title}</h3>
+                  <p className="text-[0.95rem] text-secondary font-light leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -84,15 +84,15 @@ export default function HomePage() {
       <section id="approach" className="py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+            <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
               03 — Testimonials
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+            <h2 className="font-display text-display-md font-bold text-primary mb-16">
               Results that
               <br />
-              <span className="text-[#e85a8a]">speak</span>
+              <span className="text-accent">speak</span>
             </h2>
           </ScrollReveal>
 
@@ -121,17 +121,17 @@ export default function HomePage() {
               },
             ].map((t, i) => (
               <ScrollReveal key={i} delay={0.15 + i * 0.1}>
-                <div className="p-8 border border-white/[0.08] relative hover:border-white/[0.12] transition-colors duration-300 h-full flex flex-col">
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#e85a8a] to-transparent opacity-40" />
-                  <span className="font-mono text-[0.7rem] text-[#f080a0] mb-6 block">
+                <div className="p-8 border border-subtle relative hover:border-hover transition-colors duration-300 h-full flex flex-col">
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-transparent opacity-40" />
+                  <span className="font-mono text-[0.7rem] text-accent-soft mb-6 block">
                     {t.metric}
                   </span>
-                  <blockquote className="text-[1.05rem] text-[#a0a0b8] font-light leading-relaxed mb-8 flex-1">
+                  <blockquote className="text-[1.05rem] text-secondary font-light leading-relaxed mb-8 flex-1">
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <div>
-                    <p className="font-semibold text-[0.9rem] text-[#e8e8f0]">{t.name}</p>
-                    {t.title && <p className="text-[0.8rem] text-[#6a6a85] mt-1">{t.title}</p>}
+                    <p className="font-semibold text-[0.9rem] text-primary">{t.name}</p>
+                    {t.title && <p className="text-[0.8rem] text-tertiary mt-1">{t.title}</p>}
                   </div>
                 </div>
               </ScrollReveal>
@@ -141,18 +141,18 @@ export default function HomePage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/[0.08]">
+      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-subtle">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-4">
+            <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
               04 — Engage
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-md font-bold text-[#e8e8f0] mb-16">
+            <h2 className="font-display text-display-md font-bold text-primary mb-16">
               Three ways
               <br />
-              to <span className="text-[#e85a8a]">work</span>
+              to <span className="text-accent">work</span>
             </h2>
           </ScrollReveal>
 
@@ -176,20 +176,20 @@ export default function HomePage() {
               },
             ].map((option, i) => (
               <ScrollReveal key={option.tier} delay={0.15 + i * 0.1}>
-                <div className="p-8 border border-white/[0.08] relative overflow-hidden hover:border-white/[0.12] hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#e85a8a] opacity-0 hover:opacity-50 transition-opacity" />
-                  <div className="font-mono text-[0.65rem] text-[#4a4a60] uppercase tracking-[0.2em] mb-4">
+                <div className="p-8 border border-subtle relative overflow-hidden hover:border-hover hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-accent opacity-0 hover:opacity-50 transition-opacity" />
+                  <div className="font-mono text-[0.65rem] text-faint uppercase tracking-[0.2em] mb-4">
                     {option.tier}
                   </div>
-                  <div className="text-[3rem] font-bold text-[#e85a8a] leading-none mb-6">
+                  <div className="text-[3rem] font-bold text-accent leading-none mb-6">
                     {option.price}
                     {option.priceSuffix && (
-                      <span className="text-[1.1rem] text-[#6a6a85] font-normal ml-1">
+                      <span className="text-[1.1rem] text-tertiary font-normal ml-1">
                         {option.priceSuffix}
                       </span>
                     )}
                   </div>
-                  <p className="text-[0.95rem] text-[#a0a0b8] font-light leading-relaxed">
+                  <p className="text-[0.95rem] text-secondary font-light leading-relaxed">
                     {option.desc}
                   </p>
                 </div>
@@ -200,20 +200,20 @@ export default function HomePage() {
       </section>
 
       {/* About teaser */}
-      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-white/[0.08]">
+      <section className="py-24 md:py-32 px-6 md:px-12 border-t border-subtle">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.2em] mb-6">
+            <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-6">
               About
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-display-sm font-bold text-[#e8e8f0] mb-6">
+            <h2 className="font-display text-display-sm font-bold text-primary mb-6">
               Over 15 years shaping digital products
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="text-[#a0a0b8] text-lg leading-relaxed mb-8 font-light">
+            <p className="text-secondary text-lg leading-relaxed mb-8 font-light">
               From R/GA to Nokia to leading design at Fold, I&apos;ve built and scaled design teams,
               launched products used by millions, and helped organizations discover what thoughtful
               design can really do. Now I&apos;m focused on the most interesting design problem of the
@@ -223,7 +223,7 @@ export default function HomePage() {
           <ScrollReveal delay={0.3}>
             <a
               href="/about"
-              className="inline-flex items-center gap-2 text-[#a0a0b8] hover:text-[#e8e8f0] transition-colors duration-300 group"
+              className="inline-flex items-center gap-2 text-secondary hover:text-primary transition-colors duration-300 group"
             >
               Learn more about me
               <svg

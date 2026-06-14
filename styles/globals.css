@@ -1,20 +1,19 @@
+@import "./themes.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --accent: #e85a8a;
-    --accent-soft: #f080a0;
-    --accent-muted: rgba(232, 90, 138, 0.12);
-    --surface: #0c0c10;
-    --surface-50: #14141c;
-    --surface-100: #1a1a22;
-    --surface-200: #22222c;
-    --text: #e8e8f0;
-    --text-body: #a0a0b8;
-    --text-muted: #6a6a85;
-    --text-faint: #4a4a60;
+  html {
+    color-scheme: dark;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  html[data-theme="gelato"],
+  html[data-theme="vellum"],
+  html[data-theme="tessera"] {
+    color-scheme: light;
   }
 
   * {
@@ -30,12 +29,14 @@
   }
 
   body {
-    @apply bg-surface text-[#e8e8f0] min-h-screen;
+    @apply bg-bg text-primary min-h-screen;
+    font-family: var(--font-body);
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   ::selection {
-    background: rgba(232, 90, 138, 0.3);
-    color: #fff;
+    background: var(--selection-bg);
+    color: var(--selection-text);
   }
 
   ::-webkit-scrollbar {
@@ -43,16 +44,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #0c0c10;
+    background: var(--scrollbar-track);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: var(--scrollbar-thumb);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--scrollbar-thumb-hover);
   }
 }
 
@@ -70,15 +71,15 @@
 
 /* MDX Content Styles */
 .mdx-content h1 {
-  @apply font-display text-display-md text-white mt-16 mb-6;
+  @apply font-display text-display-md text-primary mt-16 mb-6;
 }
 
 .mdx-content h2 {
-  @apply font-display text-display-sm text-white mt-12 mb-4;
+  @apply font-display text-display-sm text-primary mt-12 mb-4;
 }
 
 .mdx-content h3 {
-  @apply font-display text-xl text-white mt-8 mb-3;
+  @apply font-display text-xl text-primary mt-8 mb-3;
 }
 
 .mdx-content p {
@@ -103,7 +104,8 @@
 }
 
 .mdx-content blockquote {
-  @apply border-l-2 border-accent/40 pl-6 my-8 italic text-muted;
+  @apply border-l-2 pl-6 my-8 italic text-muted;
+  border-left-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .mdx-content img {
@@ -111,15 +113,15 @@
 }
 
 .mdx-content a {
-  @apply text-accent-soft hover:text-white underline underline-offset-4 transition-colors;
+  @apply text-accent-soft hover:text-primary underline underline-offset-4 transition-colors;
 }
 
 .mdx-content hr {
-  @apply my-12 border-white/10;
+  @apply my-12 border-subtle;
 }
 
 .mdx-content strong {
-  @apply text-white font-semibold;
+  @apply text-primary font-semibold;
 }
 
 .mdx-content code {

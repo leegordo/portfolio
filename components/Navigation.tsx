@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeCartButton } from "@/components/ThemeCart";
 
 const navLinks = [
   { href: "#work", label: "Work" },
@@ -53,40 +54,43 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[0.8rem] font-medium text-[#6a6a85] hover:text-[#e8e8f0] transition-colors duration-300 uppercase tracking-[0.1em]"
+                className="text-[0.8rem] font-medium text-tertiary hover:text-primary transition-colors duration-300 uppercase tracking-[0.1em]"
               >
                 {link.label}
               </a>
             ))}
+            <ThemeCartButton />
             <a
               href="#contact"
-              className="text-[0.8rem] font-medium text-[#e85a8a] hover:text-[#f080a0] transition-colors duration-300 uppercase tracking-[0.1em]"
+              className="text-[0.8rem] font-medium text-accent hover:text-accent-soft transition-colors duration-300 uppercase tracking-[0.1em]"
             >
               Get in touch
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative w-8 h-8 flex items-center justify-center"
-            aria-label="Toggle menu"
-          >
-            <div className="flex flex-col gap-1.5">
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                className="block w-6 h-px bg-[#e8e8f0] origin-center"
-              />
-              <motion.span
-                animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="block w-6 h-px bg-[#e8e8f0]"
-              />
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-                className="block w-6 h-px bg-[#e8e8f0] origin-center"
-              />
-            </div>
-          </button>
+          <div className="flex md:hidden items-center gap-4">
+            <ThemeCartButton />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="relative w-8 h-8 flex items-center justify-center"
+              aria-label="Toggle menu"
+            >
+              <div className="flex flex-col gap-1.5">
+                <motion.span
+                  animate={isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                  className="block w-6 h-px bg-primary origin-center"
+                />
+                <motion.span
+                  animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                  className="block w-6 h-px bg-primary"
+                />
+                <motion.span
+                  animate={isMobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                  className="block w-6 h-px bg-primary origin-center"
+                />
+              </div>
+            </button>
+          </div>
         </nav>
       </motion.header>
 
@@ -98,7 +102,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0c0c10]/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 bg-bg/98 backdrop-blur-xl md:hidden"
           >
             <motion.nav
               initial={{ opacity: 0, y: 20 }}
@@ -119,8 +123,8 @@ export default function Navigation() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`font-display text-3xl transition-colors ${
                       link.label === "Get in touch"
-                        ? "text-[#e85a8a] hover:text-[#f080a0]"
-                        : "text-[#e8e8f0] hover:text-[#a0a0b8]"
+                        ? "text-accent hover:text-accent-soft"
+                        : "text-primary hover:text-secondary"
                     }`}
                   >
                     {link.label}

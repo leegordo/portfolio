@@ -23,10 +23,10 @@ export default function ProjectCard({ slug, frontmatter, index, reverse = false 
     >
       <Link
         href={`/projects/${slug}`}
-        className="group grid grid-cols-1 md:grid-cols-2 border border-white/[0.08] hover:border-white/[0.15] transition-all duration-300 overflow-hidden"
+        className="group grid grid-cols-1 md:grid-cols-2 border border-subtle hover:border-hover transition-all duration-300 overflow-hidden"
       >
         {/* Visual */}
-        <div className={`relative aspect-[16/10] bg-[#14141c] flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
+        <div className={`relative aspect-[16/10] bg-surface-50 flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
           {frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}
@@ -36,28 +36,28 @@ export default function ProjectCard({ slug, frontmatter, index, reverse = false 
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           ) : (
-            <span className="font-mono text-[0.7rem] text-[#4a4a60] uppercase tracking-[0.1em]">
+            <span className="font-mono text-[0.7rem] text-faint uppercase tracking-[0.1em]">
               {frontmatter.title}
             </span>
           )}
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,rgba(232,90,138,0.02)_4px,rgba(232,90,138,0.02)_5px)]" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_5px)]" />
         </div>
 
         {/* Info */}
         <div className={`p-8 md:p-12 flex flex-col justify-center ${reverse ? "md:order-1" : ""}`}>
-          <div className="font-mono text-[0.65rem] text-[#f080a0] uppercase tracking-[0.15em] mb-3">
+          <div className="font-mono text-[0.65rem] text-accent-soft uppercase tracking-[0.15em] mb-3">
             {frontmatter.client} — {frontmatter.year} — {frontmatter.role}
           </div>
-          <h3 className="font-display text-2xl font-bold text-[#e8e8f0] mb-4 tracking-[-0.02em]">
+          <h3 className="font-display text-2xl font-bold text-primary mb-4 tracking-[-0.02em]">
             {frontmatter.title}
           </h3>
           {frontmatter.summary && (
-            <p className="text-[#a0a0b8] text-[0.95rem] leading-relaxed font-light mb-6">
+            <p className="text-secondary text-[0.95rem] leading-relaxed font-light mb-6">
               {frontmatter.summary}
             </p>
           )}
           {frontmatter.metric && (
-            <span className="inline-block self-start font-mono text-[0.7rem] text-[#f080a0] px-4 py-2 border border-[rgba(232,90,138,0.15)] bg-[rgba(232,90,138,0.05)]">
+            <span className="inline-block self-start font-mono text-[0.7rem] text-accent-soft px-4 py-2 border border-accent-border bg-accent-muted">
               {frontmatter.metric}
             </span>
           )}

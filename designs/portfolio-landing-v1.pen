@@ -1,23 +1,355 @@
 {
   "version": "2.13",
-  "variables": {
-    "color-bg": { "type": "color", "value": "#0c0c10" },
-    "color-surface": { "type": "color", "value": "#14141c" },
-    "color-text": { "type": "color", "value": "#e8e8f0" },
-    "color-muted": { "type": "color", "value": "#a0a0b8" },
-    "color-accent": { "type": "color", "value": "#e85a8a" },
-    "color-border": { "type": "color", "value": "#1a1a22" },
-    "font-display": { "type": "string", "value": "Space Grotesk" },
-    "font-mono": { "type": "string", "value": "JetBrains Mono" }
-  },
-  "imports": {},
   "children": [
     {
-      "id": "artboard",
       "type": "frame",
+      "id": "artboard",
+      "x": 1442,
+      "y": 157,
+      "name": "Color-Changer-Overlay",
+      "width": 1440,
+      "height": 791,
+      "fill": "#14141cff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "hero",
+          "x": 0,
+          "y": 0,
+          "name": "Hero",
+          "width": 1440,
+          "height": 700,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            0,
+            80
+          ],
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "RqDCf",
+              "name": "screenshot of the website.",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "../image.png",
+                "mode": "fill"
+              },
+              "width": 617,
+              "height": 433
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "c05N4",
+          "x": 1262,
+          "y": 355,
+          "fill": "$color-muted",
+          "content": "Purple Haze",
+          "fontFamily": "$font-mono",
+          "fontSize": 18,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "bLN1q",
+          "x": 1212.5,
+          "y": 289,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 47,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "czTpv",
+          "x": 1212.5,
+          "y": 306,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 47,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "zmL9K",
+          "x": 1212.5,
+          "y": 323,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 47,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "k56pv",
+          "x": 1212.5,
+          "y": 340,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 47,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "ellipse",
+          "id": "mgaLu",
+          "x": 1225,
+          "y": 357,
+          "fill": "#CCCCCC",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "type": "ellipse",
+          "id": "m94eAI",
+          "x": 1231.5,
+          "y": 379,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "text",
+          "id": "Q2nY7",
+          "x": 1212.5,
+          "y": 388,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 47,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "ellipse",
+          "id": "S8Q7g",
+          "x": 1231.5,
+          "y": 405,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "EjCuS",
+          "x": 1231.5,
+          "y": 414,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "qbkAW",
+          "x": 1231.5,
+          "y": 423,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "AMvvd",
+          "x": 1231.5,
+          "y": 432,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "text",
+          "id": "KqqAv",
+          "x": 1150,
+          "y": 441,
+          "fill": "$color-text",
+          "content": "Select Skin",
+          "fontFamily": "$font-display",
+          "fontSize": 32,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "zg0q7",
+      "x": -2374,
+      "y": -7,
+      "name": "Frame 1",
+      "clip": true,
+      "width": 487,
+      "height": 328,
+      "fill": "#14141cff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "sL2WS",
+          "x": 32,
+          "y": 54,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../image.png",
+            "mode": "fill"
+          },
+          "width": 312,
+          "height": 219
+        },
+        {
+          "type": "ellipse",
+          "id": "xHPG5",
+          "x": 374,
+          "y": 137,
+          "fill": "#CCCCCC",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "type": "text",
+          "id": "hero-desc",
+          "x": 364,
+          "y": 95,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 47,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "ellipse",
+          "id": "Ps67z",
+          "x": 351,
+          "y": 99,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "J0MBp",
+          "x": 351,
+          "y": 131.00561868360523,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "pOWec",
+          "x": 351,
+          "y": 160.13417259883897,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "yDD12",
+          "x": 351,
+          "y": 174.69844955645578,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "ellipse",
+          "id": "w9GKHV",
+          "x": 351,
+          "y": 189.2627265140726,
+          "fill": "#CCCCCC",
+          "width": 9,
+          "height": 9
+        },
+        {
+          "type": "text",
+          "id": "gn403",
+          "x": 401,
+          "y": 140,
+          "fill": "$color-muted",
+          "textGrowth": "fixed-width-height",
+          "width": 54,
+          "height": 17,
+          "content": "Gelato",
+          "lineHeight": 1.5,
+          "fontFamily": "$font-display",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "g3rOPu",
+      "x": -3336,
+      "y": -46,
+      "fill": "#000000",
+      "content": "Void Rose\nJun 14 — dark, editorial, portfolio, minimal\nView →\nGelato\nJun 13 — playful, light, editorial, memphis\nView →\nCinnabar\nJun 12 — dark, lacquer, editorial, east-asian\nView →\nVellum\nJun 11 — editorial, archival, manuscript, light\nView →\nTessera\nJun 10 — warm, editorial, mediterranean, light\nView →\nIsfjord\nJun 9 — minimal, nordic, cool, light\nView →\nCrépuscule\nJun 8 — editorial, art-deco, warm, light\nView →\nKonshu\nJun 7 — brutalist, neon, dark, urban\nView →\nHalftone Fever\nJun 6 — risograph, zine, print, editorial\nView →\nAbyssal\nJun 5 — dark, bioluminescent, minimal\nView →\nSablier\nJun 4 — editorial, brutalist, warm\n",
+      "fontFamily": "Inter",
+      "fontSize": 12,
+      "fontWeight": "normal"
+    },
+    {
+      "type": "rectangle",
+      "id": "ZfsN2",
+      "x": -1780,
+      "y": -265,
+      "fill": {
+        "type": "image",
+        "enabled": true,
+        "url": "../image1.png",
+        "mode": "fill"
+      },
+      "width": 868,
+      "height": 1706
+    },
+    {
+      "type": "text",
+      "id": "BI8qS",
+      "x": -1991,
+      "y": 107,
+      "fill": "$color-muted",
+      "content": "Product design · React · Netlify",
+      "fontFamily": "$font-mono",
+      "fontSize": 13,
+      "fontWeight": "normal"
+    },
+    {
+      "type": "frame",
+      "id": "vctBg",
+      "x": -554,
+      "y": 68,
       "name": "Portfolio Landing — Desktop",
-      "x": 0,
-      "y": 0,
       "width": 1440,
       "height": 2400,
       "fill": "$color-bg",
@@ -25,168 +357,127 @@
       "alignItems": "center",
       "children": [
         {
-          "id": "nav",
           "type": "frame",
+          "id": "SKjD2",
           "name": "Nav",
-          "x": 0,
-          "y": 0,
           "width": 1440,
           "height": 80,
-          "layout": "horizontal",
+          "padding": [
+            0,
+            80
+          ],
           "justifyContent": "space_between",
           "alignItems": "center",
-          "padding": [0, 80, 0, 80],
           "children": [
             {
-              "id": "logo",
               "type": "frame",
+              "id": "YV554",
               "name": "LG Logo",
-              "x": 0,
-              "y": 0,
               "width": 48,
               "height": 48,
               "fill": "$color-text",
               "cornerRadius": 8,
               "children": [
                 {
-                  "id": "logo-text",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 48,
-                  "height": 48,
+                  "id": "dfSc8",
+                  "fill": "$color-bg",
                   "content": "LG",
+                  "textAlignVertical": "center",
                   "fontFamily": "$font-display",
                   "fontSize": 20,
-                  "fontWeight": 700,
-                  "fill": "$color-bg",
-                  "textAlignHorizontal": "center",
-                  "textAlignVertical": "center"
+                  "fontWeight": "normal"
                 }
               ]
             },
             {
-              "id": "nav-links",
               "type": "frame",
+              "id": "mRfsV",
               "name": "Nav Links",
-              "x": 0,
-              "y": 0,
               "width": 320,
               "height": 48,
-              "layout": "horizontal",
-              "justifyContent": "flex_end",
-              "alignItems": "center",
               "gap": 40,
+              "alignItems": "center",
               "children": [
                 {
-                  "id": "nav-work",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 60,
-                  "height": 24,
+                  "id": "p4g690",
+                  "fill": "$color-muted",
                   "content": "Work",
                   "fontFamily": "$font-display",
                   "fontSize": 15,
-                  "fontWeight": 500,
-                  "fill": "$color-muted",
-                  "textAlignHorizontal": "right"
+                  "fontWeight": "normal"
                 },
                 {
-                  "id": "nav-about",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 60,
-                  "height": 24,
+                  "id": "NY8lf",
+                  "fill": "$color-muted",
                   "content": "About",
                   "fontFamily": "$font-display",
                   "fontSize": 15,
-                  "fontWeight": 500,
-                  "fill": "$color-muted",
-                  "textAlignHorizontal": "right"
+                  "fontWeight": "normal"
                 },
                 {
-                  "id": "nav-contact",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 60,
-                  "height": 24,
+                  "id": "PNEPD",
+                  "fill": "$color-muted",
                   "content": "Contact",
                   "fontFamily": "$font-display",
                   "fontSize": 15,
-                  "fontWeight": 500,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "NXGu4",
                   "fill": "$color-muted",
-                  "textAlignHorizontal": "right"
+                  "content": "Skin",
+                  "fontFamily": "$font-display",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
                 }
               ]
             }
           ]
         },
         {
-          "id": "hero",
           "type": "frame",
+          "id": "hhvcj",
           "name": "Hero",
-          "x": 0,
-          "y": 0,
           "width": 1440,
           "height": 700,
           "layout": "vertical",
-          "justifyContent": "center",
-          "alignItems": "flex_start",
-          "padding": [0, 80, 0, 80],
           "gap": 24,
+          "padding": [
+            0,
+            80
+          ],
+          "justifyContent": "center",
           "children": [
             {
-              "id": "hero-label",
               "type": "text",
-              "x": 0,
-              "y": 0,
-              "width": 400,
-              "height": 20,
+              "id": "N251Wn",
+              "fill": "$color-accent",
               "content": "Product Designer · Heredia, Costa Rica",
               "fontFamily": "$font-mono",
               "fontSize": 13,
-              "fontWeight": 400,
-              "fill": "$color-accent",
+              "fontWeight": "normal",
               "letterSpacing": 0.08
             },
             {
-              "id": "hero-name",
               "type": "text",
-              "x": 0,
-              "y": 0,
-              "width": 800,
-              "height": 120,
+              "id": "R3ZOtx",
+              "fill": "$color-text",
               "content": "Lee Gordon",
+              "lineHeight": 1.1,
               "fontFamily": "$font-display",
               "fontSize": 96,
-              "fontWeight": 700,
-              "fill": "$color-text",
-              "lineHeight": 1.1,
+              "fontWeight": "normal",
               "letterSpacing": -0.02
             },
             {
-              "id": "hero-desc",
-              "type": "text",
-              "x": 0,
-              "y": 0,
-              "width": 560,
-              "height": 80,
-              "content": "Designing interfaces, systems, and brands for teams that care about craft. Currently building at StickerGiant.",
-              "fontFamily": "$font-display",
-              "fontSize": 20,
-              "fontWeight": 400,
-              "fill": "$color-muted",
-              "lineHeight": 1.5
-            },
-            {
-              "id": "hero-cta",
               "type": "frame",
+              "id": "QgdFy",
               "name": "CTA Button",
-              "x": 0,
-              "y": 0,
               "width": 160,
               "height": 48,
               "fill": "$color-accent",
@@ -196,269 +487,214 @@
               "alignItems": "center",
               "children": [
                 {
-                  "id": "hero-cta-text",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 160,
-                  "height": 24,
+                  "id": "C7ezn",
+                  "fill": "$color-bg",
                   "content": "View selected work",
+                  "textAlignVertical": "center",
                   "fontFamily": "$font-display",
                   "fontSize": 14,
-                  "fontWeight": 600,
-                  "fill": "$color-bg",
-                  "textAlignHorizontal": "center",
-                  "textAlignVertical": "center"
+                  "fontWeight": "normal"
                 }
               ]
             }
           ]
         },
         {
-          "id": "projects",
           "type": "frame",
+          "id": "s38pVk",
           "name": "Projects",
-          "x": 0,
-          "y": 0,
           "width": 1440,
           "height": 900,
           "layout": "vertical",
-          "justifyContent": "flex_start",
-          "alignItems": "flex_start",
-          "padding": [120, 80, 0, 80],
           "gap": 64,
+          "padding": [
+            120,
+            80,
+            0,
+            80
+          ],
           "children": [
             {
-              "id": "projects-header",
               "type": "text",
-              "x": 0,
-              "y": 0,
-              "width": 400,
-              "height": 40,
+              "id": "b3bYv",
+              "fill": "$color-text",
               "content": "Selected work",
               "fontFamily": "$font-display",
               "fontSize": 32,
-              "fontWeight": 700,
-              "fill": "$color-text"
+              "fontWeight": "normal"
             },
             {
-              "id": "projects-list",
               "type": "frame",
+              "id": "uiBBj",
               "name": "Projects List",
-              "x": 0,
-              "y": 0,
               "width": 1280,
               "height": 700,
               "layout": "vertical",
               "gap": 2,
               "children": [
                 {
-                  "id": "proj-1",
                   "type": "frame",
+                  "id": "KfP0z",
                   "name": "Project Row — StickerGiant",
-                  "x": 0,
-                  "y": 0,
                   "width": 1280,
                   "height": 160,
                   "fill": "$color-surface",
-                  "layout": "horizontal",
+                  "padding": [
+                    0,
+                    32
+                  ],
                   "justifyContent": "space_between",
                   "alignItems": "center",
-                  "padding": [0, 32, 0, 32],
                   "children": [
                     {
-                      "id": "proj-1-left",
                       "type": "frame",
+                      "id": "ESc1q",
                       "name": "Project Info",
-                      "x": 0,
-                      "y": 0,
                       "width": 600,
                       "height": 80,
                       "layout": "vertical",
-                      "justifyContent": "center",
                       "gap": 8,
+                      "justifyContent": "center",
                       "children": [
                         {
-                          "id": "proj-1-title",
                           "type": "text",
-                          "x": 0,
-                          "y": 0,
-                          "width": 600,
-                          "height": 32,
+                          "id": "mrstJ",
+                          "fill": "$color-text",
                           "content": "StickerGiant Design System",
                           "fontFamily": "$font-display",
                           "fontSize": 22,
-                          "fontWeight": 600,
-                          "fill": "$color-text"
+                          "fontWeight": "normal"
                         },
                         {
-                          "id": "proj-1-meta",
                           "type": "text",
-                          "x": 0,
-                          "y": 0,
-                          "width": 600,
-                          "height": 20,
+                          "id": "RqI0L",
+                          "fill": "$color-muted",
                           "content": "Design system · Component library · Documentation",
                           "fontFamily": "$font-mono",
                           "fontSize": 13,
-                          "fontWeight": 400,
-                          "fill": "$color-muted"
+                          "fontWeight": "normal"
                         }
                       ]
                     },
                     {
-                      "id": "proj-1-arrow",
                       "type": "text",
-                      "x": 0,
-                      "y": 0,
-                      "width": 40,
-                      "height": 40,
+                      "id": "YneI2",
+                      "fill": "$color-accent",
                       "content": "→",
                       "fontFamily": "$font-display",
                       "fontSize": 24,
-                      "fontWeight": 400,
-                      "fill": "$color-accent",
-                      "textAlignHorizontal": "right"
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
-                  "id": "proj-2",
                   "type": "frame",
+                  "id": "xwGPz",
                   "name": "Project Row — Billing Tool",
-                  "x": 0,
-                  "y": 0,
                   "width": 1280,
                   "height": 160,
                   "fill": "$color-surface",
-                  "layout": "horizontal",
+                  "padding": [
+                    0,
+                    32
+                  ],
                   "justifyContent": "space_between",
                   "alignItems": "center",
-                  "padding": [0, 32, 0, 32],
                   "children": [
                     {
-                      "id": "proj-2-left",
                       "type": "frame",
+                      "id": "ZOoTx",
                       "name": "Project Info",
-                      "x": 0,
-                      "y": 0,
                       "width": 600,
                       "height": 80,
                       "layout": "vertical",
-                      "justifyContent": "center",
                       "gap": 8,
+                      "justifyContent": "center",
                       "children": [
                         {
-                          "id": "proj-2-title",
                           "type": "text",
-                          "x": 0,
-                          "y": 0,
-                          "width": 600,
-                          "height": 32,
+                          "id": "CXeQy",
+                          "fill": "$color-text",
                           "content": "Lee Gordon Design — Billing Tool",
                           "fontFamily": "$font-display",
                           "fontSize": 22,
-                          "fontWeight": 600,
-                          "fill": "$color-text"
+                          "fontWeight": "normal"
                         },
                         {
-                          "id": "proj-2-meta",
                           "type": "text",
-                          "x": 0,
-                          "y": 0,
-                          "width": 600,
-                          "height": 20,
+                          "id": "uzXD0",
+                          "fill": "$color-muted",
                           "content": "Product design · React · Netlify",
                           "fontFamily": "$font-mono",
                           "fontSize": 13,
-                          "fontWeight": 400,
-                          "fill": "$color-muted"
+                          "fontWeight": "normal"
                         }
                       ]
                     },
                     {
-                      "id": "proj-2-arrow",
                       "type": "text",
-                      "x": 0,
-                      "y": 0,
-                      "width": 40,
-                      "height": 40,
+                      "id": "oSmw3",
+                      "fill": "$color-accent",
                       "content": "→",
                       "fontFamily": "$font-display",
                       "fontSize": 24,
-                      "fontWeight": 400,
-                      "fill": "$color-accent",
-                      "textAlignHorizontal": "right"
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
-                  "id": "proj-3",
                   "type": "frame",
+                  "id": "NWtfv",
                   "name": "Project Row — 0xCreative",
-                  "x": 0,
-                  "y": 0,
                   "width": 1280,
                   "height": 160,
                   "fill": "$color-surface",
-                  "layout": "horizontal",
+                  "padding": [
+                    0,
+                    32
+                  ],
                   "justifyContent": "space_between",
                   "alignItems": "center",
-                  "padding": [0, 32, 0, 32],
                   "children": [
                     {
-                      "id": "proj-3-left",
                       "type": "frame",
+                      "id": "G7Tv6j",
                       "name": "Project Info",
-                      "x": 0,
-                      "y": 0,
                       "width": 600,
                       "height": 80,
                       "layout": "vertical",
-                      "justifyContent": "center",
                       "gap": 8,
+                      "justifyContent": "center",
                       "children": [
                         {
-                          "id": "proj-3-title",
                           "type": "text",
-                          "x": 0,
-                          "y": 0,
-                          "width": 600,
-                          "height": 32,
+                          "id": "c7wEB",
+                          "fill": "$color-text",
                           "content": "0xCreative — Agent Design Platform",
                           "fontFamily": "$font-display",
                           "fontSize": 22,
-                          "fontWeight": 600,
-                          "fill": "$color-text"
+                          "fontWeight": "normal"
                         },
                         {
-                          "id": "proj-3-meta",
                           "type": "text",
-                          "x": 0,
-                          "y": 0,
-                          "width": 600,
-                          "height": 20,
+                          "id": "xoJ9T",
+                          "fill": "$color-muted",
                           "content": "Brand identity · Design system · GitHub Pages",
                           "fontFamily": "$font-mono",
                           "fontSize": 13,
-                          "fontWeight": 400,
-                          "fill": "$color-muted"
+                          "fontWeight": "normal"
                         }
                       ]
                     },
                     {
-                      "id": "proj-3-arrow",
                       "type": "text",
-                      "x": 0,
-                      "y": 0,
-                      "width": 40,
-                      "height": 40,
+                      "id": "w3BZ95",
+                      "fill": "$color-accent",
                       "content": "→",
                       "fontFamily": "$font-display",
                       "fontSize": 24,
-                      "fontWeight": 400,
-                      "fill": "$color-accent",
-                      "textAlignHorizontal": "right"
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -467,109 +703,83 @@
           ]
         },
         {
-          "id": "footer",
           "type": "frame",
+          "id": "A7pSSg",
           "name": "Footer",
-          "x": 0,
-          "y": 0,
           "width": 1440,
           "height": 200,
           "fill": "$color-surface",
-          "layout": "horizontal",
+          "padding": [
+            0,
+            80
+          ],
           "justifyContent": "space_between",
           "alignItems": "center",
-          "padding": [0, 80, 0, 80],
           "children": [
             {
-              "id": "footer-left",
               "type": "frame",
+              "id": "TgZeB",
               "name": "Footer Info",
-              "x": 0,
-              "y": 0,
               "width": 400,
               "height": 60,
               "layout": "vertical",
               "gap": 8,
               "children": [
                 {
-                  "id": "footer-name",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 400,
-                  "height": 24,
+                  "id": "fHKWE",
+                  "fill": "$color-text",
                   "content": "Lee Gordon",
                   "fontFamily": "$font-display",
                   "fontSize": 16,
-                  "fontWeight": 600,
-                  "fill": "$color-text"
+                  "fontWeight": "normal"
                 },
                 {
-                  "id": "footer-location",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 400,
-                  "height": 20,
+                  "id": "mWrGL",
+                  "fill": "$color-muted",
                   "content": "Heredia, Costa Rica · UTC-6",
                   "fontFamily": "$font-mono",
                   "fontSize": 12,
-                  "fontWeight": 400,
-                  "fill": "$color-muted"
+                  "fontWeight": "normal"
                 }
               ]
             },
             {
-              "id": "footer-links",
               "type": "frame",
+              "id": "XJo2s",
               "name": "Footer Links",
-              "x": 0,
-              "y": 0,
               "width": 320,
               "height": 40,
-              "layout": "horizontal",
-              "justifyContent": "flex_end",
-              "alignItems": "center",
               "gap": 32,
+              "alignItems": "center",
               "children": [
                 {
-                  "id": "footer-github",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 60,
-                  "height": 20,
+                  "id": "EK2Or",
+                  "fill": "$color-muted",
                   "content": "GitHub",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
-                  "fontWeight": 400,
-                  "fill": "$color-muted"
+                  "fontWeight": "normal"
                 },
                 {
-                  "id": "footer-dribbble",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 60,
-                  "height": 20,
+                  "id": "MSp8N",
+                  "fill": "$color-muted",
                   "content": "Dribbble",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
-                  "fontWeight": 400,
-                  "fill": "$color-muted"
+                  "fontWeight": "normal"
                 },
                 {
-                  "id": "footer-email",
                   "type": "text",
-                  "x": 0,
-                  "y": 0,
-                  "width": 60,
-                  "height": 20,
+                  "id": "n3XQx",
+                  "fill": "$color-muted",
                   "content": "Email",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
-                  "fontWeight": 400,
-                  "fill": "$color-muted"
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -577,5 +787,39 @@
         }
       ]
     }
-  ]
+  ],
+  "variables": {
+    "color-bg": {
+      "type": "color",
+      "value": "#0c0c10"
+    },
+    "color-surface": {
+      "type": "color",
+      "value": "#14141c"
+    },
+    "color-text": {
+      "type": "color",
+      "value": "#e8e8f0"
+    },
+    "color-muted": {
+      "type": "color",
+      "value": "#a0a0b8"
+    },
+    "color-accent": {
+      "type": "color",
+      "value": "#e85a8a"
+    },
+    "color-border": {
+      "type": "color",
+      "value": "#1a1a22"
+    },
+    "font-display": {
+      "type": "string",
+      "value": "Space Grotesk"
+    },
+    "font-mono": {
+      "type": "string",
+      "value": "JetBrains Mono"
+    }
+  }
 }

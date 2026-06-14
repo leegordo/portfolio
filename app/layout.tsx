@@ -4,7 +4,9 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import ThemeProvider from "@/components/ThemeProvider";
 import { getFooterContent } from "@/lib/content";
+import { DEFAULT_THEME } from "@/lib/themes";
 import "@/styles/globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -59,12 +61,22 @@ export default function RootLayout({
   const footerContent = getFooterContent();
 
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans bg-surface text-[#e8e8f0] antialiased">
-        <ScrollProgress />
-        <Navigation />
-        <main className="min-h-screen">{children}</main>
-        <Footer content={footerContent} />
+    <html lang="en" data-theme={DEFAULT_THEME} className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Cormorant:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans antialiased">
+        <ThemeProvider>
+          <ScrollProgress />
+          <Navigation />
+          <main className="min-h-screen">{children}</main>
+          <Footer content={footerContent} />
+        </ThemeProvider>
       </body>
     </html>
   );

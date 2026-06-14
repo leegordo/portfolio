@@ -17,7 +17,7 @@ export default function Hero({ content }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-mono text-[0.7rem] text-[#f080a0] uppercase tracking-[0.15em] mb-6">
+          <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.15em] mb-6">
             {content.label}
           </p>
         </motion.div>
@@ -26,17 +26,17 @@ export default function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-display-lg font-bold text-[#e8e8f0] mb-8"
+          className="font-display text-display-lg font-bold text-primary mb-8"
         >
           Lee<br />
-          <span className="text-[#e85a8a]">Gordon.</span>
+          <span className="text-accent">Gordon.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-xl text-[#a0a0b8] max-w-2xl leading-relaxed font-light"
+          className="text-lg md:text-xl text-secondary max-w-2xl leading-relaxed font-light"
         >
           {content.tagline}
         </motion.p>
@@ -49,7 +49,7 @@ export default function Hero({ content }: HeroProps) {
         >
           <Link
             href="#work"
-            className="inline-flex items-center gap-3 px-8 py-4 border border-[#e85a8a] text-[#f080a0] hover:bg-[rgba(232,90,138,0.08)] hover:border-[#f080a0] hover:text-[#e8e8f0] transition-all duration-300 text-[0.85rem] font-medium uppercase tracking-[0.08em]"
+            className="inline-flex items-center gap-3 px-8 py-4 border border-accent text-accent-soft hover:bg-accent-muted hover:border-accent-soft hover:text-primary transition-all duration-300 text-[0.85rem] font-medium uppercase tracking-[0.08em]"
           >
             {content.ctaPrimaryText}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
