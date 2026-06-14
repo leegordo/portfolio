@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="void-rose">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0xcreative — Token Inspector V3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Cormorant:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ========================================
+     THEME VARIABLES
+     ======================================== */
+
+  html[data-theme="void-rose"] {
+    --bg: #0c0c10;
+    --surface: #14141c;
+    --surface-raised: #1a1a24;
+    --text-primary: #e8e8f0;
+    --text-secondary: #a0a0b8;
+    --text-tertiary: #6a6a80;
+    --accent: #e85a8a;
+    --accent-soft: #f080a0;
+    --border: #1a1a22;
+    --on-accent: #0c0c10;
+    --inspector-surface: #14141c;
+    --inspector-border: #1a1a22;
+    --swatch-border: rgba(255,255,255,0.06);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-h1: 'Space Grotesk', sans-serif;
+    --font-h2: 'Space Grotesk', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-label: 'JetBrains Mono', monospace;
+
+    --display-size: clamp(3rem, 8vw, 6rem);
+    --display-weight: 500;
+    --display-line-height: 0.95;
+    --display-letter-spacing: -0.03em;
+
+    --h1-size: clamp(2rem, 4vw, 3.5rem);
+    --h1-weight: 500;
+    --h1-line-height: 1.1;
+    --h1-letter-spacing: -0.02em;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 500;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: -0.01em;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 500;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.05em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="gelato"] {
+    --bg: #FDF6F0;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --text-primary: #1A1410;
+    --text-secondary: #556070;
+    --text-tertiary: #8a8a8a;
+    --accent: #DC1C51;
+    --accent-soft: #4E5FBE;
+    --border: rgba(26,20,16,0.08);
+    --on-accent: #FFFFFF;
+    --inspector-surface: #FFFFFF;
+    --inspector-border: rgba(26,20,16,0.08);
+    --swatch-border: rgba(26,20,16,0.08);
+
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-h1: 'Bricolage Grotesque', sans-serif;
+    --font-h2: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --font-label: 'DM Mono', monospace;
+
+    --display-size: clamp(2.5rem, 7vw, 5rem);
+    --display-weight: 600;
+    --display-line-height: 1.0;
+    --display-letter-spacing: -0.02em;
+
+    --h1-size: clamp(1.75rem, 3.5vw, 3rem);
+    --h1-weight: 600;
+    --h1-line-height: 1.1;
+    --h1-letter-spacing: -0.01em;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 600;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 500;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.05em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="cinnabar"] {
+    --bg: #0E0B0A;
+    --surface: #1D1714;
+    --surface-raised: #2a2018;
+    --text-primary: #F0EAE2;
+    --text-secondary: #8A7870;
+    --text-tertiary: #5a5048;
+    --accent: #BE3D2D;
+    --accent-soft: #C9982A;
+    --border: #1D1714;
+    --on-accent: #0E0B0A;
+    --inspector-surface: #1D1714;
+    --inspector-border: #2a2018;
+    --swatch-border: rgba(255,255,255,0.06);
+
+    --font-display: 'Cormorant', serif;
+    --font-h1: 'Cormorant', serif;
+    --font-h2: 'Cormorant', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Sans', sans-serif;
+    --font-label: 'DM Sans', sans-serif;
+
+    --display-size: clamp(3rem, 8vw, 6rem);
+    --display-weight: 300;
+    --display-line-height: 1.0;
+    --display-letter-spacing: -0.02em;
+
+    --h1-size: clamp(2rem, 4vw, 3.5rem);
+    --h1-weight: 400;
+    --h1-line-height: 1.1;
+    --h1-letter-spacing: -0.01em;
+
+    --h2-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    --h2-weight: 400;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 500;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.08em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="vellum"] {
+    --bg: #F0EADE;
+    --surface: #E4D9C8;
+    --surface-raised: #f5efe4;
+    --text-primary: #2C2418;
+    --text-secondary: #4A4034;
+    --text-tertiary: #6e6048;
+    --accent: #A03030;
+    --accent-soft: #4A6B5E;
+    --border: #E4D9C8;
+    --on-accent: #F0EADE;
+    --inspector-surface: #E4D9C8;
+    --inspector-border: #d9cdb8;
+    --swatch-border: rgba(44,36,24,0.1);
+
+    --font-display: 'Playfair Display', serif;
+    --font-h1: 'Playfair Display', serif;
+    --font-h2: 'Playfair Display', serif;
+    --font-body: 'EB Garamond', serif;
+    --font-mono: 'EB Garamond', serif;
+    --font-label: 'EB Garamond', serif;
+
+    --display-size: clamp(2.5rem, 7vw, 5rem);
+    --display-weight: 400;
+    --display-line-height: 1.05;
+    --display-letter-spacing: -0.01em;
+
+    --h1-size: clamp(1.75rem, 3.5vw, 3rem);
+    --h1-weight: 400;
+    --h1-line-height: 1.15;
+    --h1-letter-spacing: 0;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 500;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.8rem;
+    --label-weight: 600;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.1em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="tessera"] {
+    --bg: #F5EFE4;
+    --surface: #EDE3D3;
+    --surface-raised: #f7f1e8;
+    --text-primary: #2C1810;
+    --text-secondary: #B09878;
+    --text-tertiary: #8a7860;
+    --accent: #AB5527;
+    --accent-soft: #976107;
+    --border: #EDE3D3;
+    --on-accent: #F5EFE4;
+    --inspector-surface: #EDE3D3;
+    --inspector-border: #e0d4c4;
+    --swatch-border: rgba(44,24,16,0.1);
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-h1: 'Cormorant Garamond', serif;
+    --font-h2: 'Cormorant Garamond', serif;
+    --font-body: 'Source Serif 4', serif;
+    --font-mono: 'Source Serif 4', serif;
+    --font-label: 'Source Serif 4', serif;
+
+    --display-size: clamp(2.75rem, 7vw, 5.5rem);
+    --display-weight: 400;
+    --display-line-height: 1.05;
+    --display-letter-spacing: -0.01em;
+
+    --h1-size: clamp(1.75rem, 3.5vw, 3rem);
+    --h1-weight: 400;
+    --h1-line-height: 1.15;
+    --h1-letter-spacing: 0;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 500;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 600;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.05em;
+    --label-transform: uppercase;
+  }
+
+  /* ========================================
+     LAYOUT: SPLIT VIEW
+     ======================================== */
+
+  .page {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .main {
+    flex: 1;
+    min-width: 0;
+    padding-right: 340px;
+    transition: padding-right 0.3s ease;
+  }
+
+  .inspector {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 340px;
+    height: 100vh;
+    background: var(--inspector-surface);
+    border-left: 1px solid var(--inspector-border);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 200;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .inspector::-webkit-scrollbar {
+    width: 4px;
+  }
+  .inspector::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .inspector::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  /* ========================================
+     MAIN CONTENT
+     ======================================== */
+
+  .container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-brand {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .nav-meta {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: var(--display-size);
+    font-weight: var(--display-weight);
+    line-height: var(--display-line-height);
+    letter-spacing: var(--display-letter-spacing);
+    color: var(--text-primary);
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-body {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--on-accent);
+    background: var(--accent);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    background: var(--accent-soft);
+  }
+
+  /* Work */
+  .work {
+    padding: 2rem 0 5rem;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+    margin-bottom: 1.5rem;
+  }
+
+  .work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .work-item {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+  }
+
+  .work-item:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .work-item h3 {
+    font-family: var(--font-h2);
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .work-item p {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    color: var(--text-secondary);
+    max-width: 520px;
+  }
+
+  .work-item .meta {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+    margin-top: 0.5rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+  }
+
+  /* ========================================
+     INSPECTOR PANEL
+     ======================================== */
+
+  .inspector-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--inspector-surface);
+    border-bottom: 1px solid var(--inspector-border);
+    padding: 1rem 1.25rem;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .inspector-title {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 0.25rem;
+  }
+
+  .inspector-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+
+  .inspector-section {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--inspector-border);
+    transition: border-color 0.4s ease;
+  }
+
+  .inspector-section:last-child {
+    border-bottom: none;
+  }
+
+  .inspector-section-title {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 1rem;
+  }
+
+  /* Theme picker */
+  .theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 0.625rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .theme-option:hover {
+    background: var(--bg);
+  }
+
+  .theme-option.active {
+    border-color: var(--accent);
+    background: var(--bg);
+  }
+
+  .theme-option-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    border: 1px solid var(--swatch-border);
+  }
+
+  .theme-option-name {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  .theme-option-date {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-tertiary);
+  }
+
+  /* Color swatches */
+  .token-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .token-color {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background: var(--bg);
+    border: 1px solid var(--inspector-border);
+    transition: border-color 0.4s ease;
+  }
+
+  .token-color-swatch {
+    width: 22px;
+    height: 22px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    border: 1px solid var(--swatch-border);
+  }
+
+  .token-color-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .token-color-name {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .token-color-hex {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+  }
+
+  /* Typography tokens */
+  .type-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .type-token {
+    background: var(--bg);
+    border: 1px solid var(--inspector-border);
+    border-radius: 3px;
+    padding: 0.625rem 0.75rem;
+    transition: border-color 0.4s ease;
+  }
+
+  .type-token-name {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 0.375rem;
+  }
+
+  .type-token-preview {
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .type-token-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .type-token-spec {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+
+  .type-token-spec span {
+    color: var(--text-tertiary);
+  }
+
+  /* ========================================
+     MOBILE INSPECTOR DRAWER
+     ======================================== */
+
+  .inspector-toggle {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 300;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--on-accent);
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .main {
+      padding-right: 0;
+    }
+
+    .inspector {
+      width: 100%;
+      height: 60vh;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-left: none;
+      border-top: 1px solid var(--inspector-border);
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .inspector.open {
+      transform: translateY(0);
+    }
+
+    .inspector-toggle {
+      display: flex;
+    }
+
+    .hero {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .container {
+      padding: 0 1.25rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .token-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="#" class="nav-brand">0xcreative</a>
+        <span class="nav-meta">v3-token-inspector</span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Design systems &mdash; Daily</p>
+        <h1 class="hero-title">Honest craft,<br>token by token.</h1>
+        <p class="hero-body">We generate complete design systems every day. Colors, type, spacing, components&mdash;all named with purpose and tuned by eye. Switch themes in the inspector to see the system breathe.</p>
+        <a href="#" class="hero-cta">View latest system &rarr;</a>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="container">
+        <p class="section-eyebrow">Selected work</p>
+        <div class="work-list">
+          <div class="work-item">
+            <h3>Void Rose</h3>
+            <p>Dark editorial portfolio for independent publishers. Deep warm voids, muted text, and a single warm pink accent.</p>
+            <p class="meta">2026-06-14 &mdash; Editorial</p>
+          </div>
+          <div class="work-item">
+            <h3>Gelato</h3>
+            <p>Italian pastel Memphis revival for a generative art collective. Sorbet pinks, pistachio greens, limoncello golds.</p>
+            <p class="meta">2026-06-13 &mdash; Identity</p>
+          </div>
+          <div class="work-item">
+            <h3>Cinnabar</h3>
+            <p>East Asian lacquerware meets print room. Vermillion, gold, and jade on ink-black grounds.</p>
+            <p class="meta">2026-06-12 &mdash; Gallery</p>
+          </div>
+          <div class="work-item">
+            <h3>Vellum</h3>
+            <p>Iron gall ink on manuscript. Verdigris, vermillion, and ochre for a literary press.</p>
+            <p class="meta">2026-06-11 &mdash; Publishing</p>
+          </div>
+          <div class="work-item">
+            <h3>Tessera</h3>
+            <p>Mediterranean mosaic warmth. Terracotta, saffron, and olive on parchment.</p>
+            <p class="meta">2026-06-10 &mdash; Studio</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span class="footer-copy">&copy; 2026 0xcreative</span>
+        <span class="footer-copy">Token Inspector v3</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- INSPECTOR PANEL -->
+  <aside class="inspector" id="inspector">
+
+    <div class="inspector-header">
+      <div class="inspector-title">Token Inspector</div>
+      <div class="inspector-subtitle">Raw design tokens for the active theme</div>
+    </div>
+
+    <!-- Theme Picker -->
+    <div class="inspector-section">
+      <div class="inspector-section-title">Theme</div>
+      <div class="theme-list" id="theme-list">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Colors -->
+    <div class="inspector-section">
+      <div class="inspector-section-title">Colors</div>
+      <div class="token-grid" id="color-tokens">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="inspector-section">
+      <div class="inspector-section-title">Typography</div>
+      <div class="type-stack" id="type-tokens">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+  </aside>
+
+  <button class="inspector-toggle" id="inspector-toggle" aria-label="Open inspector">TOK</button>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ============================================================
+  // THEME DEFINITIONS — raw tokens exposed to the inspector
+  // ============================================================
+
+  const themes = {
+    'void-rose': {
+      name: 'Void Rose',
+      date: '2026-06-14',
+      swatch: '#e85a8a',
+      colors: [
+        { name: 'bg', hex: '#0c0c10', cssVar: '--bg' },
+        { name: 'surface', hex: '#14141c', cssVar: '--surface' },
+        { name: 'text-primary', hex: '#e8e8f0', cssVar: '--text-primary' },
+        { name: 'text-secondary', hex: '#a0a0b8', cssVar: '--text-secondary' },
+        { name: 'accent', hex: '#e85a8a', cssVar: '--accent' },
+        { name: 'accent-soft', hex: '#f080a0', cssVar: '--accent-soft' },
+        { name: 'border', hex: '#1a1a22', cssVar: '--border' },
+      ],
+      typography: {
+        display:  { family: 'Space Grotesk', size: 'clamp(3rem, 8vw, 6rem)', weight: '500', lineHeight: '0.95', letterSpacing: '-0.03em' },
+        h1:       { family: 'Space Grotesk', size: 'clamp(2rem, 4vw, 3.5rem)', weight: '500', lineHeight: '1.1', letterSpacing: '-0.02em' },
+        h2:       { family: 'Space Grotesk', size: 'clamp(1.25rem, 2vw, 1.75rem)', weight: '500', lineHeight: '1.2', letterSpacing: '-0.01em' },
+        body:     { family: 'Space Grotesk', size: '1.125rem', weight: '400', lineHeight: '1.65', letterSpacing: '0' },
+        label:    { family: 'JetBrains Mono', size: '0.75rem', weight: '500', lineHeight: '1.4', letterSpacing: '0.05em' },
+      }
+    },
+    'gelato': {
+      name: 'Gelato',
+      date: '2026-06-13',
+      swatch: '#DC1C51',
+      colors: [
+        { name: 'bg', hex: '#FDF6F0', cssVar: '--bg' },
+        { name: 'surface', hex: '#FFFFFF', cssVar: '--surface' },
+        { name: 'text-primary', hex: '#1A1410', cssVar: '--text-primary' },
+        { name: 'text-secondary', hex: '#556070', cssVar: '--text-secondary' },
+        { name: 'sorbet', hex: '#DC1C51', cssVar: '--accent' },
+        { name: 'pistachio', hex: '#437E51', cssVar: '--accent-soft' },
+        { name: 'periwinkle', hex: '#4E5FBE', cssVar: '--periwinkle' },
+        { name: 'limoncello', hex: '#926B07', cssVar: '--limoncello' },
+      ],
+      typography: {
+        display:  { family: 'Bricolage Grotesque', size: 'clamp(2.5rem, 7vw, 5rem)', weight: '600', lineHeight: '1.0', letterSpacing: '-0.02em' },
+        h1:       { family: 'Bricolage Grotesque', size: 'clamp(1.75rem, 3.5vw, 3rem)', weight: '600', lineHeight: '1.1', letterSpacing: '-0.01em' },
+        h2:       { family: 'Bricolage Grotesque', size: 'clamp(1.25rem, 2vw, 1.75rem)', weight: '600', lineHeight: '1.2', letterSpacing: '0' },
+        body:     { family: 'DM Sans', size: '1.125rem', weight: '400', lineHeight: '1.65', letterSpacing: '0' },
+        label:    { family: 'DM Mono', size: '0.75rem', weight: '500', lineHeight: '1.4', letterSpacing: '0.05em' },
+      }
+    },
+    'cinnabar': {
+      name: 'Cinnabar',
+      date: '2026-06-12',
+      swatch: '#BE3D2D',
+      colors: [
+        { name: 'lacquer', hex: '#0E0B0A', cssVar: '--bg' },
+        { name: 'ink', hex: '#1D1714', cssVar: '--surface' },
+        { name: 'primary', hex: '#F0EAE2', cssVar: '--text-primary' },
+        { name: 'smoke', hex: '#8A7870', cssVar: '--text-secondary' },
+        { name: 'cinnabar', hex: '#BE3D2D', cssVar: '--accent' },
+        { name: 'gold', hex: '#C9982A', cssVar: '--accent-soft' },
+        { name: 'jade', hex: '#2E8A6A', cssVar: '--jade' },
+      ],
+      typography: {
+        display:  { family: 'Cormorant', size: 'clamp(3rem, 8vw, 6rem)', weight: '300', lineHeight: '1.0', letterSpacing: '-0.02em' },
+        h1:       { family: 'Cormorant', size: 'clamp(2rem, 4vw, 3.5rem)', weight: '400', lineHeight: '1.1', letterSpacing: '-0.01em' },
+        h2:       { family: 'Cormorant', size: 'clamp(1.5rem, 2.5vw, 2.25rem)', weight: '400', lineHeight: '1.2', letterSpacing: '0' },
+        body:     { family: 'DM Sans', size: '1.125rem', weight: '400', lineHeight: '1.65', letterSpacing: '0' },
+        label:    { family: 'DM Sans', size: '0.75rem', weight: '500', lineHeight: '1.4', letterSpacing: '0.08em' },
+      }
+    },
+    'vellum': {
+      name: 'Vellum',
+      date: '2026-06-11',
+      swatch: '#A03030',
+      colors: [
+        { name: 'vellum', hex: '#F0EADE', cssVar: '--bg' },
+        { name: 'pounce', hex: '#E4D9C8', cssVar: '--surface' },
+        { name: 'primary', hex: '#2C2418', cssVar: '--text-primary' },
+        { name: 'iron', hex: '#4A4034', cssVar: '--text-secondary' },
+        { name: 'vermillion', hex: '#A03030', cssVar: '--accent' },
+        { name: 'verdigris', hex: '#4A6B5E', cssVar: '--accent-soft' },
+        { name: 'ochre', hex: '#6E4E2E', cssVar: '--ochre' },
+      ],
+      typography: {
+        display:  { family: 'Playfair Display', size: 'clamp(2.5rem, 7vw, 5rem)', weight: '400', lineHeight: '1.05', letterSpacing: '-0.01em' },
+        h1:       { family: 'Playfair Display', size: 'clamp(1.75rem, 3.5vw, 3rem)', weight: '400', lineHeight: '1.15', letterSpacing: '0' },
+        h2:       { family: 'Playfair Display', size: 'clamp(1.25rem, 2vw, 1.75rem)', weight: '500', lineHeight: '1.2', letterSpacing: '0' },
+        body:     { family: 'EB Garamond', size: '1.125rem', weight: '400', lineHeight: '1.65', letterSpacing: '0' },
+        label:    { family: 'EB Garamond', size: '0.8rem', weight: '600', lineHeight: '1.4', letterSpacing: '0.1em' },
+      }
+    },
+    'tessera': {
+      name: 'Tessera',
+      date: '2026-06-10',
+      swatch: '#AB5527',
+      colors: [
+        { name: 'parchment', hex: '#F5EFE4', cssVar: '--bg' },
+        { name: 'plaster', hex: '#EDE3D3', cssVar: '--surface' },
+        { name: 'primary', hex: '#2C1810', cssVar: '--text-primary' },
+        { name: 'dust', hex: '#B09878', cssVar: '--text-secondary' },
+        { name: 'terra', hex: '#AB5527', cssVar: '--accent' },
+        { name: 'saffron', hex: '#976107', cssVar: '--accent-soft' },
+        { name: 'olive', hex: '#5A6E3A', cssVar: '--olive' },
+      ],
+      typography: {
+        display:  { family: 'Cormorant Garamond', size: 'clamp(2.75rem, 7vw, 5.5rem)', weight: '400', lineHeight: '1.05', letterSpacing: '-0.01em' },
+        h1:       { family: 'Cormorant Garamond', size: 'clamp(1.75rem, 3.5vw, 3rem)', weight: '400', lineHeight: '1.15', letterSpacing: '0' },
+        h2:       { family: 'Cormorant Garamond', size: 'clamp(1.25rem, 2vw, 1.75rem)', weight: '500', lineHeight: '1.2', letterSpacing: '0' },
+        body:     { family: 'Source Serif 4', size: '1.125rem', weight: '400', lineHeight: '1.65', letterSpacing: '0' },
+        label:    { family: 'Source Serif 4', size: '0.75rem', weight: '600', lineHeight: '1.4', letterSpacing: '0.05em' },
+      }
+    }
+  };
+
+  // ============================================================
+  // DOM REFS
+  // ============================================================
+
+  const root = document.documentElement;
+  const themeList = document.getElementById('theme-list');
+  const colorTokens = document.getElementById('color-tokens');
+  const typeTokens = document.getElementById('type-tokens');
+  const inspector = document.getElementById('inspector');
+  const inspectorToggle = document.getElementById('inspector-toggle');
+
+  // ============================================================
+  // RENDER FUNCTIONS
+  // ============================================================
+
+  function renderThemePicker(activeKey) {
+    themeList.innerHTML = '';
+    Object.entries(themes).forEach(([key, t]) => {
+      const el = document.createElement('div');
+      el.className = 'theme-option' + (key === activeKey ? ' active' : '');
+      el.dataset.theme = key;
+      el.innerHTML = `
+        <div class="theme-option-swatch" style="background:${t.swatch};"></div>
+        <span class="theme-option-name">${t.name}</span>
+        <span class="theme-option-date">${t.date}</span>
+      `;
+      el.addEventListener('click', () => setTheme(key));
+      themeList.appendChild(el);
+    });
+  }
+
+  function renderColorTokens(themeKey) {
+    const t = themes[themeKey];
+    colorTokens.innerHTML = '';
+    t.colors.forEach(c => {
+      const el = document.createElement('div');
+      el.className = 'token-color';
+      el.innerHTML = `
+        <div class="token-color-swatch" style="background:${c.hex};"></div>
+        <div class="token-color-info">
+          <span class="token-color-name">${c.name}</span>
+          <span class="token-color-hex">${c.hex}</span>
+        </div>
+      `;
+      colorTokens.appendChild(el);
+    });
+  }
+
+  function renderTypeTokens(themeKey) {
+    const t = themes[themeKey];
+    typeTokens.innerHTML = '';
+    const order = ['display', 'h1', 'h2', 'body', 'label'];
+    const previews = {
+      display: 'Display',
+      h1: 'Heading One',
+      h2: 'Heading Two',
+      body: 'Body text is the voice of the interface.',
+      label: 'Label',
+    };
+    order.forEach(key => {
+      const spec = t.typography[key];
+      const el = document.createElement('div');
+      el.className = 'type-token';
+      el.innerHTML = `
+        <div class="type-token-name">${key}</div>
+        <div class="type-token-preview" style="
+          font-family:${spec.family},serif;
+          font-size:${spec.size};
+          font-weight:${spec.weight};
+          line-height:${spec.lineHeight};
+          letter-spacing:${spec.letterSpacing};
+          color:var(--text-primary);
+        ">${previews[key]}</div>
+        <div class="type-token-specs">
+          <span class="type-token-spec"><span>family</span> ${spec.family}</span>
+          <span class="type-token-spec"><span>size</span> ${spec.size}</span>
+          <span class="type-token-spec"><span>weight</span> ${spec.weight}</span>
+          <span class="type-token-spec"><span>line-height</span> ${spec.lineHeight}</span>
+          <span class="type-token-spec"><span>letter-spacing</span> ${spec.letterSpacing}</span>
+        </div>
+      `;
+      typeTokens.appendChild(el);
+    });
+  }
+
+  // ============================================================
+  // THEME SWITCHING
+  // ============================================================
+
+  function setTheme(key) {
+    root.dataset.theme = key;
+    localStorage.setItem('theme-v3', key);
+    renderThemePicker(key);
+    renderColorTokens(key);
+    renderTypeTokens(key);
+  }
+
+  // ============================================================
+  // MOBILE DRAWER
+  // ============================================================
+
+  let drawerOpen = false;
+  inspectorToggle.addEventListener('click', () => {
+    drawerOpen = !drawerOpen;
+    inspector.classList.toggle('open', drawerOpen);
+    inspectorToggle.textContent = drawerOpen ? '\u2715' : 'TOK';
+  });
+
+  // Close drawer on theme select (mobile)
+  themeList.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      drawerOpen = false;
+      inspector.classList.remove('open');
+      inspectorToggle.textContent = 'TOK';
+    }
+  });
+
+  // ============================================================
+  // INIT
+  // ============================================================
+
+  const saved = localStorage.getItem('theme-v3');
+  const initial = saved && themes[saved] ? saved : 'void-rose';
+  setTheme(initial);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="void-rose">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0xcreative — Theme Gallery V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Cormorant:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* ========================================
+     THEME VARIABLES
+     ======================================== */
+
+  html[data-theme="void-rose"] {
+    --bg: #0c0c10;
+    --surface: #14141c;
+    --surface-raised: #1a1a24;
+    --text-primary: #e8e8f0;
+    --text-secondary: #a0a0b8;
+    --text-tertiary: #6a6a80;
+    --accent: #e85a8a;
+    --accent-soft: #f080a0;
+    --border: #1a1a22;
+    --on-accent: #0c0c10;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-h1: 'Space Grotesk', sans-serif;
+    --font-h2: 'Space Grotesk', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-label: 'JetBrains Mono', monospace;
+
+    --display-size: clamp(3rem, 8vw, 6rem);
+    --display-weight: 500;
+    --display-line-height: 0.95;
+    --display-letter-spacing: -0.03em;
+
+    --h1-size: clamp(2rem, 4vw, 3.5rem);
+    --h1-weight: 500;
+    --h1-line-height: 1.1;
+    --h1-letter-spacing: -0.02em;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 500;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: -0.01em;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 500;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.05em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="gelato"] {
+    --bg: #FDF6F0;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --text-primary: #1A1410;
+    --text-secondary: #556070;
+    --text-tertiary: #8a8a8a;
+    --accent: #DC1C51;
+    --accent-soft: #4E5FBE;
+    --border: rgba(26,20,16,0.08);
+    --on-accent: #FFFFFF;
+
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-h1: 'Bricolage Grotesque', sans-serif;
+    --font-h2: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --font-label: 'DM Mono', monospace;
+
+    --display-size: clamp(2.5rem, 7vw, 5rem);
+    --display-weight: 600;
+    --display-line-height: 1.0;
+    --display-letter-spacing: -0.02em;
+
+    --h1-size: clamp(1.75rem, 3.5vw, 3rem);
+    --h1-weight: 600;
+    --h1-line-height: 1.1;
+    --h1-letter-spacing: -0.01em;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 600;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 500;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.05em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="cinnabar"] {
+    --bg: #0E0B0A;
+    --surface: #1D1714;
+    --surface-raised: #2a2018;
+    --text-primary: #F0EAE2;
+    --text-secondary: #8A7870;
+    --text-tertiary: #5a5048;
+    --accent: #BE3D2D;
+    --accent-soft: #C9982A;
+    --border: #1D1714;
+    --on-accent: #0E0B0A;
+
+    --font-display: 'Cormorant', serif;
+    --font-h1: 'Cormorant', serif;
+    --font-h2: 'Cormorant', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Sans', sans-serif;
+    --font-label: 'DM Sans', sans-serif;
+
+    --display-size: clamp(3rem, 8vw, 6rem);
+    --display-weight: 300;
+    --display-line-height: 1.0;
+    --display-letter-spacing: -0.02em;
+
+    --h1-size: clamp(2rem, 4vw, 3.5rem);
+    --h1-weight: 400;
+    --h1-line-height: 1.1;
+    --h1-letter-spacing: -0.01em;
+
+    --h2-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    --h2-weight: 400;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 500;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.08em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="vellum"] {
+    --bg: #F0EADE;
+    --surface: #E4D9C8;
+    --surface-raised: #f5efe4;
+    --text-primary: #2C2418;
+    --text-secondary: #4A4034;
+    --text-tertiary: #6e6048;
+    --accent: #A03030;
+    --accent-soft: #4A6B5E;
+    --border: #E4D9C8;
+    --on-accent: #F0EADE;
+
+    --font-display: 'Playfair Display', serif;
+    --font-h1: 'Playfair Display', serif;
+    --font-h2: 'Playfair Display', serif;
+    --font-body: 'EB Garamond', serif;
+    --font-mono: 'EB Garamond', serif;
+    --font-label: 'EB Garamond', serif;
+
+    --display-size: clamp(2.5rem, 7vw, 5rem);
+    --display-weight: 400;
+    --display-line-height: 1.05;
+    --display-letter-spacing: -0.01em;
+
+    --h1-size: clamp(1.75rem, 3.5vw, 3rem);
+    --h1-weight: 400;
+    --h1-line-height: 1.15;
+    --h1-letter-spacing: 0;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 500;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.8rem;
+    --label-weight: 600;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.1em;
+    --label-transform: uppercase;
+  }
+
+  html[data-theme="tessera"] {
+    --bg: #F5EFE4;
+    --surface: #EDE3D3;
+    --surface-raised: #f7f1e8;
+    --text-primary: #2C1810;
+    --text-secondary: #B09878;
+    --text-tertiary: #8a7860;
+    --accent: #AB5527;
+    --accent-soft: #976107;
+    --border: #EDE3D3;
+    --on-accent: #F5EFE4;
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-h1: 'Cormorant Garamond', serif;
+    --font-h2: 'Cormorant Garamond', serif;
+    --font-body: 'Source Serif 4', serif;
+    --font-mono: 'Source Serif 4', serif;
+    --font-label: 'Source Serif 4', serif;
+
+    --display-size: clamp(2.75rem, 7vw, 5.5rem);
+    --display-weight: 400;
+    --display-line-height: 1.05;
+    --display-letter-spacing: -0.01em;
+
+    --h1-size: clamp(1.75rem, 3.5vw, 3rem);
+    --h1-weight: 400;
+    --h1-line-height: 1.15;
+    --h1-letter-spacing: 0;
+
+    --h2-size: clamp(1.25rem, 2vw, 1.75rem);
+    --h2-weight: 500;
+    --h2-line-height: 1.2;
+    --h2-letter-spacing: 0;
+
+    --body-size: 1.125rem;
+    --body-weight: 400;
+    --body-line-height: 1.65;
+    --body-letter-spacing: 0;
+
+    --label-size: 0.75rem;
+    --label-weight: 600;
+    --label-line-height: 1.4;
+    --label-letter-spacing: 0.05em;
+    --label-transform: uppercase;
+  }
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-brand {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+
+  .nav-meta {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+    transition: color 0.4s ease;
+  }
+
+  /* ========================================
+     GALLERY — THE STAR
+     ======================================== */
+
+  .gallery {
+    padding-top: calc(64px + 4rem);
+    padding-bottom: 5rem;
+  }
+
+  .gallery-header {
+    margin-bottom: 3rem;
+  }
+
+  .gallery-eyebrow {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    transition: color 0.4s ease;
+  }
+
+  .gallery-title {
+    font-family: var(--font-display);
+    font-size: var(--display-size);
+    font-weight: var(--display-weight);
+    line-height: var(--display-line-height);
+    letter-spacing: var(--display-letter-spacing);
+    color: var(--text-primary);
+    max-width: 900px;
+    margin-bottom: 1.25rem;
+    transition: color 0.4s ease;
+  }
+
+  .gallery-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    color: var(--text-secondary);
+    max-width: 520px;
+    transition: color 0.4s ease;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+  }
+
+  .theme-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease,
+                background-color 0.4s ease;
+  }
+
+  .theme-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px -12px rgba(0,0,0,0.35);
+    border-color: var(--accent);
+  }
+
+  html[data-theme="gelato"] .theme-card:hover,
+  html[data-theme="vellum"] .theme-card:hover,
+  html[data-theme="tessera"] .theme-card:hover {
+    box-shadow: 0 24px 48px -12px rgba(0,0,0,0.12);
+  }
+
+  .theme-card.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent), 0 24px 48px -12px rgba(0,0,0,0.25);
+  }
+
+  html[data-theme="gelato"] .theme-card.active,
+  html[data-theme="vellum"] .theme-card.active,
+  html[data-theme="tessera"] .theme-card.active {
+    box-shadow: 0 0 0 2px var(--accent), 0 24px 48px -12px rgba(0,0,0,0.08);
+  }
+
+  .theme-card .active-indicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease;
+    z-index: 5;
+  }
+
+  .theme-card.active .active-indicator {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Card preview — mini art composition */
+  .theme-preview {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .preview-shape {
+    position: absolute;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .theme-card:hover .preview-shape {
+    transform: scale(1.04);
+  }
+
+  .preview-type-sample {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.35;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .theme-card:hover .preview-type-sample {
+    opacity: 0.55;
+  }
+
+  /* Card meta */
+  .theme-meta {
+    padding: 1.25rem;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+  }
+
+  .theme-date {
+    display: block;
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+    transition: color 0.4s ease;
+  }
+
+  .theme-name {
+    font-family: var(--font-h2);
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    transition: color 0.4s ease;
+  }
+
+  .theme-desc {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.4s ease;
+  }
+
+  .theme-palette {
+    display: flex;
+    gap: 4px;
+    margin-top: 1rem;
+  }
+
+  .palette-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  /* ========================================
+     PORTFOLIO SECTIONS
+     ======================================== */
+
+  .section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    max-width: 720px;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-secondary);
+    transition: color 0.4s ease;
+  }
+
+  .section-title {
+    font-family: var(--font-h1);
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height);
+    letter-spacing: var(--h1-letter-spacing);
+    color: var(--text-primary);
+    transition: color 0.4s ease;
+  }
+
+  .section-body {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    color: var(--text-primary);
+    max-width: 640px;
+    transition: color 0.4s ease;
+  }
+
+  .section-body + .section-body {
+    margin-top: 1.5rem;
+  }
+
+  .principles {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .principle {
+    max-width: 640px;
+  }
+
+  .principle h3 {
+    font-family: var(--font-h2);
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    transition: color 0.4s ease;
+  }
+
+  .principle p {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    color: var(--text-secondary);
+    transition: color 0.4s ease;
+  }
+
+  .work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    max-width: 640px;
+  }
+
+  .work-item {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+    transition: border-color 0.4s ease;
+  }
+
+  .work-item h3 {
+    font-family: var(--font-h2);
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+    color: var(--text-primary);
+    margin-bottom: 0.375rem;
+    transition: color 0.4s ease;
+  }
+
+  .work-item p {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line-height);
+    letter-spacing: var(--body-letter-spacing);
+    color: var(--text-secondary);
+    transition: color 0.4s ease;
+  }
+
+  .cta-section {
+    padding: 5rem 0 6rem;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+  }
+
+  .cta-section h2 {
+    font-family: var(--font-h1);
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height);
+    letter-spacing: var(--h1-letter-spacing);
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    transition: color 0.4s ease;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--on-accent);
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.4s ease;
+  }
+
+  .btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent-soft);
+  }
+
+  .footer {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--border);
+    transition: border-color 0.4s ease;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: var(--font-label);
+    font-size: var(--label-size);
+    font-weight: var(--label-weight);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: var(--label-transform);
+    color: var(--text-tertiary);
+    transition: color 0.4s ease;
+  }
+
+  .footer-meta {
+    font-family: var(--font-mono);
+    font-size: var(--label-size);
+    color: var(--text-tertiary);
+    transition: color 0.4s ease;
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+
+  @media (max-width: 1100px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .theme-preview {
+      height: 180px;
+    }
+    .gallery {
+      padding-top: calc(56px + 2.5rem);
+      padding-bottom: 3.5rem;
+    }
+    .section, .cta-section {
+      padding: 3.5rem 0;
+    }
+    .nav-inner {
+      height: 56px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    .theme-preview {
+      height: 200px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">0xcreative</a>
+      <span class="nav-meta">v2-theme-gallery</span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- THEME GALLERY — The star of the show -->
+    <section class="gallery">
+      <div class="container">
+        <div class="gallery-header">
+          <p class="gallery-eyebrow">Browse & apply</p>
+          <h1 class="gallery-title">Theme gallery.</h1>
+          <p class="gallery-subtitle">Five daily design systems, each with its own point of view. Click any card to try it on the entire page.</p>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+
+          <!-- Void Rose -->
+          <div class="theme-card" data-theme="void-rose">
+            <span class="active-indicator"></span>
+            <div class="theme-preview" style="background:#0c0c10;">
+              <div class="preview-shape" style="position:absolute; top:0; right:0; width:55%; height:70%; background:#14141c;"></div>
+              <div class="preview-shape" style="position:absolute; bottom:0; left:0; width:70%; height:45%; background:#1a1a22;"></div>
+              <div class="preview-shape" style="position:absolute; top:25%; left:30%; width:40%; height:40%; background:#e85a8a; opacity:0.85; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; top:15%; right:15%; width:18%; height:18%; background:#e8e8f0; opacity:0.12; border-radius:50%;"></div>
+              <div class="preview-type-sample" style="font-family:'Space Grotesk',sans-serif; color:#a0a0b8;">Aa</div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-date">2026-06-14</span>
+              <h3 class="theme-name" style="font-family:'Space Grotesk',sans-serif;">Void Rose</h3>
+              <p class="theme-desc">Dark editorial portfolio. Deep warm void backgrounds, muted text, single warm pink accent.</p>
+              <div class="theme-palette">
+                <div class="palette-swatch" style="background:#0c0c10;"></div>
+                <div class="palette-swatch" style="background:#14141c;"></div>
+                <div class="palette-swatch" style="background:#e8e8f0;"></div>
+                <div class="palette-swatch" style="background:#a0a0b8;"></div>
+                <div class="palette-swatch" style="background:#e85a8a;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gelato -->
+          <div class="theme-card" data-theme="gelato">
+            <span class="active-indicator"></span>
+            <div class="theme-preview" style="background:#FDF6F0;">
+              <div class="preview-shape" style="position:absolute; top:10%; left:10%; width:50%; height:55%; background:#FFFFFF; border:1px solid rgba(26,20,16,0.06);"></div>
+              <div class="preview-shape" style="position:absolute; bottom:15%; right:10%; width:45%; height:50%; background:#FFFFFF; border:1px solid rgba(26,20,16,0.06);"></div>
+              <div class="preview-shape" style="position:absolute; top:30%; left:35%; width:35%; height:35%; background:#DC1C51; opacity:0.9; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; bottom:20%; left:20%; width:22%; height:22%; background:#437E51; opacity:0.85; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; top:15%; right:20%; width:16%; height:16%; background:#926B07; opacity:0.7; border-radius:50%;"></div>
+              <div class="preview-type-sample" style="font-family:'Bricolage Grotesque',sans-serif; color:#556070;">Aa</div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-date">2026-06-13</span>
+              <h3 class="theme-name" style="font-family:'Bricolage Grotesque',sans-serif;">Gelato</h3>
+              <p class="theme-desc">Italian pastel Memphis revival. Sorbet pinks, pistachio greens, limoncello golds on warm cream.</p>
+              <div class="theme-palette">
+                <div class="palette-swatch" style="background:#FDF6F0;"></div>
+                <div class="palette-swatch" style="background:#DC1C51;"></div>
+                <div class="palette-swatch" style="background:#437E51;"></div>
+                <div class="palette-swatch" style="background:#926B07;"></div>
+                <div class="palette-swatch" style="background:#4E5FBE;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cinnabar -->
+          <div class="theme-card" data-theme="cinnabar">
+            <span class="active-indicator"></span>
+            <div class="theme-preview" style="background:#0E0B0A;">
+              <div class="preview-shape" style="position:absolute; top:0; left:0; width:100%; height:100%; background:radial-gradient(circle at 70% 30%, #1D1714 0%, #0E0B0A 70%);"></div>
+              <div class="preview-shape" style="position:absolute; top:20%; right:15%; width:40%; height:45%; background:#BE3D2D; opacity:0.75; border-radius:2px;"></div>
+              <div class="preview-shape" style="position:absolute; bottom:20%; left:15%; width:35%; height:35%; background:#C9982A; opacity:0.5; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; top:45%; left:40%; width:25%; height:25%; background:#2E8A6A; opacity:0.6; border-radius:50%;"></div>
+              <div class="preview-type-sample" style="font-family:'Cormorant',serif; color:#8A7870;">Aa</div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-date">2026-06-12</span>
+              <h3 class="theme-name" style="font-family:'Cormorant',serif;">Cinnabar</h3>
+              <p class="theme-desc">East Asian lacquerware meets print room. Vermillion, gold, jade on ink-black.</p>
+              <div class="theme-palette">
+                <div class="palette-swatch" style="background:#0E0B0A;"></div>
+                <div class="palette-swatch" style="background:#1D1714;"></div>
+                <div class="palette-swatch" style="background:#BE3D2D;"></div>
+                <div class="palette-swatch" style="background:#C9982A;"></div>
+                <div class="palette-swatch" style="background:#2E8A6A;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vellum -->
+          <div class="theme-card" data-theme="vellum">
+            <span class="active-indicator"></span>
+            <div class="theme-preview" style="background:#F0EADE;">
+              <div class="preview-shape" style="position:absolute; top:8%; left:8%; width:55%; height:60%; background:#E4D9C8; border:1px solid rgba(74,64,52,0.08);"></div>
+              <div class="preview-shape" style="position:absolute; bottom:12%; right:12%; width:45%; height:50%; background:#E4D9C8; border:1px solid rgba(74,64,52,0.08);"></div>
+              <div class="preview-shape" style="position:absolute; top:25%; left:30%; width:38%; height:38%; background:#A03030; opacity:0.8; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; bottom:25%; left:18%; width:20%; height:20%; background:#4A6B5E; opacity:0.7; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; top:18%; right:22%; width:14%; height:14%; background:#6E4E2E; opacity:0.6; border-radius:50%;"></div>
+              <div class="preview-type-sample" style="font-family:'Playfair Display',serif; color:#4A4034;">Aa</div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-date">2026-06-11</span>
+              <h3 class="theme-name" style="font-family:'Playfair Display',serif;">Vellum</h3>
+              <p class="theme-desc">Iron gall ink on manuscript. Verdigris, vermillion, ochre on warm vellum.</p>
+              <div class="theme-palette">
+                <div class="palette-swatch" style="background:#F0EADE;"></div>
+                <div class="palette-swatch" style="background:#E4D9C8;"></div>
+                <div class="palette-swatch" style="background:#A03030;"></div>
+                <div class="palette-swatch" style="background:#4A6B5E;"></div>
+                <div class="palette-swatch" style="background:#6E4E2E;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tessera -->
+          <div class="theme-card" data-theme="tessera">
+            <span class="active-indicator"></span>
+            <div class="theme-preview" style="background:#F5EFE4;">
+              <div class="preview-shape" style="position:absolute; top:0; left:0; width:60%; height:65%; background:#EDE3D3;"></div>
+              <div class="preview-shape" style="position:absolute; bottom:0; right:0; width:55%; height:55%; background:#EDE3D3;"></div>
+              <div class="preview-shape" style="position:absolute; top:20%; left:25%; width:35%; height:35%; background:#AB5527; opacity:0.8; border-radius:2px; transform:rotate(12deg);"></div>
+              <div class="preview-shape" style="position:absolute; bottom:22%; right:18%; width:28%; height:28%; background:#976107; opacity:0.65; border-radius:50%;"></div>
+              <div class="preview-shape" style="position:absolute; top:40%; left:50%; width:22%; height:22%; background:#5A6E3A; opacity:0.6; border-radius:2px; transform:rotate(-8deg);"></div>
+              <div class="preview-type-sample" style="font-family:'Cormorant Garamond',serif; color:#B09878;">Aa</div>
+            </div>
+            <div class="theme-meta">
+              <span class="theme-date">2026-06-10</span>
+              <h3 class="theme-name" style="font-family:'Cormorant Garamond',serif;">Tessera</h3>
+              <p class="theme-desc">Mediterranean mosaic warmth. Terracotta, saffron, olive on parchment.</p>
+              <div class="theme-palette">
+                <div class="palette-swatch" style="background:#F5EFE4;"></div>
+                <div class="palette-swatch" style="background:#EDE3D3;"></div>
+                <div class="palette-swatch" style="background:#AB5527;"></div>
+                <div class="palette-swatch" style="background:#976107;"></div>
+                <div class="palette-swatch" style="background:#5A6E3A;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">01 — Approach</span>
+          <h2 class="section-title">Built with bias.</h2>
+        </div>
+        <div class="section-body">
+          <p>We believe a design system should feel like a point of view, not a specification. Every token is named with purpose. Every scale is tuned by eye. We ship daily because momentum matters, and we sweat the details because craft is the product.</p>
+        </div>
+        <div class="principles">
+          <div class="principle">
+            <h3>Typography first</h3>
+            <p>Type is the interface. Before color, before layout, before motion—there is the word. We choose pairings that carry emotion at display size and remain invisible at body size.</p>
+          </div>
+          <div class="principle">
+            <h3>Color as narrative</h3>
+            <p>A palette should tell a story. Whether it's the warm void of an editorial midnight or the sorbet optimism of a summer poster, color sets the temperature of the entire experience.</p>
+          </div>
+          <div class="principle">
+            <h3>Components with restraint</h3>
+            <p>We add only what's necessary. Each component solves one problem well. No feature bloat, no prop explosion. Just clear API surfaces and honest markup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">02 — Selected work</span>
+          <h2 class="section-title">Recent systems</h2>
+        </div>
+        <div class="work-list">
+          <div class="work-item">
+            <h3>Void Rose</h3>
+            <p>A dark editorial portfolio for independent publishers. Deep warm voids, muted text, and a single warm pink accent that refuses to be neon.</p>
+          </div>
+          <div class="work-item">
+            <h3>Gelato</h3>
+            <p>An Italian pastel Memphis revival for a generative art collective. Sorbet pinks, pistachio greens, and limoncello golds on warm cream.</p>
+          </div>
+          <div class="work-item">
+            <h3>Cinnabar</h3>
+            <p>East Asian lacquerware meets print room. Vermillion, gold, and jade on ink-black grounds for a gallery identity.</p>
+          </div>
+          <div class="work-item">
+            <h3>Vellum</h3>
+            <p>Iron gall ink on manuscript. Verdigris, vermillion, and ochre for a literary press with a taste for the archaic.</p>
+          </div>
+          <div class="work-item">
+            <h3>Tessera</h3>
+            <p>Mediterranean mosaic warmth. Terracotta, saffron, and olive on parchment for a ceramics studio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to build something honest?</h2>
+        <a href="#" class="btn">Start a project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2026 0xcreative</span>
+      <span class="footer-meta">v2-theme-gallery</span>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const cards = document.querySelectorAll('.theme-card');
+      const root = document.documentElement;
+
+      function setActive(theme) {
+        root.dataset.theme = theme;
+        localStorage.setItem('theme-v2', theme);
+
+        cards.forEach(card => {
+          if (card.dataset.theme === theme) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
+      }
+
+      // Restore saved theme
+      const saved = localStorage.getItem('theme-v2');
+      if (saved) {
+        setActive(saved);
+      } else {
+        setActive('void-rose');
+      }
+
+      // Click handlers
+      cards.forEach(card => {
+        card.addEventListener('click', function() {
+          const theme = card.dataset.theme;
+          setActive(theme);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

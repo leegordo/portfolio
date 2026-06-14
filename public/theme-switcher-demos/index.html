@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Switcher Demos — 0xCreative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Space Grotesk',sans-serif;background:#050508;color:#e8e8f0;line-height:1.6;min-height:100vh;padding:80px 32px 40px;max-width:900px;margin:0 auto}
+header{margin-bottom:64px}
+header h1{font-size:2.5rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px}
+header p{color:#a0a0b8;max-width:520px}
+.demos{display:flex;flex-direction:column;gap:16px}
+.demo-link{display:block;padding:28px 32px;background:#14141c;border:1px solid #1a1a22;border-radius:8px;text-decoration:none;color:#e8e8f0;transition:transform .2s,border-color .2s,background .2s}
+.demo-link:hover{border-color:#e85a8a;transform:translateY(-2px);background:#1a1a22}
+.demo-link .num{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:#e85a8a;margin-bottom:8px;display:block}
+.demo-link h2{font-size:1.35rem;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em}
+.demo-link p{font-size:.95rem;color:#a0a0b8}
+.back{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:#6a6a85;text-decoration:none;display:inline-block;margin-top:48px;transition:color .2s}
+.back:hover{color:#e85a8a}
+footer{margin-top:80px;padding-top:24px;border-top:1px solid #1a1a22;font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:#4a4a60}
+</style>
+</head>
+<body>
+<header>
+  <h1>Theme Switcher Demos</h1>
+  <p>Three UX directions for a live design system theme selector on the portfolio. Built with real 0xCreative tokens.</p>
+</header>
+<nav class="demos">
+  <a class="demo-link" href="v1-minimal-toggle.html">
+    <span class="num">Version 01</span>
+    <h2>Minimal Toggle</h2>
+    <p>A compact segmented control in the nav bar. Themes swap instantly. The UI gets out of the way.</p>
+  </a>
+  <a class="demo-link" href="v2-theme-gallery.html">
+    <span class="num">Version 02</span>
+    <h2>Theme Gallery</h2>
+    <p>Browse themes as tactile cards with color previews and type specimens. Visual-first discovery.</p>
+  </a>
+  <a class="demo-link" href="v3-token-inspector.html">
+    <span class="num">Version 03</span>
+    <h2>Token Inspector</h2>
+    <p>Switch themes while inspecting the raw tokens — colors, fonts, sizes. Built for designers and developers.</p>
+  </a>
+</nav>
+<a class="back" href="/">← Back to 0xCreative</a>
+<footer>© 2026 Lee Gordon — Built with agents. Checked by hand.</footer>
+</body>
+</html>

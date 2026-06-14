@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Switcher — Minimal Toggle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Cormorant:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=EB+Garamond:wght@400;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Void Rose default */
+  --bg:#0c0c10;
+  --surface:#14141c;
+  --surface-hover:#1a1a22;
+  --text-primary:#e8e8f0;
+  --text-secondary:#a0a0b8;
+  --text-tertiary:#6a6a85;
+  --text-faint:#4a4a60;
+  --accent:#e85a8a;
+  --accent-soft:#f080a0;
+  --accent-muted:rgba(232,90,138,0.12);
+  --border:#1a1a22;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --font-size-display:6rem;
+  --font-size-h1:2.5rem;
+  --font-size-h2:1.5rem;
+  --font-size-body:1rem;
+  --font-size-label:0.68rem;
+  --letter-spacing-display:-0.03em;
+  --letter-spacing-h1:-0.02em;
+  --letter-spacing-h2:-0.01em;
+  --letter-spacing-label:0.12em;
+}
+html,body{color:var(--text-primary);background:var(--bg);font-family:var(--font-body);line-height:1.65;min-height:100vh;transition:color .3s ease,background .3s ease}
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+/* Toggle bar */
+.togglebar{position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:flex-end;gap:4px;padding:16px 32px;pointer-events:none}
+.togglebar-inner{display:flex;align-items:center;gap:4px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:4px;pointer-events:auto;transition:background .3s,border-color .3s}
+.togglebar .tbtn{cursor:pointer;border:none;background:transparent;color:var(--text-tertiary);font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:6px;transition:background .2s,color .2s;white-space:nowrap}
+.togglebar .tbtn:hover{color:var(--text-secondary)}
+.togglebar .tbtn.on{background:var(--accent-muted);color:var(--accent)}
+/* Hero */
+.hero{padding:140px 0 100px}
+.hero-label{font-family:var(--font-mono);font-size:var(--font-size-label);letter-spacing:var(--letter-spacing-label);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:24px;transition:color .3s}
+.hero h1{font-family:var(--font-display);font-size:6rem;font-weight:700;line-height:0.95;letter-spacing:-0.03em;color:var(--text-primary);margin-bottom:32px;transition:color .3s}
+@media(max-width:700px){.hero h1{font-size:3.2rem}}
+.hero-desc{font-size:1.25rem;line-height:1.55;color:var(--text-secondary);max-width:540px;transition:color .3s}
+.hero-desc em{color:var(--accent);font-style:normal;transition:color .3s}
+/* Sections */
+.section{padding:80px 0}
+.section-label{font-family:var(--font-mono);font-size:var(--font-size-label);letter-spacing:var(--letter-spacing-label);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:40px;transition:color .3s}
+.section h2{font-family:var(--font-display);font-size:var(--font-size-h1);font-weight:600;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:24px;transition:color .3s}
+.section p{font-size:1.0625rem;color:var(--text-secondary);max-width:600px;transition:color .3s}
+.section p + p{margin-top:20px}
+/* Work rows */
+.work-row{display:flex;justify-content:space-between;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:border-color .3s,background .2s}
+.work-row:hover .work-title{color:var(--accent);transition:color .2s}
+.work-title{font-family:var(--font-display);font-size:1.35rem;font-weight:600;color:var(--text-primary);transition:color .3s}
+.work-tags{font-family:var(--font-mono);font-size:var(--font-size-label);letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);transition:color .3s}
+/* CTA */
+.cta-row{padding:100px 0 120px}
+.cta-row h2{font-size:2.5rem}
+.cta-btn{display:inline-block;margin-top:36px;padding:14px 32px;font-family:var(--font-mono);font-size:var(--font-size-label);letter-spacing:var(--letter-spacing-label);text-transform:uppercase;color:var(--bg);background:var(--accent);border:none;border-radius:0;cursor:pointer;transition:background .2s,transform .2s}
+.cta-btn:hover{background:var(--accent-soft);transform:translateY(-2px)}
+/* Footer */
+footer{padding:40px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-faint);transition:border-color .3s,color .3s}
+@media(max-width:600px){footer{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+
+<div class="togglebar">
+  <div class="togglebar-inner" id="togglebar">
+    <button class="tbtn on" data-theme="void-rose" onclick="setTheme('void-rose')">Void Rose</button>
+    <button class="tbtn" data-theme="gelato" onclick="setTheme('gelato')">Gelato</button>
+    <button class="tbtn" data-theme="cinnabar" onclick="setTheme('cinnabar')">Cinnabar</button>
+    <button class="tbtn" data-theme="vellum" onclick="setTheme('vellum')">Vellum</button>
+    <button class="tbtn" data-theme="tessera" onclick="setTheme('tessera')">Tessera</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-label">0xCreative / Theme Selector</div>
+    <h1 id="heroTitle">Lee Gordon</h1>
+    <p class="hero-desc" id="heroDesc">
+      Product designer building agentic workflows and honest design systems.
+      <em id="heroAccent">Themes generated daily.</em>
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Approach</div>
+    <h2 id="sectionTitle">Design systems as craft</h2>
+    <p id="sectionBody">
+      Every decision is intentional. No gradient slop, no card-grid templates.
+      Color, type, and space arranged with the same restraint you bring to a stamp collection
+      or a letterpressed broadside.
+    </p>
+    <p>
+      The daily DESIGN.md output on 0xCreative is both process artifact and proof of work.
+      Each system is built from scratch — not cloned, not generated from a kit.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Selected Work</div>
+    <div class="work-row"><span class="work-title">Factory Governance Dashboard</span><span class="work-tags">Product Design / UI</span></div>
+    <div class="work-row"><span class="work-title">PharmaFlow Rebrand</span><span class="work-tags">Brand Identity</span></div>
+    <div class="work-row"><span class="work-title">0xCreative Operational Spec</span><span class="work-tags">Systems Design</span></div>
+    <div class="work-row"><span class="work-title">MemPalace Design Docs</span><span class="work-tags">Documentation</span></div>
+  </section>
+
+  <section class="cta-row">
+    <div class="section-label">Contact</div>
+    <h2 id="ctaTitle">Let's build something</h2>
+    <button class="cta-btn" id="ctaBtn">hello@leegordon.design</button>
+  </section>
+
+  <footer>
+    <span>© 2026 Lee Gordon</span>
+    <span>Built with agents. Checked by hand.</span>
+  </footer>
+
+</div>
+
+<script>
+const themes={
+  "void-rose":{
+    bg:"#0c0c10",surface:"#14141c","surface-hover":"#1a1a22","text-primary":"#e8e8f0","text-secondary":"#a0a0b8","text-tertiary":"#6a6a85","text-faint":"#4a4a60",accent:"#e85a8a","accent-soft":"#f080a0","accent-muted":"rgba(232,90,138,0.12)",border:"#1a1a22",
+    "font-display":"'Space Grotesk',sans-serif","font-body":"'Space Grotesk',sans-serif","font-mono":"'JetBrains Mono',monospace",
+    "font-size-display":"6rem","font-size-h1":"2.5rem","font-size-h2":"1.5rem","font-size-body":"1rem","font-size-label":"0.68rem",
+    "letter-spacing-display":"-0.03em","letter-spacing-h1":"-0.02em","letter-spacing-h2":"-0.01em","letter-spacing-label":"0.12em"
+  },
+  "gelato":{
+    bg:"#FFFDFB",surface:"#FDF6F0","surface-hover":"#F9EDE5","text-primary":"#1A1410","text-secondary":"#556070","text-tertiary":"#8895A2","text-faint":"#BBC5CE",accent:"#DC1C51","accent-soft":"#E84270","accent-muted":"rgba(220,28,81,0.08)",border:"#E8E0D7",
+    "font-display":"'Bricolage Grotesque',sans-serif","font-body":"'DM Sans',sans-serif","font-mono":"'DM Mono',monospace",
+    "font-size-display":"4rem","font-size-h1":"2.5rem","font-size-h2":"1.5rem","font-size-body":"1rem","font-size-label":"0.7rem",
+    "letter-spacing-display":"-0.03em","letter-spacing-h1":"-0.02em","letter-spacing-h2":"-0.01em","letter-spacing-label":"0.08em"
+  },
+  "cinnabar":{
+    bg:"#0E0B0A",surface:"#161210","surface-hover":"#1E1916","text-primary":"#F0EAE2","text-secondary":"#8A7870","text-tertiary":"#6E5F58","text-faint":"#4A403B",accent:"#BE3D2D","accent-soft":"#D45645","accent-muted":"rgba(190,61,45,0.10)",border:"#241E1A",
+    "font-display":"'Cormorant',serif","font-body":"'DM Sans',sans-serif","font-mono":"'DM Mono',monospace",
+    "font-size-display":"4.5rem","font-size-h1":"2.25rem","font-size-h2":"1.5rem","font-size-body":"1rem","font-size-label":"0.6875rem",
+    "letter-spacing-display":"-0.025em","letter-spacing-h1":"-0.015em","letter-spacing-h2":"-0.01em","letter-spacing-label":"0.12em"
+  },
+  "vellum":{
+    bg:"#F0EADE",surface:"#E4D9C8","surface-hover":"#DBCEBB","text-primary":"#2C2418","text-secondary":"#4A4034","text-tertiary":"#7A7060","text-faint":"#A89B8C",accent:"#4A6B5E","accent-soft":"#5A7D6E","accent-muted":"rgba(74,107,94,0.10)",border:"#D8CDB9",
+    "font-display":"'Playfair Display',serif","font-body":"'EB Garamond',serif","font-mono":"'EB Garamond',serif",
+    "font-size-display":"4rem","font-size-h1":"2rem","font-size-h2":"1.5rem","font-size-body":"1.0625rem","font-size-label":"0.6875rem",
+    "letter-spacing-display":"-0.02em","letter-spacing-h1":"-0.01em","letter-spacing-h2":"-0.01em","letter-spacing-label":"0.14em"
+  },
+  "tessera":{
+    bg:"#F5EFE4",surface:"#EDE3D3","surface-hover":"#E5D9C8","text-primary":"#2C1810","text-secondary":"#6B3D24","text-tertiary":"#9B8168","text-faint":"#B09878",accent:"#AB5527","accent-soft":"#C06836","accent-muted":"rgba(171,85,39,0.10)",border:"#E4D8C6",
+    "font-display":"'Cormorant Garamond',serif","font-body":"'Source Serif 4',serif","font-mono":"'Source Serif 4',serif",
+    "font-size-display":"4.5rem","font-size-h1":"2.25rem","font-size-h2":"1.5rem","font-size-body":"1.0625rem","font-size-label":"0.6875rem",
+    "letter-spacing-display":"-0.015em","letter-spacing-h1":"-0.01em","letter-spacing-h2":"-0.01em","letter-spacing-label":"0.1em"
+  }
+};
+
+function setTheme(name){
+  if(!themes[name]) return;
+  const t=themes[name];
+  const r=document.documentElement;
+  r.style.setProperty('--bg',t.bg);r.style.setProperty('--surface',t.surface);r.style.setProperty('--surface-hover',t['surface-hover']);
+  r.style.setProperty('--text-primary',t['text-primary']);r.style.setProperty('--text-secondary',t['text-secondary']);r.style.setProperty('--text-tertiary',t['text-tertiary']);r.style.setProperty('--text-faint',t['text-faint']);
+  r.style.setProperty('--accent',t.accent);r.style.setProperty('--accent-soft',t['accent-soft']);r.style.setProperty('--accent-muted',t['accent-muted']);r.style.setProperty('--border',t.border);
+  r.style.setProperty('--font-display',t['font-display']);r.style.setProperty('--font-body',t['font-body']);r.style.setProperty('--font-mono',t['font-mono']);
+  r.style.setProperty('--font-size-display',t['font-size-display']);r.style.setProperty('--font-size-h1',t['font-size-h1']);r.style.setProperty('--font-size-h2',t['font-size-h2']);r.style.setProperty('--font-size-body',t['font-size-body']);r.style.setProperty('--font-size-label',t['font-size-label']);
+  r.style.setProperty('--letter-spacing-display',t['letter-spacing-display']);r.style.setProperty('--letter-spacing-h1',t['letter-spacing-h1']);r.style.setProperty('--letter-spacing-h2',t['letter-spacing-h2']);r.style.setProperty('--letter-spacing-label',t['letter-spacing-label']);
+  document.querySelectorAll('.togglebar .tbtn').forEach(b=>b.classList.toggle('on',b.dataset.theme===name));
+  localStorage.setItem('theme-v1',name);
+}
+
+const saved=localStorage.getItem('theme-v1')||'void-rose';
+setTheme(saved);
+</script>
+</body>
+</html>
