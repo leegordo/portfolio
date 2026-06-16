@@ -60,12 +60,12 @@ export default function Navigation() {
               </a>
             ))}
             <ThemeCartButton />
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="text-[0.8rem] font-medium text-accent hover:text-accent-soft transition-colors duration-300 uppercase tracking-[0.1em]"
             >
               Get in touch
-            </a>
+            </Link>
           </div>
 
           <div className="flex md:hidden items-center gap-4">
@@ -111,24 +111,38 @@ export default function Navigation() {
               transition={{ delay: 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center justify-center h-full gap-8"
             >
-              {[...navLinks, { href: "#contact", label: "Get in touch" }].map((link, i) => (
+              {[...navLinks, { href: "/contact", label: "Get in touch" }].map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 + i * 0.05 }}
                 >
-                  <a
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`font-display text-3xl transition-colors ${
-                      link.label === "Get in touch"
-                        ? "text-accent hover:text-accent-soft"
-                        : "text-primary hover:text-secondary"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`font-display text-3xl transition-colors ${
+                        link.label === "Get in touch"
+                          ? "text-accent hover:text-accent-soft"
+                          : "text-primary hover:text-secondary"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`font-display text-3xl transition-colors ${
+                        link.label === "Get in touch"
+                          ? "text-accent hover:text-accent-soft"
+                          : "text-primary hover:text-secondary"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </motion.div>
               ))}
             </motion.nav>
