@@ -23,6 +23,11 @@ export interface ThemeDefinition {
 }
 
 export const DEFAULT_THEME: ThemeKey = "void-rose";
+
+/** Themes currently shown in the picker. Only dark themes for now —
+ *  light themes exist in the library but need light-mode asset variants later. */
+export const DARK_THEME_KEYS: ThemeKey[] = ["void-rose", "cinnabar"];
+
 export const THEME_STORAGE_KEY = "portfolio-theme";
 export const CART_HINT_SEEN_KEY = "portfolio-theme-cart-hint-seen";
 

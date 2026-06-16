@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useTheme } from "@/components/ThemeProvider";
-import { themeKeys, themes } from "@/lib/themes";
+import { DARK_THEME_KEYS, themes } from "@/lib/themes";
 
 const typeOrder = ["display", "h1", "h2", "body", "label"] as const;
 const typePreviews: Record<(typeof typeOrder)[number], string> = {
@@ -72,7 +72,7 @@ export default function ThemeCart() {
                   Theme
                 </h3>
                 <div className="flex flex-col gap-1">
-                  {themeKeys.map((key) => {
+                  {DARK_THEME_KEYS.map((key) => {
                     const item = themes[key];
                     const isActive = key === theme;
 

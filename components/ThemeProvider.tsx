@@ -13,6 +13,7 @@ import {
 import ThemeCart from "@/components/ThemeCart";
 import {
   CART_HINT_SEEN_KEY,
+  DARK_THEME_KEYS,
   DEFAULT_THEME,
   THEME_STORAGE_KEY,
   isThemeKey,
@@ -48,8 +49,11 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
-    if (saved && isThemeKey(saved)) {
+    if (saved && isThemeKey(saved) && DARK_THEME_KEYS.includes(saved)) {
       setThemeState(saved);
+    } else if (saved) {
+      // User had a light theme saved — migrate to default dark
+      localStorage.setItem(THEME_STORAGE_KEY, DEFAULT_THEME);
     }
     setCartHintSeen(localStorage.getItem(CART_HINT_SEEN_KEY) === "true");
     setReady(true);
