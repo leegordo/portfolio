@@ -1,4 +1,4 @@
-export type ThemeKey = "void-rose" | "gelato" | "cinnabar" | "vellum" | "tessera";
+export type ThemeKey = "void-rose" | "gelato" | "cinnabar" | "vellum" | "tessera" | "abyssal" | "konshu";
 
 export interface ColorToken {
   name: string;
@@ -26,7 +26,7 @@ export const DEFAULT_THEME: ThemeKey = "void-rose";
 
 /** Themes currently shown in the picker. Only dark themes for now —
  *  light themes exist in the library but need light-mode asset variants later. */
-export const DARK_THEME_KEYS: ThemeKey[] = ["void-rose", "cinnabar"];
+export const DARK_THEME_KEYS: ThemeKey[] = ["void-rose", "cinnabar", "abyssal", "konshu"];
 
 export const THEME_STORAGE_KEY = "portfolio-theme";
 export const CART_HINT_SEEN_KEY = "portfolio-theme-cart-hint-seen";
@@ -136,6 +136,48 @@ export const themes: Record<ThemeKey, ThemeDefinition> = {
       h2: { family: "Cormorant Garamond", size: "clamp(1.25rem, 2vw, 1.75rem)", weight: "500", lineHeight: "1.2", letterSpacing: "0" },
       body: { family: "Source Serif 4", size: "1.125rem", weight: "400", lineHeight: "1.65", letterSpacing: "0" },
       label: { family: "Source Serif 4", size: "0.75rem", weight: "600", lineHeight: "1.4", letterSpacing: "0.05em" },
+    },
+  },
+  abyssal: {
+    name: "Abyssal",
+    date: "2026-06-05",
+    swatch: "#00F5D4",
+    colors: [
+      { name: "void", hex: "#04090F", cssVar: "--bg" },
+      { name: "abyss", hex: "#080E18", cssVar: "--surface" },
+      { name: "primary", hex: "#E8F4F4", cssVar: "--text-primary" },
+      { name: "fog", hex: "#4A7A8A", cssVar: "--text-secondary" },
+      { name: "phosphor", hex: "#00F5D4", cssVar: "--accent" },
+      { name: "spectral", hex: "#7B61FF", cssVar: "--accent-soft" },
+      { name: "trench", hex: "#0D1B2A", cssVar: "--trench" },
+    ],
+    typography: {
+      display: { family: "Space Grotesk", size: "clamp(3rem, 8vw, 6rem)", weight: "700", lineHeight: "0.95", letterSpacing: "-0.04em" },
+      h1: { family: "Space Grotesk", size: "clamp(2rem, 4vw, 3.5rem)", weight: "600", lineHeight: "1.1", letterSpacing: "-0.025em" },
+      h2: { family: "DM Sans", size: "clamp(1.25rem, 2vw, 1.75rem)", weight: "400", lineHeight: "1.2", letterSpacing: "0" },
+      body: { family: "DM Sans", size: "1.0625rem", weight: "400", lineHeight: "1.7", letterSpacing: "0.01em" },
+      label: { family: "JetBrains Mono", size: "0.7rem", weight: "500", lineHeight: "1.4", letterSpacing: "0.15em" },
+    },
+  },
+  konshu: {
+    name: "Konshu",
+    date: "2026-06-07",
+    swatch: "#7733FF",
+    colors: [
+      { name: "asphalt", hex: "#0F0F17", cssVar: "--bg" },
+      { name: "concrete", hex: "#1C1C26", cssVar: "--surface" },
+      { name: "primary", hex: "#E8E4F0", cssVar: "--text-primary" },
+      { name: "ghost", hex: "#6B6B85", cssVar: "--text-secondary" },
+      { name: "neon-violet", hex: "#7733FF", cssVar: "--accent" },
+      { name: "acid-lime", hex: "#C6F135", cssVar: "--accent-soft" },
+      { name: "slab", hex: "#2A2A38", cssVar: "--slab" },
+    ],
+    typography: {
+      display: { family: "Barlow Condensed", size: "clamp(4rem, 10vw, 7rem)", weight: "800", lineHeight: "0.9", letterSpacing: "-0.02em" },
+      h1: { family: "Barlow Condensed", size: "clamp(2rem, 5vw, 4rem)", weight: "700", lineHeight: "1.0", letterSpacing: "-0.01em" },
+      h2: { family: "Barlow Condensed", size: "clamp(1.5rem, 3vw, 2.5rem)", weight: "700", lineHeight: "1.1", letterSpacing: "0" },
+      body: { family: "IBM Plex Mono", size: "0.9rem", weight: "400", lineHeight: "1.7", letterSpacing: "0.01em" },
+      label: { family: "Barlow Condensed", size: "0.7rem", weight: "700", lineHeight: "1.2", letterSpacing: "0.18em" },
     },
   },
 };

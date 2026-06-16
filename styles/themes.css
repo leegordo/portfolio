@@ -159,3 +159,67 @@ html[data-theme="tessera"] {
   --font-mono: "Source Serif 4", Georgia, serif;
   --font-label: "Source Serif 4", Georgia, serif;
 }
+
+html[data-theme="abyssal"] {
+  --bg: #04090F;
+  --surface: #080E18;
+  --surface-raised: #0D1B2A;
+  --text-primary: #E8F4F4;
+  --text-secondary: #4A7A8A;
+  --text-tertiary: #1A3348;
+  --text-faint: #0A4D68;
+  --accent: #00F5D4;
+  --accent-soft: #7B61FF;
+  --accent-muted: rgba(0, 245, 212, 0.06);
+  --accent-border: rgba(0, 245, 212, 0.15);
+  --accent-glow: rgba(0, 245, 212, 0.2);
+  --border: #0D1B2A;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --on-accent: #04090F;
+  --inspector-surface: #080E18;
+  --inspector-border: #0D1B2A;
+  --swatch-border: rgba(255, 255, 255, 0.06);
+  --selection-bg: rgba(0, 245, 212, 0.25);
+  --selection-text: #E8F4F4;
+  --scrollbar-track: #04090F;
+  --scrollbar-thumb: #1A3348;
+  --scrollbar-thumb-hover: #2A5A6A;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-label: "JetBrains Mono", monospace;
+}
+
+html[data-theme="konshu"] {
+  --bg: #0F0F17;
+  --surface: #1C1C26;
+  --surface-raised: #2A2A38;
+  --text-primary: #E8E4F0;
+  --text-secondary: #6B6B85;
+  --text-tertiary: #4A4A60;
+  --text-faint: #3D3D52;
+  --accent: #7733FF;
+  --accent-soft: #C6F135;
+  --accent-muted: rgba(119, 51, 255, 0.06);
+  --accent-border: rgba(119, 51, 255, 0.15);
+  --accent-glow: rgba(119, 51, 255, 0.2);
+  --border: #2A2A38;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --on-accent: #E8E4F0;
+  --inspector-surface: #1C1C26;
+  --inspector-border: #2A2A38;
+  --swatch-border: rgba(255, 255, 255, 0.06);
+  --selection-bg: rgba(119, 51, 255, 0.25);
+  --selection-text: #E8E4F0;
+  --scrollbar-track: #0F0F17;
+  --scrollbar-thumb: #3D3D52;
+  --scrollbar-thumb-hover: #5A5A70;
+
+  --font-display: "Barlow Condensed", system-ui, sans-serif;
+  --font-body: "IBM Plex Mono", monospace;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-label: "Barlow Condensed", system-ui, sans-serif;
+}
