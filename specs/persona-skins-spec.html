@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona Skins Spec — leegordon.design</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0c10;
+    --surface-raised: #14141c;
+    --text-primary: #e8e8f0;
+    --text-secondary: #a0a0b8;
+    --text-tertiary: #6a6a85;
+    --text-faint: #4a4a60;
+    --accent: #e85a8a;
+    --accent-cyan: #00f0ff;
+    --accent-gold: #ffd166;
+    --accent-purple: #a78bfa;
+    --border: #1a1a22;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.65;
+    font-size: 15px;
+    padding-bottom: 6rem;
+  }
+  a { color: var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  .container { max-width: 880px; margin:0 auto; padding: 0 1.5rem; }
+
+  /* Header */
+  header {
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  header .badge {
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    text-transform:uppercase; letter-spacing:0.12em; color:var(--text-faint);
+    border:1px solid var(--border); padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.25rem;
+  }
+  header h1 {
+    font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:700;
+    line-height:0.95; letter-spacing:-0.03em; margin-bottom:0.75rem;
+  }
+  header h1 .accent { color: var(--accent); }
+  header .lead {
+    color:var(--text-secondary); font-size:1.05rem; max-width:600px; line-height:1.6;
+    margin-top:1rem;
+  }
+  header .meta {
+    margin-top:2rem; display:flex; gap:1.5rem; flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-faint);
+  }
+
+  /* Section */
+  section { padding: 2.5rem 0; border-bottom:1px solid var(--border); }
+  section h2 {
+    font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:600;
+    margin-bottom:1rem; color:var(--text-primary);
+  }
+  section h2 .num {
+    font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:400;
+    color:var(--text-faint); margin-right:0.75rem;
+  }
+  p { color:var(--text-secondary); margin-bottom:1rem; }
+  ul { color:var(--text-secondary); padding-left:1.5rem; margin-bottom:1rem; }
+  li { margin-bottom:0.4rem; }
+  .mono { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(255,255,255,0.04); padding:0.1rem 0.35rem; border-radius:3px; color:var(--text-primary); }
+
+  /*--- PERSONA PREVIEWS ---*/
+  .persona-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top:1.5rem; }
+  .persona-card {
+    border:1px solid var(--border); border-radius:10px; padding:1.25rem;
+    background:var(--surface-raised); position:relative; overflow:hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .persona-card:hover { border-color:rgba(232,90,138,0.3); transform:translateY(-2px); }
+  .persona-card .skin-obj {
+    width:64px; height:64px; border-radius:14px; margin-bottom:1rem;
+    background: linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));
+    border:1px solid rgba(255,255,255,0.06); position:relative;
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+  }
+  .persona-card.designer .skin-obj { box-shadow:0 0 20px rgba(232,90,138,0.15); border-color:rgba(232,90,138,0.2); }
+  .persona-card.researcher .skin-obj { box-shadow:0 0 20px rgba(0,240,255,0.12); border-color:rgba(0,240,255,0.15); }
+  .persona-card.maker .skin-obj { box-shadow:0 0 20px rgba(167,139,250,0.15); border-color:rgba(167,139,250,0.2); }
+
+  .persona-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1rem; margin-bottom:0.4rem; }
+  .persona-card .tag {
+    font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--text-faint); margin-bottom:0.75rem; display:block;
+  }
+  .persona-card p { font-size:0.85rem; line-height:1.55; color:var(--text-secondary); margin:0; }
+  .persona-card .vibe-row {
+    margin-top:1rem; display:flex; gap:0.4rem; flex-wrap:wrap;
+  }
+  .persona-card .vibe-chip {
+    font-family:'JetBrains Mono',monospace; font-size:0.6rem;
+    padding:0.2rem 0.5rem; border-radius:4px; border:1px solid var(--border);
+    color:var(--text-faint);
+  }
+
+  /*--- ANIMATION SPECS ---*/
+  .anim-spec { display:flex; flex-direction:column; gap:1.5rem; margin-top:1rem; }
+  .anim-box {
+    border:1px solid var(--border); border-radius:8px; padding:1.25rem;
+    background:rgba(255,255,255,0.015);
+  }
+  .anim-box .label {
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--text-faint);
+    text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;
+  }
+  .anim-box .name { font-weight:600; margin-bottom:0.4rem; font-size:0.95rem; }
+  .anim-box p { font-size:0.85rem; margin-bottom:0.5rem; }
+  .anim-box .code {
+    font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+    background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:5px;
+    padding:0.75rem; display:block; overflow-x:auto; line-height:1.6; color:var(--text-faint);
+    margin-top:0.5rem;
+  }
+  .anim-box .code .kw { color:#4ec9b0; }
+  .anim-box .code .str { color:#ce9178; }
+  .anim-box .code .num { color:#b5cea8; }
+
+  /*--- SKIN PANEL MOCKUP ---*/
+  .panel-mockup {
+    border:1px solid var(--border); border-radius:12px;
+    background:var(--surface-raised); overflow:hidden; margin-top:1rem;
+    max-width:380px;
+  }
+  .panel-mockup .panel-header {
+    padding:0.75rem 1rem; border-bottom:1px solid var(--border);
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .panel-mockup .panel-body { padding:1rem; }
+  .panel-mockup .skin-row {
+    display:flex; gap:0.5rem; padding:0.5rem 0;
+  }
+  .skin-item {
+    width:48px; height:48px; border-radius:10px;
+    background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));
+    border:1px solid rgba(255,255,255,0.06); cursor:pointer;
+    position:relative; transition:all 0.2s;
+  }
+  .skin-item:hover { transform:scale(1.08); }
+  .skin-item.active { border-color:var(--accent); box-shadow:0 0 12px rgba(232,90,138,0.2); }
+  .skin-item .dot {
+    width:4px; height:4px; border-radius:50%; background:var(--accent);
+    position:absolute; bottom:6px; left:50%; transform:translateX(-50%); opacity:0;
+  }
+  .skin-item.active .dot { opacity:1; }
+
+  /*--- CALLOUT ---*/
+  .callout {
+    border-left:2px solid var(--accent); padding:0.75rem 1rem;
+    background:rgba(232,90,138,0.04); margin:1.5rem 0; border-radius:0 6px 6px 0;
+  }
+  .callout p { margin:0; font-size:0.9rem; color:var(--text-secondary); }
+
+  /*--- DEBATE CARDS ---*/
+  .debate-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
+  .debate-card {
+    border:1px solid var(--border); border-radius:8px; padding:1rem;
+    background:rgba(255,255,255,0.015);
+  }
+  .debate-card .agent {
+    font-family:'JetBrains Mono',monospace; font-size:0.7rem;
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .debate-card .dot-agent { width:6px; height:6px; border-radius:50%; }
+  .dot-mia { background:#ff6b9d; }
+  .dot-dieter { background:#00f0ff; }
+  .dot-carl { background:#ffd166; }
+  .debate-card .vote {
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    margin-bottom:0.75rem;
+  }
+  .vote-for { color:#00ff88; }
+  .vote-against { color:#ff3366; }
+  .vote-mixed { color:#ffaa00; }
+  .debate-card p { font-size:0.82rem; line-height:1.55; margin:0; }
+
+  /*--- NANO PROMPTS ---*/
+  .prompt-box {
+    background:rgba(0,0,0,0.25); border:1px solid var(--border); border-radius:8px; padding:1rem;
+    margin:0.75rem 0; font-family:'JetBrains Mono',monospace; font-size:0.75rem;
+    line-height:1.7; color:var(--text-faint); white-space:pre-wrap; word-break:break-word;
+  }
+  .prompt-label {
+    font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--accent); margin-bottom:0.4rem;
+  }
+
+  /*--- CONVERGENCE BOX ---*/
+  .convergence {
+    border:1px solid rgba(0,240,255,0.25); border-radius:10px; padding:1.25rem;
+    background:rgba(0,240,255,0.03); margin-top:1rem;
+  }
+  .convergence h3 {
+    font-family:'Space Grotesk',sans-serif; font-size:1rem; color:var(--accent-cyan); margin-bottom:0.75rem;
+  }
+  .convergence ul { margin:0; }
+
+  /*--- DETAILS ---*/
+  details { margin:1rem 0; border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+  details summary {
+    font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--text-faint);
+    padding:0.75rem 1rem; cursor:pointer; background:rgba(255,255,255,0.02);
+  }
+  details[open] summary { color:var(--text-secondary); }
+  .details-body { padding:0 1rem 1rem; }
+
+  /*--- RESPONSIVE ---*/
+  @media (max-width:600px) {
+    .panel-mockup { max-width:100%; }
+    .persona-grid { grid-template-columns:1fr; }
+    .debate-grid { grid-template-columns:1fr; }
+    header h1 { font-size:1.7rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <span class="badge">Design Spec — Final</span>
+    <h1>Persona <span class="accent">Skins</span></h1>
+    <p class="lead">
+      Transform the Style Cart from a utilitarian theme picker into a living skin selector.
+      Three personas — The Designer, The Researcher, The Maker — each with a distinct material object,
+      typographic system, and animation personality. The skin selector itself becomes proof of range.
+      <em>Reviewed by the 0xCreative Committee.</em>
+    </p>
+    <div class="meta">
+      <span>leegordon.design</span>
+      <span>2026-06-16</span>
+      <span>Status: Approved — Build</span>
+    </div>
+  </header>
+
+  <!-- ONE: CONCEPT -->
+  <section>
+    <h2><span class="num">01</span>The Idea</h2>
+    <p>
+      The existing <span class="mono">ThemeCart</span> is a dark-mode utility — pick a theme,
+      see tokens. It works, but it speaks to visitors who already know what design systems are.
+      The majority of visitors (clients, collaborators, curious scrollers) see a color picker and move on.
+    </p>
+    <p>
+      <strong>Persona Skins</strong> reframe the theme system as a set of three work identities
+      — each one a real mode you operate in. Visitors don't "switch themes." They choose a lens.
+      Each skin changes the portfolio's <em>voice</em> (typography, spacing, accent behavior) and
+      the skin illustration embodies it as a tactile 3D-ish artifact.
+    </p>
+    <div class="callout">
+      <p>
+        The goal is not "cool animations." The goal is: in under 30 seconds, a visitor understands
+        that you think about design in three distinct modes — and can switch between them fluidly.
+      </p>
+    </div>
+  </section>
+
+  <!-- TWO: THE THREE PERSONAS -->
+  <section>
+    <h2><span class="num">02</span>The Three Personas</h2>
+
+    <div class="persona-grid">
+      <div class="persona-card designer">
+        <div class="skin-obj">&#9999;</div>
+        <h3>The Designer</h3>
+        <span class="tag">Craft &middot; Composition &middot; Polish</span>
+        <p>
+          The default skin. Bold display type, tight leading, generous whitespace.
+          Accent behaviors: hover reveals, subtle glow on cards, showcase-forward layout where
+          project images lead and process stays behind a fold.
+        </p>
+        <div class="vibe-row">
+          <span class="vibe-chip">Space Grotesk</span>
+          <span class="vibe-chip">Warm Void</span>
+          <span class="vibe-chip">Hero Image First</span>
+        </div>
+      </div>
+      <div class="persona-card researcher">
+        <div class="skin-obj">&#9741;</div>
+        <h3>The Researcher</h3>
+        <span class="tag">Process &middot; Evidence &middot; Systems</span>
+        <p>
+          Mono-forward typography, tighter grid, more labels and annotations.
+          Project pages surface research artifacts — journey maps, test screenshots, decision notes —
+          before the polished outcome. The layout feels like a documentation system.
+        </p>
+        <div class="vibe-row">
+          <span class="vibe-chip">JetBrains Mono</span>
+          <span class="vibe-chip">Annotation-Dense</span>
+          <span class="vibe-chip">Process Leads</span>
+        </div>
+      </div>
+      <div class="persona-card maker">
+        <div class="skin-obj">&#9889;</div>
+        <h3>The Maker</h3>
+        <span class="tag">Build &middot; Iterate &middot; Ship</span>
+        <p>
+          Spacier, airier, slightly looser in the joints. Type treatment feels editorial.
+          Accent elements have a glassy, chromatic quality. The portfolio shows work as
+          experiments in progress — prototypes, WIP, conversations — alongside shipped pieces.
+        </p>
+        <div class="vibe-row">
+          <span class="vibe-chip">DM Sans</span>
+          <span class="vibe-chip">Glass Accents</span>
+          <span class="vibe-chip">Prototype Forward</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:1.5rem;">
+      Each persona is more than a hue-shift. It changes font stack, spacing rhythm,
+      card density, hero hierarchy, and even the character of the About page bio.
+      A persona is a coherent worldview, not a recolor.
+    </p>
+  </section>
+
+  <!-- THREE: SKIN OBJECTS & ILLUSTRATIONS -->
+  <section>
+    <h2><span class="num">03</span>Skin Objects &mdash; Google Nano Prompts</h2>
+    <p>
+      Each skin is represented by a small illustrated object in the selector panel.
+      Generated with <strong>Google Nano</strong> (on-device Chrome preview, fast iteration, no credits).
+      The prompts share a unified lighting and material language so all three objects feel
+      like they belong to the same collection.
+    </p>
+
+    <div class="prompt-label">Nano Prompt &mdash; The Designer (Drafting Compass)</div>
+    <div class="prompt-box">A dark brushed-steel folding compass resting on matte black. A single warm pink point-light from the top-left catches the worn edges and hinge. Precision instrument, editorial material render, soft shadow beneath. Isometric angle. 256x256px.</div>
+
+    <div class="prompt-label">Nano Prompt &mdash; The Researcher (Brass Loupe)</div>
+    <div class="prompt-box">A precision-machined brass magnifying loupe resting on matte black. A single cold cyan point-light from the top-left catches the calibration rings and lens edge. Clinical, archival, measured. Soft bloom on glass, soft shadow beneath. 256x256px.</div>
+
+    <div class="prompt-label">Nano Prompt &mdash; The Maker (Circuit-Gem)</div>
+    <div class="prompt-box">An iridescent half-gem, half-circuit-board artifact resting on matte black. A single violet-lime point-light from the top-left catches translucent edges. Digital-meets-organic form with slight chromatic aberration. Ethereal, energy-state feel. 256x256px.</div>
+
+    <div class="callout">
+      <p>
+        Nano outputs 1024&times;1024 — downscale &amp; trim to 256&times;256 PNG with alpha.
+        Expect 5-10 prompt iterations per object to get consistent lighting and material language.
+        All three share the same scene setup (black surface, single point-light from top-left)
+        so they read as a curated set.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOUR: ANIMATION SPECS -->
+  <section>
+    <h2><span class="num">04</span>Animation Specs</h2>
+
+    <div class="anim-spec">
+      <div class="anim-box">
+        <div class="label">Panel Entrance</div>
+        <div class="name">The Drawer Slides Into View</div>
+        <p>The panel slides from the right with a smooth deceleration curve. A subtle <strong>scaleX(0.97)</strong> adds a slight receding-in perspective without the iOS Safari compositing bugs of rotateY.</p>
+        <pre class="code"><span class="kw">initial</span>: { x: <span class="str">"100%"</span>, scaleX: <span class="num">0.97</span>, opacity: <span class="num">0.85</span> }
+<span class="kw">animate</span>:  { x: <span class="num">0</span>, scaleX: <span class="num">1</span>, opacity: <span class="num">1</span> }
+<span class="kw">transition</span>: { duration: <span class="num">0.35</span>, ease: [<span class="num">0.22</span>, <span class="num">1</span>, <span class="num">0.36</span>, <span class="num">1</span>] }</pre>
+      </div>
+
+      <div class="anim-box">
+        <div class="label">Object Entrance &mdash; Per-Skin</div>
+        <div class="name">Each Object Arrives With Its Own Physics</div>
+        <p>On panel open, the three skin objects stagger in with distinct arrivals:</p>
+        <ul>
+          <li><strong>Designer</strong> &mdash; Slides from above, slight overshoot settle. Weighty, deliberate.</li>
+          <li><strong>Researcher</strong> &mdash; Fades in with a precise scale pop (0.85 &rarr; 1.0), like a lens snapping into focus.</li>
+          <li><strong>Maker</strong> &mdash; Floats up from below with a gentle oscillation (yoyo), like a bubble rising.</li>
+        </ul>
+        <pre class="code"><span class="kw">staggerChildren</span>: <span class="num">0.08</span>     <span class="str">// each object trails by 80ms</span>
+<span class="kw">delayChildren</span>:   <span class="num">0.15</span>     <span class="str">// start after panel is ~40% arrived</span></pre>
+      </div>
+
+      <div class="anim-box">
+        <div class="label">Hover &mdash; Object</div>
+        <div class="name">Hover Amplifies the Persona (Safari-Safe)</div>
+        <p>Hovering a skin object triggers a micro-animation reinforcing identity using only GPU-composited properties:</p>
+        <ul>
+          <li><strong>Designer</strong> &mdash; Slight rotation (2&deg;) + warm glow intensify via <span class="mono">box-shadow</span> transition.</li>
+          <li><strong>Researcher</strong> &mdash; A scanning-line sweep across surface via CSS gradient translateX. Settles on focus ring highlight.</li>
+          <li><strong>Maker</strong> &mdash; Subtle border-glow pulse + slight scale pulse (1.0 &rarr; 1.03). No hue-rotate to avoid GPU repaint.</li>
+        </ul>
+      </div>
+
+      <div class="anim-box">
+        <div class="label">Selection &mdash; Theme Switch</div>
+        <div class="name">Cross-Fade With Staggered Content</div>
+        <p>When a skin is selected, the portfolio cross-fades over 400ms — text first, then cards, then images. On a static-export Next.js site, this requires client-side state-driven conditional rendering for content variants, or a soft page refresh for full content swaps. CSS/font/spacing changes are client-side instant.</p>
+        <pre class="code"><span class="kw">pageTransition</span>: {
+  <span class="kw">text</span>:  { duration: <span class="num">0.25</span>, delay: <span class="num">0</span> },
+  <span class="kw">cards</span>: { duration: <span class="num">0.30</span>, delay: <span class="num">0.05</span> },
+  <span class="kw">images</span>:{ duration: <span class="num">0.35</span>, delay: <span class="num">0.10</span> },
+}
+<span class="str">// Note: Next.js App Router static export = full page navigations.</span>
+<span class="str">// Use client-side state wrapping for in-page skin switches.</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIVE: PANEL DESIGN -->
+  <section>
+    <h2><span class="num">05</span>Panel Mockup</h2>
+    <p>
+      Current panel: 340px wide, flat list, token inspector. New panel: same width but
+      reorganized around the <strong>three skin objects</strong> as the primary action.
+      The token inspector folds into a collapsible <span class="mono">details</span> element below.
+    </p>
+
+    <div class="panel-mockup">
+      <div class="panel-header">
+        <span>Choose a Lens</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="opacity:0.4;"><path d="M1 1l12 12M13 1L1 13" stroke="#e8e8f0" stroke-width="1.25"/></svg>
+      </div>
+      <div class="panel-body">
+        <div class="skin-row">
+          <div class="skin-item active" title="The Designer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e85a8a" stroke-width="1.5" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"><path d="M3 17v4h4l11-11-4-4L3 17z"/></svg>
+            <div class="dot"></div>
+          </div>
+          <div class="skin-item" title="The Researcher">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="1.5" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <div class="dot"></div>
+          </div>
+          <div class="skin-item" title="The Maker">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--border);">
+          <p style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-faint); margin-bottom:0.4rem;">SELECTED</p>
+          <p style="font-weight:600; margin:0;">The Designer</p>
+          <p style="font-size:0.8rem; color:var(--text-tertiary); margin-top:0.3rem;">Bold, composed, craft-first. Default view.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIX: IMPLEMENTATION ROADMAP -->
+  <section>
+    <h2><span class="num">06</span>Implementation Roadmap</h2>
+    <ul>
+      <li><strong>Phase 1 &mdash; Skin Illustrations</strong> (~1-2 days): Nano prompt iteration, manual cleanup &amp; alpha trim, export 256&times;256 PNGs.</li>
+      <li><strong>Phase 2 &mdash; UI Redesign</strong> (~1 day): Rebuild <span class="mono">ThemeCart.tsx</span>. Objects-first layout, collapsible token inspector.</li>
+      <li><strong>Phase 3 &mdash; Animation Pass</strong> (~2 days): Implement entrance, hover, and selection animations. Safari/iOS fallbacks for compositing-safe transforms only.</li>
+      <li><strong>Phase 4 &mdash; Persona Content Variants</strong> (~2-3 days): Wire three content presets into <span class="mono">lib/themes.ts</span>. Scope: About page bio variant + optional Project Process section. Full-site content rewrite deferred.</li>
+      <li><strong>Phase 5 &mdash; QA &amp; Polish</strong> (~1-2 days): Mobile bottom-sheet on &lt;640px, reduce-motion support, Safari/Edge, static export verification.</li>
+    </ul>
+    <p><strong>Total estimate: 1.5&ndash;2 weeks</strong> of focused build time. Not 4 days.</p>
+  </section>
+
+  <!-- SEVEN: CONTENT SCOPE (Committee-Approved) -->
+  <section>
+    <h2><span class="num">07</span>Content Scope</h2>
+    <p>The committee flagged that full-site copy variants per persona would be a content strategy problem masquerading as a config flag. Approved scope:</p>
+    <ul>
+      <li><strong>About page:</strong> Three 2-sentence bio variants. Designer = craft focus. Researcher = process focus. Maker = build focus.</li>
+      <li><strong>Project pages:</strong> Optional Process section surfaced in Researcher mode. If a project has no process content, the section doesn't appear. Never fabricate research artifacts.</li>
+      <li><strong>Hero copy:</strong> One headline variant per persona, max 12 words.</li>
+      <li><strong>Everything else:</strong> Stays shared. No AI-generated copy anywhere visible.</li>
+    </ul>
+  </section>
+
+  <!-- EIGHT: COMMITTEE DEBATE -->
+  <section>
+    <h2><span class="num">08</span>Committee Debate</h2>
+    <p>
+      The spec was reviewed by three committee members from the 0xCreative Design Committee.
+      Each member read the full draft, provided a critique, answered the open questions,
+      and voted <strong>FOR</strong>, <strong>AGAINST</strong>, or <strong>MIXED</strong>.
+    </p>
+
+    <div class="debate-grid">
+      <div class="debate-card">
+        <div class="agent"><span class="dot-agent dot-mia"></span> Mia &mdash; Creative Strategist</div>
+        <div class="vote vote-mixed"><strong>Vote: MIXED</strong></div>
+        <p>
+          "Animation thinking is sharp, visual concept is right, but three-persona framing flattens Lee's
+          existing 7-theme vocabulary. 'Vibecoder' is brand poison. Never ship placeholder research.
+          Build the interaction shell but reframe personas as <strong>view modes</strong> that sit on top
+          of the existing theme system, not replacements for it."
+        </p>
+      </div>
+      <div class="debate-card">
+        <div class="agent"><span class="dot-agent dot-dieter"></span> Dieter &mdash; Systems Architect</div>
+        <div class="vote vote-mixed"><strong>Vote: MIXED</strong></div>
+        <p>
+          "4-day estimate is misleading. rotateY causes iOS Safari compositing bugs.
+          hue-rotate repaints GPU. Tailwind spacing isn't runtime-variable without a rebuild.
+          Static-export Next.js means content variants need client-state wrapping, not a config flag.
+          Ship the skin selector + CSS-driven themes as a polished evolution. Defer content variants
+          to Phase 2."
+        </p>
+      </div>
+      <div class="debate-card">
+        <div class="agent"><span class="dot-agent dot-carl"></span> Carl &mdash; Brand Voice</div>
+        <div class="vote vote-mixed"><strong>Vote: MIXED</strong></div>
+        <p>
+          "Designer and Researcher are excellent. Vibecoder is a dated meme wrapped in adjectives.
+          'Ship &middot; Feel &middot; Agent-Assisted' is credibility poison. Rename to The Maker,
+          change panel title to 'Choose a Lens,' and keep all copy human-written.
+          Ship with two personas if Maker isn't rewriting-ready."
+        </p>
+      </div>
+    </div>
+
+    <div class="convergence">
+      <h3>&#10003; Points of Convergence</h3>
+      <ul>
+        <li><strong>Build the skin selector.</strong> All three agree the interaction shell and object concept should ship.</li>
+        <li><strong>Rename the third persona.</strong> Consensus: Vibecoder → <strong>The Maker</strong> (or The Builder). Tagline: grounded verbs only.</li>
+        <li><strong>Panel header:</strong> <em>"Choose a Lens"</em> over <em>"Pick a Persona"</em> — more professional, less cosplay.</li>
+        <li><strong>Asset format:</strong> Static PNG with alpha, not Lottie/SVG. CSS micro-animations on top.</li>
+        <li><strong>Persist selection</strong> to localStorage. Default to Designer for new visitors.</li>
+        <li><strong>Never fabricate</strong> research artifacts. Surfaces real process content only.</li>
+        <li><strong>No AI-generated copy</strong> anywhere visible on the portfolio.</li>
+        <li><strong>Animation: Safari-safe.</strong> No rotateY, no hue-rotate. Scale, opacity, translate only.</li>
+        <li><strong>Timeline is ~1.5&ndash;2 weeks</strong>, not 4 days. Content variants are a Phase 2 consideration.</li>
+        <li><strong>Object prompts</strong> should share unified lighting (matte black surface, single accent point-light).</li>
+      </ul>
+    </div>
+
+    <details>
+      <summary>Full Committee Writeups</summary>
+      <div class="details-body">
+        <p style="font-size:0.8rem; line-height:1.6; color:var(--text-faint);">
+          <strong>Mia's full critique (Creative Strategist)</strong><br><br>
+          "The spec has genuine interaction craft buried under a strategic misstep. The animation thinking is sharp. The visual concept of tactile skin-objects is right. But the core 'three personas' framing flattens Lee's existing design vocabulary into generic LinkedIn job titles — and one of them is actively cringe.<br><br>
+          <strong>Keep the existing 7 themes as the aesthetic layer.</strong> The skin selector should be a compositor: pick a base theme (Void Rose, Cinnabar, Abyssal, Konshu) AND pick a view mode. This preserves the typographic specificity Lee already built while adding the layout-density dimension the personas want.<br><br>
+          <strong>Unify the object art style.</strong> The current prompts describe three different lighting rigs. Revise so all three objects share a consistent language — all are precision metal instruments resting on matte black, lit by a single accent-colored point source.<br><br>
+          <strong>Scope content variants to one page and one optional tab.</strong> Instead of rewriting the entire site's copy per persona, limit to: (a) About page gets a 2-sentence bio variant, and (b) project pages get an optional Process tab that Researcher mode surfaces. This turns a weeks-long content problem into a real, shippable feature. The spec's 2-day estimate for persona content variants is fantasy if it means full-site rewrites."
+        </p>
+        <p style="font-size:0.8rem; line-height:1.6; color:var(--text-faint); margin-top:1.5rem;">
+          <strong>Dieter's full critique (Systems Architect)</strong><br><br>
+          <strong>/costs/1: The Tailwind spacing tax.</strong> Tailwind utilities are compile-time static. You cannot CSS-variable them at runtime without abandoning the Tailwind design token system. Options: CSS variable approach (destroys Tailwind), component duplication (maintainability nightmare), or runtime class mapping (feasible but touches ~20 components). This is buried in the spec as 'Phase 4 — wire three content presets.' Not a preset problem. A layout system problem. Add 2-3 days.<br><br>
+          <strong>/costs/2: The Server Component boundary problem.</strong> The site uses App Router with static export. Many pages are Server Components that read MDX/JSON at build time. A persona switch is client-side state. Server Components can't re-render based on client state. The Researcher persona showing process artifacts before polished outcome on project pages would require all three variants to be generated at build time, with client-side conditional rendering — tripling build output. Not a 'Phase 4' subtask. A fundamental architecture decision.<br><br>
+          <strong>/costs/3: Safari compositing bugs.</strong> rotateY on a fixed drawer is an iOS Safari rendering bug. hue-rotate oscillation is a full CPU repaint. backdrop-blur on slide-overs frame drops on iPhone 12 and below. Either cut rotateY/hue-rotate or add 1-2 days of mobile-specific fallback engineering.<br><br>
+          <strong>Nano is not an asset pipeline.</strong> Nano produces 1024x1024, not 256x256. Consistency across 3 prompts is speculative — expect 5-10 iterations per object. 'Transparent background feel' will produce gray voids, not alpha. Plan on manual PNG cleanup regardless.<br><br>
+          <strong>Recommendation:</strong> Ship the skin selector + CSS-driven persona themes as a polished evolution of the current ThemeCart. Defer content variants and page transition animations to a post-launch Phase 2. The 80% version is achievable and impressive; the specced 100% version is a rewrite disguised as a feature."
+        </p>
+        <p style="font-size:0.8rem; line-height:1.6; color:var(--text-faint); margin-top:1.5rem;">
+          <strong>Carl's full critique (Brand Voice)</strong><br><br>
+          "The spec is two-thirds excellent and one-third costume. Designer and Researcher are grounded, believable personas with clear typographic logic and real work modes. 'Vibecoder' is a trend-chasing label wrapped in aesthetic adjectives that don't describe a design philosophy — they describe a Pinterest board.<br><br>
+          <strong>The tag 'Ship · Feel · Agent-Assisted' is credibility poison.</strong> 'Feel' is not a design principle. 'Agent-Assisted' sounds like SaaS marketing. In a portfolio, it reads as 'AI wrote this.' It undermines authorship.<br><br>
+          <strong>Proposed copy changes:</strong> (1) Rename Vibecoder → <strong>The Maker</strong>, rewrite description around discipline (ship/iterate/build), not vibes. (2) Change panel header from 'Pick a Persona' to 'Choose a Lens.' (3) Remove 'Agent-Assisted' from all taglines; replace with grounded verbs.<br><br>
+          <strong>Never fabricate research artifacts.</strong> Use real process content only, or don't show it. Fake research is worse than no research."
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <!-- NINE: DECISIONS -->
+  <section style="border:none;">
+    <h2><span class="num">09</span>Decisions Made</h2>
+    <ul>
+      <li><strong>Persona 3 name:</strong> The Maker. Alternative considered: Vibecoder (rejected by committee).</li>
+      <li><strong>Panel title:</strong> "Choose a Lens."</li>
+      <li><strong>Tagline (Maker):</strong> "Build · Iterate · Ship."</li>
+      <li><strong>Asset format:</strong> Static PNG 256&times;256 with alpha. CSS-driven hover animations. No Lottie/SVG war.</li>
+      <li><strong>Persist selection:</strong> Yes, via localStorage. Default to Designer on first visit.</li>
+      <li><strong>Research artifacts:</strong> Real only. Optional Process section on project pages. No placeholders.</li>
+      <li><strong>AI copy:</strong> None anywhere visible. Human-written only.</li>
+      <li><strong>Animation limit:</strong> GPU-composited properties only (scale, opacity, translate). No rotateY, no hue-rotate.</li>
+      <li><strong>Timeline:</strong> 1.5&ndash;2 weeks for Phase 1. Content variants deferred to Phase 2.</li>
+      <li><strong>Object lighting:</strong> Unified: matte black surface, single accent-colored point-light from top-left.</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
