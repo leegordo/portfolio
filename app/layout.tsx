@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lee Gordon — Fractional AI Design Lead",
+    default: "Lee Gordon — Senior Product Designer",
     template: "%s | Lee Gordon",
   },
   description:
@@ -34,12 +34,11 @@ export const metadata: Metadata = {
     "product design",
     "UX research",
     "design leadership",
-    "fractional design lead",
     "Lee Gordon",
   ],
   authors: [{ name: "Lee Gordon" }],
   openGraph: {
-    title: "Lee Gordon — Fractional AI Design Lead",
+    title: "Lee Gordon — Senior Product Designer",
     description:
       "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products.",
     type: "website",
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lee Gordon — Fractional AI Design Lead",
+    title: "Lee Gordon — Senior Product Designer",
     description:
       "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products.",
   },
