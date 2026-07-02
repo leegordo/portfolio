@@ -3,6 +3,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 import ScrollReveal from "@/components/ScrollReveal";
 import ServicesGrid from "@/components/ServicesGrid";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
+import BrandMarquee from "@/components/BrandMarquee";
 import { getAllProjects, getHeroContent } from "@/lib/content";
 
 export default function HomePage() {
@@ -13,21 +14,7 @@ export default function HomePage() {
     <>
       <Hero content={heroContent} />
 
-      {/* Trust Strip */}
-      <section className="px-6 md:px-12">
-        <div className="border-t border-b border-subtle py-6 flex items-center gap-8 md:gap-12 flex-wrap">
-          <span className="font-mono text-[0.65rem] text-faint uppercase tracking-[0.2em] shrink-0">
-            Trusted by
-          </span>
-          <div className="flex flex-wrap gap-x-8 md:gap-x-12 gap-y-3">
-            {["Fold", "Lightning Labs", "Qantas", "Nokia", "CZI", "StickerGiant"].map((name) => (
-              <span key={name} className="text-[0.9rem] font-medium text-tertiary tracking-[0.02em]">
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BrandMarquee />
 
       {/* Services */}
       <section id="services" className="py-24 md:py-32 px-6 md:px-12">
