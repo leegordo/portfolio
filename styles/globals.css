@@ -24,6 +24,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* offset for fixed nav */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

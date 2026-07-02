@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ThemeCartButton } from "@/components/ThemeCart";
 
 const navLinks = [
-  { href: "#work", label: "Work" },
+  { href: "/#work", label: "Work" },
   { href: "/services", label: "Services" },
-  { href: "#approach", label: "Approach" },
+  { href: "/#approach", label: "Approach" },
   { href: "/blog", label: "Blog" },
 ];
 
