@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 
+import ThemeCart from "@/components/ThemeCart";
 import {
   CART_HINT_SEEN_KEY,
   DARK_THEME_KEYS,
@@ -101,6 +102,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   return (
     <ThemeContext.Provider value={value}>
       {children}
+      <ThemeCart />
     </ThemeContext.Provider>
   );
 }
