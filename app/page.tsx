@@ -1,22 +1,21 @@
-import Hero from "@/components/Hero";
+import PinnedHero from "@/components/PinnedHero";
 import ProjectGrid from "@/components/ProjectGrid";
 import ScrollReveal from "@/components/ScrollReveal";
 import ServicesGrid from "@/components/ServicesGrid";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
 import BrandMarquee from "@/components/BrandMarquee";
 import ScrollTheme from "@/components/ScrollTheme";
-import { getAllProjects, getHeroContent } from "@/lib/content";
+import { getAllProjects } from "@/lib/content";
 
 export default function HomePage() {
   const projects = getAllProjects();
-  const heroContent = getHeroContent();
 
   return (
     <>
       <ScrollTheme />
 
       <section id="hero" data-section-theme="void-rose">
-        <Hero content={heroContent} />
+        <PinnedHero />
       </section>
 
       <section id="brands" data-section-theme="void-rose">
@@ -28,7 +27,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
-                01 — Services
+                01 &mdash; Services
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -45,7 +44,7 @@ export default function HomePage() {
                   num: "01",
                   title: "Agentic Interface Design",
                   description:
-                    "Designing the UX of autonomous agents\u2014 when the product makes decisions, not just takes commands. Conversation flows, tool-calling patterns, human-in-the-loop moments.",
+                    "Designing the UX of autonomous agents &mdash; when the product makes decisions, not just takes commands. Conversation flows, tool-calling patterns, human-in-the-loop moments.",
                 },
                 {
                   num: "02",
@@ -57,7 +56,7 @@ export default function HomePage() {
                   num: "03",
                   title: "Design Systems & Scale",
                   description:
-                    "Building design systems that don't just look consistent\u2014 they accelerate the team. Tokens, components, documentation, and the governance that keeps them alive.",
+                    "Building design systems that don't just look consistent &mdash; they accelerate the team. Tokens, components, documentation, and the governance that keeps them alive.",
                 },
               ]}
             />
@@ -94,7 +93,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
-                03 — Testimonials
+                03 &mdash; Testimonials
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -117,7 +116,7 @@ export default function HomePage() {
                 {
                   metric: "23% mobile conversion increase",
                   quote:
-                    "The strategic framework Lee's team delivered didn't just solve today's problems\u2014 it gave us a roadmap for the next five years of digital evolution.",
+                    "The strategic framework Lee's team delivered didn't just solve today's problems &mdash; it gave us a roadmap for the next five years of digital evolution.",
                   name: "Qantas Digital Team",
                   title: "",
                 },
@@ -149,7 +148,7 @@ export default function HomePage() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-secondary text-lg leading-relaxed mb-8 font-light">
-                From R/GA to Nokia to leading design at Fold, I&apos;ve built and scaled design teams,
+                From R/GA to Nokia to leading design for Fold, I&apos;ve built and scaled design teams,
                 launched products used by millions, and helped organizations discover what thoughtful
                 design can really do. Now I&apos;m focused on the most interesting design problem of the
                 next decade: the interface between humans and intelligent systems.
