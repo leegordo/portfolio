@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeCartButton } from "@/components/ThemeCart";
 
 const navLinks = [
   { href: "/#work", label: "Work" },
@@ -60,7 +59,6 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
-            <ThemeCartButton />
             <Link
               href="/contact"
               className="text-[0.8rem] font-medium text-accent hover:text-accent-soft transition-colors duration-300 uppercase tracking-[0.1em]"
@@ -70,7 +68,6 @@ export default function Navigation() {
           </div>
 
           <div className="flex md:hidden items-center gap-4">
-            <ThemeCartButton />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="relative w-8 h-8 flex items-center justify-center"
