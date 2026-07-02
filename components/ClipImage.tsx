@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
+import { type ReactNode } from "react";
 
 interface ClipImageProps {
   src: string;
@@ -10,6 +11,8 @@ interface ClipImageProps {
   aspectRatio?: string;
   className?: string;
   direction?: "from-right" | "from-left" | "from-bottom" | "diagonal";
+  children?: ReactNode;
+  imgClass?: string;
 }
 
 const clipPaths = {
@@ -31,7 +34,9 @@ export default function ClipImage({
   alt,
   aspectRatio = "16/10",
   className = "",
+  children,
   direction = "from-right",
+  imgClass = "object-cover",
 }: ClipImageProps) {
   return (
     <motion.div
@@ -53,10 +58,11 @@ export default function ClipImage({
           src={assetPath(src)}
           alt={alt}
           fill
-          className="object-cover"
+          className={imgClass}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>
+      {children}
     </motion.div>
   );
 }

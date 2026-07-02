@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { assetPath } from "@/lib/assetPath";
+import ClipImage from "@/components/ClipImage";
 import type { ProjectFrontmatter } from "@/lib/content";
 
 interface ProjectCardProps {
@@ -14,6 +13,9 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ slug, frontmatter, index, reverse = false }: ProjectCardProps) {
+  const directions = ["from-right", "from-left", "diagonal", "from-right"];
+  const dir = directions[index % directions.length];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -25,28 +27,33 @@ export default function ProjectCard({ slug, frontmatter, index, reverse = false 
         href={`/projects/${slug}`}
         className="group grid grid-cols-1 md:grid-cols-2 border border-subtle hover:border-hover transition-all duration-300 overflow-hidden"
       >
-        {/* Visual */}
-        <div className={`relative aspect-[16/10] bg-surface-50 flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
+        {/* Visual — clip-path reveal + parallax scale */}
+        <div className={`${reverse ? "md:order-2" : ""}`}>
           {frontmatter.cover ? (
-            <Image
-              src={assetPath(frontmatter.cover)}
+            <ClipImage
+              src={frontmatter.cover}
               alt={frontmatter.title}
-              fill
-              className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+              aspectRatio="16/10"
+              direction={dir as any}
+              className="bg-surface-50 group"
+              imgClass="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+            >
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_5px)]" />
+            </ClipImage>
           ) : (
-            <span className="font-mono text-[0.7rem] text-faint uppercase tracking-[0.1em]">
-              {frontmatter.title}
-            </span>
+            <div className="relative aspect-[16/10] bg-surface-50 flex items-center justify-center">
+              <span className="font-mono text-[0.7rem] text-faint uppercase tracking-[0.1em]">
+                {frontmatter.title}
+              </span>
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_5px)]" />
+            </div>
           )}
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_5px)]" />
         </div>
 
         {/* Info */}
         <div className={`p-8 md:p-12 flex flex-col justify-center ${reverse ? "md:order-1" : ""}`}>
           <div className="font-mono text-[0.65rem] text-accent-soft uppercase tracking-[0.15em] mb-3">
-            {frontmatter.client} — {frontmatter.year} — {frontmatter.role}
+            {frontmatter.client} \u2014 {frontmatter.year} \u2014 {frontmatter.role}
           </div>
           <h3 className="font-display text-2xl font-bold text-primary mb-4 tracking-[-0.02em]">
             {frontmatter.title}
