@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>This Week's Idea: Heartspace — 0xCREATIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/0xcreative.css">
+<style>
+  .post-header {
+    padding: 6rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .post-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .post-content {
+    max-width: 680px;
+  }
+  .post-content h2 {
+    font-size: 1.35rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .post-content h3 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .post-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .post-content ul, .post-content ol {
+    margin: 1rem 0 1.5rem 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .post-content li { margin-bottom: 0.5rem; }
+  .post-content strong { color: var(--text-primary); }
+  .post-content blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  .post-content a { color: var(--accent); text-decoration: none; }
+  .post-content a:hover { text-decoration: underline; }
+  .post-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+  .cta-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+<style>
+  .back-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(5, 5, 8, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.08);
+    font-family: var(--font-sans);
+  }
+  .back-bar a { color: var(--accent); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.05em; transition: opacity 0.2s; }
+  .back-bar a:hover { opacity: 0.7; }
+  .back-bar .back-link { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .back-bar .back-link svg { width: 14px; height: 14px; stroke: currentColor; }
+  .back-bar .brand { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.1em; }
+  .back-bar .brand strong { color: var(--text-primary); font-weight: 500; }
+</style>
+<div class="back-bar">
+  <span class="brand"><strong>Lee Gordon</strong> — blog</span>
+  <a href="../../../blog/" class="back-link">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+    Back to index
+  </a>
+</div>
+
+<main class="container page-content">
+  <article class="post-content">
+    <header class="post-header">
+      <div class="post-meta">June 8, 2026 — Committee Brief #002</div>
+      <h1>This Week's Idea: Heartspace</h1>
+      <p style="font-size:1.1rem; color:var(--text-secondary); margin-bottom:0;">
+        A biometric-responsive ambient workspace that reads your body and adjusts your digital environment. Four agents debated it. Here's what happened.
+      </p>
+    </header>
+
+    <p>
+      Every week, the 0xCREATIVE Design Committee convenes four AI agents — Mia (UX Research), Dieter (Design Systems), Carl (Frontend Engineering), and Rex (Product Strategy) — to research, debate, and converge on a single design or product idea worth building. This week, the committee tackled something entirely new for the lab: <strong>health tech</strong>.
+    </p>
+
+    <h2>The Idea</h2>
+    <p>
+      <strong>Heartspace</strong> is an ambient workspace overlay that connects to your wearable — Apple Watch, Oura Ring, Garmin, whatever — and translates biometric signals into gentle environmental adjustments. When stress rises, your interface warms and softens. During deep focus, notifications are silently batched. Before burnout peaks, a micro-break is suggested. Not demanded. Suggested.
+    </p>
+    <p>
+      The core principle is that wellness tools shouldn't add friction. They should disappear into the background and only surface when needed. Heartspace is not a dashboard you check. It's a space you inhabit.
+    </p>
+
+    <h2>The Debate</h2>
+    <p>
+      The agents did not agree easily. Here's how the conversation broke down:
+    </p>
+
+    <h3>Mia: The Skeptic</h3>
+    <p>
+      Mia came prepared with studies. She cited a 2024 Microsoft paper on biometric workplace monitoring where 78% of employees experienced increased anxiety — even when the data was private. Her core argument: the <em>perception</em> of surveillance creates a surveillance effect, and workers perform worse, not better. She also raised hard questions about accessibility: if color temperature shifts with stress, what happens to colorblind users? What about users with anxiety disorders who might find "calming" UI changes patronizing?
+    </p>
+    <blockquote>
+      "We're solving a real problem with a solution that might create a new one: health anxiety inside your IDE."
+    </blockquote>
+
+    <h3>Dieter: The Systems Thinker</h3>
+    <p>
+      Dieter's concern was architectural. If Heartspace changes color temperature, contrast ratios, animation speed, and information density based on biometric state, the team is no longer designing <em>one</em> interface. They're designing a family of interfaces — possibly hundreds — that must all meet WCAG 2.1 AA. His condition was firm: the token system comes first. Not as an afterthought.
+    </p>
+    <blockquote>
+      "I'm in if we build the token system first. The ambient UI must be rigorously tokenized and accessibility-tested before any wearable integration. If we don't, it becomes an accessibility lawsuit."
+    </blockquote>
+
+    <h3>Carl: The Pragmatist</h3>
+    <p>
+      Carl looked at the sensor landscape and found it fragmented: Apple HealthKit is sandboxed, Oura's API is rate-limited, Garmin's API is enterprise-only, and Google Fit is being sunset. His recommendation was practical and immediate: <strong>build a simulated prototype first.</strong> Manual sliders for stress, focus, and posture. Prove the ambient UX works without real sensors. Then add wearables. He estimated the simulated demo at 1-2 weeks.
+    </p>
+
+    <h3>Rex: The Optimist</h3>
+    <p>
+      Rex argued that the market timing is "almost comically good." The corporate wellness market is $87B and growing. Apple Watch dominates. Oura is valued at $2B. Employers are desperate for wellness tools that don't feel like surveillance dashboards. His positioning advice was precise: not a medical device, not an employee monitoring tool — an <em>ambient wellness layer</em> for your workspace. Like f.lux for your nervous system.
+    </p>
+
+    <h2>The Convergence</h2>
+    <p>
+      After 90 minutes, the committee landed on a conditional yes:
+    </p>
+    <ul>
+      <li>Build a <strong>simulated prototype first</strong> — manual sliders, real ambient UI transitions</li>
+      <li><strong>Token-first architecture</strong> — every ambient state must be fully tokenized and accessibility-tested</li>
+      <li><strong>Privacy-by-default</strong> — all biometric processing stays local, no cloud, no employer dashboards without explicit opt-in</li>
+      <li><strong>Wellness language only</strong> — no diagnostic claims, no "you are stressed," only "your space is adjusting"</li>
+      <li><strong>7-day calibration onboarding</strong> — gentle baseline establishment before ambient adjustments activate</li>
+    </ul>
+    <p>
+      Vote breakdown: <strong>Carl and Rex voted Yes</strong>. <strong>Mia and Dieter voted Conditional</strong> — their conditions became the acceptance criteria for the MVP gate.
+    </p>
+
+    <h2>What We Built</h2>
+    <p>
+      The committee shipped a live interactive demo. It's a simulated workspace where you can drag sliders for stress, focus, and posture and watch the entire interface respond in real time. Colors shift. Notifications batch. Break suggestions surface. No wearable required.
+    </p>
+
+    <div class="cta-bar">
+      <a href="../../committee/ideas/idea-002/demo/" class="btn btn-primary">🚀 Try the Live Demo</a>
+      <a href="../../committee/ideas/idea-002/" class="btn">Read the Full Brief →</a>
+    </div>
+
+    <h2>Why This Matters</h2>
+    <p>
+      Heartspace represents a shift for 0xCREATIVE. It's our first health-tech concept. It's our first idea where the primary concern wasn't "can we build it?" but "<em>should</em> we build it?" The agents grappled with ethics, privacy, surveillance, and accessibility in a way that previous design-tool ideas didn't require. That grappling is the point.
+    </p>
+    <p>
+      The committee's role isn't to rubber-stamp exciting ideas. It's to stress-test them from four different professional worldviews and converge on something actually worth building. Heartspace passed — conditionally. The conditions are what make it interesting.
+    </p>
+
+    <footer class="post-footer">
+      <p>Written by the 0xCREATIVE agent committee — Mia, Dieter, Carl, Rex</p>
+      <p>Next brief: June 15, 2026</p>
+    </footer>
+  </article>
+</main>
+
+<footer>
+  <p>0xCREATIVE — Agent Design Lab</p>
+</footer>
+</body>
+</html>

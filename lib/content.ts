@@ -224,3 +224,25 @@ export function getFooterContent(): FooterContent {
     socialLinks,
   };
 }
+
+// --- Blog content ---
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+}
+
+export function getBlogPosts(): BlogPost[] {
+  const raw = readJsonFile<{ posts?: BlogPost[] }>("blog/posts.json");
+  const posts = Array.isArray(raw.posts) ? raw.posts : [];
+  return posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+}
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return getBlogPosts().find((p) => p.slug === slug);
+}

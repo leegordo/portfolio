@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Stopped Writing Design Specs and Started Writing Agent Schemas — Blog — 0xCREATIVE</title>
+<meta name="description" content="Why human-readable design specs fail when agents execute them, and the JSON Schema architecture that actually works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/0xcreative.css">
+<style>
+  .post-hero { padding: 6rem 0 2rem; max-width: 720px; margin: 0 auto; }
+  .post-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+  .post-meta .date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary); }
+  .post-hero h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 1rem; }
+  .post-hero .lede { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0; }
+  .post-body { max-width: 720px; margin: 0 auto; padding-bottom: 6rem; }
+  .post-body h2 { font-size: 1.3rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+  .post-body p { line-height: 1.7; margin-bottom: 1.25rem; color: var(--text-secondary); }
+  .post-body strong { color: var(--text-primary); }
+  .post-body code {
+    font-family: var(--font-mono); font-size: 0.85rem;
+    background: var(--surface); padding: 0.2em 0.4em; border-radius: 4px;
+    color: var(--accent);
+  }
+  .post-body pre {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.25rem; overflow-x: auto; margin-bottom: 1.5rem;
+  }
+  .post-body pre code { background: none; padding: 0; }
+  blockquote {
+    border-left: 3px solid var(--accent); padding-left: 1.25rem; margin: 1.5rem 0;
+    font-style: italic; color: var(--text-secondary);
+  }
+  .takeaway {
+    background: var(--surface); border: 1px solid var(--accent-dim); border-radius: 8px;
+    padding: 1.5rem; margin-top: 2rem; position: relative;
+  }
+  .takeaway::before {
+    content: 'Takeaway'; font-family: var(--font-mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+  }
+  .takeaway p { margin: 0.75rem 0 0; }
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+<style>
+  .back-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(5, 5, 8, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.08);
+    font-family: var(--font-sans);
+  }
+  .back-bar a { color: var(--accent); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.05em; transition: opacity 0.2s; }
+  .back-bar a:hover { opacity: 0.7; }
+  .back-bar .back-link { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .back-bar .back-link svg { width: 14px; height: 14px; stroke: currentColor; }
+  .back-bar .brand { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.1em; }
+  .back-bar .brand strong { color: var(--text-primary); font-weight: 500; }
+</style>
+<div class="back-bar">
+  <span class="brand"><strong>Lee Gordon</strong> — blog</span>
+  <a href="../../../blog/" class="back-link">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+    Back to index
+  </a>
+</div>
+
+<main class="container page-content">
+  <div class="post-hero">
+    <div class="post-meta">
+      <span class="date">July 2, 2026</span>
+      <span class="tag tag-accent">practical-engineering</span>
+      <span class="tag">agent-ready</span>
+    </div>
+    <h1>We Stopped Writing Design Specs and Started Writing Agent Schemas — Here's the Difference</h1>
+    <p class="lede">
+      For six years, our design team wrote specs in Notion. Spacing rules, color usage, component anatomy — all in prose, with screenshots, with "do not" sections, with human context. Then we handed them to agents, and the agents ignored half of it. Not because they couldn't read. Because we were writing for the wrong consumer.
+    </p>
+  </div>
+
+  <div class="post-body">
+    <p>
+      Every design team has a version of this document: a Notion page, a Confluence space, or a PDF called "Design System v3.2." It contains the accumulated wisdom of dozens of design decisions, written in the voice of a patient mentor. "Use this button sparingly for the primary action." "The card shadow should feel light, never heavy." "This color communicates warmth and approachability, not urgency." These specs are excellent at transferring design culture to new hires. They are terrible at directing AI agents.
+    </p>
+    <p>
+      The problem is not that agents are bad at reading. It's that <strong>design specs are optimized for human judgment, not mechanical execution.</strong> An agent reading "use sparingly" does not know what "sparingly" means. It knows what an enum is. It knows what a default is. It knows what validation failure is. And if your design system cannot be expressed in those terms, your agents will invent their own interpretation — which is exactly how you end up with a button that looks reasonable but violates every usage rule you have.
+    </p>
+
+    <h2>The Notion Problem</h2>
+    <p>
+      We learned this at scale when our agent committee started generating actual production components from design direction. We gave them a Notion link to our button spec, which was 14 paragraphs of guidance on usage, tone, hierarchy, and placement. The agents generated a button that was pixel-perfect in isolation but wrong in context. It used the primary variant for a secondary action. It placed a destructive action button next to a primary without the required separation. It chose the correct color but applied it to a hover state that our spec specifically called out as risky.
+    </p>
+    <p>
+      The agents were not hallucinating. They were doing exactly what a language model does: they were reasoning from pattern, not from rule. The spec said "primary buttons should be used for the main action." That is advice. An agent cannot validate against advice. It can only validate against constraints. And when the constraint layer is missing, the agent fills the gap with statistical probability — which is another way of saying it guesses.
+    </p>
+
+    <h2>What a Schema Actually Is</h2>
+    <p>
+      A JSON Schema is not a shorter design spec. It is a different category of document entirely. Where a spec says "you should do this," a schema says "these are the only values this system will accept." It is not guidance. It is a gate. And agents need gates, not guidance, because agents are not junior designers who learn over time. They are execution engines that need to know the boundaries before they start.
+    </p>
+    <p>
+      We re-wrote our core button, card, and input components as JSON Schema. Each schema defines:
+    </p>
+    <p>
+      <strong>Available properties and their types.</strong> No more guessing whether an icon should be string or boolean. The schema says <code>icon: { type: "string", enum: [...] }</code> and the agent knows exactly what it can pass.
+    </p>
+    <p>
+      <strong>Conditional logic.</strong> Our old spec said "avoid destructive buttons in modal contexts." Our schema says: <code>if</code> <code>context</code> is <code>"modal"</code>, <code>then</code> <code>variant</code> cannot be <code>"destructive"</code>. This is not a suggestion. This is a generation-time failure that forces the agent to retry with a valid option.
+    </p>
+    <p>
+      <strong>Default values for uncertain states.</strong> When an agent is unsure what variant to use, the schema provides a default — usually the safest choice. This eliminates the "primary button everywhere" problem that happens when agents default to what they see most often in training data.
+    </p>
+    <p>
+      <strong>Validation rules.</strong> A schema can specify that <code>size</code> only accepts <code>["sm", "md", "lg"]</code>. If the agent generates <code>"xl"</code>, the validator rejects it before anything reaches a browser. The error is specific, not a visual review comment with a red arrow in Figma.
+    </p>
+    <p>
+      The impact was immediate and measurable. Before schemas, our agent-generated components had about a 40% design review acceptance rate. After schemas, it hit 85%. The agents did not get smarter. The constraints got sharper. And sharp constraints are the only thing that makes agent-generated work reliable.
+    </p>
+
+    <h2>An Example of the Difference</h2>
+    <p>
+      Here is our card component, expressed in the two formats. The Notion spec said:
+    </p>
+    <blockquote>
+      Cards should have a consistent shadow that creates depth without feeling heavy. Use shadow-lg for standard cards, shadow-md for nested cards, and avoid shadow on cards inside modals. The card background should always be surface-white, except in dark mode where it shifts to surface-900. Border radius is consistent at 12px, but nested cards should use 8px to show visual hierarchy.
+    </blockquote>
+    <p>
+      Here is the same component as a schema, the way our agent committee now consumes it:
+    </p>
+    <pre><code>{
+  "type": "object",
+  "properties": {
+    "shadow": {
+      "type": "string",
+      "enum": ["shadow-sm", "shadow-md", "shadow-lg"]
+    },
+    "background": {
+      "type": "string",
+      "description": "Resolved at runtime based on theme"
+    },
+    "radius": {
+      "type": "integer",
+      "enum": [8, 12],
+      "default": 12
+    }
+  },
+  "if": {
+    "properties": { "context": { "const": "modal" } }
+  },
+  "then": {
+    "properties": { "shadow": { "const": "shadow-sm" } }
+  },
+  "if": {
+    "properties": { "nesting": { "const": true } }
+  },
+  "then": {
+    "properties": { "radius": { "const": 8 } }
+  }
+}</code></pre>
+    <p>
+      The schema does not explain why the shadow should be small in a modal. It makes it impossible to choose otherwise. An agent cannot generate a card with a heavy shadow inside a modal, because the schema simply does not allow that combination to exist. <strong>This is how you move from "hoping the agent follows the rules" to "knowing the agent cannot break them."</strong>
+    </p>
+
+    <h2>The Maintenance Trap</h2>
+    <p>
+      Converting specs to schemas is not free. It took us roughly two full days per major component to write, validate, and test. And schemas are not a one-time investment. They rot quickly. When your design team changes a border radius in Figma but forgets to update the schema, the next agent generation will produce legacy work. The schema and the visual system must stay in sync, or one becomes a lie.
+    </p>
+    <p>
+      We solved this by making the schema the source of truth. Not Figma. Not Storybook. The schema. Our design team now opens a pull request to update the JSON Schema, and the visual changes are reviewed in the same PR. Storybook and Figma are downstream consumers. This is backwards for most organizations, where Figma is the source. But if agents are part of your production pipeline, the machine-readable contract is the only source that agents can actually consume. It has to be canonical.
+    </p>
+    <p>
+      This means our design system is now more rigid than it was before. We lost some of the fluidity that comes with human interpretation. An expert designer cannot bend the rules for a compelling exceptional case — at least not without updating the schema. But we gained something more valuable: <strong>agents that generate exactly what we expect, every time.</strong> In a world where design work is increasingly automated, consistency is more important than creative latitude in the system layer. The creative latitude belongs in the product, not the system.
+    </p>
+
+    <h2>What Changed in Our Workflow</h2>
+    <p>
+      Four things are structurally different now. First, we write schemas first, then prose. The human-readable explanation lives in the schema's <code>description</code> field, but the validation logic is the primary document. Second, design reviews are shorter. We spend less time checking if the agent got the spec right, and more time evaluating whether the design intent is good. The "is it correct" question is now answered by a validator, not by a human eye.
+    </p>
+    <p>
+      Third, agent failures are fast and informative. When a generation fails, the error says "button.size is 'xl' but only ['sm', 'md', 'lg'] are allowed." This is infinitely more useful than a screenshot with a red circle and a Slack thread that says "this is too big." And fourth, our design system is more consistent because consistency is enforced, not encouraged. Encouragement works on humans. Enforcement works on machines.
+    </p>
+
+    <blockquote>
+      The design system of the future is not a document you read. It is a contract you query, and the machine is a first-class citizen at the table.
+    </blockquote>
+
+    <div class="takeaway">
+      <p>
+        <strong>Convert your design specs to JSON Schema for the components your agents touch.</strong> Start with your ten most-used components — button, card, input, modal, table. The goal is not to eliminate design review, but to move it from compliance checking to quality evaluation. Agents will follow rules that are written to be followed. Prose is for humans. Schemas are for machines. Write for both, and let each do what they're best at.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>0xCREATIVE — Agent Design Lab</p>
+</footer>
+</body>
+</html>
