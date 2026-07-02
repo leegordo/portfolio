@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "framer-motion": "^11.11.0",
     "geist": "^1.7.0",
     "gray-matter": "^4.0.3",
