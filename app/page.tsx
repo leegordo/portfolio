@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import ProjectGrid from "@/components/ProjectGrid";
 import ScrollReveal from "@/components/ScrollReveal";
+import ServicesGrid from "@/components/ServicesGrid";
+import TestimonialsGrid from "@/components/TestimonialsGrid";
 import { getAllProjects, getHeroContent } from "@/lib/content";
 
 export default function HomePage() {
@@ -43,13 +45,13 @@ export default function HomePage() {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3">
-            {[
+          <ServicesGrid
+            services={[
               {
                 num: "01",
                 title: "Agentic Interface Design",
                 description:
-                  "Designing the UX of autonomous agents — when the product makes decisions, not just takes commands. Conversation flows, tool-calling patterns, human-in-the-loop moments.",
+                  "Designing the UX of autonomous agents \u2014 when the product makes decisions, not just takes commands. Conversation flows, tool-calling patterns, human-in-the-loop moments.",
               },
               {
                 num: "02",
@@ -61,20 +63,10 @@ export default function HomePage() {
                 num: "03",
                 title: "Design Systems & Scale",
                 description:
-                  "Building design systems that don't just look consistent — they accelerate the team. Tokens, components, documentation, and the governance that keeps them alive.",
+                  "Building design systems that don't just look consistent \u2014 they accelerate the team. Tokens, components, documentation, and the governance that keeps them alive.",
               },
-            ].map((service, i) => (
-              <ScrollReveal key={service.title} delay={0.15 + i * 0.1}>
-                <div className="p-8 md:p-10 border border-subtle -m-px hover:border-accent-glow hover:bg-accent-muted transition-all duration-300">
-                  <div className="font-mono text-[0.7rem] text-faint mb-6">{service.num}</div>
-                  <h3 className="text-[1.3rem] font-semibold text-primary mb-4">{service.title}</h3>
-                  <p className="text-[0.95rem] text-secondary font-light leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+            ]}
+          />
 
           <ScrollReveal delay={0.45}>
             <div className="mt-12">
@@ -116,8 +108,8 @@ export default function HomePage() {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
+          <TestimonialsGrid
+            testimonials={[
               {
                 metric: "3x onboarding completion",
                 quote:
@@ -128,7 +120,7 @@ export default function HomePage() {
               {
                 metric: "23% mobile conversion increase",
                 quote:
-                  "The strategic framework Lee's team delivered didn't just solve today's problems — it gave us a roadmap for the next five years of digital evolution.",
+                  "The strategic framework Lee's team delivered didn't just solve today's problems \u2014 it gave us a roadmap for the next five years of digital evolution.",
                 name: "Qantas Digital Team",
                 title: "",
               },
@@ -139,24 +131,8 @@ export default function HomePage() {
                 name: "Nokia Connected Home",
                 title: "",
               },
-            ].map((t, i) => (
-              <ScrollReveal key={i} delay={0.15 + i * 0.1}>
-                <div className="p-8 border border-subtle relative hover:border-hover transition-colors duration-300 h-full flex flex-col">
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-transparent opacity-40" />
-                  <span className="font-mono text-[0.7rem] text-accent-soft mb-6 block">
-                    {t.metric}
-                  </span>
-                  <blockquote className="text-[1.05rem] text-secondary font-light leading-relaxed mb-8 flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <div>
-                    <p className="font-semibold text-[0.9rem] text-primary">{t.name}</p>
-                    {t.title && <p className="text-[0.8rem] text-tertiary mt-1">{t.title}</p>}
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+            ]}
+          />
         </div>
       </section>
 
