@@ -6,12 +6,13 @@ import { motion } from "framer-motion";
 interface ImageGalleryProps {
   images: string[];
   contain?: number[];
+  alts?: string[];
 }
 
 const isVideo = (src: string) => /\.(mp4|webm|mov|ogg)$/i.test(src);
 const isSvg = (src: string) => /\.svg$/i.test(src);
 
-export default function ImageGallery({ images, contain = [] }: ImageGalleryProps) {
+export default function ImageGallery({ images, contain = [], alts = [] }: ImageGalleryProps) {
   return (
     <div className="flex flex-col gap-6 my-12">
       {/* First item - Full Width (image or video) */}
@@ -35,7 +36,7 @@ export default function ImageGallery({ images, contain = [] }: ImageGalleryProps
           ) : (
             <Image
               src={images[0]}
-              alt="Gallery image 1"
+              alt={alts[0] ?? "Project gallery image 1"}
               fill
               className={isSvg(images[0]) || contain.includes(0) ? "object-contain" : "object-cover"}
               sizes="(max-width: 1200px) 100vw, 1200px"
@@ -60,7 +61,7 @@ export default function ImageGallery({ images, contain = [] }: ImageGalleryProps
               >
                 <Image
                   src={src}
-                  alt={`Gallery image ${index + 2}`}
+                  alt={alts[index + 1] ?? `Project gallery image ${index + 2}`}
                   fill
                   className={useContain ? "object-contain p-6" : "object-cover"}
                   sizes="(max-width: 768px) 100vw, 600px"

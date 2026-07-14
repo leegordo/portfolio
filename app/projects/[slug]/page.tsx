@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: `${project.frontmatter.title} — ${project.frontmatter.client}`,
       description: `${project.frontmatter.role} at ${project.frontmatter.client}. ${project.frontmatter.skills.join(", ")}.`,
+      robots: project.frontmatter.unlisted
+        ? { index: false, follow: false }
+        : undefined,
     };
   } catch {
     return { title: "Project Not Found" };
@@ -114,7 +117,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="mdx-content">{mdxContent}</div>
       </div>
 
-      <ProjectNav prev={prev} next={next} />
+      {!project.frontmatter.unlisted && <ProjectNav prev={prev} next={next} />}
     </article>
   );
 }

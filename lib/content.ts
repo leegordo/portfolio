@@ -16,6 +16,8 @@ export interface ProjectFrontmatter {
   comingSoon?: boolean;
   summary?: string;
   metric?: string;
+  unlisted?: boolean;
+  coverAlt?: string;
 }
 
 export interface Project {
@@ -133,6 +135,8 @@ export function getProjectBySlug(slug: string): Project {
       comingSoon: fm.comingSoon,
       summary: fm.summary,
       metric: fm.metric,
+      unlisted: fm.unlisted ?? false,
+      coverAlt: fm.coverAlt,
     },
     content,
   };
@@ -141,6 +145,7 @@ export function getProjectBySlug(slug: string): Project {
 export function getAllProjects(): Project[] {
   return getProjectSlugs()
     .map((slug) => getProjectBySlug(slug))
+    .filter((project) => !project.frontmatter.unlisted)
     .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
 }
 

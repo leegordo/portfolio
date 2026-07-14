@@ -60,7 +60,7 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
           {frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}
-              alt={frontmatter.title}
+              alt={frontmatter.coverAlt ?? frontmatter.title}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 896px"
