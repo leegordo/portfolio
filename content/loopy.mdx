@@ -13,98 +13,123 @@ coverAlt: "Loopy's live website showing a racetrack loop connecting brief, draft
 featured: false
 unlisted: true
 order: 99
-summary: "An eval-led studio where specialized agents turn a brief into distinct directions, critique the work, score it, and route the next lap."
+summary: "A passion project for turning rough ideas into prototypes, putting them in front of people, and learning what to do next."
 ---
 
-## The missing middle
+## This started as my own weird way of working
 
-AI design tools are fast at producing an answer. That was the problem.
+Loopy is a passion project, but it is not a hypothetical one. I use it with a client who needs to move quickly from an idea to something people can try. We prototype, test with users, collect qualitative and quantitative feedback, and use what we learn to decide what happens next.
 
-On one side, tools such as ChatPRD and Notion could turn intent into a document, then stopped. On the other, generators such as v0, Lovable, and Figma Make could turn a prompt into UI, but left the judgment to whoever happened to be looking. The handoff between the brief and the build was copy-paste, and plausible-looking output could pass review without anyone checking whether it solved the original problem.
+Before Loopy had a name or an interface, I was doing all of this agentically. I had a loose system spread across OpenClaw, Claude Code, and Cursor. It was held together with prompts, skills, plug-ins, and a growing cast of agents I had tuned for different jobs.
 
-My competitive audit initially framed this as design-system drift. That was too narrow. Token conformance is useful plumbing, but it is not the product. The stronger opening was the unowned middle: **keep the brief and the build in one system, then evaluate one against the other before shipping.**
+It worked, but it lived in my head. I knew which model to use, which agent needed more context, when a critique was useful, and when an answer only sounded convincing. Running the process meant conducting it by hand every time.
 
-That became Loopy: an agentic design studio built around repeated, visible judgment rather than one-shot generation.
+Loopy grew out of a simple question: could I turn that personal setup into a repeatable way to make and test ideas without sanding off the judgment that made it useful?
 
-## A system designed around decisions
+## I don't think one model wins
 
-I set three product principles early:
+A lot of AI products are built around access to a single model. My experience has pushed me in the other direction.
 
-1. **Elicit enough to make the brief gradeable.** The intake captures goals, audience, constraints, references, and success conditions. It does not try to replace product strategy.
-2. **Generate widely, then criticize before converging.** Speed matters less if three options are the same layout in different clothes.
-3. **Make the human gate explicit.** The system recommends a route; a person decides whether to approve, steer, or reject.
+I think we are heading into a multiple-model world. Different models are good at different things, and that changes quickly. The interesting part is the harness around them: the roles you define, the context each agent receives, the tools it can use, and the way one agent hands work to another.
 
-Those principles shaped a four-part architecture. The control plane holds projects, briefs, iterations, studies, and settings. A worker orchestrates long-running agent jobs. A knowledge layer materializes the pinned project context, design-system tokens, component rules, agent instructions, and inspiration into each run. The artifact layer keeps direction briefs, prototypes, screenshots, critiques, scorecards, and outcome reports attached to the iteration that produced them.
+That is what I had been building for myself. Mia, my designer agent, was there to open up possibilities and make things. Dieter, the critic, was there to be difficult. Other agents handled research, evaluation, implementation, or verification. They were not magic employees. They were parts of a process I had shaped over time.
 
-The agent runtime is intentionally separated from the product model. Generation models can change; the durable value is the loop, the evidence it records, and the decisions it makes legible.
+Loopy makes those relationships visible. The models can change. The working method is the product.
 
-## From a fuzzy request to three real choices
+## The client need made it real
 
-Brief elicitation creates the reference point for the rest of the run. A director then names a meaningful axis from an open question in the brief and writes three direction briefs at distinct points on it. Each direction runs in its own agent session, in parallel, against the same project context and design system.
+The client needed a faster way to explore ideas without turning every question into a full product cycle. A clickable prototype is useful, but only if it helps answer something. A user test is useful, but only if the question, method, and evidence hold together.
 
-That separation fixed an early failure. The first implementation asked one session for three concepts and regularly produced siblings: different accents, same idea. The rebuilt pipeline gave each concept independent context, added visual inspiration as an explicit phase, rendered the results, and judged pairwise distinctness. If one direction collapsed into another, the weaker one could be regenerated before the user was asked to choose.
+My improvised agent workflow could already produce work quickly. The weak point was continuity. The original brief, design decisions, critique, prototype, test results, and next iteration could easily end up scattered across sessions and tools.
 
-In a live evaluation run, a single survey brief produced three interaction models rather than three skins: **One Breath Per Question**, a focused wizard; **The Short Journey**, a scrolling conversation where prior answers stay visible; and **The Steady Console**, a fixed workspace. The difference was structural, not cosmetic.
+So I started pulling the whole loop into one place:
 
-## Mia builds. Dieter pushes back.
+1. Write a brief that is specific enough to evaluate.
+2. Explore genuinely different ways to solve it.
+3. Choose a direction and build it.
+4. Critique and score the work before treating it as finished.
+5. Put it in front of people.
+6. Carry the evidence into the next round.
 
-The studio uses named collaborators because their handoff is part of the interface, not backstage prompt choreography. **Mia** is the senior designer: she plans composition and interaction, works inside the supplied design system, and builds the selected direction. **Dieter** is the principal critic: he checks hierarchy, craft, coherence, accessibility, system fit, and whether the round contains three honest choices rather than a winner and two strawmen.
+The loop sounds obvious written down. Keeping every lap connected is the hard part.
 
-Their responsibilities are deliberately asymmetric. Mia is rewarded for possibility; Dieter is rewarded for resistance. A separate judge combines deterministic checks with visual and brief-adherence evaluation. Lee remains the decision-maker at the gates.
+## Three directions should mean three directions
+
+One of the first problems I ran into was fake variety. Ask one model for three concepts and it will often give you the same layout three times with different styling.
+
+I changed the system so each direction gets its own agent session and the same pinned brief. Before anything is built, Loopy finds a real axis in the problem and places the directions at different points along it. The concepts are rendered and compared. If two collapse into the same idea, one goes back around.
+
+In one working run, a survey brief produced three different interaction models: a focused one-question-at-a-time flow, a scrolling conversation that kept earlier answers in view, and a fixed workspace. Those were choices a designer could actually react to, not three colorways pretending to be strategy.
+
+## Mia makes. Dieter pushes back.
+
+Once I choose a direction, Mia builds it. Dieter reviews it.
+
+I named the agents because I wanted their responsibilities to stay clear. Mia is supposed to find a way forward. Dieter is supposed to question whether the work deserves to move forward. If both agents are optimized to be agreeable, the loop becomes theater.
+
+The critique looks at the brief, the design system, accessibility, craft, and whether the direction is still distinct from the alternatives. Some checks are deterministic. Others need visual judgment. I make the call at the gate.
 
 <ImageGallery
   images={["/images/projects/loopy/studio.webp"]}
   alts={["The live Loopy site introduces Mia, Dieter, and the judge as separate seats with distinct responsibilities"]}
 />
 
-## Score, then route
+## The score is there to provoke a decision
 
-Every selected build reaches a scorecard before it reaches approval. The scorecard brings together brief adherence, design-system conformance, accessibility, craft, and distinctiveness. The exact evaluators have evolved, but the routing contract has stayed simple:
+I did not want a scorecard that handed out a tidy grade and congratulated itself. Its job is to make the next decision easier.
 
-- **Approve** unlocks publishing and testing.
-- **Steer** carries written direction into another lap and regenerates the work with that context.
-- **Reject** closes the direction rather than quietly letting it become the default.
+A direction can be approved, steered, or rejected. Approve means it is ready to publish and test. Steer sends written direction into another lap. Reject closes it instead of letting a weak idea survive through momentum.
 
-This is more useful than a pass/fail badge. It records why a direction moved forward, preserves the pinned brief and system version used to judge it, and makes disagreement actionable.
+The scorecard keeps the reasoning attached to the work. I can see which brief and design-system version the agents used, what failed, what changed, and why I let it continue.
 
 <ImageGallery
   images={["/images/projects/loopy/scorecard.webp"]}
   alts={["Loopy's live scorekeeper section showing brief adherence, craft, distinctiveness, and a route-forward verdict"]}
 />
 
-## Closing the loop with reality
+## A prototype is not an outcome
 
-The first version ended at approval. That made the workflow tidy and the product incomplete. A build can match its brief and still fail with people.
+My first version of the system ended when I approved the design. That was neat, and wrong.
 
-I extended the model with an outcome loop. An approved iteration can publish a stable prototype, open either a share-link study or a usability-test study, collect reactions and verbatims, and evaluate the results against the original intent. Loopy calls the gap between expected and observed behavior **drift-to-reality**. The synthesis step drafts the next brief with provenance back to the study, but never starts a run without human approval.
+The client work made the gap obvious. We were not making prototypes for the pleasure of making prototypes. We were using them to learn. Loopy needed to support the research after the design review, not stop at the handoff.
 
-External testing is not a mock. The current implementation deploys per-study bundles to Netlify, injects a lightweight feedback widget and Netlify form, syncs submissions back into the study, and removes the deploy when the study closes. I verified the path against a real StickerGiant prototype: deploy, submit feedback, sync it into the study, and carry the finding into the next lap.
+An approved iteration can now become a stable test link. I can run a qualitative usability study, collect structured feedback, or use a mix of methods depending on the question. For external tests, Loopy publishes a study bundle to Netlify, adds the feedback mechanism, syncs responses back into the project, and closes the deployment when the study is over.
+
+I tested that path with a real client prototype: publish it, collect feedback, bring the evidence back into Loopy, and use the findings to shape the next brief. I call the gap between what we expected and what people actually did “drift to reality.” That gap is usually where the useful stuff is.
 
 <ImageGallery
   images={["/images/projects/loopy/prototype.webp"]}
   alts={["The live Loopy site shows the end of a lap as a working prototype with test, share, and ship actions"]}
 />
 
-## Building the beta responsibly
+## What AI changed for me
 
-Turning the local system into a hosted beta created a different design problem: trust between users, agents, files, and credentials. Signup is approval-gated rather than open. Approval creates a dedicated organization for that user, and the API scopes projects, briefs, iterations, studies, and artifacts to the active organization. Filesystem, memory, and model-key operations stay admin-only.
+I am the idea maker and the executor on Loopy. I set the product direction, design the system, write and tune the agents, make the interface decisions, and build the software.
 
-This is not glamorous product work, but it is the boundary that makes an agentic prototype safe enough to invite someone else into.
+I also would not have been able to do this at the same scope or speed without AI.
 
-## Plumbline became Loopy
+That is part of the project, not something I want to hide in a tools list. Loopy is a working product, but it is also a record of what a designer can do now. I can move between product strategy, interaction design, research planning, front-end work, orchestration, testing, and deployment without waiting for a full team to assemble around every idea.
 
-The working name was Plumbline, inherited from the original drift framing. As the product matured, that metaphor described the least interesting part of it. The repeated movement was the story: draft, critique, score, route, learn, repeat.
+AI does not remove my judgment from the process. It gives that judgment more reach. The quality still depends on the brief I write, the relationships I set up between agents, the examples I provide, the gates I refuse to automate, and whether I notice when the work is drifting.
 
-I renamed the product **Loopy** and built the line **“ideas take laps.”** The brand does not hide the machinery. Its racetrack, moving packet, open loop, and plainspoken copy turn the system architecture into the product narrative.
+## From Plumbline to Loopy
 
-## What is real now, and what is next
+The project was originally called Plumbline. At the time, I was focused on design-system drift and checking whether an output stayed true to its source.
 
-**Shipped in the current beta:** structured briefs; project and design-system context; three independently generated directions; concept selection; the Mia-to-Dieter build and critique handoff; rendered evaluation and scorecards; approve/steer/reject routing; publish and study records; live Netlify test links with feedback sync; outcome evaluation and a human-gated next-brief draft; approval-gated signup; and per-user organization isolation.
+As I used the system, that framing started to feel small. The useful part was not the final compliance check. It was the movement: make something, question it, test it, learn, and go around again.
 
-**Still future work:** validating scorecard trust with external design partners; measuring whether drift-to-reality falls across multiple real product laps; deeper provider adapters beyond the current model seams; stronger abuse controls for public feedback links; and the operational work needed to move from a controlled beta to a broadly available service.
+That is why it became Loopy. Ideas take laps.
+
+## Where it is now
+
+The current beta handles structured briefs, project context, three independently generated directions, concept selection, the Mia and Dieter handoff, scorecards, approve/steer/reject routing, test publishing, feedback collection, outcome evaluation, and a human-approved next brief.
+
+Because other people can use it now, I have also added approval-gated signup and organization-level separation for projects, studies, files, and artifacts. The less glamorous boundaries matter when agents can touch credentials and run jobs on someone else's behalf.
+
+The next phase is less about adding more agents. I want to see whether the process holds up across more client work: whether the scores are trustworthy, whether the research setup produces useful evidence, and whether each lap gets the work closer to what people actually need.
 
 ## My role
 
-Loopy is an independent product. I lead the product strategy, positioning, system and interaction design, creative direction, and the decisions about what the agents are allowed to do. I also build hands-on across the React interface, TypeScript services, orchestration, evaluation, test infrastructure, and deployment paths.
+Loopy is my product. I created the idea and lead the strategy, design, research approach, agent system, implementation, and deployment.
 
-I work with agent collaborators for research, implementation, critique, and verification. I set the brief, choose the architecture, steer the work, and own the final call. There are no invented clients or growth metrics here; the evidence so far is the working loop and the real end-to-end tests behind it.
+I use AI collaborators throughout the work, including research, writing, coding, critique, and verification. I decide how those collaborators are set up, what context they receive, where they are allowed to act, and when a human decision is required. That's simply how I work now.
