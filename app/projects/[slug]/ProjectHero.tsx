@@ -42,7 +42,7 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
           <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-4">
             {frontmatter.client}
           </p>
-          <h1 className="font-display text-display-lg font-bold text-white mb-4">
+          <h1 className="font-display text-display-lg leading-none font-bold text-white mb-6">
             {frontmatter.title}
           </h1>
           <p className="text-white/50 text-xl">
