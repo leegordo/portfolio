@@ -18,6 +18,7 @@ export interface ProjectFrontmatter {
   metric?: string;
   unlisted?: boolean;
   coverAlt?: string;
+  heroAnimation?: "loopy-loop";
 }
 
 export interface Project {
@@ -137,6 +138,7 @@ export function getProjectBySlug(slug: string): Project {
       metric: fm.metric,
       unlisted: fm.unlisted ?? false,
       coverAlt: fm.coverAlt,
+      heroAnimation: fm.heroAnimation,
     },
     content,
   };

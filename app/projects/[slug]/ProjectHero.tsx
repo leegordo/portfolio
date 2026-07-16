@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
+import LoopyHeroLoop from "./LoopyHeroLoop";
 
 interface ProjectHeroProps {
   frontmatter: ProjectFrontmatter;
@@ -54,10 +55,16 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 aspect-[21/9] rounded-xl overflow-hidden bg-surface-100 border border-white/5 relative"
+          className={`mt-12 rounded-xl overflow-hidden bg-surface-100 border border-white/5 relative ${
+            frontmatter.heroAnimation === "loopy-loop"
+              ? "aspect-[16/10] md:aspect-[21/9]"
+              : "aspect-[21/9]"
+          }`}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-surface-200 to-surface-100" />
-          {frontmatter.cover ? (
+          {frontmatter.heroAnimation === "loopy-loop" ? (
+            <LoopyHeroLoop />
+          ) : frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}
               alt={frontmatter.coverAlt ?? frontmatter.title}
