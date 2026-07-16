@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
+import LoopyHeroLoop from "./LoopyHeroLoop";
 
 interface ProjectCardProps {
   slug: string;
@@ -27,7 +28,9 @@ export default function ProjectCard({ slug, frontmatter, index, reverse = false 
       >
         {/* Visual */}
         <div className={`relative aspect-[16/10] bg-surface-50 flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
-          {frontmatter.cover ? (
+          {frontmatter.heroAnimation === "loopy-loop" ? (
+            <LoopyHeroLoop />
+          ) : frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}
               alt={frontmatter.title}

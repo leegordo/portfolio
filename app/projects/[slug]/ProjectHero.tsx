@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
-import LoopyHeroLoop from "./LoopyHeroLoop";
+import LoopyHeroLoop from "@/components/LoopyHeroLoop";
 
 interface ProjectHeroProps {
   frontmatter: ProjectFrontmatter;
