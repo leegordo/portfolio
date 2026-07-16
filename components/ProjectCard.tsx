@@ -29,7 +29,9 @@ export default function ProjectCard({ slug, frontmatter, index, reverse = false 
         {/* Visual */}
         <div className={`relative aspect-[16/10] bg-surface-50 flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
           {frontmatter.heroAnimation === "loopy-loop" ? (
-            <LoopyHeroLoop />
+            <div className="absolute inset-0 opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60">
+              <LoopyHeroLoop />
+            </div>
           ) : frontmatter.cover ? (
             <Image
               src={assetPath(frontmatter.cover)}
