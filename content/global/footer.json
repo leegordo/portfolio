@@ -1,6 +1,6 @@
 {
   "title": "Footer",
-  "bio": "Product designer working at the edge of AI and interface design. US-based. Available for remote work.",
+  "bio": "Senior product designer focused on agentic products. US-based and available for remote work.",
   "copyrightName": "Lee Gordon",
   "tagline": "Designed & built by Lee Gordon",
   "socialLinks": [
@@ -11,8 +11,13 @@
     },
     {
       "label": "Email",
-      "href": "mailto:leegordo@gmail.com",
+      "href": "mailto:lee@leegordon.design",
       "icon": "email"
+    },
+    {
+      "label": "Privacy",
+      "href": "/privacy",
+      "icon": "privacy"
     }
   ]
 }

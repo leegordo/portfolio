@@ -1,72 +1,72 @@
 [
   {
     "slug": "we-stopped-writing-design-specs",
-    "title": "We Stopped Writing Design Specs and Started Writing Agent Schemas — Here's the Difference",
+    "title": "We stopped writing design specs. Agents needed schemas.",
     "date": "2026-07-02",
-    "excerpt": "Why human-readable design specs fail when agents execute them, and the JSON Schema architecture that actually works.",
+    "excerpt": "A design spec can guide a person and still leave an agent guessing. We moved the executable parts into JSON Schema. This is what changed.",
     "tags": ["practical-engineering", "agent-ready", "engineering"]
   },
   {
     "slug": "design-system-runtime",
-    "title": "Your Design System Is a Library, Not a Runtime — And That's Why Agents Can't Use It",
+    "title": "Agents need a design-system runtime, not a component library",
     "date": "2026-06-25",
-    "excerpt": "Why static design systems are a dead end for AI agents, and the runtime architecture that actually works.",
+    "excerpt": "A component library stores parts. An agent also needs rules, state, and a way to check its own output while it works.",
     "tags": ["design-systems", "agent-ready", "engineering"]
   },
   {
     "slug": "generative-design-systems",
-    "title": "The Generative Design System Is Not What You Think It Is",
+    "title": "What I mean by a generative design system",
     "date": "2026-06-18",
-    "excerpt": "Static component libraries are becoming maintenance nightmares in the agent era. Here's the generative design system architecture we're building.",
+    "excerpt": "The useful part is not generating endless components. It is giving the system enough structure to make a new interface without losing the product's rules.",
     "tags": ["generative-design", "creative-automation", "engineering"]
   },
   {
     "slug": "multi-agent-design-pipeline",
-    "title": "Your AI Design Pipeline Needs a Router, Not a Bigger Prompt",
+    "title": "A bigger prompt did not fix our design pipeline",
     "date": "2026-06-11",
-    "excerpt": "Single-agent design workflows hit a ceiling fast. Here's the multi-agent architecture we built, what broke, and what actually works for production design systems.",
+    "excerpt": "One agent kept mixing research, design, critique, and implementation. Splitting those jobs and routing the work made the system easier to trust.",
     "tags": ["agent-orchestration", "design-systems", "engineering"]
   },
   {
     "slug": "socratic-thread",
-    "title": "This Week's Idea: Socratic Thread",
+    "title": "Committee idea: Socratic Thread",
     "date": "2026-06-22",
-    "excerpt": "The Design Committee debates an AI tutor that teaches through argument trees. Four agents, one converged verdict: build the interaction first, the LLM second.",
+    "excerpt": "Four agents debated an AI tutor built around argument trees. The verdict: prove the interaction before spending time on the model.",
     "tags": ["committee", "education", "ai-interfaces"]
   },
   {
     "slug": "heartspace",
-    "title": "This Week's Idea: Heartspace",
+    "title": "Committee idea: Heartspace",
     "date": "2026-06-08",
-    "excerpt": "The Design Committee debates a biometric-responsive ambient workspace. Four agents, four perspectives, one conditional yes.",
+    "excerpt": "The committee looked at a workspace that responds to biometric signals. The idea survived, but only with tighter privacy and consent rules.",
     "tags": ["committee", "health-tech", "ambient-ui"]
   },
   {
     "slug": "machine-readable-css",
     "title": "Your CSS Is Too Complex for AI Agents",
     "date": "2026-06-04",
-    "excerpt": "Tailwind and CSS-in-JS are human-optimized. But AI agents need predictable, token-driven stylesheets they can generate and maintain without breaking your layout.",
+    "excerpt": "Agents make fewer mistakes when the stylesheet has clear tokens, predictable layers, and fewer ways to express the same decision.",
     "tags": ["css-engineering", "design-systems", "agent-ready"]
   },
   {
     "slug": "agent-driven-workflows",
-    "title": "The Rise of Agent-Driven Design Workflows",
+    "title": "What changed when I added agents to my design workflow",
     "date": "2026-05-31",
-    "excerpt": "Why the future of design isn't better tools — it's better agents. How AI-native workflows are replacing traditional design processes and what it means for design leads.",
+    "excerpt": "A practical look at where agents helped, where they created more work, and which design decisions still needed me in the loop.",
     "tags": ["ai-design", "workflows", "agent-orchestration"]
   },
   {
     "slug": "design-systems-age-of-ai",
-    "title": "Design Systems in the Age of AI: Why Token-First Architecture Matters",
+    "title": "Why I start agent-ready design systems with tokens",
     "date": "2026-05-28",
-    "excerpt": "Static design systems are dying. The next generation is AI-generated, token-first, and self-healing. Here's how to architect yours for the agent era.",
+    "excerpt": "Tokens give people and agents the same vocabulary for color, type, spacing, and state. That shared vocabulary matters more than another component catalog.",
     "tags": ["design-systems", "tokens", "ai-generation"]
   },
   {
     "slug": "chatbots-to-canvases",
-    "title": "From Chatbots to Canvases: The Spatial Future of AI Design Tools",
+    "title": "AI design tools need more than a chat box",
     "date": "2026-05-24",
-    "excerpt": "Chat interfaces are a local maximum. The real breakthrough in AI design tools will be spatial, persistent, and collaborative — here's what that looks like.",
+    "excerpt": "Design work is spatial, persistent, and collaborative. I looked at what an AI tool would need if chat were only one part of the interface.",
     "tags": ["spatial-interfaces", "future-of-design", "canvas"]
   }
 ]

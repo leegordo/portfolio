@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Lee Gordon",
   },
   description:
-    "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products. I help startups turn technical demos into products people actually want to use.",
+    "Senior product designer with 15+ years of experience, now focused on agentic products and the interfaces between people and AI systems.",
   keywords: [
     "AI design",
     "agentic interfaces",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lee Gordon — Senior Product Designer",
     description:
-      "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products.",
+      "Senior product designer focused on agentic products and the interfaces between people and AI systems.",
     type: "website",
     locale: "en_US",
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lee Gordon — Senior Product Designer",
     description:
-      "Product designer with 15+ years experience, now focused on agentic interfaces and AI-native products.",
+      "Senior product designer focused on agentic products and the interfaces between people and AI systems.",
   },
 };
 

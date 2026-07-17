@@ -4,8 +4,8 @@ import { getContactContent } from "@/lib/content";
 import EmailObfuscator from "@/components/EmailObfuscator";
 
 export const metadata: Metadata = {
-  title: "Contact | Lee Gordon",
-  description: "Get in touch with Lee Gordon.",
+  title: "Contact",
+  description: "Contact Lee Gordon about product design, agentic interfaces, design systems, or a product that needs senior design help.",
 };
 
 export default function ContactPage() {

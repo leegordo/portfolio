@@ -26,9 +26,9 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="font-display text-display-md font-bold text-primary mb-16">
-              Design <span className="text-accent">leadership</span>
+              Design for products
               <br />
-              for the AI era
+              with <span className="text-accent">hard questions</span>
             </h2>
           </ScrollReveal>
 
@@ -38,19 +38,19 @@ export default function HomePage() {
                 num: "01",
                 title: "Agentic Interface Design",
                 description:
-                  "Designing the UX of autonomous agents \u2014 when the product makes decisions, not just takes commands. Conversation flows, tool-calling patterns, human-in-the-loop moments.",
+                  "I design what happens when software can plan, act, and make decisions: what people can see, where they stay in control, and how the system recovers when it gets something wrong.",
               },
               {
                 num: "02",
                 title: "Product Design & Strategy",
                 description:
-                  "End-to-end product design from zero to launch. UX research, information architecture, interaction design, and the strategic narrative that gets stakeholders aligned.",
+                  "I take products from a messy problem to a tested direction and working interface. That can include research, flows, prototypes, production UI, and implementation support.",
               },
               {
                 num: "03",
                 title: "Design Systems & Scale",
                 description:
-                  "Building design systems that don't just look consistent \u2014 they accelerate the team. Tokens, components, documentation, and the governance that keeps them alive.",
+                  "I build systems people and agents can both use: tokens, components, content rules, documentation, and the checks that keep the product from drifting.",
               },
             ]}
           />
@@ -79,44 +79,38 @@ export default function HomePage() {
 
       <ProjectGrid projects={projects} />
 
-      {/* Testimonials */}
+      {/* Approach */}
       <section id="approach" className="py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
-              03 — Testimonials
+              03 — Approach
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="font-display text-display-md font-bold text-primary mb-16">
-              Results that
+              How I stay
               <br />
-              <span className="text-accent">speak</span>
+              <span className="text-accent">useful</span>
             </h2>
           </ScrollReveal>
 
           <TestimonialsGrid
-            testimonials={[
+            items={[
               {
-                metric: "3x onboarding completion",
-                quote:
-                  "Lee transformed not just our product, but our entire approach to design. The research-driven culture he built continues to drive our decision-making.",
-                name: "Will Reeves",
-                title: "CEO, Fold",
+                label: "Start with evidence",
+                body:
+                  "I use interviews, behavior, and working prototypes to get past opinions and find the part of the problem that matters.",
               },
               {
-                metric: "23% mobile conversion increase",
-                quote:
-                  "The strategic framework Lee's team delivered didn't just solve today's problems \u2014 it gave us a roadmap for the next five years of digital evolution.",
-                name: "Qantas Digital Team",
-                title: "",
+                label: "Make the system explicit",
+                body:
+                  "Decisions, tokens, constraints, and open questions should live somewhere the team can use them. I do not rely on memory or a polished handoff deck.",
               },
               {
-                metric: "94% setup completion rate",
-                quote:
-                  "Lee brought a rare combination of strategic thinking and human empathy to a deeply technical product challenge.",
-                name: "Nokia Connected Home",
-                title: "",
+                label: "Stay through implementation",
+                body:
+                  "I work in the code when a static prototype cannot answer the question. The design is not done because the file looks finished.",
               },
             ]}
           />
@@ -138,10 +132,9 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="text-secondary text-lg leading-relaxed mb-8 font-light">
-              From R/GA to Nokia to leading design at Fold, I&apos;ve built and scaled design teams,
-              launched products used by millions, and helped organizations discover what thoughtful
-              design can really do. Now I&apos;m focused on the most interesting design problem of the
-              next decade: the interface between humans and intelligent systems.
+              I&apos;ve spent 15 years moving between research, product design, design systems, and the
+              code underneath the interface. I like complicated products, direct feedback, and
+              prototypes that answer real questions. Lately, most of that work involves AI agents.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>

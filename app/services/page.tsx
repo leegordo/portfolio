@@ -5,25 +5,25 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Design leadership for the AI era — sprint engagements, retainers, and full-project partnerships.",
+    "Product design support for focused sprints, ongoing team support, and full projects from discovery through launch.",
 };
 
 const pricingOptions = [
   {
     tier: "Sprint",
     price: "$2,500",
-    desc: "Two-week focused engagement for a specific deliverable — a design system audit, a prototype, or a strategic workshop. Quick turnaround, clear output.",
+    desc: "Two focused weeks on one problem: a product direction, working prototype, design-system audit, or team workshop. We agree on the question and the output before the sprint starts.",
   },
   {
     tier: "Retainer",
-    price: "$4,500",
+    price: "From $4,500",
     priceSuffix: "/mo",
-    desc: "Ongoing design leadership — a predictable number of days per week embedded with your team. Strategy, execution, and design ops rolled into one.",
+    desc: "Ongoing support with the monthly capacity agreed before we start. I can lead the design work, make the work, improve the system around it, or cover all three.",
   },
   {
     tier: "Project",
     price: "Custom",
-    desc: "Full-project engagement from discovery to launch. End-to-end product design with research, prototyping, testing, and handoff. Scoped to your timeline.",
+    desc: "A defined product problem from discovery through launch. The work can include research, flows, prototypes, testing, production UI, and implementation support.",
   },
 ];
 
@@ -39,15 +39,15 @@ export default function ServicesPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="font-display text-display-md font-bold text-primary mb-6">
-              Three ways
+              Pick the shape
               <br />
-              to <span className="text-accent">work</span>
+              of the <span className="text-accent">work</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <p className="text-secondary text-lg font-light leading-relaxed max-w-2xl mb-16">
-              Flexible engagement models for startups and product teams — from focused sprints to
-              embedded leadership.
+              Some problems need two focused weeks. Others need a senior designer in the room every
+              week. These are the three ways I usually structure the work.
             </p>
           </ScrollReveal>
 

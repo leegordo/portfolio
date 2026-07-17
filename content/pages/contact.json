@@ -1,10 +1,10 @@
 {
   "title": "Contact",
-  "heading": "Let's build something",
-  "headingAccent": "together",
-  "description": "Got a project, a question, or just want to talk shop — click to reveal my email, copy it, and reach out from whatever client you prefer.",
+  "heading": "Tell me what you're",
+  "headingAccent": "working on",
+  "description": "Have a product problem, a half-built prototype, or a team that needs senior design help? Email me. I'll tell you plainly whether I can help.",
   "email": "lee@leegordon.design",
   "linkedinUrl": "https://www.linkedin.com/in/lanceleegordon/",
-  "linkedinLabel": "linkedin.com/in/leegordon",
+  "linkedinLabel": "linkedin.com/in/lanceleegordon",
   "locationText": "US-based. Available for remote work.\nTypically respond within 24 hours."
 }

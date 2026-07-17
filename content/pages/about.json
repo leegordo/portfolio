@@ -1,64 +1,66 @@
 {
   "title": "About",
-  "heading": "Designing products people",
-  "headingAccent": "actually love",
+  "heading": "I stay close to",
+  "headingAccent": "the work",
   "bioParagraphs": [
-    "I'm Lee Gordon — a product designer with 15+ years building things people actually use. I've worked my way through agencies like R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently led design at Fold. Fintech, IoT, airlines, e-commerce — different industries, same question every time: what's the actual problem, and what's the right thing to build?\n\nI don't stay in one lane. UX research for the Chan Zuckerberg Initiative, design systems at global scale, getting into the code when a prototype isn't cutting it — I've always moved between strategy and execution depending on what the work needs.\n\nRight now, my focus is agentic interfaces. AI is changing how products get built and how they behave at runtime. I think the most interesting design problems for the next few years live at that boundary — and I'm building there."
+    "I'm Lee Gordon, a product designer with more than 15 years of experience. I've worked at agencies including R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently led design at Fold.",
+    "I move between research, product strategy, interface design, design systems, and code. The job changes with the problem. Sometimes the right artifact is a journey map. Sometimes it is a working prototype that exposes what the team still does not understand.",
+    "My current work is about agentic interfaces: products that can plan, act, and make decisions. I care about where people stay in control, how the system explains itself, and what happens when it gets something wrong."
   ],
   "timeline": [
     {
       "company": "Independent Contracting",
       "role": "Senior Product Designer",
       "period": "2025 – Present",
-      "description": "Reimagining what interface and product design are in the age of agents and vibe coding. Helping AI startups turn technical demos into products people want to use."
+      "description": "Designing agentic products and helping small teams turn rough technical demos into clear, testable product experiences."
     },
     {
       "company": "Fold",
       "role": "Head of Design",
       "period": "2022 – 2025",
-      "description": "Led design team of 2, built design system, led redesign, and drove 3x improvement in onboarding completion for Bitcoin rewards app."
+      "description": "Led product design for Fold's Bitcoin rewards app, built its design system, and established a regular user-research practice."
     },
     {
       "company": "Chan Zuckerberg Initiative",
       "role": "UX Researcher (Contract)",
       "period": "2021 – 2022",
-      "description": "Led deep UX research initiatives to identify core user needs and drive strategic product decisions."
+      "description": "Planned and ran UX research to help product teams understand user needs and make better product decisions."
     },
     {
       "company": "Lightning Labs",
       "role": "Product Designer",
       "period": "2017 – 2021",
-      "description": "Humanized complex Lightning Network protocols through intuitive product design and brand evolution."
+      "description": "Designed products and brand systems that made Lightning Network tools easier to understand and operate."
     },
     {
       "company": "Nokia",
       "role": "UX Director",
       "period": "2016 – 2018",
-      "description": "Directed UX for Nokia Smart Home IoT platform, achieving 94% setup completion rate."
+      "description": "Directed UX for Nokia's connected-home platform, including device setup, monitoring, and multi-user household controls."
     },
     {
       "company": "DigitasLBi",
       "role": "Senior UX Designer",
       "period": "2015 – 2016",
-      "description": "Led digital experience design for enterprise clients including Qantas Airlines."
+      "description": "Led digital product work for enterprise clients, including Qantas."
     },
     {
       "company": "R/GA",
       "role": "UX Designer",
       "period": "2012 – 2015",
-      "description": "Crafted connected product experiences and digital campaigns for global brands."
+      "description": "Designed connected products and digital services for clients including Nike and Verizon."
     },
     {
       "company": "IE Agency",
       "role": "Designer",
       "period": "2010 – 2012",
-      "description": "Built digital experiences and brand identities for emerging and established brands."
+      "description": "Designed digital products and brand identities for a mix of new and established companies."
     },
     {
       "company": "R/GA",
       "role": "Junior Designer",
       "period": "2008 – 2010",
-      "description": "Started career at one of the world's most innovative agencies, learning the craft of digital product design with clients like Nike and Verizon."
+      "description": "Started my career designing digital work for clients including Nike and Verizon."
     }
   ],
   "skills": [
@@ -107,6 +109,6 @@
       ]
     }
   ],
-  "ctaHeading": "Let's work together",
-  "ctaDescription": "Have a project or just want to compare notes? Either way, reach out."
+  "ctaHeading": "Have a hard product problem?",
+  "ctaDescription": "Send me the short version. I'll tell you plainly if I can help."
 }

@@ -3,11 +3,9 @@
 import { motion, type Variants } from "framer-motion";
 
 interface TestimonialsGridProps {
-  testimonials: {
-    metric: string;
-    quote: string;
-    name: string;
-    title: string;
+  items: {
+    label: string;
+    body: string;
   }[];
 }
 
@@ -35,7 +33,7 @@ const item: Variants = {
   },
 };
 
-export default function TestimonialsGrid({ testimonials }: TestimonialsGridProps) {
+export default function TestimonialsGrid({ items }: TestimonialsGridProps) {
   return (
     <motion.div
       className="grid grid-cols-1 md:grid-cols-3 gap-6"
@@ -44,7 +42,7 @@ export default function TestimonialsGrid({ testimonials }: TestimonialsGridProps
       viewport={{ once: true, margin: "-40px" }}
       variants={container}
     >
-      {testimonials.map((t, i) => (
+      {items.map((entry, i) => (
         <motion.div
           key={i}
           variants={item}
@@ -53,15 +51,11 @@ export default function TestimonialsGrid({ testimonials }: TestimonialsGridProps
         >
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
           <span className="font-mono text-[0.7rem] text-accent-soft mb-6 block">
-            {t.metric}
+            {entry.label}
           </span>
-          <blockquote className="text-[1.05rem] text-secondary font-light leading-relaxed mb-8 flex-1">
-            &ldquo;{t.quote}&rdquo;
-          </blockquote>
-          <div>
-            <p className="font-semibold text-[0.9rem] text-primary">{t.name}</p>
-            {t.title && <p className="text-[0.8rem] text-tertiary mt-1">{t.title}</p>}
-          </div>
+          <p className="text-[1.05rem] text-secondary font-light leading-relaxed flex-1">
+            {entry.body}
+          </p>
         </motion.div>
       ))}
     </motion.div>

@@ -5,7 +5,7 @@ import { getAboutContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About Lee Gordon — Product Designer with 15+ years of experience in UX research, design leadership, and product strategy.",
+  description: "Lee Gordon is a senior product designer working across research, product strategy, interface design, design systems, and agentic products.",
 };
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
         <ScrollReveal delay={0.1}>
           <h1 className="font-display text-display-md font-bold text-white mb-8">
             {about.heading}{" "}
-            <span className="text-gradient-accent">{about.headingAccent}</span> to use.
+            <span className="text-gradient-accent">{about.headingAccent}</span>.
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
@@ -46,7 +46,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto px-6 py-24">
         <ScrollReveal>
           <h2 className="font-display text-display-sm font-bold text-white mb-12">
-            Career Timeline
+            Experience
           </h2>
         </ScrollReveal>
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
       <section className="max-w-4xl mx-auto px-6 py-24">
         <ScrollReveal>
           <h2 className="font-display text-display-sm font-bold text-white mb-12">
-            Skills &amp; Expertise
+            What I work on
           </h2>
         </ScrollReveal>
 

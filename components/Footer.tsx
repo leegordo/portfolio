@@ -15,8 +15,8 @@ export default function Footer({ content }: FooterProps) {
           <a
             key={link.label}
             href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={link.href.startsWith("/") ? undefined : "_blank"}
+            rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
             className="text-[0.75rem] font-medium text-tertiary hover:text-accent transition-colors duration-300 uppercase tracking-[0.1em]"
           >
             {link.label}
