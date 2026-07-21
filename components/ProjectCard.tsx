@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
@@ -14,7 +13,19 @@ interface ProjectCardProps {
   reverse?: boolean;
 }
 
+const RESPONSIVE_COVER_WIDTHS = [640, 960, 1280] as const;
+
+function responsiveCoverSrcSet(cover: string): string | undefined {
+  const match = cover.match(/^(.*)-1280\.webp$/);
+  if (!match) return undefined;
+  return RESPONSIVE_COVER_WIDTHS.map(
+    (width) => `${assetPath(`${match[1]}-${width}.webp`)} ${width}w`,
+  ).join(", ");
+}
+
 export default function ProjectCard({ slug, frontmatter, index, reverse = false }: ProjectCardProps) {
+  const coverSrcSet = frontmatter.cover ? responsiveCoverSrcSet(frontmatter.cover) : undefined;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -33,12 +44,16 @@ export default function ProjectCard({ slug, frontmatter, index, reverse = false 
               <LoopyHeroLoop />
             </div>
           ) : frontmatter.cover ? (
-            <Image
+            <img
               src={assetPath(frontmatter.cover)}
+              srcSet={coverSrcSet}
               alt={frontmatter.title}
-              fill
-              className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
               sizes="(max-width: 768px) 100vw, 50vw"
+              width={1280}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
             />
           ) : (
             <span className="font-mono text-[0.7rem] text-faint uppercase tracking-[0.1em]">
