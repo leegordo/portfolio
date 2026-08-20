@@ -1,130 +1,547 @@
-@import "./themes.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Design tokens
+   One palette, one type ramp, one motion language.
+   Every ink tone below clears WCAG AA (4.5:1) against --bg,
+   with headroom so light weights stay legible.
+   ============================================================ */
+
+:root {
+  /* ── Surfaces ─────────────────────────────────────────── */
+  --bg: #0b0b0c;
+  --surface: #121214;
+  --surface-raised: #17171a;
+
+  /* ── Ink (contrast vs --bg) ───────────────────────────── */
+  --text-1: #edece8; /* 16.6:1 — headings, emphasis        */
+  --text-2: #a5a39d; /*  7.8:1 — body                      */
+  --text-3: #8b8983; /*  5.6:1 — labels, metadata          */
+
+  /* ── Accent: warm brass, used as punctuation ──────────── */
+  --accent: #e3b341; /* 10.1:1 */
+  --accent-soft: #f0cd7b; /* 12.9:1 */
+  --accent-dim: rgba(227, 179, 65, 0.14);
+  --accent-line: rgba(227, 179, 65, 0.32);
+  --on-accent: #0b0b0c;
+
+  /* ── Hairlines ────────────────────────────────────────── */
+  --line: rgba(237, 236, 232, 0.09);
+  --line-strong: rgba(237, 236, 232, 0.18);
+
+  /* ── Type families (3 total) ──────────────────────────── */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+
+  /* ── Type scale — ~1.2 ratio, no gaps to jump ─────────── */
+  --fs-micro: 0.6875rem; /* 11 */
+  --fs-xs: 0.75rem; /* 12 */
+  --fs-sm: 0.8125rem; /* 13 */
+  --fs-base: 0.9375rem; /* 15 */
+  --fs-md: 1.0625rem; /* 17 */
+  --fs-lg: 1.25rem; /* 20 */
+  --fs-xl: 1.5rem; /* 24 */
+  --fs-2xl: 1.875rem; /* 30 */
+  --fs-3xl: clamp(2.125rem, 1.6rem + 2.4vw, 3rem);
+  --fs-4xl: clamp(2.5rem, 1.7rem + 3.8vw, 4.25rem);
+
+  /* ── Weight ramp — inverse to size.
+     Big type gets lighter, small type gets heavier, so the
+     optical weight of the page stays even end to end. ───── */
+  --w-display: 200;
+  --w-h1: 250;
+  --w-h2: 280;
+  --w-h3: 320;
+  --w-lede: 300;
+  --w-body: 350;
+  --w-ui: 400;
+  --w-label: 500;
+
+  /* ── Tracking ramp — tightens as size grows ───────────── */
+  --ls-display: -0.036em;
+  --ls-h1: -0.03em;
+  --ls-h2: -0.024em;
+  --ls-h3: -0.018em;
+  --ls-body: -0.006em;
+  --ls-label: 0.15em;
+
+  /* ── Motion — two curves, three durations ─────────────── */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 180ms;
+  --dur-mid: 420ms;
+  --dur-slow: 900ms;
+
+  /* ── Rhythm ───────────────────────────────────────────── */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --max: 74rem;
+  --measure: 36rem;
+  --nav-h: 4.5rem;
+}
+
 @layer base {
-  html {
-    color-scheme: dark;
-    transition: background-color 0.4s ease, color 0.4s ease;
-  }
-
-  html[data-theme="gelato"],
-  html[data-theme="vellum"],
-  html[data-theme="tessera"] {
-    color-scheme: light;
-  }
-
-  * {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* offset for fixed nav */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-bg text-primary min-h-screen;
-    font-family: var(--font-body);
-    transition: background-color 0.4s ease, color 0.4s ease;
+    background-color: var(--bg);
+    /* Fine grain, tiled with the page. Gives the flat dark surface some
+       tooth without introducing a full-viewport compositing layer. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    color: var(--text-2);
+    font-family: var(--font-sans);
+    font-size: var(--fs-md);
+    font-weight: var(--w-body);
+    line-height: 1.65;
+    letter-spacing: var(--ls-body);
+    font-optical-sizing: auto;
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--text-1);
+    font-weight: var(--w-h3);
+    line-height: 1.15;
+    letter-spacing: var(--ls-h3);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   ::selection {
-    background: var(--selection-bg);
-    color: var(--selection-text);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
+    height: 10px;
   }
-
   ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
+    background: var(--bg);
   }
-
   ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb);
-    border-radius: 3px;
+    background: var(--line-strong);
+    border: 3px solid var(--bg);
+    border-radius: 99px;
   }
-
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover);
+    background: var(--text-3);
   }
 }
+
+/* ============================================================
+   Type primitives
+   ============================================================ */
 
 @layer components {
-  .label-mono {
-    @apply font-mono text-[0.65rem] uppercase tracking-[0.2em];
+  .t-display {
+    font-size: var(--fs-4xl);
+    font-weight: var(--w-display);
+    letter-spacing: var(--ls-display);
+    line-height: 1.02;
+    color: var(--text-1);
+  }
+
+  .t-h1 {
+    font-size: var(--fs-3xl);
+    font-weight: var(--w-h1);
+    letter-spacing: var(--ls-h1);
+    line-height: 1.08;
+    color: var(--text-1);
+  }
+
+  .t-h2 {
+    font-size: var(--fs-2xl);
+    font-weight: var(--w-h2);
+    letter-spacing: var(--ls-h2);
+    line-height: 1.18;
+    color: var(--text-1);
+  }
+
+  .t-h3 {
+    font-size: var(--fs-xl);
+    font-weight: var(--w-h3);
+    letter-spacing: var(--ls-h3);
+    line-height: 1.28;
+    color: var(--text-1);
+  }
+
+  .t-lede {
+    font-size: var(--fs-lg);
+    font-weight: var(--w-lede);
+    line-height: 1.6;
+    letter-spacing: -0.012em;
+    color: var(--text-2);
+  }
+
+  .t-body {
+    font-size: var(--fs-md);
+    font-weight: var(--w-body);
+    line-height: 1.68;
+    color: var(--text-2);
+  }
+
+  .t-small {
+    font-size: var(--fs-base);
+    font-weight: var(--w-ui);
+    line-height: 1.62;
+    color: var(--text-2);
+  }
+
+  /* Mono micro-label — the only uppercase in the system */
+  .t-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-micro);
+    font-weight: var(--w-label);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Editorial voice — the third family, used sparingly */
+  .t-quote {
+    font-family: var(--font-serif);
+    font-size: var(--fs-xl);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.42;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+  }
+
+  /* ── Layout ────────────────────────────────────────────── */
+  .shell {
+    width: 100%;
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    padding-block: clamp(5rem, 11vw, 9rem);
+  }
+
+  .measure {
+    max-width: var(--measure);
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--line);
+    border: 0;
+  }
+
+  /* ── Link with a hairline that draws on hover ──────────── */
+  .link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    color: var(--text-1);
+    font-size: var(--fs-base);
+    font-weight: var(--w-ui);
+    padding-block: 0.15em;
+    transition: color var(--dur-fast) var(--ease-soft);
+  }
+
+  .link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.28;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform var(--dur-mid) var(--ease);
+  }
+
+  .link:hover {
+    color: var(--accent-soft);
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .link svg {
+    width: 0.85em;
+    height: 0.85em;
+    transition: transform var(--dur-mid) var(--ease);
+  }
+
+  .link:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ── Buttons ───────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.85em 1.5em;
+    border-radius: 2px;
+    font-size: var(--fs-base);
+    font-weight: var(--w-ui);
+    letter-spacing: -0.004em;
+    border: 1px solid transparent;
+    transition:
+      background-color var(--dur-fast) var(--ease-soft),
+      border-color var(--dur-fast) var(--ease-soft),
+      color var(--dur-fast) var(--ease-soft),
+      transform var(--dur-fast) var(--ease-soft);
+  }
+
+  .btn svg {
+    width: 0.9em;
+    height: 0.9em;
+    transition: transform var(--dur-mid) var(--ease);
+  }
+
+  .btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 450;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-soft);
+  }
+
+  .btn-ghost {
+    border-color: var(--line-strong);
+    color: var(--text-1);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--accent-line);
+    background: var(--accent-dim);
+    color: var(--accent-soft);
+  }
+
+  /* ── Card ──────────────────────────────────────────────── */
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    transition:
+      border-color var(--dur-mid) var(--ease-soft),
+      background-color var(--dur-mid) var(--ease-soft);
+  }
+
+  .card:hover {
+    border-color: var(--line-strong);
+    background: var(--surface-raised);
   }
 }
 
-@layer utilities {
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
+/* ============================================================
+   Long-form (MDX case studies)
+   ============================================================ */
+
+.prose {
+  max-width: 42rem;
 }
 
-/* MDX Content Styles */
-.mdx-content h1 {
-  @apply font-display text-display-md text-primary mt-16 mb-6;
+.prose > * + * {
+  margin-top: 1.35em;
 }
 
-.mdx-content h2 {
-  @apply font-display text-display-sm text-primary mt-12 mb-4;
+.prose h2 {
+  font-size: var(--fs-2xl);
+  font-weight: var(--w-h2);
+  letter-spacing: var(--ls-h2);
+  line-height: 1.2;
+  margin-top: 2.75em;
+  margin-bottom: 0.9em;
 }
 
-.mdx-content h3 {
-  @apply font-display text-xl text-primary mt-8 mb-3;
+.prose h2:first-child {
+  margin-top: 0;
 }
 
-.mdx-content p {
-  @apply text-body text-lg leading-relaxed mb-6;
+.prose h3 {
+  font-size: var(--fs-xl);
+  font-weight: var(--w-h3);
+  letter-spacing: var(--ls-h3);
+  margin-top: 2.25em;
+  margin-bottom: 0.7em;
 }
 
-.mdx-content ul,
-.mdx-content ol {
-  @apply text-body text-lg leading-relaxed mb-6 pl-6;
+.prose p,
+.prose li {
+  font-size: var(--fs-md);
+  font-weight: var(--w-body);
+  line-height: 1.72;
+  color: var(--text-2);
 }
 
-.mdx-content ul {
-  @apply list-disc;
+.prose ul,
+.prose ol {
+  padding-left: 1.1em;
 }
 
-.mdx-content ol {
-  @apply list-decimal;
+.prose ul {
+  list-style: none;
 }
 
-.mdx-content li {
-  @apply mb-2;
+.prose ul > li {
+  position: relative;
+  padding-left: 1.1em;
 }
 
-.mdx-content blockquote {
-  @apply border-l-2 pl-6 my-8 italic text-muted;
-  border-left-color: color-mix(in srgb, var(--accent) 40%, transparent);
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.75;
 }
 
-.mdx-content img {
-  @apply rounded-lg my-8 w-full;
+.prose ol {
+  list-style: decimal;
 }
 
-.mdx-content a {
-  @apply text-accent-soft hover:text-primary underline underline-offset-4 transition-colors;
+.prose ol > li::marker {
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
 }
 
-.mdx-content hr {
-  @apply my-12 border-subtle;
+.prose li + li {
+  margin-top: 0.5em;
 }
 
-.mdx-content strong {
-  @apply text-primary font-semibold;
+.prose blockquote {
+  border-left: 1px solid var(--accent-line);
+  padding-left: 1.5rem;
+  margin-block: 2.5em;
 }
 
-.mdx-content code {
-  @apply bg-surface-100 text-neutral-200 px-2 py-1 rounded text-sm;
+.prose blockquote p {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
+}
+
+.prose strong {
+  color: var(--text-1);
+  font-weight: 500;
+}
+
+.prose em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.06em;
+}
+
+.prose a {
+  color: var(--text-1);
+  border-bottom: 1px solid var(--accent-line);
+  padding-bottom: 1px;
+  transition: color var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft);
+}
+
+.prose a:hover {
+  color: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  font-weight: 400;
+  color: var(--accent-soft);
+  background: var(--accent-dim);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+}
+
+.prose hr {
+  border: 0;
+  height: 1px;
+  background: var(--line);
+  margin-block: 3.5em;
+}
+
+/* Project imagery breaks the reading measure so work can be seen at a
+   usable size, then hands the reader back to the column. */
+.prose .gallery {
+  width: calc(min(var(--max), 100vw) - 2 * var(--gutter));
+  max-width: calc(100vw - 2 * var(--gutter));
+}
+
+.prose img {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  margin-block: 2.5em;
+}
+
+/* ============================================================
+   Motion: honour the OS setting
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

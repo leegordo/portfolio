@@ -1,9 +1,13 @@
 {
-  "label": "Senior Product Designer",
+  "label": "Product Designer",
   "name": "Lee Gordon",
-  "tagline": "I design and build digital products, from rough idea to working software. After 15 years in product design, I'm now focused on how people work with AI agents.",
-  "ctaPrimaryText": "See how I work",
+  "headline": ["I design the interface", "between people and", "AI that acts"],
+  "tagline": "Fifteen years taking digital products from a rough idea to working software. Today that means agentic systems — the ones that plan, act, and get things wrong — and the interfaces that keep people in charge of them.",
+  "ctaPrimaryText": "See selected work",
   "ctaSecondaryText": "Get in touch",
-  "posterImage": "/images/hero-poster.jpg",
-  "videoSrc": "/video/hero-background.mp4"
+  "facts": [
+    { "label": "Practice", "value": "15+ years" },
+    { "label": "Previously", "value": "Fold · Lightning Labs · Nokia · R/GA" },
+    { "label": "Status", "value": "Open to new work" }
+  ]
 }

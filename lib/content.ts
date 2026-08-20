@@ -27,14 +27,20 @@ export interface Project {
   content: string;
 }
 
+export interface HeroFact {
+  label: string;
+  value: string;
+}
+
 export interface HeroContent {
   label: string;
   name: string;
+  /** One array entry per rendered line, so line breaks stay a content decision. */
+  headline: string[];
   tagline: string;
   ctaPrimaryText: string;
   ctaSecondaryText: string;
-  posterImage: string;
-  videoSrc: string;
+  facts: HeroFact[];
 }
 
 export interface TimelineEntry {
@@ -74,7 +80,7 @@ export interface ContactContent {
 export interface SocialLink {
   label: string;
   href: string;
-  icon: "linkedin" | "email";
+  icon: "linkedin" | "email" | "privacy";
 }
 
 export interface FooterContent {
@@ -172,7 +178,19 @@ export function getAdjacentProjects(currentSlug: string): {
 // --- Page content (JSON) ---
 
 export function getHeroContent(): HeroContent {
-  return readJsonFile<HeroContent>("pages/hero.json");
+  const raw = readJsonFile<Partial<HeroContent>>("pages/hero.json");
+  return {
+    label: raw.label ?? "",
+    name: raw.name ?? "",
+    headline: compact(raw.headline),
+    tagline: raw.tagline ?? "",
+    ctaPrimaryText: raw.ctaPrimaryText ?? "See selected work",
+    ctaSecondaryText: raw.ctaSecondaryText ?? "Get in touch",
+    facts: compact(raw.facts).map((f) => ({
+      label: f.label ?? "",
+      value: f.value ?? "",
+    })),
+  };
 }
 
 export function getAboutContent(): AboutContent {
@@ -219,7 +237,9 @@ export function getFooterContent(): FooterContent {
         .map((l) => ({
           label: l.label ?? "",
           href: l.href ?? "",
-          icon: (l.icon === "linkedin" || l.icon === "email" ? l.icon : "email") as SocialLink["icon"],
+          icon: (l.icon === "linkedin" || l.icon === "email" || l.icon === "privacy"
+            ? l.icon
+            : "email") as SocialLink["icon"],
         }))
     : [];
 

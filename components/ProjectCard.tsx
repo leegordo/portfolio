@@ -1,18 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
 import LoopyHeroLoop from "./LoopyHeroLoop";
 
-interface ProjectCardProps {
-  slug: string;
-  frontmatter: ProjectFrontmatter;
-  index: number;
-  reverse?: boolean;
-}
-
+const EASE = [0.22, 1, 0.36, 1] as const;
 const RESPONSIVE_COVER_WIDTHS = [640, 960, 1280] as const;
 
 function responsiveCoverSrcSet(cover: string): string | undefined {
@@ -23,66 +17,121 @@ function responsiveCoverSrcSet(cover: string): string | undefined {
   ).join(", ");
 }
 
-export default function ProjectCard({ slug, frontmatter, index, reverse = false }: ProjectCardProps) {
+interface ProjectCardProps {
+  slug: string;
+  frontmatter: ProjectFrontmatter;
+  index: number;
+  reverse?: boolean;
+}
+
+export default function ProjectCard({
+  slug,
+  frontmatter,
+  index,
+  reverse = false,
+}: ProjectCardProps) {
+  const reduced = useReducedMotion();
   const coverSrcSet = frontmatter.cover ? responsiveCoverSrcSet(frontmatter.cover) : undefined;
+  const meta = [frontmatter.client, frontmatter.year].filter(Boolean);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
+    <motion.article
+      initial={reduced ? { opacity: 0 } : { opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "-12% 0px -8% 0px" }}
+      transition={{ duration: 0.85, ease: EASE }}
     >
       <Link
         href={`/projects/${slug}`}
-        className="group grid grid-cols-1 md:grid-cols-2 border border-subtle hover:border-hover transition-all duration-300 overflow-hidden"
+        className="group grid grid-cols-1 items-center gap-x-14 gap-y-8 md:grid-cols-12"
       >
-        {/* Visual */}
-        <div className={`relative aspect-[16/10] bg-surface-50 flex items-center justify-center ${reverse ? "md:order-2" : ""}`}>
-          {frontmatter.heroAnimation === "loopy-loop" ? (
-            <div className="absolute inset-0 opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60">
-              <LoopyHeroLoop />
-            </div>
-          ) : frontmatter.cover ? (
-            <img
-              src={assetPath(frontmatter.cover)}
-              srcSet={coverSrcSet}
-              alt={frontmatter.title}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              width={1280}
-              height={800}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-            />
-          ) : (
-            <span className="font-mono text-[0.7rem] text-faint uppercase tracking-[0.1em]">
-              {frontmatter.title}
-            </span>
-          )}
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_4px,color-mix(in_srgb,var(--accent)_2%,transparent)_5px)]" />
+        {/* The work itself — shown at full strength, not dimmed */}
+        <div
+          className={`relative col-span-1 overflow-hidden rounded-[3px] border md:col-span-7 ${
+            reverse ? "md:order-2" : ""
+          }`}
+          style={{ borderColor: "var(--line)", background: "var(--surface)" }}
+        >
+          <div className="relative aspect-[16/10]">
+            {frontmatter.heroAnimation === "loopy-loop" ? (
+              <div className="absolute inset-0 transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]">
+                <LoopyHeroLoop />
+              </div>
+            ) : frontmatter.cover ? (
+              <img
+                src={assetPath(frontmatter.cover)}
+                srcSet={coverSrcSet}
+                sizes="(max-width: 768px) 100vw, 58vw"
+                alt={frontmatter.coverAlt ?? frontmatter.title}
+                width={1280}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+              />
+            ) : (
+              <span className="absolute inset-0 flex items-center justify-center t-label">
+                {frontmatter.title}
+              </span>
+            )}
+          </div>
+          {/* Keeps the image from fighting the page edge */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-mid group-hover:opacity-100"
+            style={{ boxShadow: "inset 0 0 0 1px var(--accent-line)" }}
+            aria-hidden
+          />
         </div>
 
-        {/* Info */}
-        <div className={`p-8 md:p-12 flex flex-col justify-center ${reverse ? "md:order-1" : ""}`}>
-          <div className="font-mono text-[0.65rem] text-accent-soft uppercase tracking-[0.15em] mb-3">
-            {frontmatter.client} — {frontmatter.year} — {frontmatter.role}
-          </div>
-          <h3 className="font-display text-2xl font-bold text-primary mb-4 tracking-[-0.02em]">
-            {frontmatter.title}
-          </h3>
-          {frontmatter.summary && (
-            <p className="text-secondary text-[0.95rem] leading-relaxed font-light mb-6">
-              {frontmatter.summary}
-            </p>
-          )}
-          {frontmatter.metric && (
-            <span className="inline-block self-start font-mono text-[0.7rem] text-accent-soft px-4 py-2 border border-accent-border bg-accent-muted">
-              {frontmatter.metric}
+        {/* Caption */}
+        <div className={`col-span-1 md:col-span-5 ${reverse ? "md:order-1" : ""}`}>
+          {/* One paragraph, not a flex row — so a wrapped meta line returns
+              to the left edge instead of hanging under the index. */}
+          <p className="t-label">
+            <span className="text-accent">{String(index + 1).padStart(2, "0")}</span>
+            <span className="mx-2.5 opacity-40">/</span>
+            {meta.join(" · ")}
+          </p>
+
+          <h3 className="t-h2 mt-5">
+            <span className="relative inline">
+              {frontmatter.title}
+              <span
+                className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[700ms] ease-out group-hover:scale-x-100"
+                aria-hidden
+              />
             </span>
+          </h3>
+
+          {/* The role stays in sentence case — long titles read badly
+              in tracked-out uppercase. */}
+          {frontmatter.role && (
+            <p className="mt-3 text-base font-ui text-ink-3">{frontmatter.role}</p>
           )}
+
+          {frontmatter.summary && (
+            <p className="t-small mt-5 max-w-[46ch]">{frontmatter.summary}</p>
+          )}
+
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <span className="link">
+              Read the case study
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+
+            {frontmatter.metric && (
+              <span
+                className="t-label rounded-[2px] border px-2.5 py-1.5 text-accent"
+                style={{ borderColor: "var(--accent-line)", background: "var(--accent-dim)" }}
+              >
+                {frontmatter.metric}
+              </span>
+            )}
+          </div>
         </div>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }

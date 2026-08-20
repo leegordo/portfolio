@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import Rule from "@/components/Rule";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -8,87 +9,95 @@ export const metadata: Metadata = {
     "Product design support for focused sprints, ongoing team support, and full projects from discovery through launch.",
 };
 
-const pricingOptions = [
+const engagements = [
   {
     tier: "Sprint",
     price: "$2,500",
-    desc: "Two focused weeks on one problem: a product direction, working prototype, design-system audit, or team workshop. We agree on the question and the output before the sprint starts.",
+    suffix: "",
+    summary: "Two focused weeks on one problem.",
+    desc: "A product direction, a working prototype, a design-system audit, or a team workshop. We agree on the question and the output before the sprint starts.",
   },
   {
     tier: "Retainer",
-    price: "From $4,500",
-    priceSuffix: "/mo",
-    desc: "Ongoing support with the monthly capacity agreed before we start. I can lead the design work, make the work, improve the system around it, or cover all three.",
+    price: "$4,500",
+    suffix: "/mo and up",
+    summary: "Ongoing support at an agreed monthly capacity.",
+    desc: "I can lead the design work, make the work, improve the system around it, or cover all three. Capacity is set before we start so nobody is guessing.",
   },
   {
     tier: "Project",
     price: "Custom",
-    desc: "A defined product problem from discovery through launch. The work can include research, flows, prototypes, testing, production UI, and implementation support.",
+    suffix: "",
+    summary: "A defined problem, discovery through launch.",
+    desc: "Research, flows, prototypes, testing, production UI, and implementation support — scoped to what the problem actually needs.",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="pt-32 pb-24">
-      <section className="py-12 md:py-24 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal>
-            <p className="font-mono text-[0.7rem] text-accent-soft uppercase tracking-[0.2em] mb-4">
-              Services
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h1 className="font-display text-display-md font-bold text-primary mb-6">
-              Pick the shape
-              <br />
-              of the <span className="text-accent">work</span>
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <p className="text-secondary text-lg font-light leading-relaxed max-w-2xl mb-16">
-              Some problems need two focused weeks. Others need a senior designer in the room every
-              week. These are the three ways I usually structure the work.
-            </p>
-          </ScrollReveal>
+    <div className="pt-[calc(var(--nav-h)+clamp(3rem,9vh,5.5rem))]">
+      <section className="shell pb-24 md:pb-32">
+        <ScrollReveal>
+          <p className="t-label">Services</p>
+        </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pricingOptions.map((option, i) => (
-              <ScrollReveal key={option.tier} delay={0.15 + i * 0.1}>
-                <div className="p-8 border border-subtle relative overflow-hidden hover:border-hover hover:-translate-y-0.5 transition-all duration-300 h-full">
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-accent opacity-0 hover:opacity-50 transition-opacity" />
-                  <div className="font-mono text-[0.65rem] text-faint uppercase tracking-[0.2em] mb-4">
-                    {option.tier}
-                  </div>
-                  <div className="text-[3rem] font-bold text-accent leading-none mb-6">
+        <ScrollReveal delay={0.08}>
+          <h1 className="t-display mt-7 max-w-[13ch]">
+            Pick the shape of the work
+            <span className="text-accent">.</span>
+          </h1>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.16}>
+          <p className="t-lede measure mt-10">
+            Some problems need two focused weeks. Others need a senior designer in the room every
+            week. These are the three ways I usually structure the work.
+          </p>
+        </ScrollReveal>
+
+        <div className="mt-20">
+          {engagements.map((option, i) => (
+            <ScrollReveal key={option.tier} delay={0.08 + i * 0.07}>
+              <div
+                className="group grid grid-cols-1 gap-x-12 gap-y-5 py-10 md:grid-cols-12"
+                style={{ borderTop: "1px solid var(--line)" }}
+              >
+                <div className="md:col-span-3">
+                  <span className="t-label text-accent">{option.tier}</span>
+                  <p className="mt-4 text-2xl font-h1 tracking-h1 text-ink-1">
                     {option.price}
-                    {option.priceSuffix && (
-                      <span className="text-[1.1rem] text-tertiary font-normal ml-1">
-                        {option.priceSuffix}
+                    {option.suffix && (
+                      <span className="ml-1.5 text-sm font-ui tracking-body text-ink-3">
+                        {option.suffix}
                       </span>
                     )}
-                  </div>
-                  <p className="text-[0.95rem] text-secondary font-light leading-relaxed">
-                    {option.desc}
                   </p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
 
-          <ScrollReveal delay={0.5}>
-            <div className="mt-16 text-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-accent text-black font-medium hover:bg-accent-soft transition-all duration-300"
-              >
-                Get in touch
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </ScrollReveal>
+                <div className="md:col-span-9">
+                  <h2 className="t-h3">{option.summary}</h2>
+                  <p className="t-small mt-4 max-w-[56ch]">{option.desc}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+          <Rule />
         </div>
+
+        <ScrollReveal delay={0.2}>
+          <div className="mt-16">
+            <p className="t-lede measure">
+              Not sure which one fits? Describe the problem and I&rsquo;ll tell you what I&rsquo;d
+              suggest.
+            </p>
+            <Link href="/contact" className="btn btn-primary mt-8">
+              Get in touch
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </ScrollReveal>
       </section>
     </div>
   );

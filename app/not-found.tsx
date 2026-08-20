@@ -2,20 +2,24 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="text-center">
-        <p className="font-display text-8xl font-bold text-white/5 mb-4">404</p>
-        <h1 className="font-display text-2xl font-bold text-white mb-3">
-          Page not found
-        </h1>
-        <p className="text-white/50 mb-8 max-w-md">
-          The page you&apos;re looking for doesn&apos;t exist or has been moved.
-        </p>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-200 text-black font-medium hover:bg-white transition-all duration-300"
-        >
+    <div className="shell flex min-h-[80svh] flex-col justify-center py-32">
+      <p className="t-label text-accent">404</p>
+      <h1 className="t-display mt-7 max-w-[13ch]">
+        This page doesn&rsquo;t exist
+        <span className="text-accent">.</span>
+      </h1>
+      <p className="t-lede measure mt-8">
+        The link may be out of date, or the page may have moved.
+      </p>
+      <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <Link href="/" className="btn btn-primary">
           Back to home
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Link>
+        <Link href="/#work" className="link">
+          See selected work
         </Link>
       </div>
     </div>

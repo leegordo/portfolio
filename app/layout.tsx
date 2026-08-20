@@ -1,54 +1,59 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Newsreader } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
-import ThemeProvider from "@/components/ThemeProvider";
 import { getFooterContent } from "@/lib/content";
-import { DEFAULT_THEME } from "@/lib/themes";
 import "@/styles/globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+/**
+ * Three families, no more:
+ *   Geist Sans  — everything structural (self-hosted, variable 100–900)
+ *   Geist Mono  — labels, metadata, numerals
+ *   Newsreader  — editorial voice, used sparingly for pull quotes
+ */
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
+  display: "swap",
+  // Newsreader ships no fallback metrics, so pick the fallback explicitly
+  // rather than letting Next guess and warn.
+  adjustFontFallback: false,
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Lee Gordon — Senior Product Designer",
-    template: "%s | Lee Gordon",
+    default: "Lee Gordon — Product Designer",
+    template: "%s — Lee Gordon",
   },
   description:
-    "Senior product designer with 15+ years of experience, now focused on agentic products and the interfaces between people and AI systems.",
+    "Product designer, 15+ years. I work at the intersection of AI and design — building the interfaces between people and systems that plan, act, and decide.",
   keywords: [
     "AI design",
     "agentic interfaces",
     "product design",
+    "design systems",
     "UX research",
-    "design leadership",
     "Lee Gordon",
   ],
   authors: [{ name: "Lee Gordon" }],
   openGraph: {
-    title: "Lee Gordon — Senior Product Designer",
+    title: "Lee Gordon — Product Designer",
     description:
-      "Senior product designer focused on agentic products and the interfaces between people and AI systems.",
+      "Product designer working at the intersection of AI and design. Fold, Lightning Labs, Nokia, R/GA.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lee Gordon — Senior Product Designer",
+    title: "Lee Gordon — Product Designer",
     description:
-      "Senior product designer focused on agentic products and the interfaces between people and AI systems.",
+      "Product designer working at the intersection of AI and design.",
   },
 };
 
@@ -60,22 +65,33 @@ export default function RootLayout({
   const footerContent = getFooterContent();
 
   return (
-    <html lang="en" data-theme={DEFAULT_THEME} className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${newsreader.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Cormorant:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        {/* Framer Motion server-renders its initial state, so entrance
+            animations would leave a JS-less page blank. Reveal them. */}
+        <noscript>
+          {/* Raw HTML: React escapes quotes in <style> text, which would
+              turn these attribute selectors into invalid CSS. */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '[style*="opacity:0"],[style*="translate"]{opacity:1!important;transform:none!important}' +
+                "[data-scroll-progress]{display:none!important}",
+            }}
+          />
+        </noscript>
       </head>
-      <body className="font-sans antialiased">
-        <ThemeProvider>
-          <ScrollProgress />
-          <Navigation />
-          <main className="min-h-screen">{children}</main>
-          <Footer content={footerContent} />
-        </ThemeProvider>
+      <body>
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-accent focus:px-4 focus:py-2 focus:text-bg">
+          Skip to content
+        </a>
+        <ScrollProgress />
+        <Navigation />
+        <main id="main">{children}</main>
+        <Footer content={footerContent} />
       </body>
     </html>
   );

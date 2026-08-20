@@ -1,67 +1,70 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { assetPath } from "@/lib/assetPath";
 import type { ProjectFrontmatter } from "@/lib/content";
 import LoopyHeroLoop from "@/components/LoopyHeroLoop";
 
-interface ProjectHeroProps {
-  frontmatter: ProjectFrontmatter;
-}
+const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
+export default function ProjectHero({ frontmatter }: { frontmatter: ProjectFrontmatter }) {
+  const reduced = useReducedMotion();
+
+  const rise = (delay: number) => ({
+    initial: reduced ? { opacity: 0 } : { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.85, delay, ease: EASE },
+  });
+
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-surface to-surface" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="relative max-w-4xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-white/60 text-sm transition-colors duration-300 mb-8"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <section className="pt-[calc(var(--nav-h)+clamp(2.5rem,7vh,4.5rem))]">
+      <div className="shell">
+        <motion.div {...rise(0)}>
+          <Link href="/#work" className="t-label group inline-flex items-center gap-2 hover:text-ink-1">
+            <svg
+              className="h-3 w-3 transition-transform duration-mid ease-out group-hover:-translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.75}
+              aria-hidden
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
             </svg>
-            All Projects
+            All work
           </Link>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <p className="text-neutral-200 text-sm font-medium tracking-[0.3em] uppercase mb-4">
-            {frontmatter.client}
-          </p>
-          <h1 className="font-display text-display-lg leading-none font-bold text-white mb-6">
-            {frontmatter.title}
-          </h1>
-          <p className="text-white/50 text-xl">
-            {frontmatter.role} · {frontmatter.year}
-          </p>
-        </motion.div>
+        <motion.p {...rise(0.08)} className="t-label mt-12 text-accent">
+          {frontmatter.client}
+        </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className={`mt-12 rounded-xl overflow-hidden bg-surface-100 border border-white/5 relative ${
+        <motion.h1 {...rise(0.14)} className="t-display mt-5 max-w-[15ch]">
+          {frontmatter.title}
+        </motion.h1>
+
+        <motion.p {...rise(0.2)} className="t-lede mt-7">
+          {[frontmatter.role, frontmatter.year].filter(Boolean).join(" · ")}
+        </motion.p>
+      </div>
+
+      {/* Cover */}
+      <motion.div
+        initial={reduced ? { opacity: 0 } : { opacity: 0, y: 26 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.28, ease: EASE }}
+        className="shell mt-16"
+      >
+        <div
+          className={`relative overflow-hidden rounded-[3px] border ${
             frontmatter.heroAnimation === "loopy-loop"
               ? "aspect-[16/10] md:aspect-[21/9]"
-              : "aspect-[21/9]"
+              : "aspect-[16/9] md:aspect-[21/9]"
           }`}
+          style={{ borderColor: "var(--line)", background: "var(--surface)" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-surface-200 to-surface-100" />
           {frontmatter.heroAnimation === "loopy-loop" ? (
             <LoopyHeroLoop />
           ) : frontmatter.cover ? (
@@ -70,18 +73,16 @@ export default function ProjectHero({ frontmatter }: ProjectHeroProps) {
               alt={frontmatter.coverAlt ?? frontmatter.title}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 896px"
+              sizes="(max-width: 1200px) 100vw, 1184px"
               priority
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-display text-4xl md:text-6xl font-bold text-white/5">
-                {frontmatter.client}
-              </span>
+              <span className="t-label">{frontmatter.client}</span>
             </div>
           )}
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

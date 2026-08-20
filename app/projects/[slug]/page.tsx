@@ -24,13 +24,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const project = getProjectBySlug(slug);
     return {
       title: `${project.frontmatter.title} — ${project.frontmatter.client}`,
-      description: `${project.frontmatter.role} at ${project.frontmatter.client}. ${project.frontmatter.skills.join(", ")}.`,
-      robots: project.frontmatter.unlisted
-        ? { index: false, follow: false }
-        : undefined,
+      description:
+        project.frontmatter.summary ??
+        `${project.frontmatter.role} at ${project.frontmatter.client}. ${project.frontmatter.skills.join(", ")}.`,
+      robots: project.frontmatter.unlisted ? { index: false, follow: false } : undefined,
     };
   } catch {
-    return { title: "Project Not Found" };
+    return { title: "Project not found" };
   }
 }
 
@@ -46,30 +46,21 @@ export default async function ProjectPage({ params }: Props) {
 
   if (project.frontmatter.comingSoon) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6">
-        <div className="text-center max-w-lg">
-          <div className="inline-flex px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-neutral-200 text-sm font-medium mb-6">
-            Coming Soon
-          </div>
-          <h1 className="font-display text-display-md font-bold text-white mb-4">
-            {project.frontmatter.title}
-          </h1>
-          <p className="text-white/50 text-lg mb-4">
-            {project.frontmatter.role} at {project.frontmatter.client}
-          </p>
-          <p className="text-white/40 mb-8">
-            This case study is currently being written. Check back soon for a detailed look at this project.
-          </p>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-neutral-200 hover:text-white transition-colors duration-300"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-            </svg>
-            Back to home
-          </Link>
-        </div>
+      <div className="shell flex min-h-[80svh] flex-col justify-center py-32">
+        <p className="t-label text-accent">In progress</p>
+        <h1 className="t-display mt-7 max-w-[14ch]">{project.frontmatter.title}</h1>
+        <p className="t-lede mt-7">
+          {project.frontmatter.role} · {project.frontmatter.client}
+        </p>
+        <p className="t-body measure mt-8">
+          This case study is still being written. Check back soon.
+        </p>
+        <Link href="/#work" className="link mt-10">
+          See the rest of the work
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Link>
       </div>
     );
   }
@@ -77,44 +68,43 @@ export default async function ProjectPage({ params }: Props) {
   const { prev, next } = getAdjacentProjects(slug);
   const mdxContent = await renderMDX(project.content);
 
+  const facts = [
+    { label: "Client", value: project.frontmatter.client },
+    { label: "Role", value: project.frontmatter.role },
+    { label: "Year", value: project.frontmatter.year },
+  ].filter((fact) => fact.value);
+
   return (
     <article>
       <ProjectHero frontmatter={project.frontmatter} />
 
-      {/* Meta bar */}
-      <div className="max-w-4xl mx-auto px-6 py-8 border-b border-white/5">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div>
-            <p className="text-white/40 text-xs font-medium tracking-wider uppercase mb-1">Client</p>
-            <p className="text-white font-medium">{project.frontmatter.client}</p>
-          </div>
-          <div>
-            <p className="text-white/40 text-xs font-medium tracking-wider uppercase mb-1">Role</p>
-            <p className="text-white font-medium">{project.frontmatter.role}</p>
-          </div>
-          <div>
-            <p className="text-white/40 text-xs font-medium tracking-wider uppercase mb-1">Year</p>
-            <p className="text-white font-medium">{project.frontmatter.year}</p>
-          </div>
-          <div>
-            <p className="text-white/40 text-xs font-medium tracking-wider uppercase mb-1">Skills</p>
-            <div className="flex flex-wrap gap-1.5">
-              {project.frontmatter.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-2 py-0.5 text-xs rounded bg-white/10 text-neutral-200 border border-white/10"
-                >
-                  {skill}
-                </span>
-              ))}
+      {/* Credits */}
+      <div className="shell mt-20">
+        <dl
+          className="grid grid-cols-2 gap-x-10 gap-y-8 py-9 md:grid-cols-12"
+          style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}
+        >
+          {facts.map((fact) => (
+            <div key={fact.label} className="md:col-span-2">
+              <dt className="t-label">{fact.label}</dt>
+              <dd className="t-small mt-2.5 text-ink-1">{fact.value}</dd>
             </div>
-          </div>
-        </div>
+          ))}
+
+          {project.frontmatter.skills.length > 0 && (
+            <div className="col-span-2 md:col-span-6">
+              <dt className="t-label">Scope</dt>
+              <dd className="t-small mt-2.5 text-ink-1">
+                {project.frontmatter.skills.join(" · ")}
+              </dd>
+            </div>
+          )}
+        </dl>
       </div>
 
-      {/* MDX Body */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="mdx-content">{mdxContent}</div>
+      {/* Case study */}
+      <div className="shell py-20 md:py-28">
+        <div className="prose">{mdxContent}</div>
       </div>
 
       {!project.frontmatter.unlisted && <ProjectNav prev={prev} next={next} />}

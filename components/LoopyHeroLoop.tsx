@@ -160,7 +160,12 @@ function Station({
         textAnchor="middle"
         dominantBaseline="middle"
         fill={INK}
-        style={{ font: "600 11px 'JetBrains Mono', monospace", letterSpacing: "0.5px" }}
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontWeight: 600,
+          fontSize: "11px",
+          letterSpacing: "0.5px",
+        }}
         initial={reducedMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.75 + index * 0.14, duration: 0.4 }}
