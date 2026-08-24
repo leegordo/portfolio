@@ -1,18 +1,18 @@
 {
   "title": "About",
-  "heading": "I stay close to",
-  "headingAccent": "the work",
+  "heading": "I design and build",
+  "headingAccent": "digital products",
   "bioParagraphs": [
-    "I'm Lee Gordon, a product designer with more than 15 years of experience. I've worked at agencies including R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently led design at Fold.",
-    "I move between research, product strategy, interface design, design systems, and code. The job changes with the problem. Sometimes the right artifact is a journey map. Sometimes it is a working prototype that exposes what the team still does not understand.",
-    "My current work is about agentic interfaces: products that can plan, act, and make decisions. I care about where people stay in control, how the system explains itself, and what happens when it gets something wrong."
+    "I'm Lee Gordon, a product designer with more than 15 years of experience. I've worked at R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently led design at Fold.",
+    "My work covers research, product direction, interface design, design systems, and code. What I make depends on what the team needs to learn. That might be a journey map, a prototype, or the production interface.",
+    "I currently work mostly on AI products. I focus on what people can see and control, how the system explains its actions, and how it recovers from mistakes."
   ],
   "timeline": [
     {
       "company": "Independent Contracting",
       "role": "Senior Product Designer",
       "period": "2025 – Present",
-      "description": "Designing agentic products and helping small teams turn rough technical demos into clear, testable product experiences."
+      "description": "Designing AI products and helping small teams turn technical demos into products they can test with users."
     },
     {
       "company": "Fold",
@@ -24,19 +24,19 @@
       "company": "Chan Zuckerberg Initiative",
       "role": "UX Researcher (Contract)",
       "period": "2021 – 2022",
-      "description": "Planned and ran UX research to help product teams understand user needs and make better product decisions."
+      "description": "Planned and ran research to help product teams understand user needs and make product decisions."
     },
     {
       "company": "Lightning Labs",
       "role": "Product Designer",
       "period": "2017 – 2021",
-      "description": "Designed products and brand systems that made Lightning Network tools easier to understand and operate."
+      "description": "Designed products and brand systems for Lightning Network tools."
     },
     {
       "company": "Nokia",
       "role": "UX Director",
       "period": "2016 – 2018",
-      "description": "Directed UX for Nokia's connected-home platform, including device setup, monitoring, and multi-user household controls."
+      "description": "Directed UX for Nokia's connected-home platform, including setup, monitoring, and household controls."
     },
     {
       "company": "DigitasLBi",
@@ -54,7 +54,7 @@
       "company": "IE Agency",
       "role": "Designer",
       "period": "2010 – 2012",
-      "description": "Designed digital products and brand identities for a mix of new and established companies."
+      "description": "Designed digital products and brand identities for new and established companies."
     },
     {
       "company": "R/GA",
@@ -65,20 +65,20 @@
   ],
   "skills": [
     {
-      "category": "AI & Agents",
+      "category": "AI products",
       "items": [
-        "Agentic Interface Design",
+        "AI Interface Design",
         "LLM Workflow Design",
-        "Prompt Engineering",
+        "Prompt Design",
         "AI Product Strategy",
-        "Human-AI Interaction Patterns",
-        "Autonomous Agent UX"
+        "Human-AI Interaction",
+        "AI Agent UX"
       ]
     },
     {
-      "category": "Product Design",
+      "category": "Product design",
       "items": [
-        "End-to-End Product Design",
+        "Product Design",
         "UX Research",
         "Design Systems",
         "Prototyping",
@@ -102,13 +102,13 @@
       "category": "Leadership",
       "items": [
         "Design Team Management",
-        "Stakeholder Alignment",
+        "Stakeholder Workshops",
         "Workshop Facilitation",
-        "Cross-Functional Strategy",
+        "Cross-functional Planning",
         "Mentoring"
       ]
     }
   ],
-  "ctaHeading": "Have a hard product problem?",
-  "ctaDescription": "Send me the short version. I'll tell you plainly if I can help."
+  "ctaHeading": "Need a senior product designer?",
+  "ctaDescription": "Send me a short description of the work. I'll tell you if I'm a good fit."
 }

@@ -7,7 +7,7 @@ import { getContactContent } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Lee Gordon about product design, agentic interfaces, design systems, or a product that needs senior design help.",
+    "Contact Lee Gordon about product design, AI products, design systems, or senior design support.",
 };
 
 export default function ContactPage() {

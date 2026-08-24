@@ -6,7 +6,7 @@ import { getBlogPosts } from "@/lib/content";
 export function generateMetadata() {
   return {
     title: "Writing",
-    description: "Writing on AI design, agent orchestration, and design systems.",
+    description: "Notes on designing AI products, product teams, and design systems.",
   };
 }
 
@@ -24,7 +24,7 @@ export default function BlogPage() {
 
         <ScrollReveal delay={0.08}>
           <h1 className="t-display mt-7 max-w-[15ch]">
-            On AI design, agent systems, and craft
+            Notes on AI products and design work
             <span className="text-accent">.</span>
           </h1>
         </ScrollReveal>

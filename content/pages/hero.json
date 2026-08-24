@@ -1,13 +1,13 @@
 {
   "label": "Product Designer",
   "name": "Lee Gordon",
-  "headline": ["I design the interface", "between people and", "AI that acts"],
-  "tagline": "Fifteen years taking digital products from a rough idea to working software. Today that means agentic systems — the ones that plan, act, and get things wrong — and the interfaces that keep people in charge of them.",
-  "ctaPrimaryText": "See selected work",
+  "headline": ["I design products", "that use AI"],
+  "tagline": "I've spent 15 years taking digital products from an early idea to working software. Now I mostly work on AI products: what people can control, what the system should explain, and what happens when it gets things wrong.",
+  "ctaPrimaryText": "See my work",
   "ctaSecondaryText": "Get in touch",
   "facts": [
-    { "label": "Practice", "value": "15+ years" },
+    { "label": "Experience", "value": "15+ years" },
     { "label": "Previously", "value": "Fold · Lightning Labs · Nokia · R/GA" },
-    { "label": "Status", "value": "Open to new work" }
+    { "label": "Availability", "value": "Open to new work" }
   ]
 }

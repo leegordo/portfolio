@@ -28,14 +28,14 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lee Gordon — Product Designer",
-    template: "%s — Lee Gordon",
+    default: "Lee Gordon | Product Designer",
+    template: "%s | Lee Gordon",
   },
   description:
-    "Product designer, 15+ years. I work at the intersection of AI and design — building the interfaces between people and systems that plan, act, and decide.",
+    "Product designer with 15+ years of experience across AI products, product design, research, and design systems.",
   keywords: [
     "AI design",
-    "agentic interfaces",
+    "AI interfaces",
     "product design",
     "design systems",
     "UX research",
@@ -43,17 +43,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Lee Gordon" }],
   openGraph: {
-    title: "Lee Gordon — Product Designer",
+    title: "Lee Gordon | Product Designer",
     description:
-      "Product designer working at the intersection of AI and design. Fold, Lightning Labs, Nokia, R/GA.",
+      "Product designer working on AI products, product design, research, and design systems. Previously at Fold, Lightning Labs, Nokia, and R/GA.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lee Gordon — Product Designer",
+    title: "Lee Gordon | Product Designer",
     description:
-      "Product designer working at the intersection of AI and design.",
+      "Product designer working on AI products, product design, research, and design systems.",
   },
 };
 

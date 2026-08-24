@@ -15,9 +15,9 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           label="Selected work"
           title={
             <>
-              Products with real
+              A selection of
               <br />
-              constraints behind them
+              product work
             </>
           }
         />

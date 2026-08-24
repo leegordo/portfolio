@@ -115,7 +115,7 @@ export default function ProjectCard({
 
           <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
             <span className="link">
-              Read the case study
+              Read more
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

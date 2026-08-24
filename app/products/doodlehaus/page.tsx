@@ -5,26 +5,26 @@ import Rule from "@/components/Rule";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "DoodleHaus — Campaign production from one brief",
+  title: "DoodleHaus | Campaign production",
   description:
-    "DoodleHaus turns one brief into a reviewed campaign package with strategy, copy, visual assets, landing pages, and optional video.",
+    "DoodleHaus produces campaign strategy, copy, visual assets, landing pages, and optional video from one brief.",
 };
 
 const painPoints = [
   {
-    title: "Too many disconnected tools",
+    title: "Work gets split across tools",
     description:
       "Writing, design, video, and distribution often happen in separate products. Someone still has to move the work between them and keep the campaign consistent.",
   },
   {
-    title: "A campaign has to hold together",
+    title: "The parts need to match",
     description:
-      "A good email does not rescue an unclear offer or unrelated visuals. The strategy, message, assets, and channel plan need to come from the same brief.",
+      "The offer, message, assets, and channel plan all need to follow the same brief.",
   },
   {
-    title: "Review still matters",
+    title: "AI output needs review",
     description:
-      "AI can produce a lot of material quickly. It can also produce confident nonsense. The useful workflow includes clear rules, checks, and a person who can reject weak work.",
+      "AI can produce a lot of material quickly, including confident nonsense. DoodleHaus checks the work against clear rules and includes a human review before delivery.",
   },
 ];
 
@@ -40,22 +40,22 @@ const steps = [
 
 const features = [
   {
-    title: "One brief across every channel",
+    title: "One brief for every channel",
     description:
       "LinkedIn posts, email sequences, ads, landing pages, and video all work from the same audience, offer, and campaign direction.",
   },
   {
-    title: "The reasoning comes with the work",
+    title: "Research and direction included",
     description:
-      "The package includes the research summary and campaign direction, so you can see why the message and assets were made that way.",
+      "The package includes the research summary and campaign direction behind the copy and assets.",
   },
   {
-    title: "Pay for the scope you need",
+    title: "Scope set by package",
     description:
       "The tiers change the number of channels, asset volume, review depth, and media included. You do not need to choose or manage the underlying models.",
   },
   {
-    title: "A person reviews the result",
+    title: "Human review before delivery",
     description:
       "Every campaign is checked for brand consistency, accessibility, factual problems, and basic craft before delivery.",
   },
@@ -63,17 +63,17 @@ const features = [
 
 const playbookLayers = [
   {
-    title: "Human Layer",
+    title: "Guidance for the team",
     description:
       "The guidance people browse and edit: voice, tone, audience, offers, examples, and channel rules.",
   },
   {
-    title: "Agent Layer",
+    title: "Guidance for AI tools",
     description:
       "The same guidance as structured data, with prompt context, constraints, quality thresholds, and channel-specific checks.",
   },
   {
-    title: "Automation Layer",
+    title: "Workflow rules",
     description:
       "The triggers and integration rules that connect the playbook to your CMS, email platform, ad accounts, and review queue.",
   },
@@ -146,13 +146,13 @@ export default function DoodleHausPage() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.14}>
-          <p className="t-h2 mt-8 max-w-[20ch]">One brief in. A reviewed campaign package out.</p>
+          <p className="t-h2 mt-8 max-w-[20ch]">Campaign production from one brief</p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
           <p className="t-lede measure mt-8">
             DoodleHaus is a managed campaign-production service. You send one brief. It returns the
-            strategy, copy, visual assets, landing pages, and optional video — organised by channel
+            strategy, copy, visual assets, landing pages, and optional video, organised by channel
             and reviewed before delivery.
           </p>
         </ScrollReveal>
@@ -174,9 +174,9 @@ export default function DoodleHausPage() {
           label="The problem"
           title={
             <>
-              Generating assets is easy.
+              Keeping campaign work
               <br />
-              Making them agree is the work.
+              consistent across channels
             </>
           }
         />
@@ -203,12 +203,12 @@ export default function DoodleHausPage() {
           label="How it works"
           title={
             <>
-              One brief,
+              What happens
               <br />
-              seven visible steps
+              after the brief
             </>
           }
-          lede="You can see what happens between them."
+          lede="The work moves through seven steps, from the initial brief to reviewed files organised by channel."
         />
 
         <ol className="mt-16">
@@ -239,9 +239,9 @@ export default function DoodleHausPage() {
           label="What you get"
           title={
             <>
-              A package you can inspect,
+              Campaign files
               <br />
-              edit, and put to work
+              organised by channel
             </>
           }
         />
@@ -263,8 +263,8 @@ export default function DoodleHausPage() {
         <SectionHeading
           index="04"
           label="Brand playbook"
-          title="Brand rules the system can read"
-          lede="DoodleHaus runs on a Brand Playbook: structured guidance for people, agents, and the automated checks that review each campaign."
+          title="Brand rules in a usable format"
+          lede="DoodleHaus uses structured brand guidance that the team, AI tools, and review checks all read from the same source."
         />
 
         <div className="mt-16">
@@ -290,7 +290,7 @@ export default function DoodleHausPage() {
         <ScrollReveal delay={0.2}>
           <div className="measure mt-12">
             <p className="t-small">
-              See how the StickerGiant Brand Playbook connects guidance, agent tools, and automated
+              See how the StickerGiant Brand Playbook connects guidance, AI tools, and automated
               review.
             </p>
             <Link href="/contact" className="link mt-5">
@@ -308,8 +308,8 @@ export default function DoodleHausPage() {
         <SectionHeading
           index="05"
           label="Pricing"
-          title="Campaign pricing, not SaaS seats"
-          lede="Pay per campaign or lock in a monthly retainer. No per-seat fees, no platform subscriptions."
+          title="Pricing by campaign"
+          lede="Pay per campaign or arrange a monthly retainer. There are no per-seat fees or platform subscriptions."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
@@ -324,7 +324,6 @@ export default function DoodleHausPage() {
               >
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="t-label text-accent">{tier.name}</span>
-                  {tier.highlighted && <span className="t-label">Most chosen</span>}
                 </div>
 
                 <p className="mt-5 text-2xl font-h1 tracking-h1 text-ink-1">

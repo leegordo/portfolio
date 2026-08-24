@@ -7,7 +7,7 @@ import { getAboutContent } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Lee Gordon is a product designer working across research, product strategy, interface design, design systems, and agentic products.",
+    "Lee Gordon is a product designer working across research, product direction, interface design, design systems, and AI products.",
 };
 
 export default function AboutPage() {

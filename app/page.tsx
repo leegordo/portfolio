@@ -13,39 +13,39 @@ import { getAllProjects, getHeroContent } from "@/lib/content";
 const services = [
   {
     num: "01",
-    title: "Agentic interface design",
+    title: "AI product design",
     description:
-      "I design what happens when software can plan, act, and decide: what people can see, where they stay in control, and how the system recovers when it gets something wrong.",
+      "I design what people can see and control when software plans or acts for them, including how the product handles mistakes.",
   },
   {
     num: "02",
-    title: "Product design & strategy",
+    title: "Product design and direction",
     description:
-      "I take products from a messy problem to a tested direction and a working interface — research, flows, prototypes, production UI, and implementation support.",
+      "I use research and prototypes to work out what to build, then design the flows and production interface and support implementation.",
   },
   {
     num: "03",
-    title: "Design systems at scale",
+    title: "Design systems",
     description:
-      "I build systems people and agents can both use: tokens, components, content rules, documentation, and the checks that keep a product from drifting.",
+      "I build tokens, components, content rules, and documentation that product and engineering teams can use in the actual work.",
   },
 ];
 
 const principles = [
   {
-    label: "Start with evidence",
+    label: "Use evidence early",
     body:
-      "Interviews, behaviour, and working prototypes get past opinions and find the part of the problem that actually matters.",
+      "Interviews, product behaviour, and working prototypes show where the problem is before the team commits to a solution.",
   },
   {
-    label: "Make the system explicit",
+    label: "Write decisions down",
     body:
-      "Decisions, tokens, constraints, and open questions belong somewhere the team can use them — not in memory or a polished handoff deck.",
+      "I keep decisions, constraints, tokens, and open questions where the team can find and use them.",
   },
   {
-    label: "Stay through implementation",
+    label: "Work through implementation",
     body:
-      "I work in the code when a static prototype cannot answer the question. The design is not done because the file looks finished.",
+      "I work with engineering and use code when a static prototype cannot answer the question.",
   },
 ];
 
@@ -67,12 +67,12 @@ export default function HomePage() {
             label="Practice"
             title={
               <>
-                Design for products
+                Senior design help
                 <br />
-                with hard questions
+                where it is needed
               </>
             }
-            lede="Some problems need a direction. Some need a system. Most need someone who will stay past the handoff."
+            lede="I can set product direction, design the interface, improve the system around it, or stay through all three."
           />
 
           <div className="mt-20">
@@ -81,7 +81,7 @@ export default function HomePage() {
 
           <ScrollReveal delay={0.1}>
             <Link href="/services" className="link mt-14">
-              How the work is structured
+              Ways to work together
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -101,9 +101,9 @@ export default function HomePage() {
             label="Approach"
             title={
               <>
-                How I stay
+                How I work
                 <br />
-                useful
+                on product teams
               </>
             }
           />
@@ -126,27 +126,23 @@ export default function HomePage() {
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
                 <h2 className="t-h2 mt-6">
-                  Fifteen years
+                  Product design
                   <br />
-                  shaping products
+                  since 2008
                 </h2>
               </ScrollReveal>
             </div>
 
             <div className="md:col-span-7 md:col-start-6">
               <ScrollReveal delay={0.12}>
-                <p className="t-quote">
-                  &ldquo;I like complicated products, direct feedback, and prototypes that answer
-                  real questions.&rdquo;
-                </p>
+                <p className="t-quote">I like complicated products, direct feedback, and prototypes that answer specific questions.</p>
               </ScrollReveal>
 
               <ScrollReveal delay={0.18}>
                 <p className="t-body mt-8 max-w-[52ch]">
-                  I&rsquo;ve moved between research, product design, design systems, and the code
-                  underneath the interface — at R/GA and DigitasLBi, in-house at Nokia and Covetrus,
-                  and most recently leading design at Fold. Lately most of that work involves AI
-                  agents.
+                  I&rsquo;ve worked across research, product design, design systems, and front-end code
+                  at R/GA and DigitasLBi, in-house at Nokia and Covetrus, and most recently as Head
+                  of Design at Fold. These days, much of my work is on AI products.
                 </p>
               </ScrollReveal>
 

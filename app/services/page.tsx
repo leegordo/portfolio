@@ -6,7 +6,7 @@ import Rule from "@/components/Rule";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Product design support for focused sprints, ongoing team support, and full projects from discovery through launch.",
+    "Product design sprints, ongoing senior design support, and full projects from discovery through launch.",
 };
 
 const engagements = [
@@ -22,14 +22,14 @@ const engagements = [
     price: "$4,500",
     suffix: "/mo and up",
     summary: "Ongoing support at an agreed monthly capacity.",
-    desc: "I can lead the design work, make the work, improve the system around it, or cover all three. Capacity is set before we start so nobody is guessing.",
+    desc: "I can lead the design work, design the product, improve the team's design system, or cover the lot. We agree the monthly capacity before starting.",
   },
   {
     tier: "Project",
     price: "Custom",
     suffix: "",
     summary: "A defined problem, discovery through launch.",
-    desc: "Research, flows, prototypes, testing, production UI, and implementation support — scoped to what the problem actually needs.",
+    desc: "Research, flows, prototypes, testing, production UI, and implementation support, scoped to the project.",
   },
 ];
 
@@ -43,15 +43,15 @@ export default function ServicesPage() {
 
         <ScrollReveal delay={0.08}>
           <h1 className="t-display mt-7 max-w-[13ch]">
-            Pick the shape of the work
+            Ways to work together
             <span className="text-accent">.</span>
           </h1>
         </ScrollReveal>
 
         <ScrollReveal delay={0.16}>
           <p className="t-lede measure mt-10">
-            Some problems need two focused weeks. Others need a senior designer in the room every
-            week. These are the three ways I usually structure the work.
+            I offer short sprints, ongoing support, and full projects. The scope and output are
+            agreed before the work starts.
           </p>
         </ScrollReveal>
 

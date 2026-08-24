@@ -25,7 +25,7 @@ export default function Footer({ content }: FooterProps) {
       {/* Closing invitation */}
       <div className="shell py-24 md:py-32">
         <ScrollReveal>
-          <p className="t-label">Next</p>
+          <p className="t-label">Contact</p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
@@ -37,8 +37,8 @@ export default function Footer({ content }: FooterProps) {
 
         <ScrollReveal delay={0.16}>
           <p className="t-lede measure mt-8">
-            Send the short version — a product problem, a half-built prototype, a team that needs
-            senior design help. I&rsquo;ll tell you plainly whether I can help.
+            Send me a short description of the product, the problem, and where you need help.
+            I&rsquo;ll tell you if I&rsquo;m a good fit.
           </p>
         </ScrollReveal>
 
@@ -111,7 +111,7 @@ export default function Footer({ content }: FooterProps) {
             © {year} {content.copyrightName}
           </p>
           <p className="t-label normal-case tracking-normal">
-            Set in Geist &amp; Newsreader · Built with Next.js
+            Designed and built by Lee Gordon · Next.js
           </p>
         </div>
       </div>
