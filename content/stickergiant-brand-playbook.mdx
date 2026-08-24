@@ -8,51 +8,45 @@ cover: "/images/projects/stickergiant-brand-playbook-cover-1280.webp"
 featured: true
 order: 2
 comingSoon: false
-summary: "Built StickerGiant's brand rules as structured data so the website, team, AI agents, and automated checks all read from the same source."
+summary: "Rebuilt StickerGiant's brand guidance as structured data used by the website, team, AI tools, and automated checks."
 ---
 
-## The PDF was not the system
+## Turning brand guidance into usable data
 
-StickerGiant already had brand guidance. The problem was where it lived and who could use it. A PDF worked for a designer looking up a logo rule, but it could not answer an agent, validate an asset, or keep an automated workflow from drifting off brand.
+StickerGiant already had brand guidance, but it lived in a PDF. A designer could look up a logo rule, but software could not query it, validate an asset against it, or use it in an automated workflow.
 
-I rebuilt the guidance as structured data. The website, command-line tools, APIs, and automated reviews now read the same rules instead of maintaining separate interpretations.
+I rebuilt the guidance as structured data. The website, command-line tools, APIs, and automated reviews now use the same rules.
 
-## One set of rules, three ways to use it
+## How people and software use it
 
-The Brand Playbook has three layers:
+The web interface lets people browse guidance, preview components, and edit rules through a CMS. A Python CLI lets AI tools fetch rules by category, check assets, and return structured responses. JSON manifests, API endpoints, an OpenAPI specification, and an MCP server make the same data available to automated workflows.
 
-- **For people:** A web interface for browsing guidance, previewing components, and editing rules through a CMS.
-- **For agents:** A small Python CLI that fetches rules by category, checks assets, and returns structured responses.
-- **For automation:** JSON manifests, API endpoints, an OpenAPI specification, and an MCP server that other tools can call directly.
-
-Every rule starts in JSON. The interfaces around it can change without creating another copy of the brand guidance.
+Every rule starts in JSON, so a new interface does not create another copy of the guidance.
 
 ## What the playbook covers
 
-The foundation includes color, type, logo usage, voice, accessibility requirements, and rules for deciding when AI can act on its own. Channel guides add constraints for social, email, print, packaging, events, advertising, and web. Shared resources connect the data to Figma tokens, downloadable assets, and component documentation.
+The playbook includes color, type, logo usage, voice, accessibility requirements, and rules for when AI can act without review. Channel guides cover social, email, print, packaging, events, advertising, and web. It also links the data to Figma tokens, downloadable assets, and component documentation.
 
-## Deciding what AI is allowed to do
+## Setting limits for AI
 
-Not every brand task carries the same risk. The playbook separates work into four levels:
+The playbook assigns work to four levels:
 
-- **AI-final:** Deterministic formatting, tags, and clearly decorative images that require empty alt text.
-- **AI-assisted:** An agent drafts; a person reviews and approves. This includes alt text for meaningful images.
-- **Concept-only:** An agent can open up options, but a person chooses and rewrites the direction.
+- **AI-final:** Deterministic formatting, tags, and decorative images that require empty alt text.
+- **AI-assisted:** An agent drafts, then a person reviews and approves. This includes alt text for meaningful images.
+- **Concept-only:** An agent produces options, but a person chooses and rewrites the direction.
 - **Human-only:** Crisis response, executive communication, and other brand-defining statements.
 
-Those boundaries are data, not a paragraph someone has to remember. An agent can check the rule before it acts.
+These levels are stored as data. An AI tool can check the rule before it starts a task.
 
-## How automated review works
+## Automated review
 
-When content enters the review queue, the workflow identifies the channel and content type, fetches the relevant rules, checks the submission, and returns a decision with the reasons attached. Clear passes can continue. Uncertain or sensitive work goes to a person.
+When content enters the review queue, the workflow identifies the channel and content type, fetches the relevant rules, checks the submission, and returns a decision with its reasons. Clear passes continue. Uncertain or sensitive work goes to a person.
 
-The point is not to remove judgment. It is to stop spending that judgment on checks the system can make reliably.
+This leaves people to review the work that actually needs judgment.
 
-## Why I kept the stack small
+## The stack
 
-The public interface uses plain HTML, CSS, and JavaScript. Decap CMS handles editing. Netlify hosts the site and API functions. The Python CLI uses only the standard library.
-
-That choice keeps the Brand Playbook easy to deploy and easy for other tools to consume. There is no build framework between the rule and the system asking for it.
+The public interface uses HTML, CSS, and JavaScript. Decap CMS handles editing. Netlify hosts the site and API functions. The Python CLI uses only the standard library. There is no build framework between the source data and the system requesting it.
 
 ## My role
 

@@ -5,7 +5,7 @@ import Rule from "@/components/Rule";
 
 export const metadata: Metadata = {
   title: "Privacy policy",
-  description: "Privacy policy for leegordon.design — how your data is handled when you visit this portfolio site.",
+  description: "How your data is handled when you visit leegordon.design.",
 };
 
 const sections = [
@@ -27,7 +27,7 @@ const sections = [
   },
   {
     heading: "AI tools disclosure",
-    body: `Lee Gordon uses AI tools — including Claude (Anthropic), Gemini (Google), and Cursor — as part of his professional design and development workflow. These tools assist in creating the work showcased on this site.\n\nNo visitor data from this website is shared with or fed into any AI system. AI tools are used solely as creative and productivity tools in Lee's own work process.`,
+    body: `Lee Gordon uses AI tools, including Claude (Anthropic), Gemini (Google), and Cursor, in his design and development work. Some of the work shown on this site was made with their help.\n\nNo visitor data from this website is shared with or fed into any AI system.`,
   },
   {
     heading: "Your rights",

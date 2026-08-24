@@ -120,7 +120,7 @@ export default function LoopyHeroLoop() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.9, duration: 0.5 }}
         >
-          DESIGN SPRINTS ON AUTO-PILOT
+          A LOOPY PROJECT FROM BRIEF TO REVIEW
         </motion.p>
       </div>
     </div>

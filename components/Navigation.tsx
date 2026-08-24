@@ -54,7 +54,7 @@ export default function Navigation() {
         }}
       >
         <nav className="shell flex h-full items-center justify-between gap-8">
-          <Link href="/" aria-label="Lee Gordon — home" className="flex shrink-0 items-center">
+          <Link href="/" aria-label="Lee Gordon home" className="flex shrink-0 items-center">
             <Image
               src={assetPath("/images/logo.png")}
               alt="Lee Gordon"

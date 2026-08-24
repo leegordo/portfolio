@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const project = getProjectBySlug(slug);
     return {
-      title: `${project.frontmatter.title} — ${project.frontmatter.client}`,
+      title: `${project.frontmatter.title} | ${project.frontmatter.client}`,
       description:
         project.frontmatter.summary ??
         `${project.frontmatter.role} at ${project.frontmatter.client}. ${project.frontmatter.skills.join(", ")}.`,
