@@ -9,8 +9,8 @@ interface PrincipleListProps {
 }
 
 /**
- * Working principles, set as a numbered editorial list rather than
- * three boxed cards. Fewer containers, more type.
+ * Working principles set as an editorial list rather than boxed cards.
+ * Fewer containers, more type.
  */
 export default function PrincipleList({ items }: PrincipleListProps) {
   const reduced = useReducedMotion();
@@ -28,14 +28,14 @@ export default function PrincipleList({ items }: PrincipleListProps) {
       };
 
   return (
-    <motion.ol
+    <motion.ul
       className="grid grid-cols-1 gap-px md:grid-cols-3"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-10% 0px" }}
       variants={container}
     >
-      {items.map((entry, i) => (
+      {items.map((entry) => (
         <motion.li
           key={entry.label}
           variants={item}
@@ -47,12 +47,11 @@ export default function PrincipleList({ items }: PrincipleListProps) {
             aria-hidden
           />
           <div className="md:pt-8">
-            <span className="t-label text-accent">{String(i + 1).padStart(2, "0")}</span>
-            <h3 className="t-h3 mt-5">{entry.label}</h3>
+            <h3 className="t-h3">{entry.label}</h3>
             <p className="t-small mt-4 max-w-[38ch]">{entry.body}</p>
           </div>
         </motion.li>
       ))}
-    </motion.ol>
+    </motion.ul>
   );
 }

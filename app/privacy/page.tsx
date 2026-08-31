@@ -67,10 +67,7 @@ export default function PrivacyPage() {
                   style={{ borderTop: "1px solid var(--line)" }}
                 >
                   <div className="md:col-span-3">
-                    <span className="t-label text-accent">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h2 className="t-h3 mt-3">{section.heading}</h2>
+                    <h2 className="t-h3">{section.heading}</h2>
                   </div>
 
                   <div className="space-y-4 md:col-span-9">

@@ -11,7 +11,6 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
     <section id="work" className="section">
       <div className="shell">
         <SectionHeading
-          index="02"
           label="Selected work"
           title={
             <>
@@ -28,7 +27,6 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               key={project.slug}
               slug={project.slug}
               frontmatter={project.frontmatter}
-              index={index}
               reverse={index % 2 === 1}
             />
           ))}

@@ -12,19 +12,16 @@ import { getAllProjects, getHeroContent } from "@/lib/content";
 
 const services = [
   {
-    num: "01",
     title: "AI product design",
     description:
       "I design what people can see and control when software plans or acts for them, including how the product handles mistakes.",
   },
   {
-    num: "02",
     title: "Product design and direction",
     description:
       "I use research and prototypes to work out what to build, then design the flows and production interface and support implementation.",
   },
   {
-    num: "03",
     title: "Design systems",
     description:
       "I build tokens, components, content rules, and documentation that product and engineering teams can use in the actual work.",
@@ -59,11 +56,10 @@ export default function HomePage() {
 
       <BrandMarquee />
 
-      {/* 01 — Practice */}
+      {/* Practice */}
       <section id="services" className="section">
         <div className="shell">
           <SectionHeading
-            index="01"
             label="Practice"
             title={
               <>
@@ -90,14 +86,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 02 — Work */}
+      {/* Work */}
       <ProjectGrid projects={projects} />
 
-      {/* 03 — Approach */}
+      {/* Approach */}
       <section id="approach" className="section">
         <div className="shell">
           <SectionHeading
-            index="03"
             label="Approach"
             title={
               <>
@@ -114,7 +109,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 04 — About */}
+      {/* About */}
       <section className="section pb-0">
         <div className="shell">
           <Rule />
@@ -122,7 +117,7 @@ export default function HomePage() {
           <div className="mt-14 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-12">
             <div className="md:col-span-4">
               <ScrollReveal>
-                <p className="t-label">04 &nbsp;·&nbsp; About</p>
+                <p className="t-label">About</p>
               </ScrollReveal>
               <ScrollReveal delay={0.08}>
                 <h2 className="t-h2 mt-6">

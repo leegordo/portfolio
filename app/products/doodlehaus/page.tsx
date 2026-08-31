@@ -29,13 +29,13 @@ const painPoints = [
 ];
 
 const steps = [
-  { number: "01", title: "Brief", description: "Define the audience, offer, goal, channels, constraints, and tone in one structured brief." },
-  { number: "02", title: "Research", description: "Review the market, competitors, and available audience evidence. Turn the findings into a campaign direction." },
-  { number: "03", title: "Copy", description: "Draft the channel copy from that direction, including email, social, ads, and landing-page content." },
-  { number: "04", title: "Creative", description: "Produce the visual assets against the same brief and brand rules." },
-  { number: "05", title: "Video", description: "Add short product demos, social clips, or ads when the campaign calls for them." },
-  { number: "06", title: "Review", description: "Check the package for brand fit, accessibility, factual problems, and weak or inconsistent work." },
-  { number: "07", title: "Deliver", description: "Organize the approved files by channel, with the strategy and copy attached." },
+  { title: "Brief", description: "Define the audience, offer, goal, channels, constraints, and tone in one structured brief." },
+  { title: "Research", description: "Review the market, competitors, and available audience evidence. Turn the findings into a campaign direction." },
+  { title: "Copy", description: "Draft the channel copy from that direction, including email, social, ads, and landing-page content." },
+  { title: "Creative", description: "Produce the visual assets against the same brief and brand rules." },
+  { title: "Video", description: "Add short product demos, social clips, or ads when the campaign calls for them." },
+  { title: "Review", description: "Check the package for brand fit, accessibility, factual problems, and weak or inconsistent work." },
+  { title: "Deliver", description: "Organize the approved files by channel, with the strategy and copy attached." },
 ];
 
 const features = [
@@ -170,7 +170,6 @@ export default function DoodleHausPage() {
       {/* Problem */}
       <section className="shell section pt-0">
         <SectionHeading
-          index="01"
           label="The problem"
           title={
             <>
@@ -199,7 +198,6 @@ export default function DoodleHausPage() {
       {/* How it works */}
       <section className="shell section pt-0">
         <SectionHeading
-          index="02"
           label="How it works"
           title={
             <>
@@ -213,18 +211,13 @@ export default function DoodleHausPage() {
 
         <ol className="mt-16">
           {steps.map((step, i) => (
-            <ScrollReveal key={step.number} delay={Math.min(i, 6) * 0.04} as="li">
+            <ScrollReveal key={step.title} delay={Math.min(i, 6) * 0.04} as="li">
               <div
-                className="group grid grid-cols-1 gap-x-12 gap-y-3 py-7 md:grid-cols-12"
+                className="py-7"
                 style={{ borderTop: "1px solid var(--line)" }}
               >
-                <div className="md:col-span-2">
-                  <span className="t-label text-accent">{step.number}</span>
-                </div>
-                <div className="md:col-span-10">
-                  <h3 className="t-h3">{step.title}</h3>
-                  <p className="t-small mt-3 max-w-[58ch]">{step.description}</p>
-                </div>
+                <h3 className="t-h3">{step.title}</h3>
+                <p className="t-small mt-3 max-w-[58ch]">{step.description}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -235,7 +228,6 @@ export default function DoodleHausPage() {
       {/* What you get */}
       <section className="shell section pt-0">
         <SectionHeading
-          index="03"
           label="What you get"
           title={
             <>
@@ -261,7 +253,6 @@ export default function DoodleHausPage() {
       {/* Brand playbook */}
       <section className="shell section pt-0">
         <SectionHeading
-          index="04"
           label="Brand playbook"
           title="Brand rules in a usable format"
           lede="DoodleHaus uses structured brand guidance that the team, AI tools, and review checks all read from the same source."
@@ -271,16 +262,11 @@ export default function DoodleHausPage() {
           {playbookLayers.map((layer, i) => (
             <ScrollReveal key={layer.title} delay={0.06 * (i + 1)}>
               <div
-                className="grid grid-cols-1 gap-x-12 gap-y-3 py-8 md:grid-cols-12"
+                className="py-8"
                 style={{ borderTop: "1px solid var(--line)" }}
               >
-                <div className="md:col-span-3">
-                  <span className="t-label text-accent">Layer {i + 1}</span>
-                </div>
-                <div className="md:col-span-9">
-                  <h3 className="t-h3">{layer.title}</h3>
-                  <p className="t-small mt-3 max-w-[58ch]">{layer.description}</p>
-                </div>
+                <h3 className="t-h3">{layer.title}</h3>
+                <p className="t-small mt-3 max-w-[58ch]">{layer.description}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -306,7 +292,6 @@ export default function DoodleHausPage() {
       {/* Pricing */}
       <section className="shell section pt-0">
         <SectionHeading
-          index="05"
           label="Pricing"
           title="Pricing by campaign"
           lede="Pay per campaign or arrange a monthly retainer. There are no per-seat fees or platform subscriptions."

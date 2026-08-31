@@ -20,14 +20,12 @@ function responsiveCoverSrcSet(cover: string): string | undefined {
 interface ProjectCardProps {
   slug: string;
   frontmatter: ProjectFrontmatter;
-  index: number;
   reverse?: boolean;
 }
 
 export default function ProjectCard({
   slug,
   frontmatter,
-  index,
   reverse = false,
 }: ProjectCardProps) {
   const reduced = useReducedMotion();
@@ -85,13 +83,7 @@ export default function ProjectCard({
 
         {/* Caption */}
         <div className={`col-span-1 md:col-span-5 ${reverse ? "md:order-1" : ""}`}>
-          {/* One paragraph, not a flex row — so a wrapped meta line returns
-              to the left edge instead of hanging under the index. */}
-          <p className="t-label">
-            <span className="text-accent">{String(index + 1).padStart(2, "0")}</span>
-            <span className="mx-2.5 opacity-40">/</span>
-            {meta.join(" · ")}
-          </p>
+          <p className="t-label">{meta.join(" · ")}</p>
 
           <h3 className="t-h2 mt-5">
             <span className="relative inline">

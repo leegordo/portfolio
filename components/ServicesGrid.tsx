@@ -5,7 +5,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 interface ServicesGridProps {
-  services: { num: string; title: string; description: string }[];
+  services: { title: string; description: string }[];
 }
 
 export default function ServicesGrid({ services }: ServicesGridProps) {
@@ -46,8 +46,7 @@ export default function ServicesGrid({ services }: ServicesGridProps) {
           />
 
           <div className="pt-0 md:pt-8">
-            <span className="t-label text-accent">{service.num}</span>
-            <h3 className="t-h3 mt-5">{service.title}</h3>
+            <h3 className="t-h3">{service.title}</h3>
             <p className="t-small mt-4 max-w-[38ch]">{service.description}</p>
           </div>
         </motion.div>
