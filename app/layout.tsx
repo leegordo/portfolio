@@ -6,6 +6,7 @@ import { GeistMono } from "geist/font/mono";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import CursorTracer from "@/components/CursorTracer";
 import { getFooterContent } from "@/lib/content";
 import "@/styles/globals.css";
 
@@ -89,6 +90,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <ScrollProgress />
+        <CursorTracer />
         <Navigation />
         <main id="main">{children}</main>
         <Footer content={footerContent} />

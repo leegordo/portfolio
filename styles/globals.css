@@ -165,6 +165,42 @@
   }
 }
 
+/* A quiet agent-presence cue: the native pointer stays intact while a
+   brass marker and velocity-sensitive canvas trace follow alongside it. */
+.cursor-tracer,
+.cursor-marker {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 180;
+  pointer-events: none;
+}
+
+.cursor-tracer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.cursor-marker {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  background: var(--accent);
+  opacity: 0;
+  transform: translate3d(-1rem, -1rem, 0);
+  transition: opacity var(--dur-fast) var(--ease-soft);
+  will-change: transform, opacity;
+}
+
+.cursor-marker[data-visible="true"] {
+  opacity: 0.9;
+}
+
+@media (pointer: coarse) {
+  .cursor-tracer,
+  .cursor-marker {
+    display: none;
+  }
+}
+
 /* ============================================================
    Type primitives
    ============================================================ */
@@ -532,6 +568,11 @@
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
+  .cursor-tracer,
+  .cursor-marker {
+    display: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
