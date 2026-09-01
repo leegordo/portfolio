@@ -6,7 +6,7 @@ import { formatBlogDate, getBlogPosts } from "@/lib/content";
 export function generateMetadata() {
   return {
     title: "Writing",
-    description: "Weekly notes on learning to design and build with AI agents.",
+    description: "Short notes on prototyping, testing, and making better product decisions with AI.",
   };
 }
 
@@ -24,15 +24,15 @@ export default function BlogPage() {
 
         <ScrollReveal delay={0.08}>
           <h1 className="t-display mt-7 max-w-[15ch]">
-            Learning to design with agents, one week at a time
+            Learning to design with agents through real client work
             <span className="text-accent">.</span>
           </h1>
         </ScrollReveal>
 
         <ScrollReveal delay={0.14}>
           <p className="t-lede measure mt-8">
-            Short notes from the work: what I built, what broke, and what I am carrying into
-            client projects.
+            Each Monday note looks back at StickerGiant, Loopy, and the local agent setups I use
+            to turn ideas into prototypes, tests, and better decisions.
           </p>
         </ScrollReveal>
 
@@ -49,7 +49,7 @@ export default function BlogPage() {
                     dateTime={post.date}
                     className="t-label transition-colors duration-fast group-hover:text-accent"
                   >
-                    {formatBlogDate(post.date)}
+                    Published {formatBlogDate(post.date)}
                   </time>
                 </div>
 

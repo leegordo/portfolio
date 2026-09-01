@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import LegacyBlogPostRedirect from "@/components/LegacyBlogPostRedirect";
 import {
   formatBlogDate,
   getBlogPostBySlug,
@@ -14,7 +15,8 @@ interface Props {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getBlogPosts().map((post) => ({ slug: post.slug }));
+  const slugs = getBlogPosts().flatMap((post) => [post.slug, ...post.aliases]);
+  return Array.from(new Set(slugs)).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -28,6 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/posts/${post.slug}`,
+    },
+    robots: slug === post.slug ? undefined : { index: false, follow: true },
     openGraph: {
       type: "article",
       title: post.title,
@@ -45,6 +51,11 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  if (slug !== post.slug) {
+    const canonicalPath = `/blog/posts/${post.slug}`;
+    return <LegacyBlogPostRedirect target={canonicalPath} title={post.title} />;
+  }
+
   return (
     <article className="pt-[calc(var(--nav-h)+clamp(3rem,9vh,5.5rem))]">
       <header className="shell pb-16 md:pb-20">
@@ -56,7 +67,7 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
 
         <time dateTime={post.date} className="t-label mt-14 block">
-          {formatBlogDate(post.date)}
+          Published {formatBlogDate(post.date)}
         </time>
         <h1 className="t-display mt-7 max-w-[18ch]">{post.title}</h1>
         <p className="t-lede measure mt-8">{post.excerpt}</p>
