@@ -1,310 +1,405 @@
 [
   {
-    "slug": "last-pass-mostly-deletion",
-    "title": "The last pass was mostly deletion",
+    "slug": "the-method-came-back-to-the-client",
+    "aliases": [
+      "last-pass-mostly-deletion"
+    ],
+    "title": "The method came back to the client",
     "date": "2026-08-31",
-    "excerpt": "A full voice rewrite made the site plainer. Removing the decorative numbers made it feel more like mine.",
-    "tags": ["voice", "editing", "design-judgment"],
+    "dek": "Loopy stopped feeling like a side project when it changed how I approached a live StickerGiant problem.",
+    "metaLine": "StickerGiant · PDP visualizer",
     "body": [
-      "I rewrote copy across 24 files. Phrases like 'the interface between people and AI that acts' became a plain description of what I design and what can go wrong. The goal was not to sound casual. It was to make every sentence mean something a client could check.",
-      "The next pass was visual. I removed the little section numbers from headings and project cards. They were consistent, tidy, and unnecessary. This changed how I brief AI on client work: real examples, a list of habits to avoid, and a final edit that stays mine."
+      "StickerGiant needed a better way to explain how material, lamination, shape, border, and bleed change a sticker.",
+      "I used the loop I had been building in Loopy: ground the brief, make three genuinely different directions, render them, and check them on desktop and mobile.",
+      "One direction anchors the visualizer in the gallery. Another separates product photography from preview mode. A third teaches border and bleed side by side. None of them pretends to calculate price or produce a real proof.",
+      "AI made the options real enough to discuss. My job was deciding what each option needed to teach and where the prototype had to admit that it was only a prototype."
     ]
   },
   {
-    "slug": "constraints-made-the-redesign-better",
-    "title": "Constraints made the redesign better",
+    "slug": "test-the-whole-loop",
+    "aliases": [
+      "constraints-made-the-redesign-better"
+    ],
+    "title": "I started testing the whole loop",
     "date": "2026-08-24",
-    "excerpt": "The site had too many themes, components, and ways to make the same decision. I cut it back to one system.",
-    "tags": ["design-systems", "constraints", "accessibility"],
+    "dek": "A clean demo tells me almost nothing about whether a client can trust the product.",
+    "metaLine": "Loopy · Full-loop QA",
     "body": [
-      "By August, the portfolio had accumulated a theme switcher, several palettes, extra animation components, and too many valid ways to style the same thing. I replaced that with one dark palette, one brass accent, three font roles, and two motion primitives.",
-      "I wrote the rules into the repository so an agent could follow them and I could review against them. That is the design-system lesson I am carrying into client work. A useful system narrows the field, makes drift obvious, and leaves the team free to solve the product."
+      "I ran Loopy from design-system setup through brief, directions, concept selection, build, review, and the next decision. Then I tested the awkward states: a missing source, a stale job, a broken credential, and an iteration pinned to old design rules.",
+      "The failures were more useful than the happy path. They led to immutable design-system snapshots, safer recovery, clearer empty states, and a setup that could be rebuilt locally without mystery credentials. Those repairs showed me what I still needed to prove before asking a client to trust it."
     ]
   },
   {
-    "slug": "product-motion-should-belong-to-the-product",
-    "title": "Product motion should belong to the product",
+    "slug": "a-design-system-needs-a-story-and-a-source-trail",
+    "aliases": [
+      "product-motion-should-belong-to-the-product"
+    ],
+    "title": "A design system needs a story and a source trail",
     "date": "2026-08-17",
-    "excerpt": "I kept one piece of motion because it explained Loopy instead of decorating the page.",
-    "tags": ["motion", "loopy", "product-story"],
+    "dek": "Tokens are not enough if nobody can see what they mean or tell whether they came from a real source.",
+    "metaLine": "Loopy · Design-system evidence",
     "body": [
-      "When I animated Loopy, I used the product's own loop: brief, make, review, test, repeat. The same idea appeared in the case-study hero and the homepage card. It took more care than a generic reveal, but it explained how the product works before the reader reached the copy.",
-      "I kept one rule from it. Motion earns its cost when it carries meaning or clarifies state. If it only proves the animation library is installed, it goes."
+      "I added Storybook so Loopy's foundations, primitives, and components could be inspected as a real system rather than a pile of values. I also taught Loopy to reject source-generated systems that contained no useful evidence.",
+      "A Figma link, a website, or a Storybook catalog now leaves a source trail. Loopy shows what it found, what it inferred, and what is still missing. A hollow token file no longer passes as finished work. When a client asks why something looks the way it does, I can point back to the evidence."
     ]
   },
   {
-    "slug": "real-screens-changed-the-story",
-    "title": "Real screens changed the story",
+    "slug": "security-became-a-design-problem",
+    "aliases": [
+      "real-screens-changed-the-story"
+    ],
+    "title": "Security became a design problem",
     "date": "2026-08-10",
-    "excerpt": "Replacing the first Loopy images with actual workflow screens made the case study specific.",
-    "tags": ["evidence", "case-studies", "loopy"],
+    "dek": "A useful agent can also become a very efficient way to mishandle client work.",
+    "metaLine": "Loopy · Trust boundaries",
     "body": [
-      "The first Loopy image set did not show the working process clearly enough. I replaced it with screens from real sessions: the Brief Studio, a saved brief, the imported design system, and the agent studio. Suddenly the page had details the copy could point to.",
-      "AI can make a convincing product picture before the product has done anything. Client work needs a higher bar. The image should prove a workflow, a decision, or a result. If it only establishes mood, I should label it as a concept."
+      "A security review found places where untrusted project content and powerful agent tools crossed the wrong boundary. I stopped treating that as somebody else's backend problem.",
+      "We tightened the runtime, reduced what agent processes could read, improved key handling, and made failure states close when something went wrong. If I want clients to put real product context into Loopy, protecting that context is part of the experience."
     ]
   },
   {
-    "slug": "case-study-needed-my-voice",
-    "title": "The case study needed my voice",
+    "slug": "stop-making-users-translate-their-design-system",
+    "aliases": [
+      "case-study-needed-my-voice"
+    ],
+    "title": "I stopped making users translate their design system",
     "date": "2026-08-03",
-    "excerpt": "The first Loopy draft sounded clever. The rewrite made the actual product easier to understand.",
-    "tags": ["writing", "loopy", "authorship"],
+    "dek": "The product should do the archaeology before it asks a designer to fill in the gaps.",
+    "metaLine": "Loopy · Source-first onboarding",
     "body": [
-      "The early Loopy case study leaned on phrases like 'Agents, Skills & Loops,' 'drift to reality,' and 'ideas take laps.' I rewrote it around the plain sequence: write a brief, generate different approaches, choose one, critique it, test it, and use the evidence in the next brief.",
-      "The rewrite did more than change the tone. It exposed where the product story was solid and where the language had been doing the work. For clients, I want AI to help me find the sentence, not hide the gap."
+      "Loopy's first design-system setup asked too much of the person using it. I changed the flow to start with evidence from Figma, a website, or a published Storybook, then show what was found and what was still uncertain.",
+      "I also replaced agent nicknames with role titles such as senior designer, principal designer, and UX researcher. Clients should not need our internal lore to understand who is doing what.",
+      "The lesson was annoyingly obvious: clever systems feel simple only when the system carries the translation work."
     ]
   },
   {
-    "slug": "fast-prototypes-still-need-fast-pages",
-    "title": "Fast prototypes still need fast pages",
+    "slug": "the-loop-moved-into-the-conversation",
+    "aliases": [
+      "fast-prototypes-still-need-fast-pages"
+    ],
+    "title": "The loop moved into the conversation",
     "date": "2026-07-27",
-    "excerpt": "The portfolio looked tidy and still hauled oversized project images around. Shipping meant fixing that too.",
-    "tags": ["performance", "prototyping", "delivery"],
+    "dek": "I wanted Loopy to begin where product decisions already happen, not in another empty dashboard.",
+    "metaLine": "Loopy · Buzz + Hermes prototype",
     "body": [
-      "The project covers looked fine on my screen, but the originals were much larger than the page needed. I made 640, 960, and 1280 pixel WebP versions, added responsive sources, and let the browser load the right file for the viewport.",
-      "This was less visible than the design changes around it. It also mattered more to the person waiting on a phone. AI makes another polished asset cheap. Shipping still means dealing with its weight, loading behavior, and failure states."
+      "I drew the core Buzz experience in Pencil, then built a local Loopy agent with its own Hermes profile and strict approval gates.",
+      "A synthetic channel thread became a brief, three directions, a human choice, a small test, and evidence returned to the same thread.",
+      "In that local test, a synthetic participant recovered the problem, chosen direction, and next decision without rereading the source conversation. The test also exposed an ambiguity between the next decision and later questions, so I changed the canvas.",
+      "I kept that correction in the next version. The prototype gave me something observable to improve."
     ]
   },
   {
-    "slug": "case-study-needs-evidence",
-    "title": "A case study needs evidence, not promises",
+    "slug": "pencil-became-part-of-the-build-loop",
+    "aliases": [
+      "case-study-needs-evidence"
+    ],
+    "title": "Pencil became part of the build loop",
     "date": "2026-07-20",
-    "excerpt": "I kept the Loopy case study unlisted until the copy, product screens, and interaction told the same story.",
-    "tags": ["case-studies", "evidence", "release"],
+    "dek": "The design file stopped being a picture of the idea and became the source for the next implementation decision.",
+    "metaLine": "Loopy · Pencil with agents",
     "body": [
-      "The first Loopy case study went up as an unlisted route. I kept it out of the portfolio while I fixed the title overlap, rewrote the copy, changed the imagery, added the live-site link, and built the hero interaction. Only then did I feature it on the homepage.",
-      "An unlisted page is not secret, but it is a useful review gate. I want the same discipline on client work: show the work early, keep the audience controlled, and make public discovery a decision rather than a side effect of deployment."
+      "I reorganized Loopy's iteration flow in a Pencil file. The useful part was not the drawing itself. Agents could inspect the actual nodes, compare them with production, and turn the differences into an implementation contract.",
+      "The resulting stage kept the current work in the middle, the active role at the top, and the complete loop visible below. We built it, tested it, found places where the first implementation lost review behavior, and corrected them. Pencil gave me a design surface I could steer and a faster path into working software without pretending the first pass was right."
     ]
   },
   {
-    "slug": "agents-overdesigned-my-portfolio",
-    "title": "The agents overdesigned my portfolio",
+    "slug": "the-agents-work-became-the-interface",
+    "aliases": [
+      "agents-overdesigned-my-portfolio"
+    ],
+    "title": "The agents' work became the interface",
     "date": "2026-07-13",
-    "excerpt": "A pinned hero, palette morphs, clip reveals, and a second critique pass still added up to the wrong direction.",
-    "tags": ["motion", "critique", "design-judgment"],
+    "dek": "A flow diagram was explaining Loopy while hiding the only thing worth watching.",
+    "metaLine": "Loopy · Live iteration experience",
     "body": [
-      "I let the motion work run hard: palette changes, a pinned three-chapter hero, clip-path image reveals, and scroll snapping. A second agent review tuned the cross-fades and progress dots. The result became more elaborate and less like my portfolio.",
-      "I reverted most of it, then removed the remaining hero parallax the next day. Separate making and critique roles are useful, but a panel of agents can still polish the wrong direction. Client work needs a person with enough context to kill the whole idea."
+      "I had given the pipeline too much screen. It showed that agents were busy, but not whether their work was any good. I minimized the diagram and made the live brief, research, concepts, critique, and decision the center of the page.",
+      "Brief Studio replaced a long form with a guided conversation. The research gate let me steer before concepts were generated. Resume logic kept a slow build from restarting every time the worker hiccupped.",
+      "Clients do not need a theater of agents. They need to see the work, understand the current decision, and know where to intervene."
     ]
   },
   {
-    "slug": "published-the-wrong-kind-of-ai-blog",
-    "title": "I published the wrong kind of AI blog",
+    "slug": "the-demo-had-to-survive-monday-morning",
+    "aliases": [
+      "published-the-wrong-kind-of-ai-blog"
+    ],
+    "title": "The demo had to survive Monday morning",
     "date": "2026-07-06",
-    "excerpt": "Ten polished AI articles looked like momentum. The repository could not support the claims inside them.",
-    "tags": ["writing", "evidence", "failure"],
+    "dek": "Loopy was becoming a product, which meant the boring failures were now design material.",
+    "metaLine": "Loopy · Hosted reliability",
     "body": [
-      "Looking back at the first blog commit, I do not trust it. It added ten long standalone articles in one shot. Several claimed experiments, percentages, and internal systems that did not exist in the repository. The index later went empty because its JSON shape and content getter disagreed, and some links never matched the filenames.",
-      "The lesson was ugly and clear. An agent can manufacture authority much faster than I can earn it. I deleted those pieces and rebuilt this journal from commit history. I will take a short, checkable note over a confident fake case study every time."
+      "I moved Loopy from a local control loop toward a hosted product. That exposed everything a polished prototype lets you ignore: stale browser chunks, lost agent sessions, long-running builds, missing model keys, worker restarts, and unclear recovery.",
+      "I added safer fallbacks, actionable errors, health checks, deployment runbooks, and stricter network boundaries. The interface also learned to keep the original artifact when a repair failed. Loopy became less magical and more useful, which was the point."
     ]
   },
   {
-    "slug": "clearer-audience-fixed-the-website",
-    "title": "A clearer audience fixed the website",
+    "slug": "i-called-it-loopy",
+    "aliases": [
+      "clearer-audience-fixed-the-website"
+    ],
+    "title": "I called it Loopy",
     "date": "2026-06-29",
-    "excerpt": "The portfolio was trying to speak to everyone. A specific hiring conversation forced clearer choices.",
-    "tags": ["positioning", "product-strategy", "client-work"],
+    "dek": "The old name described infrastructure. The new one described how I wanted teams to work.",
+    "metaLine": "Loopy · Product identity",
     "body": [
-      "The site kept trying to serve several audiences at once. I changed the title, location, navigation, homepage sections, and added a services page for a specific hiring conversation. Once the reader was clear, half the open design questions stopped being interesting.",
-      "Agents can generate ten competent page structures and all ten can be wrong if the brief never names the reader. I now spend more time tightening the audience and next action before asking an agent to make anything. It saves a lot of attractive wandering."
+      "Plumbline sounded precise, but it made the product feel like a measuring tool. I cared about iteration: an idea takes a lap through a brief, directions, critique, a human decision, and evidence, then comes back changed. Loopy made that behavior legible. The name also kept me honest. If the product ever jumped straight from prompt to polished answer, it was betraying its own name."
     ]
   },
   {
-    "slug": "exploration-is-cheap-choosing-matters",
-    "title": "Exploration is cheap. Choosing still matters.",
+    "slug": "the-scorecard-finally-had-somewhere-to-go",
+    "aliases": [
+      "exploration-is-cheap-choosing-matters"
+    ],
+    "title": "The scorecard finally had somewhere to go",
     "date": "2026-06-22",
-    "excerpt": "I built a multi-theme system, narrowed it almost immediately, and learned more from the cut than the options.",
-    "tags": ["exploration", "specs", "visual-design"],
+    "dek": "Evaluation became useful once it changed the next decision. A score alone just decorated the last build.",
+    "metaLine": "Loopy · Eval-led routing",
     "body": [
-      "I built a multi-theme system with a switcher, then limited the picker to dark themes two days later. In the same week I wrote a detailed Persona Skins spec and changed the core visual idea from objects to character portraits.",
-      "This is where agents help: they make it cheap to see the edges of the option space. The mistake is treating volume as progress. Clients need range early and commitment soon after. My job is to choose, explain the choice, and remove the dead branches."
+      "I connected the brief, concept gallery, live preview, scorecard, and designer thoughts into one loop. The evaluation could now send the work somewhere: approve it, steer it with a reason, or reject it and preserve what failed.",
+      "That changed my relationship with AI output. I was no longer asking whether a screen looked good in isolation. I could ask whether it answered the brief, respected the design system, held together visually, and deserved another lap. I treated the score as evidence for a decision, not the decision itself."
     ]
   },
   {
-    "slug": "cms-was-getting-in-the-way",
-    "title": "The CMS was getting in the way",
+    "slug": "loopy-started-as-a-hand-built-harness",
+    "aliases": [
+      "cms-was-getting-in-the-way"
+    ],
+    "title": "Loopy started as a hand-built harness",
     "date": "2026-06-15",
-    "excerpt": "I moved the design into Pencil, put the rationale beside it, and removed a content layer I no longer needed.",
-    "tags": ["pencil", "workflow", "source-of-truth"],
+    "dek": "I built the product only after the manual loop started helping with real client work.",
+    "metaLine": "Loopy · Origin",
     "body": [
-      "I checked the portfolio direction into the repo as a Pencil file and wrote the design decisions beside it. The same cleanup removed TinaCMS, its configuration, an unused admin placeholder, and stale video assets.",
-      "Keeping the copy in JSON and MDX put the content model, design rationale, and interface in one place an agent could inspect. I use the same principle in client prototypes. The source of truth should be close to the thing being made, and every extra layer should earn the ambiguity it adds."
+      "Before Loopy was an app, I conducted the process by hand.",
+      "I worked across OpenClaw, Claude Code, Cursor, prompts, skills, and plug-ins to turn fuzzy client ideas into prototypes that could be compared and tested. That beat arguing about them in the abstract.",
+      "The handoffs were clumsy, but the value was real. A brief stayed connected to the concepts. A critique could send the work back. Research could change the next attempt.",
+      "Loopy came from wanting to preserve that method without asking a client team to understand the pile of tools underneath it."
     ]
   },
   {
-    "slug": "bold-direction-was-still-a-direction",
-    "title": "The bold direction was still just a direction",
+    "slug": "i-started-drawing-with-agents",
+    "aliases": [
+      "bold-direction-was-still-a-direction"
+    ],
+    "title": "I started drawing with agents",
     "date": "2026-06-08",
-    "excerpt": "Pink type, oversized headings, numbered sections, and pricing made the contrast useful, even when the design did not last.",
-    "tags": ["visual-design", "exploration", "decision-making"],
+    "dek": "An editable design file gave the conversation a place to land.",
+    "metaLine": "Practice · Pencil experiments",
     "body": [
-      "After adding the commercial structure, I tried a deliberately bold direction: oversized type, a pink accent, numbered sections, sharper service cards, testimonials, and pricing. It made a clear argument. Later versions removed most of it.",
-      "The exploration was not wasted. Agents let me push the direction far enough to react to it instead of debating adjectives. The client gets faster contrast between real options. I decide which one deserves to survive."
+      "I began using Pencil as a shared design surface with agents. Instead of asking for a mockup image, I kept the work in an editable .pen file where the hierarchy, copy, spacing, and alternatives could be inspected and changed.",
+      "The difference was small and important. I could point to a real node, ask why it existed, move it, and carry that decision into code. The design did not disappear into a screenshot or a chat transcript. That experiment became the basis for how I later designed Loopy's iteration stage and its Buzz integration."
     ]
   },
   {
-    "slug": "stopped-selling-ai-started-explaining-job",
-    "title": "I stopped selling AI and started explaining the job",
+    "slug": "i-refused-to-pick-concepts-from-prose",
+    "aliases": [
+      "stopped-selling-ai-started-explaining-job"
+    ],
+    "title": "I refused to pick concepts from prose",
     "date": "2026-06-01",
-    "excerpt": "A positioning rewrite moved the portfolio away from tool names and toward the problems I could solve for a team.",
-    "tags": ["positioning", "client-work", "outcomes"],
+    "dek": "Three descriptions are not three design directions if I cannot actually see or use them.",
+    "metaLine": "StickerGiant · Live concept review",
     "body": [
-      "I repositioned the site around a fractional AI design lead offer. I added services, pricing, testimonials, and project summaries written around outcomes. It was too much in places, and later versions cut a lot of it.",
-      "The part worth keeping was the offer. Cursor, Claude, and agents belong in my workflow, not the headline. A client might need to turn a rough prototype into a product or make an automated system understandable. The site needed to say that plainly."
+      "The StickerGiant agents were handing me concept descriptions and loose component files. I built a temporary preview that rendered A, B, and C side by side without touching the real app, then tore it down after I chose.",
+      "I also hardened the inspiration step. If the live source timed out, the system had to use a curated fallback or ask me whether to continue. It could no longer silently skip the part that kept concepts from collapsing into generic templates.",
+      "Seeing the options made me faster. Refusing invisible shortcuts made the options better."
     ]
   },
   {
-    "slug": "a-quiet-repo-is-not-a-fake-milestone",
-    "title": "A quiet repo is not a fake milestone",
+    "slug": "i-put-the-brief-before-the-prompt",
+    "aliases": [
+      "a-quiet-repo-is-not-a-fake-milestone"
+    ],
+    "title": "I put the brief before the prompt",
     "date": "2026-05-25",
-    "excerpt": "There was no portfolio commit this week. I am leaving that gap visible instead of inventing progress.",
-    "tags": ["evidence", "process", "honesty"],
+    "dek": "The agents needed the client's world before they needed another instruction.",
+    "metaLine": "StickerGiant · Human feedback loop",
     "body": [
-      "There is no portfolio commit for this week. That does not prove nothing happened. It only means the repository cannot support a shipped milestone, so I am not stretching an older change into one.",
-      "The same restraint matters in client case studies. A blank week is more honest than an invented research result or a prototype described as a launch. If the evidence is missing, I should say so or label the writing as reflection."
+      "I added a project setup that captured the product, audience, goals, data, competitors, and constraints once. Every later brief and design agent had to read that context before making anything.",
+      "After evaluation, I could push the working build into Figma, let people annotate the canvas, and bring those notes back into the next round. The agent did the regeneration while the team kept the decision rights. That was the shape I wanted for client work."
     ]
   },
   {
-    "slug": "credits-are-design-material",
-    "title": "Credits are design material",
+    "slug": "i-gave-the-agents-different-jobs",
+    "aliases": [
+      "credits-are-design-material"
+    ],
+    "title": "I gave the agents different jobs",
     "date": "2026-05-18",
-    "excerpt": "Correcting two lines in the Lightning Labs case study mattered more than another visual polish pass.",
-    "tags": ["accuracy", "case-studies", "authorship"],
+    "dek": "One chat should not brainstorm, build, critique, test, and approve its own work.",
+    "metaLine": "StickerGiant · Agent roles",
     "body": [
-      "The Lightning Labs case study had credited me with Pool and Faraday work that should not have been there. I removed those references and confirmed the iOS wallet work instead. The correction was tiny in the diff and large in what the page claimed.",
-      "Agents are very good at reconstructing a plausible career story from nearby facts. A portfolio is not the place for plausible. I need project evidence, my own memory, and a final review that treats credit as part of the design."
+      "I split the StickerGiant workflow into roles. A generator explored. A principal designer challenged the work. Separate checks looked for design-system drift and accessibility failures. The share step stayed behind a human confirmation.",
+      "The pipeline moved from brief to prototype to evaluation to a draft review. Each handoff left an artifact, so the model did not have to remember what it had meant five prompts earlier.",
+      "Specialization did not remove my judgment. It made the disagreements visible enough for me to use it."
     ]
   },
   {
-    "slug": "tools-belong-in-the-workflow-not-the-pitch",
-    "title": "Tools belong in the workflow, not the pitch",
+    "slug": "the-design-system-became-an-argument-with-receipts",
+    "aliases": [
+      "tools-belong-in-the-workflow-not-the-pitch"
+    ],
+    "title": "The design system became an argument with receipts",
     "date": "2026-05-11",
-    "excerpt": "Listing the stack made the portfolio sound current. Explaining the work made it useful.",
-    "tags": ["positioning", "ai-workflows", "client-work"],
+    "dek": "Extracting Figma values was easy. Preserving where they came from mattered more.",
+    "metaLine": "StickerGiant · Design rules",
     "body": [
-      "One version of the portfolio devoted a section to Cursor, Claude Code, Figma MCPs, OpenClaw, Veo, and image models. I rewrote the stack around what each tool changed in the path from design intent to a shipped product.",
-      "The rewrite was better, but the tools took up too much of the story and the page was later removed. Clients care about the judgment and evidence the workflow produces. The logo on the model is implementation detail."
+      "I turned StickerGiant's Figma tokens, components, variants, and source nodes into a versioned repository. During the work, the agent found disagreements around hover colors, radius, button states, and the focus ring.",
+      "I did not let it average the differences into something plausible. We kept node references, a source map, known discrepancies, and a changelog. Future agents had to challenge a conflicting extraction instead of quietly replacing the rule, and the design system could explain itself."
     ]
   },
   {
-    "slug": "trust-work-is-still-design-work",
-    "title": "Trust work is still design work",
+    "slug": "i-gave-the-agent-a-room-of-its-own",
+    "aliases": [
+      "trust-work-is-still-design-work"
+    ],
+    "title": "I gave the agent a room of its own",
     "date": "2026-05-04",
-    "excerpt": "Email obfuscation, a privacy page, and dependency fixes were not glamorous. They made the site safer to use.",
-    "tags": ["privacy", "security", "delivery"],
+    "dek": "The environment around the model started mattering as much as the prompt.",
+    "metaLine": "Practice · OpenClaw local environment",
     "body": [
-      "The portfolio picked up email obfuscation to slow down scraping, a privacy policy linked from the footer, and safe dependency fixes from an audit. None of those changes improved a screenshot.",
-      "They improved the product. Agentic workflows tend to reward visible output because it is easy to demo. Client work still includes the trust boundaries, boring maintenance, and clear explanations that keep a polished interface from becoming a liability."
+      "I moved my OpenClaw experiments into a contained local workspace with its own files, memory, and long-running services. Client project context no longer had to be pasted into a fresh chat every time I wanted help. The agent could inspect the real repository, keep a decision trail, run a prototype, and return later without reconstructing the project from scraps. That was my first real lesson in environment design: what the agent can see, what it can change, and what has to remain private."
     ]
   },
   {
-    "slug": "fallbacks-belong-in-the-design",
-    "title": "Fallbacks belong in the design",
+    "slug": "twenty-one-folders-taught-me-one-thing",
+    "aliases": [
+      "fallbacks-belong-in-the-design"
+    ],
+    "title": "Twenty-one folders taught me one thing",
     "date": "2026-04-27",
-    "excerpt": "The generated hero videos looked good until missing files left the most important part of the page exposed.",
-    "tags": ["resilience", "generative-media", "qa"],
+    "dek": "The StickerGiant directory was full of experiments, but the folder count was not the value.",
+    "metaLine": "StickerGiant · Practice review",
     "body": [
-      "The hero had accumulated references to generated video files that were no longer present. I removed the missing options and added an error fallback so the opening of the site still worked when media failed.",
-      "Calling this engineering cleanup misses the point. It is a design decision about the worst state. AI makes the happy path fast to produce, which leaves me more time for loading, empty, error, and fallback behavior."
+      "I counted 21 project folders: survey work, mobile navigation, component libraries, a brand playbook, typography and design reviews, post-purchase states, reviews, filters, badges, landing pages, print automation, and product video ideas.",
+      "Some had working prototypes and clear decision records. Two were basically empty. A few had polished scaffolds with the important handoff still missing. That inventory changed my standard: a project now needed a brief, an artifact I could inspect, and a record of what happened next."
     ]
   },
   {
-    "slug": "renaming-the-prototype-clarified-the-product",
-    "title": "Renaming the prototype clarified the product",
+    "slug": "a-scaffold-is-not-a-pipeline",
+    "aliases": [
+      "renaming-the-prototype-clarified-the-product"
+    ],
+    "title": "A scaffold is not a pipeline",
     "date": "2026-04-20",
-    "excerpt": "FlowSnap became DoodleHaus, and the product stopped sounding like a generic automation diagram.",
-    "tags": ["product-strategy", "naming", "prototyping"],
+    "dek": "AI can build a convincing shell long before the hard handoff works.",
+    "metaLine": "StickerGiant · Prototype honesty",
     "body": [
-      "I replaced the FlowSnap landing page with DoodleHaus. The first concept described a visual content pipeline clearly enough, but the name and framing described the category more than a product with its own point of view.",
-      "The prototype made that weakness visible fast. Naming is not a coat of paint at the end. It tells me whether I understand the product well enough to explain what belongs inside it."
+      "Landing Page Testing had five visible rounds tied to paid-search hypotheses. The work could be compared, critiqued, and brought back to the real design system. The Component-Library experiment looked more complete than it was: Storybook and a CLI existed, but the Figma import still ended in a placeholder alert. The separate Figma React generator folder contained nothing at all. Seeing those projects together changed what I checked first. I stopped rewarding the amount of interface around an idea and looked for the working handoff at its center."
     ]
   },
   {
-    "slug": "case-study-beats-a-capability-list",
-    "title": "A case study beats a capability list",
+    "slug": "i-started-turning-decisions-into-systems",
+    "aliases": [
+      "case-study-beats-a-capability-list"
+    ],
+    "title": "I started turning decisions into systems",
     "date": "2026-04-13",
-    "excerpt": "The StickerGiant brand playbook gave the agentic story a real project instead of another claim.",
-    "tags": ["case-studies", "evidence", "client-work"],
+    "dek": "The reusable part of a design decision is the rule and the evidence behind it.",
+    "metaLine": "StickerGiant · Badges, tokens, deploys",
     "body": [
-      "I added the StickerGiant brand playbook as a case study with its own cover and place in the project sequence. That did more for the portfolio than another paragraph about being good at AI or design systems.",
-      "Clients need to see the brief, the judgment, and the artifact. Agents can help me organize and present that evidence, but they cannot substitute for it. A capability list asks the reader to trust me. A case study gives them something to inspect."
+      "For the PLP badge work, I compared semantic color systems, stress-tested them against light, dark, warm, and holographic product images, and worked through stacking and mobile behavior before recommending a direction.",
+      "I put the source-verified design tokens and component rules into a machine-readable file with Figma node references. I also built a small deploy watcher so an agent could hand a review build to a local service through a simple manifest, with failures kept for inspection. That made the next screen cheaper to reason about."
     ]
   },
   {
-    "slug": "deleting-work-made-the-portfolio-stronger",
-    "title": "Deleting work made the portfolio stronger",
+    "slug": "product-education-belongs-in-the-interaction",
+    "aliases": [
+      "deleting-work-made-the-portfolio-stronger"
+    ],
+    "title": "Product education belongs in the interaction",
     "date": "2026-04-06",
-    "excerpt": "The site had started collecting every experiment. I removed StashPay and the Current Projects page to sharpen the story.",
-    "tags": ["curation", "portfolio", "product-strategy"],
+    "dek": "Customers should not need a support article to understand the choice in front of them.",
+    "metaLine": "StickerGiant · Product discovery",
     "body": [
-      "The portfolio was collecting experiments faster than it was building a point of view. I removed StashPay, retired the Current Projects page, and refocused the About page on the AI and agentic design work I wanted to keep doing.",
-      "Agentic tools make expansion almost free. Another page can appear before I have decided whether it deserves to exist. That is why curation matters more now. For client work, I would rather bring a few directions that expose a real decision than a pile that proves the generator ran."
+      "I prototyped a responsive product-list filter with product counts, active chips, unavailable choices, a clear zero state, and a mobile drawer. I also built a material tab concept that paired product specifications with a video-player shell.",
+      "Both were about the same job: helping a customer understand the catalog while they were making a choice. The filter used sample product data. The video slots were still placeholders. I left those limits visible and did not call the work production-ready.",
+      "A prototype can create value before it ships if it makes the decision easier to review."
     ]
   },
   {
-    "slug": "one-agent-one-job",
-    "title": "One agent, one job",
+    "slug": "the-review-stopped-being-a-vibe",
+    "aliases": [
+      "one-agent-one-job"
+    ],
+    "title": "The review stopped being a vibe",
     "date": "2026-03-30",
-    "excerpt": "A narrow pass on navigation, the footer, and one product page taught me more than another general prompt.",
-    "tags": ["agent-workflow", "scope", "review"],
+    "dek": "I wanted critique that engineering could use, including the moments when Figma was wrong.",
+    "metaLine": "StickerGiant · Design review",
     "body": [
-      "I ran a focused agent pass called Carl. The change touched navigation, a small footer adjustment, and one product landing page. The limited surface made the result easier to understand than runs that tried to improve the whole portfolio at once.",
-      "The persona name was not the useful part. Scope was. One outcome, a known set of files, and a coherent diff gave the agent less room to wander. I now split research, design, critique, implementation, and verification into clearer jobs on client work."
+      "I compared Figma, staging captures, and computed CSS for a blog listing and the custom-sticker PDP. The reports ranked issues, separated token drift from layout problems, and called out cases where the implementation was better than the design file.",
+      "The same directory contains a project-template folder for local agent instructions. Not every idea survived: the accordion folder never became more than an empty README. A useful record shows the unfinished work too."
     ]
   },
   {
-    "slug": "simpler-visual-system-let-the-work-lead",
-    "title": "A simpler visual system let the work lead",
+    "slug": "i-connected-ai-art-to-print-production",
+    "aliases": [
+      "simpler-visual-system-let-the-work-lead"
+    ],
+    "title": "I connected AI art to print production",
     "date": "2026-03-23",
-    "excerpt": "Geist, a neutral accent, and fewer video options pulled the portfolio away from spectacle.",
-    "tags": ["visual-design", "design-systems", "restraint"],
+    "dek": "A generated image was not a sticker until the manufacturing rules came with it.",
+    "metaLine": "StickerGiant · Print-ready generator",
     "body": [
-      "I replaced the earlier font pairing with Geist, changed the amber accent to a neutral tone, and removed four old hero video options. The site became quieter without losing its structure.",
-      "It took me months to follow that clue. AI will happily add another color, font, or effect because each one looks plausible by itself. A design system gets stronger when the agent has fewer ways to improvise and the work gets more room."
+      "I built a workflow that took a text prompt, generated artwork, and produced an Illustrator script with a CMYK document, bleed, and a named cut-line layer.",
+      "The same tool could run from the command line or behind an HTTP request.",
+      "I studied an existing Illustrator MCP bridge to understand the interactive path, but I did not write that server. My generator used direct local scripts and could capture the Illustrator result for review.",
+      "The generated image was only the first half of the job. The production constraints made it reviewable by manufacturing."
     ]
   },
   {
-    "slug": "automated-wrong-part-of-homepage",
-    "title": "I automated the wrong part of the homepage",
+    "slug": "the-agent-learned-to-say-what-it-could-not-see",
+    "aliases": [
+      "automated-wrong-part-of-homepage"
+    ],
+    "title": "The agent learned to say what it could not see",
     "date": "2026-03-16",
-    "excerpt": "Four generated hero videos changed every week. The message underneath them did not get any clearer.",
-    "tags": ["generative-media", "automation", "focus"],
+    "dek": "A confident design review is dangerous when the source API did not expose the thing being reviewed.",
+    "metaLine": "StickerGiant · Figma audit",
     "body": [
-      "The homepage randomly selected from nine hero videos. Four were weekly AI-generated clips, and I refreshed those four in late February, again on March 2, and again on March 9. The files kept changing while the product story stayed put.",
-      "Generative media makes novelty cheap, so it is easy to confuse visible activity with a better experience. Clients do not need infinite variation. They need to know which variation answers the brief. I still use generated media, but only after the image has a job."
+      "I used a Figma review to inspect PDP and legacy layouts for layer naming, responsive sizing, variables, and typography. The report turned the findings into code-generation actions, not a vague list of best practices. It also recorded which color and type bindings the available metadata could not verify. The agent had to separate observation from inference, so the client team could act on what was proven and check the rest themselves."
     ]
   },
   {
-    "slug": "ai-copy-is-easy-to-spot-when-it-says-nothing",
-    "title": "AI copy is easy to spot when it says nothing",
+    "slug": "i-designed-the-states-the-ticket-left-out",
+    "aliases": [
+      "ai-copy-is-easy-to-spot-when-it-says-nothing"
+    ],
+    "title": "I designed the states the ticket left out",
     "date": "2026-03-09",
-    "excerpt": "A humanizer pass improved the rhythm. It also showed that better prose still needs a fact check.",
-    "tags": ["writing", "accuracy", "authorship"],
+    "dek": "The happy path was one screen. The real customer experience was several different products hiding inside it.",
+    "metaLine": "StickerGiant · Customer states",
     "body": [
-      "I ran a humanizer pass across the portfolio and replaced broad phrases with specific product work. The copy became shorter and sounded more like a person who had actually made the thing.",
-      "It still needed verification. Smoother prose can make a wrong claim easier to believe. I treat copy agents as editors now. Project evidence supplies the facts; the model helps me pressure-test clarity; I remain responsible for every sentence a client reads."
+      "For the post-purchase account prompt, I split the experience into an unknown guest, a known guest, and a logged-in customer. Each state needed its own copy, validation, loading, error, and escape behavior.",
+      "The product-review work had a similar problem. Replacing the old nested-scroll widget meant designing an exposed section with rating filters, verified-customer context, business responses, and accessible reading order.",
+      "AI helped me enumerate the states quickly. Both pieces remained coded prototypes: the forms, review data, and backend connections were mocked. The design work was deciding which differences mattered to a real customer."
     ]
   },
   {
-    "slug": "real-project-material-beats-placeholders",
-    "title": "Real project material beats placeholders",
+    "slug": "brand-rules-became-queryable",
+    "aliases": [
+      "real-project-material-beats-placeholders"
+    ],
+    "title": "Brand rules became something agents could query",
     "date": "2026-03-02",
-    "excerpt": "Adding Fold and Lightning Labs galleries turned the case studies from claims into things a reader could inspect.",
-    "tags": ["case-studies", "evidence", "implementation"],
+    "dek": "A PDF tells people what the brand was. A shared source can help people and agents keep using it.",
+    "metaLine": "StickerGiant · Brand playbook",
     "body": [
-      "I built a reusable image gallery, wired it into the Fold and Lightning Labs case studies, and extended it for video and SVG assets. I also replaced broken placeholders with project material that could carry the story.",
-      "An agent can assemble a polished case-study layout in minutes. The hard part is still choosing evidence that proves the work. For clients, I want the artifact to show the decision rather than asking a confident paragraph to do all the convincing."
+      "I rebuilt the StickerGiant brand playbook as one set of structured rules served through a website, a small command-line tool, and a Git-backed editor. A person could browse it. An agent could search it, validate colors, or compile guidance for a channel.",
+      "A typography audit exposed the same need in the design system. Base styles, utility classes, prose rules, and responsive overrides were all trying to own heading size. The goal was consistency without depending on everyone's memory."
     ]
   },
   {
-    "slug": "first-build-was-fast-cleanup-was-the-work",
-    "title": "The first build was fast. The cleanup was the work.",
+    "slug": "the-first-useful-outputs-were-review-surfaces",
+    "aliases": [
+      "first-build-was-fast-cleanup-was-the-work"
+    ],
+    "title": "The first useful outputs were review surfaces",
     "date": "2026-02-23",
-    "excerpt": "A complete Next.js portfolio landed quickly. The next two days were routes, assets, deployment, and QA.",
-    "tags": ["prototyping", "qa", "shipping"],
+    "dek": "AI was most helpful when it made existing client evidence easier to see and discuss.",
+    "metaLine": "StickerGiant · Early prototypes",
     "body": [
-      "The first portfolio commit landed as a complete Next.js site with project routes, content files, motion, and a GitHub Pages workflow. The next two days were less glamorous: fixing base paths, setting up the custom domain, repairing builds, and correcting media paths that failed on the deployed site.",
-      "The speed was real. It also compressed unfinished decisions into something that looked complete. My first durable lesson with agents came from the cleanup: they can compress the build, but they do not absorb responsibility for acceptance. The prototype starts the review. It does not prove the job is done."
+      "I returned to three early StickerGiant experiments. Survey data became a dashboard with charts, sentiment, action items, and a printable report. The mobile homepage became a working Figma reconstruction so navigation and local assets could be reviewed as behavior.",
+      "I also experimented with a Figma-connected component library and Storybook to make button states inspectable. The code did not prove production adoption, but it gave the team a surface for discussing what the design actually meant.",
+      "That became a pattern in my client work: use AI to shorten the distance between evidence and a decision, not to manufacture certainty."
     ]
   }
 ]

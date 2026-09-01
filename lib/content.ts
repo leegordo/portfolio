@@ -256,6 +256,7 @@ export function getFooterContent(): FooterContent {
 
 export interface BlogPost {
   slug: string;
+  aliases: string[];
   title: string;
   date: string;
   excerpt: string;
@@ -263,20 +264,49 @@ export interface BlogPost {
   body: string[];
 }
 
+const blogSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+function validateBlogPostSlugs(posts: BlogPost[]): void {
+  const owners = new Map<string, string>();
+
+  for (const post of posts) {
+    for (const slug of [post.slug, ...post.aliases]) {
+      if (!blogSlugPattern.test(slug)) {
+        throw new Error(`Invalid blog slug "${slug}" in "${post.title}"`);
+      }
+      const existingOwner = owners.get(slug);
+      if (existingOwner) {
+        throw new Error(`Duplicate blog slug "${slug}" in "${existingOwner}" and "${post.slug}"`);
+      }
+      owners.set(slug, post.slug);
+    }
+  }
+}
+
 export function getBlogPosts(): BlogPost[] {
-  type RawBlogPost = Partial<BlogPost>;
+  type RawBlogPost = Partial<BlogPost> & {
+    dek?: string;
+    metaLine?: string;
+  };
   const raw = readJsonFile<RawBlogPost[] | { posts?: RawBlogPost[] }>("blog/posts.json");
   const source = Array.isArray(raw) ? raw : compact(raw.posts);
   const posts = source
-    .map((post) => ({
-      slug: post.slug ?? "",
-      title: post.title ?? "",
-      date: post.date ?? "",
-      excerpt: post.excerpt ?? "",
-      tags: compact(post.tags),
-      body: compact(post.body),
-    }))
+    .map((post) => {
+      const tags = compact(post.tags);
+
+      return {
+        slug: post.slug ?? "",
+        aliases: compact(post.aliases),
+        title: post.title ?? "",
+        date: post.date ?? "",
+        excerpt: post.excerpt ?? post.dek ?? "",
+        tags: tags.length > 0 ? tags : compact(post.metaLine?.split(" · ")),
+        body: compact(post.body),
+      };
+    })
     .filter((post) => post.slug && post.title && post.date);
+
+  validateBlogPostSlugs(posts);
 
   return posts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -284,7 +314,7 @@ export function getBlogPosts(): BlogPost[] {
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return getBlogPosts().find((p) => p.slug === slug);
+  return getBlogPosts().find((post) => post.slug === slug || post.aliases.includes(slug));
 }
 
 const blogDateFormatter = new Intl.DateTimeFormat("en-US", {
