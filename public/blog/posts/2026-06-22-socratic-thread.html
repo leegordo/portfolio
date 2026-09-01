@@ -1,77 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>This Week's Idea: Socratic Thread — 0xCREATIVE</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #050508; --surface: #111118; --surface-2: #1a1a24; --text: #e8e8f0;
-      --text-dim: #a0a0b8; --text-faint: #555570; --accent: #00f0ff; --accent-dim: #00a8b3;
-      --border: #222230;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Space Grotesk', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
-    .page { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem 4rem; }
-    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 0.75rem; }
-    h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
-    p { color: var(--text-dim); margin-bottom: 1.1rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .meta { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
-    .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px; background: var(--surface-2); color: var(--text-faint); border: 1px solid var(--border); margin-right: 0.4rem; }
-    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-    .cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; background: linear-gradient(135deg, var(--accent), var(--accent-dim)); color: var(--bg); text-decoration: none; font-weight: 600; margin-top: 1rem; }
-    .cta:hover { filter: brightness(1.15); text-decoration: none; }
-    footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-faint); font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <p class="meta">June 22, 2026 · Committee Brief · 0xCREATIVE</p>
-    <h1>This Week's Idea: Socratic Thread</h1>
-    <div style="margin-bottom:1.5rem">
-      <span class="tag">education</span>
-      <span class="tag">ai-interfaces</span>
-      <span class="tag">learning</span>
-    </div>
-
-    <p>Every week, 0xCREATIVE's Design Committee — four AI agents with distinct personalities and job descriptions — researches, debates, and converges on a new product concept. This week they turned their attention to education.</p>
-
-    <hr>
-
-    <h2>The Idea</h2>
-    <p><strong>Socratic Thread</strong> is an AI tutor that doesn't give answers. Instead, it constructs a branching argument tree in real time. Learners must defend each claim before unlocking the next concept. Every wrong answer grows a new branch — not a dead end, but a detour through the learner's own misconceptions.</p>
-
-    <p>The interface is built around <em>Toulmin-typed nodes</em>: Claims, Evidence, Warrants, Rebuttals, and Backing. A learner starts on a guided path — one node at a time — but can zoom out to see the full topology of their reasoning. The AI generates counter-arguments, tracks misconception patterns, and personalizes the tree.</p>
-
-    <hr>
-
-    <h2>Agent Debate at a Glance</h2>
-    <p><strong>Mia (UX Research):</strong> Passed with concerns. "A visual tree is cognitively demanding for screen-reader users and learners with math anxiety. We need a narrative sidebar mode and progressive disclosure — the full tree is an advanced toggle, not the default."</p>
-
-    <p><strong>Dieter (Design Systems):</strong> Passed. "The argument graph schema — Toulmin nodes, force-directed layout, instructor authoring — is our actual moat. Not the LLM. If we build the schema and the tooling layer, competitors can't just prompt their way around us."</p>
-
-    <p><strong>Carl (Engineering):</strong> Concerned/Crowded. "Real-time LLM graph construction is brittle. LLMs are bad at precise graph mutations. Ship a static 'living textbook' first — pre-seeded argument trees for intro CS and critical thinking — then graduate to live generation."</p>
-
-    <p><strong>Rex (Strategy):</strong> Passed. "Post-COVID edtech budgets are shifting to AI tutoring. Campus buyers need a flagship tool they can announce. The narrative &#8212; &#8216;we teach reasoning, not answers&#8217; &#8212; sells to provosts and parents at the same time."</p>
-
-    <hr>
-
-    <h2>Committee Verdict</h2>
-    <p>Pursue a constrained prototype first: pre-seeded argument trees for one domain, deterministic branching for common misconceptions, and a clean guided-path interface with an optional tree view. Real-time AI branch generation is gated behind institutional traction and inference-cost improvements.</p>
-
-    <p>The team also agreed to build for <em>instructors</em> from day one. An instructor dashboard to seed topics, define key misconceptions, and preview argument trees before assigning them is as important as the learner canvas.</p>
-
-    <a href="../../committee/ideas/idea-004/" class="cta">Read the Full Brief →</a>
-    <a href="../../committee/ideas/idea-004/demo/" class="cta" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border);">Launch Demo →</a>
-
-    <footer>
-      <p>0xCREATIVE — Agent Design Lab · Built by agents. Curated by Lee Gordon.</p>
-    </footer>
-  </div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/blog" />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://leegordon.design/blog" />
+    <title>Article moved | Lee Gordon</title>
+    <script>window.location.replace("/blog");</script>
+  </head>
+  <body>
+    <p>This article moved to <a href="/blog">Writing</a>.</p>
+  </body>
 </html>

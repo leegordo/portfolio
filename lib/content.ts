@@ -260,11 +260,24 @@ export interface BlogPost {
   date: string;
   excerpt: string;
   tags: string[];
+  body: string[];
 }
 
 export function getBlogPosts(): BlogPost[] {
-  const raw = readJsonFile<{ posts?: BlogPost[] }>("blog/posts.json");
-  const posts = Array.isArray(raw.posts) ? raw.posts : [];
+  type RawBlogPost = Partial<BlogPost>;
+  const raw = readJsonFile<RawBlogPost[] | { posts?: RawBlogPost[] }>("blog/posts.json");
+  const source = Array.isArray(raw) ? raw : compact(raw.posts);
+  const posts = source
+    .map((post) => ({
+      slug: post.slug ?? "",
+      title: post.title ?? "",
+      date: post.date ?? "",
+      excerpt: post.excerpt ?? "",
+      tags: compact(post.tags),
+      body: compact(post.body),
+    }))
+    .filter((post) => post.slug && post.title && post.date);
+
   return posts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -272,4 +285,16 @@ export function getBlogPosts(): BlogPost[] {
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return getBlogPosts().find((p) => p.slug === slug);
+}
+
+const blogDateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+export function formatBlogDate(date: string): string {
+  const parsed = new Date(`${date}T00:00:00Z`);
+  return Number.isNaN(parsed.getTime()) ? date : blogDateFormatter.format(parsed);
 }

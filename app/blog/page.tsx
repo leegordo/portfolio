@@ -1,12 +1,12 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import Rule from "@/components/Rule";
-import { getBlogPosts } from "@/lib/content";
+import { formatBlogDate, getBlogPosts } from "@/lib/content";
 
 export function generateMetadata() {
   return {
     title: "Writing",
-    description: "Notes on designing AI products, product teams, and design systems.",
+    description: "Weekly notes on learning to design and build with AI agents.",
   };
 }
 
@@ -24,9 +24,16 @@ export default function BlogPage() {
 
         <ScrollReveal delay={0.08}>
           <h1 className="t-display mt-7 max-w-[15ch]">
-            Notes on AI products and design work
+            Learning to design with agents, one week at a time
             <span className="text-accent">.</span>
           </h1>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.14}>
+          <p className="t-lede measure mt-8">
+            Short notes from the work: what I built, what broke, and what I am carrying into
+            client projects.
+          </p>
         </ScrollReveal>
 
         <div className="mt-20">
@@ -38,9 +45,12 @@ export default function BlogPage() {
                 style={{ borderTop: "1px solid var(--line)" }}
               >
                 <div className="md:col-span-3">
-                  <span className="t-label transition-colors duration-fast group-hover:text-accent">
-                    {post.date}
-                  </span>
+                  <time
+                    dateTime={post.date}
+                    className="t-label transition-colors duration-fast group-hover:text-accent"
+                  >
+                    {formatBlogDate(post.date)}
+                  </time>
                 </div>
 
                 <div className="md:col-span-9">
@@ -56,7 +66,7 @@ export default function BlogPage() {
                   <p className="t-small mt-4 max-w-[58ch]">{post.excerpt}</p>
 
                   {post.tags.length > 0 && (
-                    <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+                    <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2" aria-label="Topics">
                       {post.tags.slice(0, 3).map((tag) => (
                         <li key={tag} className="t-label">
                           {tag}
