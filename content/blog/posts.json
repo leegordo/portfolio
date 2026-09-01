@@ -1,72 +1,310 @@
 [
   {
-    "slug": "we-stopped-writing-design-specs",
-    "title": "We stopped writing design specs. Agents needed schemas.",
-    "date": "2026-07-02",
-    "excerpt": "A design spec can guide a person and still leave an agent guessing. We moved the executable parts into JSON Schema. This is what changed.",
-    "tags": ["practical-engineering", "agent-ready", "engineering"]
+    "slug": "last-pass-mostly-deletion",
+    "title": "The last pass was mostly deletion",
+    "date": "2026-08-31",
+    "excerpt": "A full voice rewrite made the site plainer. Removing the decorative numbers made it feel more like mine.",
+    "tags": ["voice", "editing", "design-judgment"],
+    "body": [
+      "I rewrote copy across 24 files. Phrases like 'the interface between people and AI that acts' became a plain description of what I design and what can go wrong. The goal was not to sound casual. It was to make every sentence mean something a client could check.",
+      "The next pass was visual. I removed the little section numbers from headings and project cards. They were consistent, tidy, and unnecessary. This changed how I brief AI on client work: real examples, a list of habits to avoid, and a final edit that stays mine."
+    ]
   },
   {
-    "slug": "design-system-runtime",
-    "title": "Agents need a design-system runtime, not a component library",
-    "date": "2026-06-25",
-    "excerpt": "A component library stores parts. An agent also needs rules, state, and a way to check its own output while it works.",
-    "tags": ["design-systems", "agent-ready", "engineering"]
+    "slug": "constraints-made-the-redesign-better",
+    "title": "Constraints made the redesign better",
+    "date": "2026-08-24",
+    "excerpt": "The site had too many themes, components, and ways to make the same decision. I cut it back to one system.",
+    "tags": ["design-systems", "constraints", "accessibility"],
+    "body": [
+      "By August, the portfolio had accumulated a theme switcher, several palettes, extra animation components, and too many valid ways to style the same thing. I replaced that with one dark palette, one brass accent, three font roles, and two motion primitives.",
+      "I wrote the rules into the repository so an agent could follow them and I could review against them. That is the design-system lesson I am carrying into client work. A useful system narrows the field, makes drift obvious, and leaves the team free to solve the product."
+    ]
   },
   {
-    "slug": "generative-design-systems",
-    "title": "What I mean by a generative design system",
-    "date": "2026-06-18",
-    "excerpt": "The useful part is not generating endless components. It is giving the system enough structure to make a new interface without losing the product's rules.",
-    "tags": ["generative-design", "creative-automation", "engineering"]
+    "slug": "product-motion-should-belong-to-the-product",
+    "title": "Product motion should belong to the product",
+    "date": "2026-08-17",
+    "excerpt": "I kept one piece of motion because it explained Loopy instead of decorating the page.",
+    "tags": ["motion", "loopy", "product-story"],
+    "body": [
+      "When I animated Loopy, I used the product's own loop: brief, make, review, test, repeat. The same idea appeared in the case-study hero and the homepage card. It took more care than a generic reveal, but it explained how the product works before the reader reached the copy.",
+      "I kept one rule from it. Motion earns its cost when it carries meaning or clarifies state. If it only proves the animation library is installed, it goes."
+    ]
   },
   {
-    "slug": "multi-agent-design-pipeline",
-    "title": "A bigger prompt did not fix our design pipeline",
-    "date": "2026-06-11",
-    "excerpt": "One agent kept mixing research, design, critique, and implementation. Splitting those jobs and routing the work made the system easier to trust.",
-    "tags": ["agent-orchestration", "design-systems", "engineering"]
+    "slug": "real-screens-changed-the-story",
+    "title": "Real screens changed the story",
+    "date": "2026-08-10",
+    "excerpt": "Replacing the first Loopy images with actual workflow screens made the case study specific.",
+    "tags": ["evidence", "case-studies", "loopy"],
+    "body": [
+      "The first Loopy image set did not show the working process clearly enough. I replaced it with screens from real sessions: the Brief Studio, a saved brief, the imported design system, and the agent studio. Suddenly the page had details the copy could point to.",
+      "AI can make a convincing product picture before the product has done anything. Client work needs a higher bar. The image should prove a workflow, a decision, or a result. If it only establishes mood, I should label it as a concept."
+    ]
   },
   {
-    "slug": "socratic-thread",
-    "title": "Committee idea: Socratic Thread",
+    "slug": "case-study-needed-my-voice",
+    "title": "The case study needed my voice",
+    "date": "2026-08-03",
+    "excerpt": "The first Loopy draft sounded clever. The rewrite made the actual product easier to understand.",
+    "tags": ["writing", "loopy", "authorship"],
+    "body": [
+      "The early Loopy case study leaned on phrases like 'Agents, Skills & Loops,' 'drift to reality,' and 'ideas take laps.' I rewrote it around the plain sequence: write a brief, generate different approaches, choose one, critique it, test it, and use the evidence in the next brief.",
+      "The rewrite did more than change the tone. It exposed where the product story was solid and where the language had been doing the work. For clients, I want AI to help me find the sentence, not hide the gap."
+    ]
+  },
+  {
+    "slug": "fast-prototypes-still-need-fast-pages",
+    "title": "Fast prototypes still need fast pages",
+    "date": "2026-07-27",
+    "excerpt": "The portfolio looked tidy and still hauled oversized project images around. Shipping meant fixing that too.",
+    "tags": ["performance", "prototyping", "delivery"],
+    "body": [
+      "The project covers looked fine on my screen, but the originals were much larger than the page needed. I made 640, 960, and 1280 pixel WebP versions, added responsive sources, and let the browser load the right file for the viewport.",
+      "This was less visible than the design changes around it. It also mattered more to the person waiting on a phone. AI makes another polished asset cheap. Shipping still means dealing with its weight, loading behavior, and failure states."
+    ]
+  },
+  {
+    "slug": "case-study-needs-evidence",
+    "title": "A case study needs evidence, not promises",
+    "date": "2026-07-20",
+    "excerpt": "I kept the Loopy case study unlisted until the copy, product screens, and interaction told the same story.",
+    "tags": ["case-studies", "evidence", "release"],
+    "body": [
+      "The first Loopy case study went up as an unlisted route. I kept it out of the portfolio while I fixed the title overlap, rewrote the copy, changed the imagery, added the live-site link, and built the hero interaction. Only then did I feature it on the homepage.",
+      "An unlisted page is not secret, but it is a useful review gate. I want the same discipline on client work: show the work early, keep the audience controlled, and make public discovery a decision rather than a side effect of deployment."
+    ]
+  },
+  {
+    "slug": "agents-overdesigned-my-portfolio",
+    "title": "The agents overdesigned my portfolio",
+    "date": "2026-07-13",
+    "excerpt": "A pinned hero, palette morphs, clip reveals, and a second critique pass still added up to the wrong direction.",
+    "tags": ["motion", "critique", "design-judgment"],
+    "body": [
+      "I let the motion work run hard: palette changes, a pinned three-chapter hero, clip-path image reveals, and scroll snapping. A second agent review tuned the cross-fades and progress dots. The result became more elaborate and less like my portfolio.",
+      "I reverted most of it, then removed the remaining hero parallax the next day. Separate making and critique roles are useful, but a panel of agents can still polish the wrong direction. Client work needs a person with enough context to kill the whole idea."
+    ]
+  },
+  {
+    "slug": "published-the-wrong-kind-of-ai-blog",
+    "title": "I published the wrong kind of AI blog",
+    "date": "2026-07-06",
+    "excerpt": "Ten polished AI articles looked like momentum. The repository could not support the claims inside them.",
+    "tags": ["writing", "evidence", "failure"],
+    "body": [
+      "Looking back at the first blog commit, I do not trust it. It added ten long standalone articles in one shot. Several claimed experiments, percentages, and internal systems that did not exist in the repository. The index later went empty because its JSON shape and content getter disagreed, and some links never matched the filenames.",
+      "The lesson was ugly and clear. An agent can manufacture authority much faster than I can earn it. I deleted those pieces and rebuilt this journal from commit history. I will take a short, checkable note over a confident fake case study every time."
+    ]
+  },
+  {
+    "slug": "clearer-audience-fixed-the-website",
+    "title": "A clearer audience fixed the website",
+    "date": "2026-06-29",
+    "excerpt": "The portfolio was trying to speak to everyone. A specific hiring conversation forced clearer choices.",
+    "tags": ["positioning", "product-strategy", "client-work"],
+    "body": [
+      "The site kept trying to serve several audiences at once. I changed the title, location, navigation, homepage sections, and added a services page for a specific hiring conversation. Once the reader was clear, half the open design questions stopped being interesting.",
+      "Agents can generate ten competent page structures and all ten can be wrong if the brief never names the reader. I now spend more time tightening the audience and next action before asking an agent to make anything. It saves a lot of attractive wandering."
+    ]
+  },
+  {
+    "slug": "exploration-is-cheap-choosing-matters",
+    "title": "Exploration is cheap. Choosing still matters.",
     "date": "2026-06-22",
-    "excerpt": "Four agents debated an AI tutor built around argument trees. The verdict: prove the interaction before spending time on the model.",
-    "tags": ["committee", "education", "ai-interfaces"]
+    "excerpt": "I built a multi-theme system, narrowed it almost immediately, and learned more from the cut than the options.",
+    "tags": ["exploration", "specs", "visual-design"],
+    "body": [
+      "I built a multi-theme system with a switcher, then limited the picker to dark themes two days later. In the same week I wrote a detailed Persona Skins spec and changed the core visual idea from objects to character portraits.",
+      "This is where agents help: they make it cheap to see the edges of the option space. The mistake is treating volume as progress. Clients need range early and commitment soon after. My job is to choose, explain the choice, and remove the dead branches."
+    ]
   },
   {
-    "slug": "heartspace",
-    "title": "Committee idea: Heartspace",
+    "slug": "cms-was-getting-in-the-way",
+    "title": "The CMS was getting in the way",
+    "date": "2026-06-15",
+    "excerpt": "I moved the design into Pencil, put the rationale beside it, and removed a content layer I no longer needed.",
+    "tags": ["pencil", "workflow", "source-of-truth"],
+    "body": [
+      "I checked the portfolio direction into the repo as a Pencil file and wrote the design decisions beside it. The same cleanup removed TinaCMS, its configuration, an unused admin placeholder, and stale video assets.",
+      "Keeping the copy in JSON and MDX put the content model, design rationale, and interface in one place an agent could inspect. I use the same principle in client prototypes. The source of truth should be close to the thing being made, and every extra layer should earn the ambiguity it adds."
+    ]
+  },
+  {
+    "slug": "bold-direction-was-still-a-direction",
+    "title": "The bold direction was still just a direction",
     "date": "2026-06-08",
-    "excerpt": "The committee looked at a workspace that responds to biometric signals. The idea survived, but only with tighter privacy and consent rules.",
-    "tags": ["committee", "health-tech", "ambient-ui"]
+    "excerpt": "Pink type, oversized headings, numbered sections, and pricing made the contrast useful, even when the design did not last.",
+    "tags": ["visual-design", "exploration", "decision-making"],
+    "body": [
+      "After adding the commercial structure, I tried a deliberately bold direction: oversized type, a pink accent, numbered sections, sharper service cards, testimonials, and pricing. It made a clear argument. Later versions removed most of it.",
+      "The exploration was not wasted. Agents let me push the direction far enough to react to it instead of debating adjectives. The client gets faster contrast between real options. I decide which one deserves to survive."
+    ]
   },
   {
-    "slug": "machine-readable-css",
-    "title": "Your CSS Is Too Complex for AI Agents",
-    "date": "2026-06-04",
-    "excerpt": "Agents make fewer mistakes when the stylesheet has clear tokens, predictable layers, and fewer ways to express the same decision.",
-    "tags": ["css-engineering", "design-systems", "agent-ready"]
+    "slug": "stopped-selling-ai-started-explaining-job",
+    "title": "I stopped selling AI and started explaining the job",
+    "date": "2026-06-01",
+    "excerpt": "A positioning rewrite moved the portfolio away from tool names and toward the problems I could solve for a team.",
+    "tags": ["positioning", "client-work", "outcomes"],
+    "body": [
+      "I repositioned the site around a fractional AI design lead offer. I added services, pricing, testimonials, and project summaries written around outcomes. It was too much in places, and later versions cut a lot of it.",
+      "The part worth keeping was the offer. Cursor, Claude, and agents belong in my workflow, not the headline. A client might need to turn a rough prototype into a product or make an automated system understandable. The site needed to say that plainly."
+    ]
   },
   {
-    "slug": "agent-driven-workflows",
-    "title": "What changed when I added agents to my design workflow",
-    "date": "2026-05-31",
-    "excerpt": "A practical look at where agents helped, where they created more work, and which design decisions still needed me in the loop.",
-    "tags": ["ai-design", "workflows", "agent-orchestration"]
+    "slug": "a-quiet-repo-is-not-a-fake-milestone",
+    "title": "A quiet repo is not a fake milestone",
+    "date": "2026-05-25",
+    "excerpt": "There was no portfolio commit this week. I am leaving that gap visible instead of inventing progress.",
+    "tags": ["evidence", "process", "honesty"],
+    "body": [
+      "There is no portfolio commit for this week. That does not prove nothing happened. It only means the repository cannot support a shipped milestone, so I am not stretching an older change into one.",
+      "The same restraint matters in client case studies. A blank week is more honest than an invented research result or a prototype described as a launch. If the evidence is missing, I should say so or label the writing as reflection."
+    ]
   },
   {
-    "slug": "design-systems-age-of-ai",
-    "title": "Why I start agent-ready design systems with tokens",
-    "date": "2026-05-28",
-    "excerpt": "Tokens give people and agents the same vocabulary for color, type, spacing, and state. That shared vocabulary matters more than another component catalog.",
-    "tags": ["design-systems", "tokens", "ai-generation"]
+    "slug": "credits-are-design-material",
+    "title": "Credits are design material",
+    "date": "2026-05-18",
+    "excerpt": "Correcting two lines in the Lightning Labs case study mattered more than another visual polish pass.",
+    "tags": ["accuracy", "case-studies", "authorship"],
+    "body": [
+      "The Lightning Labs case study had credited me with Pool and Faraday work that should not have been there. I removed those references and confirmed the iOS wallet work instead. The correction was tiny in the diff and large in what the page claimed.",
+      "Agents are very good at reconstructing a plausible career story from nearby facts. A portfolio is not the place for plausible. I need project evidence, my own memory, and a final review that treats credit as part of the design."
+    ]
   },
   {
-    "slug": "chatbots-to-canvases",
-    "title": "AI design tools need more than a chat box",
-    "date": "2026-05-24",
-    "excerpt": "Design work is spatial, persistent, and collaborative. I looked at what an AI tool would need if chat were only one part of the interface.",
-    "tags": ["spatial-interfaces", "future-of-design", "canvas"]
+    "slug": "tools-belong-in-the-workflow-not-the-pitch",
+    "title": "Tools belong in the workflow, not the pitch",
+    "date": "2026-05-11",
+    "excerpt": "Listing the stack made the portfolio sound current. Explaining the work made it useful.",
+    "tags": ["positioning", "ai-workflows", "client-work"],
+    "body": [
+      "One version of the portfolio devoted a section to Cursor, Claude Code, Figma MCPs, OpenClaw, Veo, and image models. I rewrote the stack around what each tool changed in the path from design intent to a shipped product.",
+      "The rewrite was better, but the tools took up too much of the story and the page was later removed. Clients care about the judgment and evidence the workflow produces. The logo on the model is implementation detail."
+    ]
+  },
+  {
+    "slug": "trust-work-is-still-design-work",
+    "title": "Trust work is still design work",
+    "date": "2026-05-04",
+    "excerpt": "Email obfuscation, a privacy page, and dependency fixes were not glamorous. They made the site safer to use.",
+    "tags": ["privacy", "security", "delivery"],
+    "body": [
+      "The portfolio picked up email obfuscation to slow down scraping, a privacy policy linked from the footer, and safe dependency fixes from an audit. None of those changes improved a screenshot.",
+      "They improved the product. Agentic workflows tend to reward visible output because it is easy to demo. Client work still includes the trust boundaries, boring maintenance, and clear explanations that keep a polished interface from becoming a liability."
+    ]
+  },
+  {
+    "slug": "fallbacks-belong-in-the-design",
+    "title": "Fallbacks belong in the design",
+    "date": "2026-04-27",
+    "excerpt": "The generated hero videos looked good until missing files left the most important part of the page exposed.",
+    "tags": ["resilience", "generative-media", "qa"],
+    "body": [
+      "The hero had accumulated references to generated video files that were no longer present. I removed the missing options and added an error fallback so the opening of the site still worked when media failed.",
+      "Calling this engineering cleanup misses the point. It is a design decision about the worst state. AI makes the happy path fast to produce, which leaves me more time for loading, empty, error, and fallback behavior."
+    ]
+  },
+  {
+    "slug": "renaming-the-prototype-clarified-the-product",
+    "title": "Renaming the prototype clarified the product",
+    "date": "2026-04-20",
+    "excerpt": "FlowSnap became DoodleHaus, and the product stopped sounding like a generic automation diagram.",
+    "tags": ["product-strategy", "naming", "prototyping"],
+    "body": [
+      "I replaced the FlowSnap landing page with DoodleHaus. The first concept described a visual content pipeline clearly enough, but the name and framing described the category more than a product with its own point of view.",
+      "The prototype made that weakness visible fast. Naming is not a coat of paint at the end. It tells me whether I understand the product well enough to explain what belongs inside it."
+    ]
+  },
+  {
+    "slug": "case-study-beats-a-capability-list",
+    "title": "A case study beats a capability list",
+    "date": "2026-04-13",
+    "excerpt": "The StickerGiant brand playbook gave the agentic story a real project instead of another claim.",
+    "tags": ["case-studies", "evidence", "client-work"],
+    "body": [
+      "I added the StickerGiant brand playbook as a case study with its own cover and place in the project sequence. That did more for the portfolio than another paragraph about being good at AI or design systems.",
+      "Clients need to see the brief, the judgment, and the artifact. Agents can help me organize and present that evidence, but they cannot substitute for it. A capability list asks the reader to trust me. A case study gives them something to inspect."
+    ]
+  },
+  {
+    "slug": "deleting-work-made-the-portfolio-stronger",
+    "title": "Deleting work made the portfolio stronger",
+    "date": "2026-04-06",
+    "excerpt": "The site had started collecting every experiment. I removed StashPay and the Current Projects page to sharpen the story.",
+    "tags": ["curation", "portfolio", "product-strategy"],
+    "body": [
+      "The portfolio was collecting experiments faster than it was building a point of view. I removed StashPay, retired the Current Projects page, and refocused the About page on the AI and agentic design work I wanted to keep doing.",
+      "Agentic tools make expansion almost free. Another page can appear before I have decided whether it deserves to exist. That is why curation matters more now. For client work, I would rather bring a few directions that expose a real decision than a pile that proves the generator ran."
+    ]
+  },
+  {
+    "slug": "one-agent-one-job",
+    "title": "One agent, one job",
+    "date": "2026-03-30",
+    "excerpt": "A narrow pass on navigation, the footer, and one product page taught me more than another general prompt.",
+    "tags": ["agent-workflow", "scope", "review"],
+    "body": [
+      "I ran a focused agent pass called Carl. The change touched navigation, a small footer adjustment, and one product landing page. The limited surface made the result easier to understand than runs that tried to improve the whole portfolio at once.",
+      "The persona name was not the useful part. Scope was. One outcome, a known set of files, and a coherent diff gave the agent less room to wander. I now split research, design, critique, implementation, and verification into clearer jobs on client work."
+    ]
+  },
+  {
+    "slug": "simpler-visual-system-let-the-work-lead",
+    "title": "A simpler visual system let the work lead",
+    "date": "2026-03-23",
+    "excerpt": "Geist, a neutral accent, and fewer video options pulled the portfolio away from spectacle.",
+    "tags": ["visual-design", "design-systems", "restraint"],
+    "body": [
+      "I replaced the earlier font pairing with Geist, changed the amber accent to a neutral tone, and removed four old hero video options. The site became quieter without losing its structure.",
+      "It took me months to follow that clue. AI will happily add another color, font, or effect because each one looks plausible by itself. A design system gets stronger when the agent has fewer ways to improvise and the work gets more room."
+    ]
+  },
+  {
+    "slug": "automated-wrong-part-of-homepage",
+    "title": "I automated the wrong part of the homepage",
+    "date": "2026-03-16",
+    "excerpt": "Four generated hero videos changed every week. The message underneath them did not get any clearer.",
+    "tags": ["generative-media", "automation", "focus"],
+    "body": [
+      "The homepage randomly selected from nine hero videos. Four were weekly AI-generated clips, and I refreshed those four in late February, again on March 2, and again on March 9. The files kept changing while the product story stayed put.",
+      "Generative media makes novelty cheap, so it is easy to confuse visible activity with a better experience. Clients do not need infinite variation. They need to know which variation answers the brief. I still use generated media, but only after the image has a job."
+    ]
+  },
+  {
+    "slug": "ai-copy-is-easy-to-spot-when-it-says-nothing",
+    "title": "AI copy is easy to spot when it says nothing",
+    "date": "2026-03-09",
+    "excerpt": "A humanizer pass improved the rhythm. It also showed that better prose still needs a fact check.",
+    "tags": ["writing", "accuracy", "authorship"],
+    "body": [
+      "I ran a humanizer pass across the portfolio and replaced broad phrases with specific product work. The copy became shorter and sounded more like a person who had actually made the thing.",
+      "It still needed verification. Smoother prose can make a wrong claim easier to believe. I treat copy agents as editors now. Project evidence supplies the facts; the model helps me pressure-test clarity; I remain responsible for every sentence a client reads."
+    ]
+  },
+  {
+    "slug": "real-project-material-beats-placeholders",
+    "title": "Real project material beats placeholders",
+    "date": "2026-03-02",
+    "excerpt": "Adding Fold and Lightning Labs galleries turned the case studies from claims into things a reader could inspect.",
+    "tags": ["case-studies", "evidence", "implementation"],
+    "body": [
+      "I built a reusable image gallery, wired it into the Fold and Lightning Labs case studies, and extended it for video and SVG assets. I also replaced broken placeholders with project material that could carry the story.",
+      "An agent can assemble a polished case-study layout in minutes. The hard part is still choosing evidence that proves the work. For clients, I want the artifact to show the decision rather than asking a confident paragraph to do all the convincing."
+    ]
+  },
+  {
+    "slug": "first-build-was-fast-cleanup-was-the-work",
+    "title": "The first build was fast. The cleanup was the work.",
+    "date": "2026-02-23",
+    "excerpt": "A complete Next.js portfolio landed quickly. The next two days were routes, assets, deployment, and QA.",
+    "tags": ["prototyping", "qa", "shipping"],
+    "body": [
+      "The first portfolio commit landed as a complete Next.js site with project routes, content files, motion, and a GitHub Pages workflow. The next two days were less glamorous: fixing base paths, setting up the custom domain, repairing builds, and correcting media paths that failed on the deployed site.",
+      "The speed was real. It also compressed unfinished decisions into something that looked complete. My first durable lesson with agents came from the cleanup: they can compress the build, but they do not absorb responsibility for acceptance. The prototype starts the review. It does not prove the job is done."
+    ]
   }
 ]
