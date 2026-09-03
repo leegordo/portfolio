@@ -37,7 +37,7 @@ export default function Footer({ content }: FooterProps) {
 
         <ScrollReveal delay={0.16}>
           <p className="t-lede measure mt-8">
-            Send me a short description of the product, the problem, and where you need help.
+            Send me the short version: what you&rsquo;re making, where it&rsquo;s stuck, and where you need help.
             I&rsquo;ll tell you if I&rsquo;m a good fit.
           </p>
         </ScrollReveal>

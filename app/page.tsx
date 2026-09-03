@@ -14,17 +14,17 @@ const services = [
   {
     title: "AI product design",
     description:
-      "I design what people can see and control when software plans or acts for them, including how the product handles mistakes.",
+      "I design what people see and control when software plans or acts for them, including what happens when it gets something wrong.",
   },
   {
     title: "Product design and direction",
     description:
-      "I use research and prototypes to work out what to build, then design the flows and production interface and support implementation.",
+      "I use research and prototypes to work out what to build, then design the flows, production interface, and path into implementation.",
   },
   {
     title: "Design systems",
     description:
-      "I build tokens, components, content rules, and documentation that product and engineering teams can use in the actual work.",
+      "I build tokens, components, content rules, and documentation that product and engineering teams can use day to day.",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function HomePage() {
                 where it is needed
               </>
             }
-            lede="I can set product direction, design the interface, improve the system around it, or stay through all three."
+            lede="I can set the direction, design the interface, improve the system around it, or stay through the whole thing."
           />
 
           <div className="mt-20">

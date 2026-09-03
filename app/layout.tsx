@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Lee Gordon",
   },
   description:
-    "Product designer with 15+ years of experience across AI products, product design, research, and design systems.",
+    "Product designer with 15+ years of experience designing AI products, digital services, and design systems.",
   keywords: [
     "AI design",
     "AI interfaces",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lee Gordon | Product Designer",
     description:
-      "Product designer working on AI products, product design, research, and design systems. Previously at Fold, Lightning Labs, Nokia, and R/GA.",
+      "Lee Gordon is a product designer working on AI products, digital services, and design systems. Previously at Fold, Lightning Labs, Nokia, and R/GA.",
     type: "website",
     locale: "en_US",
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lee Gordon | Product Designer",
     description:
-      "Product designer working on AI products, product design, research, and design systems.",
+      "Lee Gordon designs AI products, digital services, and design systems.",
   },
 };
 

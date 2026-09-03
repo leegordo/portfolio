@@ -6,7 +6,7 @@ import Rule from "@/components/Rule";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Product design sprints, ongoing senior design support, and full projects from discovery through launch.",
+    "Short product design sprints, ongoing senior design support, and full projects from discovery through launch.",
 };
 
 const engagements = [
@@ -21,14 +21,14 @@ const engagements = [
     tier: "Retainer",
     price: "$4,500",
     suffix: "/mo and up",
-    summary: "Ongoing support at an agreed monthly capacity.",
-    desc: "I can lead the design work, design the product, improve the team's design system, or cover the lot. We agree the monthly capacity before starting.",
+    summary: "Ongoing support at a monthly capacity we agree on.",
+    desc: "I can lead the design work, design the product, improve the team's design system, or cover the lot. We set the monthly capacity before starting.",
   },
   {
     tier: "Project",
     price: "Custom",
     suffix: "",
-    summary: "A defined problem, discovery through launch.",
+    summary: "A defined problem, from discovery through launch.",
     desc: "Research, flows, prototypes, testing, production UI, and implementation support, scoped to the project.",
   },
 ];
@@ -87,8 +87,7 @@ export default function ServicesPage() {
         <ScrollReveal delay={0.2}>
           <div className="mt-16">
             <p className="t-lede measure">
-              Not sure which one fits? Describe the problem and I&rsquo;ll tell you what I&rsquo;d
-              suggest.
+              Not sure which one fits? Describe the problem and I&rsquo;ll suggest a way to tackle it.
             </p>
             <Link href="/contact" className="btn btn-primary mt-8">
               Get in touch

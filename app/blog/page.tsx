@@ -6,7 +6,7 @@ import { formatBlogDate, getBlogPosts } from "@/lib/content";
 export function generateMetadata() {
   return {
     title: "Writing",
-    description: "Short notes on prototyping, testing, and making better product decisions with AI.",
+    description: "Short notes on prototyping, testing, and making product decisions with AI.",
   };
 }
 

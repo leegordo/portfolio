@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     heading: "Overview",
-    body: `This is a personal portfolio website for Lee Gordon Design. It is a static site with no user accounts, no contact forms, no newsletter signups, and no e-commerce. In short, this site collects as little about you as technically possible.`,
+    body: `This is Lee Gordon Design's personal portfolio. It is a static site with no user accounts, contact forms, newsletter signups, or e-commerce. It collects as little about you as the site can technically manage.`,
   },
   {
     heading: "What data is collected",
