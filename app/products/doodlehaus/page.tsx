@@ -7,24 +7,24 @@ import SectionHeading from "@/components/SectionHeading";
 export const metadata: Metadata = {
   title: "DoodleHaus | Campaign production",
   description:
-    "DoodleHaus produces campaign strategy, copy, visual assets, landing pages, and optional video from one brief.",
+    "DoodleHaus turns one campaign brief into strategy, copy, visual assets, landing pages, and optional video.",
 };
 
 const painPoints = [
   {
     title: "Work gets split across tools",
     description:
-      "Writing, design, video, and distribution often happen in separate products. Someone still has to move the work between them and keep the campaign consistent.",
+      "Writing, design, video, and distribution often happen in separate products. Someone still has to move the work between them and keep it consistent.",
   },
   {
     title: "The parts need to match",
     description:
-      "The offer, message, assets, and channel plan all need to follow the same brief.",
+      "The offer, message, assets, and channel plan need to come from the same brief.",
   },
   {
     title: "AI output needs review",
     description:
-      "AI can produce a lot of material quickly, including confident nonsense. DoodleHaus checks the work against clear rules and includes a human review before delivery.",
+      "AI can produce a lot of material quickly, including confident nonsense. DoodleHaus checks the work against clear rules, then sends it through human review.",
   },
 ];
 
@@ -206,7 +206,7 @@ export default function DoodleHausPage() {
               after the brief
             </>
           }
-          lede="The work moves through seven steps, from the initial brief to reviewed files organised by channel."
+          lede="The work moves from the initial brief to reviewed files organised by channel."
         />
 
         <ol className="mt-16">
@@ -255,7 +255,7 @@ export default function DoodleHausPage() {
         <SectionHeading
           label="Brand playbook"
           title="Brand rules in a usable format"
-          lede="DoodleHaus uses structured brand guidance that the team, AI tools, and review checks all read from the same source."
+          lede="DoodleHaus gives the team, AI tools, and review checks one source for brand guidance."
         />
 
         <div className="mt-16">
@@ -294,7 +294,7 @@ export default function DoodleHausPage() {
         <SectionHeading
           label="Pricing"
           title="Pricing by campaign"
-          lede="Pay per campaign or arrange a monthly retainer. There are no per-seat fees or platform subscriptions."
+          lede="Pay per campaign or set up a monthly retainer. There are no per-seat fees or platform subscriptions."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
