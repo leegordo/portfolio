@@ -28,10 +28,10 @@ export default function ImageGallery({ images, contain = [], alts = [] }: ImageG
     transition: { duration: 0.8, delay: index * 0.07, ease: EASE },
   });
 
-  const frameStyle = {
+  const frameStyle = (src: string) => ({
     borderColor: "var(--line)",
-    background: "var(--surface)",
-  };
+    background: isVideo(src) ? "var(--bg)" : "var(--surface)",
+  });
 
   return (
     <div className="gallery my-14 flex flex-col gap-5">
@@ -39,7 +39,7 @@ export default function ImageGallery({ images, contain = [], alts = [] }: ImageG
         <motion.figure
           {...frame(0)}
           className="relative aspect-[16/9] overflow-hidden rounded-[3px] border"
-          style={frameStyle}
+          style={frameStyle(images[0])}
         >
           {isVideo(images[0]) ? (
             <video
@@ -71,7 +71,7 @@ export default function ImageGallery({ images, contain = [], alts = [] }: ImageG
                 key={`${src}-${index}`}
                 {...frame(index + 1)}
                 className="relative aspect-[16/10] overflow-hidden rounded-[3px] border"
-                style={frameStyle}
+                style={frameStyle(src)}
               >
                 {isVideo(src) ? (
                   <video
